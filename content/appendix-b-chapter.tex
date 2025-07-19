@@ -1,0 +1,108 @@
+This appendix covers the foundational papers for AI agents---systems that use large language models to reason, plan, and act autonomously in complex environments. These papers establish core techniques for building agents that can use tools, engage in multi-step reasoning, execute long-horizon plans, and interact effectively with external systems.
+
+The emergence of capable agents represents a natural evolution of language models from passive question-answering systems to active problem-solvers. The papers in this section demonstrate how language models can be augmented with external tools, memory systems, and planning capabilities to tackle real-world tasks requiring sustained interaction and goal-directed behavior.
+
+\section*{Key Components of Modern Agents}
+
+\textbf{Tool Use and APIs:} Agents must effectively select and use external tools, from calculators and code interpreters to web browsers and databases, requiring careful prompt engineering and output parsing.
+
+\textbf{Memory and State:} Long-running agents need memory systems to track context across extended interactions, including episodic memory for specific experiences and semantic memory for learned knowledge.
+
+\textbf{Planning and Reasoning:} Agents must decompose complex goals into actionable steps, reason about consequences, and adapt plans based on feedback from the environment.
+
+\textbf{Error Recovery:} Robust agents need mechanisms to detect failures, reason about errors, and implement corrective actions without human intervention.
+
+\section*{Papers in This Section}
+
+The foundational papers for agent development include:
+
+\begin{enumerate}
+\item \textbf{\hyperref[paper:liang-2022]{[2022] Code as Policies: Language Model Programs for Embodied Control (Liang et al.)}} -- Pioneered the use of language models to generate executable code for robotic control.
+
+\item \textbf{\hyperref[paper:schick-2023]{[2023] Toolformer: Language Models Can Teach Themselves to Use Tools (Schick et al.)}} -- Showed how language models can learn to use external tools through self-supervised learning.
+
+\item \textbf{\hyperref[paper:yao-2023-tree]{[2023] Tree of Thoughts: Deliberate Problem Solving with Large Language Models (Yao et al.)}} -- Generalized chain-of-thought reasoning to enable deliberate problem-solving.
+
+\item \textbf{\hyperref[paper:wang-2024-codeact]{[2024] Executable Code Actions Elicit Better LLM Agents (Wang et al.)}} -- Proved that executable code actions significantly outperform text-only approaches.
+
+\item \textbf{\hyperref[paper:yao-2022-react]{[2022] ReAct: Synergizing Reasoning and Acting in Language Models (Yao et al.)}} -- Established the foundation by interleaving reasoning traces with actions.
+
+\item \textbf{\hyperref[paper:shinn-2023]{[2023] Reflexion: Language Agents with Verbal Reinforcement Learning (Shinn et al.)}} -- Introduced verbal reinforcement learning for agents that learn from failures.
+\end{enumerate}
+
+\newpage
+
+% Papers follow directly after the introduction
+
+\section*{Core Agent Capabilities}
+
+The development of language model agents has proceeded through several key innovations:
+
+\textbf{Code as Policies (2022)} pioneered the use of language models to generate executable code for robotic control, demonstrating how natural language can bridge high-level task descriptions and low-level robot actions.
+
+\textbf{Toolformer (2023)} showed how language models can learn to use external tools like calculators, calendars, and search engines through self-supervised learning, without requiring massive amounts of tool-specific training data.
+
+\textbf{Tree of Thoughts (2023)} generalized chain-of-thought reasoning to enable deliberate problem-solving through systematic exploration of intermediate reasoning steps, dramatically improving performance on complex tasks.
+
+\textbf{CodeAct (2024)} proved that executable code actions significantly outperform text-only approaches for agent tasks, establishing code generation as a superior action space for tool-using agents.
+
+\textbf{ReAct (2022)} established the foundation by interleaving reasoning traces with actions, allowing models to maintain interpretable thought processes while interacting with environments.
+
+\textbf{Reflexion (2023)} introduced verbal reinforcement learning, where agents learn from failures by reflecting on mistakes and storing insights in memory for future tasks.
+
+\section*{Implementation Considerations}
+
+Building effective agents requires careful attention to:
+
+\begin{itemize}
+\item \textbf{Prompt Design:} Structuring prompts to elicit appropriate reasoning and action selection
+\item \textbf{Tool Integration:} Creating reliable interfaces between language models and external systems
+\item \textbf{Safety Constraints:} Ensuring agents operate within defined boundaries and cannot cause harm
+\item \textbf{Evaluation Metrics:} Developing benchmarks that measure real-world task completion rather than isolated capabilities
+\end{itemize}
+
+\section*{Future Directions}
+
+The field of AI agents is rapidly evolving, with active research in:
+
+\begin{itemize}
+\item Multi-agent coordination and communication protocols
+\item Long-term memory architectures for persistent learning
+\item Formal verification of agent behavior and safety properties
+\item Integration with robotic systems for physical world interaction
+\item Constitutional frameworks for value-aligned autonomous operation
+\end{itemize}
+
+The papers in this appendix provide essential background for understanding and building modern AI agents, representing the convergence of language models with classical AI planning, reinforcement learning, and cognitive architectures.
+
+% Papers follow directly after the introduction
+
+\phantomsection
+\label{paper:liang-2022}
+\addcontentsline{toc}{subsection}{[2022] Code as Policies: Language Model Programs for Embodied Control (Liang et al.)}
+\includepdf[pages=-,pagecommand={\thispagestyle{empty}}]{pdfs/liang-2022.pdf}
+
+\phantomsection
+\label{paper:schick-2023}
+\addcontentsline{toc}{subsection}{[2023] Toolformer: Language Models Can Teach Themselves to Use Tools (Schick et al.)}
+\includepdf[pages=-,pagecommand={\thispagestyle{empty}}]{pdfs/schick-2023.pdf}
+
+\phantomsection
+\label{paper:yao-2023-tree}
+\addcontentsline{toc}{subsection}{[2023] Tree of Thoughts: Deliberate Problem Solving with Large Language Models (Yao et al.)}
+\includepdf[pages=-,pagecommand={\thispagestyle{empty}}]{pdfs/yao-2023.pdf}
+
+\phantomsection
+\label{paper:wang-2024-codeact}
+\addcontentsline{toc}{subsection}{[2024] Executable Code Actions Elicit Better LLM Agents (Wang et al.)}
+\includepdf[pages=-,pagecommand={\thispagestyle{empty}}]{pdfs/wang-2024.pdf}
+
+\phantomsection
+\label{paper:yao-2022-react}
+\addcontentsline{toc}{subsection}{[2022] ReAct: Synergizing Reasoning and Acting in Language Models (Yao et al.)}
+\includepdf[pages=-,pagecommand={\thispagestyle{empty}}]{pdfs/yao-2022.pdf}
+
+\phantomsection
+\label{paper:shinn-2023}
+\addcontentsline{toc}{subsection}{[2023] Reflexion: Language Agents with Verbal Reinforcement Learning (Shinn et al.)}
+% PDF to be added: https://arxiv.org/pdf/2303.11366.pdf

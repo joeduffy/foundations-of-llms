@@ -1,0 +1,102 @@
+The years 2021-2022 focused on making large language models more efficient, aligned with human values, and capable of complex reasoning. This period saw crucial advances in parameter-efficient fine-tuning, architectural improvements for longer contexts, and breakthrough techniques for instruction following and chain-of-thought reasoning.
+
+The field recognized that raw scale alone was insufficient---models needed to be deployable, controllable, and capable of systematic reasoning. This led to innovations in efficiency, alignment techniques using human feedback, and prompting strategies that unlocked latent reasoning capabilities.
+
+\section*{Key Advances}
+
+\textbf{Parameter-Efficient Adaptation (2021):} LoRA demonstrated that large models could be efficiently adapted by training only low-rank decompositions, making fine-tuning accessible and practical.
+
+\textbf{Positional Encoding Improvements (2021-2022):} RoFormer, ALiBi, and FlashAttention introduced better position encodings and efficient attention implementations, enabling longer contexts and faster training.
+
+\textbf{Mixture of Experts (2022):} Switch Transformers showed how to scale to trillion parameters using sparsity, with each token activating only a fraction of the model's capacity.
+
+\textbf{Instruction Following (2022):} InstructGPT demonstrated that reinforcement learning from human feedback (RLHF) could align models with human preferences, producing more helpful and harmless outputs.
+
+\textbf{Reasoning Capabilities (2022):} Chain-of-thought prompting and ReAct showed that proper prompting could elicit step-by-step reasoning, dramatically improving performance on complex tasks.
+
+\textbf{Constitutional AI (2022):} Bai et al. introduced training methods that use AI feedback to improve harmlessness, reducing reliance on human annotation while maintaining alignment.
+
+\section*{Papers in This Section}
+
+\begin{enumerate}
+\item \textbf{\hyperref[paper:hu-2021]{[2021] LoRA: Low-Rank Adaptation of Large Language Models (Hu et al.)}} -- Introduced LoRA for parameter-efficient fine-tuning through low-rank adaptation.
+
+\item \textbf{\hyperref[paper:su-2021]{[2021] RoFormer: Enhanced Transformer with Rotary Position Embedding (Su et al.)}} -- Developed RoFormer with rotary position embeddings for better long-range modeling.
+
+\item \textbf{\hyperref[paper:press-2021]{[2021] Train Short, Test Long: Attention with Linear Biases Enables Input Length Extrapolation (Press et al.)}} -- Created ALiBi for extrapolation to longer sequences without retraining.
+
+\item \textbf{\hyperref[paper:borgeaud-2021]{[2021] Improving Language Models by Retrieving from Trillions of Tokens (Borgeaud et al.)}} -- Built RETRO, scaling retrieval-augmented models to trillions of tokens.
+
+\item \textbf{\hyperref[paper:fedus-2022]{[2022] Switch Transformer: Scaling to Trillion Parameter Models with Simple and Efficient Sparsity (Fedus et al.)}} -- Demonstrated trillion-parameter sparse models with Switch Transformers.
+
+\item \textbf{\hyperref[paper:dao-2022]{[2022] FlashAttention: Fast and Memory-Efficient Exact Attention with IO-Awareness (Dao et al.)}} -- Developed FlashAttention for fast, memory-efficient exact attention computation.
+
+\item \textbf{\hyperref[paper:ouyang-2022]{[2022] Training Language Models to Follow Instructions with Human Feedback (Ouyang et al.)}} -- Introduced InstructGPT, aligning language models through RLHF.
+
+\item \textbf{\hyperref[paper:wei-2022]{[2022] Chain-of-Thought Prompting Elicits Reasoning in Large Language Models (Wei et al.)}} -- Discovered chain-of-thought prompting for eliciting reasoning capabilities.
+
+\item \textbf{\hyperref[paper:bai-2022]{[2022] Constitutional AI: Harmlessness from AI Feedback (Bai et al.)}} -- Developed Constitutional AI for training harmless assistants using AI feedback.
+
+\item \textbf{\hyperref[paper:yao-2022]{[2022] ReAct: Synergizing Reasoning and Acting in Language Models (Yao et al.)}} -- Created ReAct, combining reasoning and acting for complex task solving.
+
+\item \textbf{\hyperref[paper:hoffmann-2022]{[2022] Training Compute-Optimal Large Language Models (Hoffmann et al.)}} -- Established compute-optimal training with Chinchilla scaling laws.
+\end{enumerate}
+
+\newpage
+
+% Papers follow directly after the introduction
+
+\addcontentsline{toc}{subsection}{[2021] LoRA: Low-Rank Adaptation of Large Language Models (Hu et al.)}
+\phantomsection
+\label{paper:hu-2021}
+\includepdf[pages=-,pagecommand={\thispagestyle{empty}}]{pdfs/hu-2021.pdf}
+
+\addcontentsline{toc}{subsection}{[2021] RoFormer: Enhanced Transformer with Rotary Position Embedding (Su et al.)}
+\phantomsection
+\label{paper:su-2021}
+\includepdf[pages=-,pagecommand={\thispagestyle{empty}}]{pdfs/su-2021.pdf}
+
+\addcontentsline{toc}{subsection}{[2021] Train Short, Test Long: Attention with Linear Biases Enables Input Length Extrapolation (Press et al.)}
+\phantomsection
+\label{paper:press-2021}
+\includepdf[pages=-,pagecommand={\thispagestyle{empty}}]{pdfs/press-2021.pdf}
+
+\addcontentsline{toc}{subsection}{[2021] Improving Language Models by Retrieving from Trillions of Tokens (Borgeaud et al.)}
+\phantomsection
+\label{paper:borgeaud-2021}
+\includepdf[pages=-,pagecommand={\thispagestyle{empty}}]{pdfs/borgeaud-2021.pdf}
+
+\addcontentsline{toc}{subsection}{[2022] Switch Transformer: Scaling to Trillion Parameter Models with Simple and Efficient Sparsity (Fedus et al.)}
+\phantomsection
+\label{paper:fedus-2022}
+\includepdf[pages=-,pagecommand={\thispagestyle{empty}}]{pdfs/fedus-2022.pdf}
+
+\addcontentsline{toc}{subsection}{[2022] FlashAttention: Fast and Memory-Efficient Exact Attention with IO-Awareness (Dao et al.)}
+\phantomsection
+\label{paper:dao-2022}
+\includepdf[pages=-,pagecommand={\thispagestyle{empty}}]{pdfs/dao-2022.pdf}
+
+\addcontentsline{toc}{subsection}{[2022] Training Language Models to Follow Instructions with Human Feedback (Ouyang et al.)}
+\phantomsection
+\label{paper:ouyang-2022}
+\includepdf[pages=-,pagecommand={\thispagestyle{empty}}]{pdfs/ouyang-2022.pdf}
+
+\addcontentsline{toc}{subsection}{[2022] Chain-of-Thought Prompting Elicits Reasoning in Large Language Models (Wei et al.)}
+\phantomsection
+\label{paper:wei-2022}
+\includepdf[pages=-,pagecommand={\thispagestyle{empty}}]{pdfs/wei-2022.pdf}
+
+\addcontentsline{toc}{subsection}{[2022] Constitutional AI: Harmlessness from AI Feedback (Bai et al.)}
+\phantomsection
+\label{paper:bai-2022}
+\includepdf[pages=-,pagecommand={\thispagestyle{empty}}]{pdfs/bai-2022.pdf}
+
+\addcontentsline{toc}{subsection}{[2022] ReAct: Synergizing Reasoning and Acting in Language Models (Yao et al.)}
+\phantomsection
+\label{paper:yao-2022}
+\includepdf[pages=-,pagecommand={\thispagestyle{empty}}]{pdfs/yao-2022.pdf}
+
+\addcontentsline{toc}{subsection}{[2022] Training Compute-Optimal Large Language Models (Hoffmann et al.)}
+\phantomsection
+\label{paper:hoffmann-2022}
+\includepdf[pages=-,pagecommand={\thispagestyle{empty}}]{pdfs/hoffmann-2022.pdf}
