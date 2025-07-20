@@ -1,0 +1,300 @@
+\documentclass[12pt,oneside,openany]{book}
+
+% Essential packages
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{geometry}
+\usepackage{graphicx}
+\usepackage{pdfpages}
+\usepackage{hyperref}
+\usepackage{bookmark}
+\usepackage{fancyhdr}
+\usepackage{titlesec}
+\usepackage{tocloft}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{url}
+\usepackage{cite}
+\usepackage{setspace}
+\usepackage{microtype}
+\usepackage{mathptmx}
+\usepackage[scaled=0.9]{helvet}
+\usepackage{courier}
+\usepackage{textcomp}
+\usepackage{xcolor}
+\usepackage{enumitem}
+
+% Enable microtypography for better text quality
+\microtypesetup{protrusion=true,expansion=true}
+
+% iPad-optimized page geometry (4:3 aspect ratio)
+% iPad Pro 11" is 8.46" x 11.04" viewable area
+\geometry{
+    paperwidth=8.5in,
+    paperheight=11in,
+    left=0.3in,
+    right=0.3in,
+    top=0.4in,
+    bottom=0.4in,
+    headheight=24pt,
+    headsep=12pt,
+    footskip=20pt
+}
+
+% Increase line spacing for better readability on screen
+\setstretch{1.3}
+
+% Simplified headers and footers for touch navigation
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\small\textsc{\nouppercase{\leftmark}}}
+\fancyhead[R]{\Large\thepage}
+\fancyfoot[C]{}
+\renewcommand{\headrulewidth}{0.5pt}
+\renewcommand{\footrulewidth}{0pt}
+
+% Customize chapter and part marks to avoid duplication
+\renewcommand{\chaptermark}[1]{\markboth{#1}{}}
+\renewcommand{\partmark}[1]{\markboth{\partname\ \thepart: #1}{}}
+
+% Larger chapter formatting for touch
+\titleformat{\chapter}[display]
+  {\normalfont\huge\bfseries\centering}
+  {\MakeUppercase{\chaptertitlename}\ \thechapter}
+  {16pt}
+  {\Huge\bfseries}
+\titlespacing*{\chapter}{0pt}{30pt}{40pt}
+
+% Part formatting
+\titleformat{\part}[display]
+  {\normalfont\Huge\bfseries\centering}
+  {\MakeUppercase{\partname}\ \thepart}
+  {24pt}
+  {\fontsize{28}{32}\selectfont\bfseries}
+\titlespacing*{\part}{0pt}{50pt}{50pt}
+
+% Section formatting
+\titleformat{\section}
+  {\normalfont\Large\bfseries}
+  {\thesection}
+  {1em}
+  {}
+\titlespacing*{\section}{0pt}{20pt plus 4pt minus 2pt}{14pt plus 2pt minus 2pt}
+
+% Subsection formatting
+\titleformat{\subsection}
+  {\normalfont\large\bfseries}
+  {\thesubsection}
+  {1em}
+  {}
+\titlespacing*{\subsection}{0pt}{16pt plus 3pt minus 1pt}{10pt plus 1pt minus 1pt}
+
+% Enhanced table of contents with larger fonts
+\renewcommand{\cftpartfont}{\huge\bfseries}
+\renewcommand{\cftchapfont}{\Large\bfseries}
+\renewcommand{\cftsecfont}{\large}
+\renewcommand{\cftpartpagefont}{\huge\bfseries}
+\renewcommand{\cftchappagefont}{\Large\bfseries}
+\renewcommand{\cftsecpagefont}{\large}
+\setlength{\cftbeforepartskip}{20pt}
+\setlength{\cftbeforechapskip}{12pt}
+\setlength{\cftbeforesecskip}{6pt}
+
+% List formatting with more spacing
+\setlist[enumerate]{itemsep=6pt,parsep=3pt,topsep=8pt}
+\setlist[itemize]{itemsep=6pt,parsep=3pt,topsep=8pt}
+
+% Hyperref setup - larger touch targets with visible link borders
+\hypersetup{
+    pdftitle={The Foundations of Large Language Models, 1943-2025 (iPad Edition)},
+    pdfauthor={A Curated Collection},
+    pdfsubject={Artificial Intelligence, Machine Learning, Natural Language Processing},
+    pdfkeywords={Large Language Models, Transformers, Neural Networks, AI, Deep Learning},
+    colorlinks=true,
+    linkcolor=blue!70!black,
+    citecolor=blue!70!black,
+    urlcolor=blue!70!black,
+    bookmarksnumbered=true,
+    bookmarksopen=true,
+    pdfpagemode=UseOutlines,
+    pdfdisplaydoctitle=true,
+    linktoc=all,
+    pdfborder={0 0 2},
+    linkbordercolor=blue!30!white
+}
+
+% Professional title page with neural network graphic
+\usepackage{tikz}
+\usetikzlibrary{positioning,shapes.geometric}
+
+\makeatletter
+\renewcommand{\maketitle}{%
+  \begin{titlepage}%
+    \let\footnotesize\small
+    \let\footnoterule\relax
+    \let \footnote \thanks
+    \null\vfil
+    \vskip 30\p@
+    \begin{center}%
+      % Subtle neural network diagram
+      \begin{tikzpicture}[scale=0.8, transform shape]
+        \tikzset{
+          neuron/.style={circle, draw=black!30, fill=black!5, minimum size=10pt, inner sep=2pt},
+          connection/.style={draw=black!20, line width=0.7pt}
+        }
+        % Input layer
+        \foreach \y in {1,2,3,4} {
+          \node[neuron] (I\y) at (0,\y) {};
+        }
+        % Hidden layers
+        \foreach \y in {1,2,3,4,5} {
+          \node[neuron] (H1\y) at (2,\y+0.5) {};
+        }
+        \foreach \y in {1,2,3,4,5,6} {
+          \node[neuron] (H2\y) at (4,\y+0.25) {};
+        }
+        \foreach \y in {1,2,3,4} {
+          \node[neuron] (H3\y) at (6,\y+0.5) {};
+        }
+        % Output layer
+        \foreach \y in {1,2,3} {
+          \node[neuron] (O\y) at (8,\y+1) {};
+        }
+        % Connections (subset for visual clarity)
+        \foreach \i in {1,2,3,4} {
+          \foreach \j in {1,3,5} {
+            \draw[connection] (I\i) -- (H1\j);
+          }
+        }
+        \foreach \i in {1,3,5} {
+          \foreach \j in {2,4,6} {
+            \draw[connection] (H1\i) -- (H2\j);
+          }
+        }
+        \foreach \i in {2,4,6} {
+          \foreach \j in {1,3} {
+            \draw[connection] (H2\i) -- (H3\j);
+          }
+        }
+        \foreach \i in {1,3} {
+          \foreach \j in {1,2,3} {
+            \draw[connection] (H3\i) -- (O\j);
+          }
+        }
+      \end{tikzpicture}\\[30pt]
+      {\fontsize{24}{28}\selectfont\bfseries\MakeUppercase{The Foundations of}}\\[16pt]
+      {\fontsize{32}{36}\selectfont\bfseries\MakeUppercase{Large Language Models}}\\[24pt]
+      {\fontsize{20}{24}\selectfont\bfseries 1943 -- 2025}\\[48pt]
+      {\Large A Curated Collection of Seminal Papers}\\[30pt]
+      \vskip 2em%
+      {\Large in}\\[16pt]
+      {\huge\bfseries Artificial Intelligence \& Machine Learning}\\[60pt]
+      \vfill
+      {\Large\bfseries iPad Edition}\\[16pt]
+      {\large Optimized for Touch Navigation \& Screen Reading}\\[16pt]
+      {\large Compiled for the Scientific Community}\\[16pt]
+      \vskip 2em%
+      {\normalsize\textcolor{black!60}{Created by Joe Duffy \texttt{<joeduffy@acm.org>}}}\\[8pt]
+    \end{center}\par
+    \@thanks
+    \vfil\null
+  \end{titlepage}%
+  \setcounter{footnote}{0}%
+  \global\let\thanks\relax
+  \global\let\maketitle\relax
+  \global\let\@thanks\@empty
+  \global\let\@author\@empty
+  \global\let\@date\@empty
+  \global\let\@title\@empty
+  \global\let\title\relax
+  \global\let\author\relax
+  \global\let\date\relax
+  \global\let\and\relax
+}
+\makeatother
+
+% Special page styles
+\fancypagestyle{plain}{%
+  \fancyhf{}%
+  \fancyfoot[C]{\large\thepage}%
+  \renewcommand{\headrulewidth}{0pt}%
+  \renewcommand{\footrulewidth}{0pt}%
+}
+
+% Clean page style for included PDFs (no headers/footers)
+\fancypagestyle{empty}{%
+  \fancyhf{}%
+  \renewcommand{\headrulewidth}{0pt}%
+  \renewcommand{\footrulewidth}{0pt}%
+}
+
+\begin{document}
+
+% Set larger font size for body text
+\large
+
+% Front matter
+\frontmatter
+\maketitle
+
+% Table of Contents
+\cleardoublepage
+\phantomsection
+\markboth{Contents}{Contents}
+\setcounter{tocdepth}{2}  % Show parts, chapters, and subsections
+\tableofcontents
+\cleardoublepage
+
+% Prologue
+\input{content/prologue}
+
+% Main content
+\mainmatter
+
+% Part I: Neural Beginnings & Learning Mechanisms (1943–1990)
+\part{Neural Beginnings \& Learning Mechanisms\\1943--1990}
+\input{content/part1-chapter}
+
+% Part II: Sequence Models & Word Embeddings (1990–2013)
+\part{Sequence Models \& Word Embeddings\\1990--2013}
+\input{content/part2-chapter}
+
+% Part III: Attention and Sequence-to-Sequence Modeling (2014–2016)
+\part{Attention and Sequence-to-Sequence Modeling\\2014--2016}
+\input{content/part3-chapter}
+
+% Part IV: The Transformer Era and Pretraining Revolution (2017–2019)
+\part{The Transformer Era and Pretraining Revolution\\2017--2019}
+\input{content/part4-chapter}
+
+% Part V: Emergence and Scale (2019–2020)
+\part{Emergence and Scale\\2019--2020}
+\input{content/part5-chapter}
+
+% Part VI: Efficiency, Alignment, and Reasoning (2021–2022)
+\part{Efficiency, Alignment, and Reasoning\\2021--2022}
+\input{content/part6-chapter}
+
+% Part VII: Open LLMs and Modern Frontier (2023–2024)
+\part{Open LLMs and Modern Frontier\\2023--2024}
+\input{content/part7-chapter}
+
+% Appendices
+\appendix
+
+% Appendix A: Emerging Results (2023–2025)
+\chapter{Emerging Results (2025)}
+\input{content/appendix-a-chapter}
+
+% Appendix B: Foundations of Agents (2022–2025)
+\chapter{Foundations of Agents (2022--2025)}
+\input{content/appendix-b-chapter}
+
+% Back matter
+\backmatter
+
+% Epilogue
+\input{content/epilogue}
+
+\end{document}
