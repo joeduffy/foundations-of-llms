@@ -1,58 +1,68 @@
-The years 2023-2024 witnessed the democratization of large language models through open-source releases and continued advances at the frontier. This period established that competitive language models could be developed outside major labs, while frontier models pushed boundaries in multimodality, efficiency, and capability.
+The years 2021-2022 focused on making large language models more efficient, aligned with human values, and capable of complex reasoning. The field recognized that raw scale alone was insufficient—models needed to be deployable, controllable, and capable of systematic reasoning.
 
-The release of LLaMA catalyzed an explosion of open research and applications, while techniques like QLoRA made fine-tuning accessible to individual researchers. Meanwhile, GPT-4, Mixtral, and Gemini demonstrated new architectures and capabilities at the frontier.
+Efficiency improvements addressed practical deployment challenges. \hyperref[paper:hu-2021]{LoRA (Hu et al., 2021)} demonstrated that large models could be efficiently adapted by training only low-rank decompositions, making fine-tuning accessible and practical for resource-constrained environments. Architectural improvements included \hyperref[paper:su-2021]{RoFormer (Su et al., 2021)} with rotary position embeddings and \hyperref[paper:press-2021]{ALiBi (Press et al., 2021)}, which enabled extrapolation to longer sequences without retraining. \hyperref[paper:dao-2022]{FlashAttention (Dao et al., 2022)} provided fast, memory-efficient exact attention computation, while \hyperref[paper:fedus-2022]{Switch Transformers (Fedus et al., 2022)} demonstrated trillion-parameter sparse models where each token activates only a fraction of the model's capacity.
 
-\section*{Key Advances}
+Knowledge integration was advanced through \hyperref[paper:borgeaud-2021]{RETRO (Borgeaud et al., 2021)}, which scaled retrieval-augmented models to trillions of tokens, and \hyperref[paper:hoffmann-2022]{Chinchilla (Hoffmann et al., 2022)}, which established compute-optimal training laws showing that many models were undertrained relative to their size.
 
-\textbf{Open Foundation Models (2023):} LLaMA proved that smaller, well-trained models could match larger models' performance, spurring thousands of derivative works and applications.
+Alignment breakthroughs made models more helpful and harmless. \hyperref[paper:ouyang-2022]{InstructGPT (Ouyang et al., 2022)} demonstrated that reinforcement learning from human feedback (RLHF) could align models with human preferences, producing more helpful and harmless outputs. \hyperref[paper:bai-2022]{Constitutional AI (Bai et al., 2022)} introduced training methods using AI feedback to improve harmlessness while reducing reliance on human annotation.
 
-\textbf{Efficient Fine-tuning (2023):} QLoRA combined quantization with LoRA, enabling fine-tuning of 65B parameter models on single GPUs, democratizing model customization.
-
-\textbf{Multimodal Reasoning (2023):} GPT-4 demonstrated strong performance across text, vision, and reasoning tasks, establishing new benchmarks for capability and safety.
-
-\textbf{Sparse Mixture of Experts (2024):} Mixtral showed that sparse MoE architectures could deliver frontier performance with better inference efficiency than dense models.
-
-\textbf{Long Context and Efficiency (2024):} Gemini 1.5 achieved million-token context windows while maintaining strong performance, opening new applications in document understanding and reasoning.
-
-\section*{Papers in This Section}
-
-\begin{enumerate}
-\item \textbf{\hyperref[paper:touvron-2023]{[2023] LLaMA: Open and Efficient Foundation Language Models (Touvron et al.)}} -- Released LLaMA, demonstrating that open models could achieve GPT-3 level performance.
-
-\item \textbf{\hyperref[paper:dettmers-2023]{[2023] QLoRA: Efficient Finetuning of Quantized LLMs (Dettmers et al.)}} -- Introduced QLoRA, making large model fine-tuning accessible through 4-bit quantization.
-
-\item \textbf{\hyperref[paper:openai-2023]{[2023] GPT-4 Technical Report (OpenAI)}} -- Released GPT-4, setting new standards for capability, safety, and multimodal understanding.
-
-\item \textbf{\hyperref[paper:mistral-2024]{[2024] Mixtral of Experts (Jiang et al.)}} -- Developed Mixtral, showing sparse MoE could deliver frontier performance efficiently.
-
-\item \textbf{\hyperref[paper:deepmind-2024]{[2024] Gemini 1.5: Unlocking multimodal understanding across millions of tokens of context (Team et al.)}} -- Created Gemini 1.5 with million-token contexts and strong multimodal capabilities.
-\end{enumerate}
+Reasoning capabilities emerged through prompting innovations. \hyperref[paper:wei-2022]{Chain-of-thought prompting (Wei et al., 2022)} showed that proper prompting could elicit step-by-step reasoning, dramatically improving performance on complex tasks. \hyperref[paper:yao-2022]{ReAct (Yao et al., 2022)} created a framework combining reasoning and acting for complex task solving, demonstrating how language models could interleave thought and action in problem-solving scenarios.
 
 \newpage
 
 % Papers follow directly after the introduction
 
-\addcontentsline{toc}{subsection}{[2023] LLaMA: Open and Efficient Foundation Language Models (Touvron et al.)}
+\addcontentsline{toc}{subsection}{[2021] LoRA: Low-Rank Adaptation of Large Language Models (Hu et al.)}
 \phantomsection
-\label{paper:touvron-2023}
-\includepdf[pages=-,pagecommand={\thispagestyle{empty}}]{pdfs/touvron-2023.pdf}
+\label{paper:hu-2021}
+\includepdf[pages=-,pagecommand={\thispagestyle{empty}}]{pdfs/hu-2021.pdf}
 
-\addcontentsline{toc}{subsection}{[2023] QLoRA: Efficient Finetuning of Quantized LLMs (Dettmers et al.)}
+\addcontentsline{toc}{subsection}{[2021] RoFormer: Enhanced Transformer with Rotary Position Embedding (Su et al.)}
 \phantomsection
-\label{paper:dettmers-2023}
-\includepdf[pages=-,pagecommand={\thispagestyle{empty}}]{pdfs/dettmers-2023.pdf}
+\label{paper:su-2021}
+\includepdf[pages=-,pagecommand={\thispagestyle{empty}}]{pdfs/su-2021.pdf}
 
-\addcontentsline{toc}{subsection}{[2023] GPT-4 Technical Report (OpenAI)}
+\addcontentsline{toc}{subsection}{[2021] Train Short, Test Long: Attention with Linear Biases Enables Input Length Extrapolation (Press et al.)}
 \phantomsection
-\label{paper:openai-2023}
-\includepdf[pages=-,pagecommand={\thispagestyle{empty}}]{pdfs/openai-2023.pdf}
+\label{paper:press-2021}
+\includepdf[pages=-,pagecommand={\thispagestyle{empty}}]{pdfs/press-2021.pdf}
 
-\addcontentsline{toc}{subsection}{[2024] Mixtral of Experts (Jiang et al.)}
+\addcontentsline{toc}{subsection}{[2021] Improving Language Models by Retrieving from Trillions of Tokens (Borgeaud et al.)}
 \phantomsection
-\label{paper:mistral-2024}
-\includepdf[pages=-,pagecommand={\thispagestyle{empty}}]{pdfs/mistral-2024.pdf}
+\label{paper:borgeaud-2021}
+\includepdf[pages=-,pagecommand={\thispagestyle{empty}}]{pdfs/borgeaud-2021.pdf}
 
-\addcontentsline{toc}{subsection}{[2024] Gemini 1.5: Unlocking multimodal understanding across millions of tokens of context (Team et al.)}
+\addcontentsline{toc}{subsection}{[2022] Switch Transformer: Scaling to Trillion Parameter Models with Simple and Efficient Sparsity (Fedus et al.)}
 \phantomsection
-\label{paper:deepmind-2024}
-\includepdf[pages=-,pagecommand={\thispagestyle{empty}}]{pdfs/deepmind-2024.pdf}
+\label{paper:fedus-2022}
+\includepdf[pages=-,pagecommand={\thispagestyle{empty}}]{pdfs/fedus-2022.pdf}
+
+\addcontentsline{toc}{subsection}{[2022] FlashAttention: Fast and Memory-Efficient Exact Attention with IO-Awareness (Dao et al.)}
+\phantomsection
+\label{paper:dao-2022}
+\includepdf[pages=-,pagecommand={\thispagestyle{empty}}]{pdfs/dao-2022.pdf}
+
+\addcontentsline{toc}{subsection}{[2022] Training Language Models to Follow Instructions with Human Feedback (Ouyang et al.)}
+\phantomsection
+\label{paper:ouyang-2022}
+\includepdf[pages=-,pagecommand={\thispagestyle{empty}}]{pdfs/ouyang-2022.pdf}
+
+\addcontentsline{toc}{subsection}{[2022] Chain-of-Thought Prompting Elicits Reasoning in Large Language Models (Wei et al.)}
+\phantomsection
+\label{paper:wei-2022}
+\includepdf[pages=-,pagecommand={\thispagestyle{empty}}]{pdfs/wei-2022.pdf}
+
+\addcontentsline{toc}{subsection}{[2022] Constitutional AI: Harmlessness from AI Feedback (Bai et al.)}
+\phantomsection
+\label{paper:bai-2022}
+\includepdf[pages=-,pagecommand={\thispagestyle{empty}}]{pdfs/bai-2022.pdf}
+
+\addcontentsline{toc}{subsection}{[2022] ReAct: Synergizing Reasoning and Acting in Language Models (Yao et al.)}
+\phantomsection
+\label{paper:yao-2022}
+\includepdf[pages=-,pagecommand={\thispagestyle{empty}}]{pdfs/yao-2022.pdf}
+
+\addcontentsline{toc}{subsection}{[2022] Training Compute-Optimal Large Language Models (Hoffmann et al.)}
+\phantomsection
+\label{paper:hoffmann-2022}
+\includepdf[pages=-,pagecommand={\thispagestyle{empty}}]{pdfs/hoffmann-2022.pdf}

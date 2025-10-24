@@ -1,0 +1,39 @@
+% Part III: The Deep Learning Revolution (2012-2016)
+
+The period from 2012 to 2016 represents a watershed moment in artificial intelligence history, transforming deep learning from academic curiosity into practical technology. The breakthroughs established critical principles: depth matters when properly managed, architectural innovations can overcome fundamental training obstacles, and scale unlocks emergent capabilities.
+
+The revolution began with \hyperref[paper:krizhevsky-2012]{AlexNet (Krizhevsky, Sutskever \& Hinton, 2012)}, whose dramatic victory in the ImageNet competition demonstrated that deep convolutional neural networks with GPU acceleration could achieve breakthrough performance on complex visual recognition tasks. This success proved that the theoretical foundations established in previous decades could solve real-world problems when combined with sufficient computational resources and data.
+
+Building on this foundation, \hyperref[paper:simonyan-zisserman-2014]{VGG (Simonyan \& Zisserman, 2014)} established that network depth was crucial for performance through systematic architectural design using simple, repeating 3x3 convolutional components. This work demonstrated that deeper networks consistently outperformed shallow ones, setting the stage for increasingly complex architectures.
+
+The challenge of training stability in deep networks was solved by \hyperref[paper:ioffe-szegedy-2015]{batch normalization (Ioffe \& Szegedy, 2015)}, which normalized layer inputs to reduce internal covariate shift. This technique enabled much deeper networks to train reliably and became a fundamental component in virtually all modern architectures, including transformers.
+
+Finally, \hyperref[paper:he-2015-resnet]{ResNet (He et al., 2015)} introduced residual connections that solved the degradation problem in very deep networks, enabling training of networks with hundreds of layers. These skip connections, which allow information to flow directly across layers, became a design pattern essential for transformer architectures and the massive language models that followed.
+
+% AlexNet - ImageNet Classification with Deep Convolutional Neural Networks
+\clearpage
+\phantomsection
+\label{paper:krizhevsky-2012}
+\addcontentsline{toc}{subsection}{[2012] ImageNet Classification with Deep Convolutional Neural Networks (Krizhevsky, Sutskever \& Hinton)}
+\includepdf[pages=-,pagecommand={\thispagestyle{empty}}]{pdfs/krizhevsky-2012.pdf}
+
+% VGG - Very Deep Convolutional Networks
+\clearpage
+\phantomsection
+\label{paper:simonyan-zisserman-2014}
+\addcontentsline{toc}{subsection}{[2014] Very Deep Convolutional Networks for Large-Scale Image Recognition (Simonyan \& Zisserman)}
+\includepdf[pages=-,pagecommand={\thispagestyle{empty}}]{pdfs/simonyan-zisserman-2014.pdf}
+
+% Batch Normalization
+\clearpage
+\phantomsection
+\label{paper:ioffe-szegedy-2015}
+\addcontentsline{toc}{subsection}{[2015] Batch Normalization: Accelerating Deep Network Training by Reducing Internal Covariate Shift (Ioffe \& Szegedy)}
+\includepdf[pages=-,pagecommand={\thispagestyle{empty}}]{pdfs/ioffe-szegedy-2015.pdf}
+
+% ResNet - Deep Residual Learning
+\clearpage
+\phantomsection
+\label{paper:he-2015-resnet}
+\addcontentsline{toc}{subsection}{[2015] Deep Residual Learning for Image Recognition (He et al.)}
+\includepdf[pages=-,pagecommand={\thispagestyle{empty}}]{pdfs/he-2015-resnet.pdf}

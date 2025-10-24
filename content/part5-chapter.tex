@@ -1,58 +1,36 @@
-The years 2019-2020 marked a crucial turning point where language models transitioned from task-specific tools to general-purpose systems exhibiting emergent capabilities. This period established that scale---in parameters, data, and compute---fundamentally changed model behavior, with larger models demonstrating qualitatively different abilities including few-shot learning and multi-task generalization.
+The period from 2017 to 2019 marked the most significant paradigm shift in natural language processing history. The introduction of the Transformer architecture and self-supervised pretraining revolutionized how language models are built and deployed, demonstrating that massive unsupervised pretraining followed by task-specific fine-tuning could achieve unprecedented performance across diverse NLP tasks.
 
-The key insight was that language modeling at sufficient scale could serve as a universal unsupervised learning objective, producing models capable of performing diverse tasks without task-specific training. This discovery reshaped the field's understanding of intelligence and learning.
+The architectural revolution began with \hyperref[paper:vaswani-2017]{Vaswani et al.'s Transformer (2017)}, which introduced a fully attention-based architecture that eliminated recurrence entirely. Through multi-head self-attention, the Transformer enabled massive parallelization during training while achieving superior performance to recurrent models, establishing the foundation for all subsequent large language models.
 
-\section*{Key Advances}
+Before BERT's bidirectional approach, \hyperref[paper:peters-2018]{Peters et al.'s ELMo (2018)} demonstrated that deep bidirectional language models could produce context-dependent word representations, dramatically improving downstream task performance. This work showed that contextualized embeddings could capture polysemy and linguistic nuances that static word vectors could not.
 
-\textbf{Unsupervised Multitask Learning (2019):} GPT-2 demonstrated that large language models could perform various tasks zero-shot, revealing emergent capabilities from scale and raising important questions about model deployment and safety.
+The pretraining paradigm was established through two complementary approaches. \hyperref[paper:devlin-2018]{BERT (Devlin et al., 2018)} introduced masked language modeling to produce bidirectional representations that achieved state-of-the-art results across virtually all NLP benchmarks, while \hyperref[paper:radford-2018]{GPT (Radford et al., 2018)} demonstrated that autoregressive pretraining of Transformers could be effectively transferred to diverse downstream tasks through fine-tuning.
 
-\textbf{Few-Shot Learning (2020):} GPT-3 showed that sufficiently large models could learn new tasks from just a few examples in context, without updating parameters, fundamentally changing how we interact with language models.
-
-\textbf{Scaling Laws (2020):} Kaplan et al. discovered predictable power-law relationships between model size, dataset size, compute budget, and performance, providing a scientific framework for model development.
-
-\textbf{Efficient Attention (2020):} Choromanski et al. introduced Performers, demonstrating how to approximate attention with linear complexity, addressing the quadratic scaling limitation of Transformers.
-
-\textbf{Retrieval Augmentation (2020):} Lewis et al. showed how to combine neural generation with non-parametric retrieval, improving factual accuracy and enabling models to access external knowledge.
-
-\section*{Papers in This Section}
-
-\begin{enumerate}
-\item \textbf{\hyperref[paper:radford-2019]{[2019] Language Models are Unsupervised Multitask Learners (Radford et al.)}} -- Demonstrated emergent zero-shot capabilities in large language models with GPT-2.
-
-\item \textbf{\hyperref[paper:brown-2020]{[2020] Language Models are Few-Shot Learners (Brown et al.)}} -- Introduced GPT-3 and few-shot learning, showing that scale enables in-context learning.
-
-\item \textbf{\hyperref[paper:kaplan-2020]{[2020] Scaling Laws for Neural Language Models (Kaplan et al.)}} -- Discovered scaling laws that predict model performance from size and compute.
-
-\item \textbf{\hyperref[paper:choromanski-2020]{[2020] Rethinking Attention with Performers (Choromanski et al.)}} -- Developed Performers for efficient attention with linear complexity.
-
-\item \textbf{\hyperref[paper:lewis-2020]{[2020] Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks (Lewis et al.)}} -- Created retrieval-augmented generation for improved factuality and knowledge access.
-\end{enumerate}
-
-\newpage
+These advances culminated in \hyperref[paper:raffel-2019]{T5 (Raffel et al., 2019)}, which established a unified text-to-text framework treating all NLP tasks as sequence-to-sequence problems. This work demonstrated the generality of the pretraining and fine-tuning paradigm while exploring the scaling properties that would drive subsequent developments in large language models.
 
 % Papers follow directly after the introduction
 
-\addcontentsline{toc}{subsection}{[2019] Language Models are Unsupervised Multitask Learners (Radford et al.)}
 \phantomsection
-\label{paper:radford-2019}
-\includepdf[pages=-,pagecommand={\thispagestyle{empty}}]{pdfs/radford-2019.pdf}
+\label{paper:vaswani-2017}
+\addcontentsline{toc}{subsection}{[2017] Attention Is All You Need (Vaswani et al.)}
+\includepdf[pages=-,pagecommand={\thispagestyle{empty}}]{pdfs/vaswani-2017.pdf}
 
-\addcontentsline{toc}{subsection}{[2020] Language Models are Few-Shot Learners (Brown et al.)}
 \phantomsection
-\label{paper:brown-2020}
-\includepdf[pages=-,pagecommand={\thispagestyle{empty}}]{pdfs/brown-2020.pdf}
+\label{paper:peters-2018}
+\addcontentsline{toc}{subsection}{[2018] Deep Contextualized Word Representations (Peters et al.)}
+\includepdf[pages=-,pagecommand={\thispagestyle{empty}}]{pdfs/peters-2018.pdf}
 
-\addcontentsline{toc}{subsection}{[2020] Scaling Laws for Neural Language Models (Kaplan et al.)}
 \phantomsection
-\label{paper:kaplan-2020}
-\includepdf[pages=-,pagecommand={\thispagestyle{empty}}]{pdfs/kaplan-2020.pdf}
+\label{paper:devlin-2018}
+\addcontentsline{toc}{subsection}{[2018] BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding (Devlin et al.)}
+\includepdf[pages=-,pagecommand={\thispagestyle{empty}}]{pdfs/devlin-2018.pdf}
 
-\addcontentsline{toc}{subsection}{[2020] Rethinking Attention with Performers (Choromanski et al.)}
 \phantomsection
-\label{paper:choromanski-2020}
-\includepdf[pages=-,pagecommand={\thispagestyle{empty}}]{pdfs/choromanski-2020.pdf}
+\label{paper:radford-2018}
+\addcontentsline{toc}{subsection}{[2018] Improving Language Understanding by Generative Pre-Training (Radford et al.)}
+\includepdf[pages=-,pagecommand={\thispagestyle{empty}}]{pdfs/radford-2018.pdf}
 
-\addcontentsline{toc}{subsection}{[2020] Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks (Lewis et al.)}
 \phantomsection
-\label{paper:lewis-2020}
-\includepdf[pages=-,pagecommand={\thispagestyle{empty}}]{pdfs/lewis-2020.pdf}
+\label{paper:raffel-2019}
+\addcontentsline{toc}{subsection}{[2019] Exploring the Limits of Transfer Learning with a Unified Text-to-Text Transformer (Raffel et al.)}
+\includepdf[pages=-,pagecommand={\thispagestyle{empty}}]{pdfs/raffel-2019.pdf}

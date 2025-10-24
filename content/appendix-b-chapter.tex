@@ -1,20 +1,12 @@
-This appendix covers the foundational papers for AI agents---systems that use large language models to reason, plan, and act autonomously in complex environments. These papers establish core techniques for building agents that can use tools, engage in multi-step reasoning, execute long-horizon plans, and interact effectively with external systems.
+This appendix covers the foundational papers for AI agents—systems that use large language models to reason, plan, and act autonomously in complex environments. The emergence of capable agents represents a natural evolution of language models from passive question-answering systems to active problem-solvers.
 
-The emergence of capable agents represents a natural evolution of language models from passive question-answering systems to active problem-solvers. The papers in this section demonstrate how language models can be augmented with external tools, memory systems, and planning capabilities to tackle real-world tasks requiring sustained interaction and goal-directed behavior.
+The foundational work for executable agent behavior began with \hyperref[paper:liang-2022]{Code as Policies (Liang et al., 2022)}, which pioneered the use of language models to generate executable code for robotic control, demonstrating that language models could bridge the gap between natural language instructions and precise executable commands.
 
-\section*{Key Components of Modern Agents}
+Tool use capabilities were established by \hyperref[paper:schick-2023]{Toolformer (Schick et al., 2023)}, which showed how language models can learn to use external tools through self-supervised learning. This work demonstrated that agents can effectively select and use external tools, from calculators and code interpreters to web browsers and databases, requiring careful prompt engineering and output parsing.
 
-\textbf{Tool Use and APIs:} Agents must effectively select and use external tools, from calculators and code interpreters to web browsers and databases, requiring careful prompt engineering and output parsing.
+Advanced reasoning architectures emerged through \hyperref[paper:yao-2023-tree]{Tree of Thoughts (Yao et al., 2023)}, which generalized chain-of-thought reasoning to enable deliberate problem-solving. This approach allows agents to decompose complex goals into actionable steps, reason about consequences, and adapt plans based on feedback from the environment.
 
-\textbf{Memory and State:} Long-running agents need memory systems to track context across extended interactions, including episodic memory for specific experiences and semantic memory for learned knowledge.
-
-\textbf{Planning and Reasoning:} Agents must decompose complex goals into actionable steps, reason about consequences, and adapt plans based on feedback from the environment.
-
-\textbf{Error Recovery:} Robust agents need mechanisms to detect failures, reason about errors, and implement corrective actions without human intervention.
-
-\section*{Papers in This Section}
-
-The foundational papers for agent development include:
+These papers establish core techniques for building agents with tool use, memory systems, planning capabilities, and error recovery mechanisms necessary to tackle real-world tasks requiring sustained interaction and goal-directed behavior.
 
 \begin{enumerate}
 \item \textbf{\hyperref[paper:liang-2022]{[2022] Code as Policies: Language Model Programs for Embodied Control (Liang et al.)}} -- Pioneered the use of language models to generate executable code for robotic control.
