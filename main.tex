@@ -106,7 +106,7 @@
 
 % Hyperref setup - professional styling with enhanced navigation
 \hypersetup{
-    pdftitle={The Foundations of Large Language Models, 1943-2025},
+    pdftitle={The Foundations of Large Language Models, 1906-2025},
     pdfauthor={A Curated Collection},
     pdfsubject={Artificial Intelligence, Machine Learning, Natural Language Processing},
     pdfkeywords={Large Language Models, Transformers, Neural Networks, AI, Deep Learning},
@@ -182,7 +182,7 @@
       \end{tikzpicture}\\[24pt]
       {\fontsize{20}{24}\selectfont\bfseries\MakeUppercase{The Foundations of}}\\[12pt]
       {\fontsize{24}{28}\selectfont\bfseries\MakeUppercase{Large Language Models}}\\[18pt]
-      {\fontsize{16}{20}\selectfont\bfseries 1943 -- 2025}\\[36pt]
+      {\fontsize{16}{20}\selectfont\bfseries 1906 -- 2025}\\[36pt]
       {\large A Curated Collection of Seminal Papers}\\[24pt]
       \vskip 2em%
       {\large in}\\[12pt]
@@ -243,48 +243,52 @@
 % Main content
 \mainmatter
 
-% Part I: Neural Beginnings & Learning Mechanisms (1943–1990)
-\part{Neural Beginnings \& Learning Mechanisms\\1943--1990}
+% Part 0: Probabilistic & Mathematical Foundations (1906–1943)
+\part{Probabilistic \& Mathematical Foundations\\1906--1943}
+\input{content/part0-chapter}
+
+% Part I: Neural Beginnings & RL Foundations (1943–1990)
+\part{Neural Beginnings \& RL Foundations\\1943--1990}
 \input{content/part1-chapter}
 
 % Part II: Sequence Models & Word Embeddings (1990–2013)
 \part{Sequence Models \& Word Embeddings\\1990--2013}
 \input{content/part2-chapter}
 
-% Part III: The Deep Learning Revolution (2012–2016)
-\part{The Deep Learning Revolution\\2012--2016}
-\input{content/part3-deeplearning-chapter}
+% Part III: Deep Learning, Attention & Deep RL (2012–2016)
+\part{Deep Learning, Attention \& Deep RL\\2012--2016}
+\input{content/part3-chapter-new}
 
-% Part IV: Attention and Sequence-to-Sequence Modeling (2014–2016)
-\part{Attention and Sequence-to-Sequence Modeling\\2014--2016}
-\input{content/part4-chapter}
+% Part IV: Transformers, RLHF & Pretraining (2017–2019)
+\part{Transformers, RLHF \& Pretraining\\2017--2019}
+\input{content/part4-chapter-new}
 
-% Part V: The Transformer Era and Pretraining Revolution (2017–2019)
-\part{The Transformer Era and Pretraining Revolution\\2017--2019}
-\input{content/part5-chapter}
-
-% Part VI: Emergence and Scale (2019–2020)
+% Part V: Emergence and Scale (2019–2020)
 \part{Emergence and Scale\\2019--2020}
-\input{content/part6-chapter}
+\input{content/part5-chapter-new}
 
-% Part VII: Efficiency, Alignment, and Reasoning (2021–2022)
+% Part VI: Efficiency, Alignment, and Reasoning (2021–2022)
 \part{Efficiency, Alignment, and Reasoning\\2021--2022}
-\input{content/part7-chapter}
+\input{content/part6-chapter-new}
 
-% Part VIII: Open LLMs and Modern Frontier (2023–2024)
-\part{Open LLMs and Modern Frontier\\2023--2024}
-\input{content/part8-chapter}
+% Part VII: Open Models & Advanced Alignment (2023–2024)
+\part{Open Models \& Advanced Alignment\\2023--2024}
+\input{content/part7-chapter-new}
 
 % Appendices
 \appendix
 
-% Appendix A: Emerging Results (2023–2025)
-\chapter{Emerging Results (2025)}
+% Appendix A: Emerging Results (2024–2025)
+\chapter{Emerging Results (2024--2025)}
 \input{content/appendix-a-chapter}
 
 % Appendix B: Foundations of Agents (2022–2025)
 \chapter{Foundations of Agents (2022--2025)}
 \input{content/appendix-b-chapter}
+
+% Appendix C: System Reports & Production Breakthroughs (2023–2025)
+\chapter{System Reports \& Production Breakthroughs (2023--2025)}
+\input{content/appendix-c-chapter}
 
 % Back matter
 \backmatter

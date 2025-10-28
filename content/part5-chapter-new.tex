@@ -1,0 +1,38 @@
+The years 2019-2020 marked a crucial turning point where language models transitioned from task-specific tools to general-purpose systems exhibiting emergent capabilities. The key insight was that language modeling at sufficient scale could serve as a universal unsupervised learning objective, producing models capable of performing diverse tasks without task-specific training.
+
+The progression toward emergent capabilities began with \hyperref[paper:radford-2019]{GPT-2 (Radford et al., 2019)}, which demonstrated that large language models could perform various tasks zero-shot, revealing emergent capabilities from scale. GPT-2's ability to generate coherent text and perform unsupervised multitask learning raised important questions about model deployment and safety while establishing generative modeling as a core capability.
+
+The theoretical foundation for systematic scaling was established by \hyperref[paper:kaplan-2020]{Kaplan et al. (2020)}, who discovered predictable power-law relationships between model size, dataset size, compute budget, and performance. These scaling laws provided a scientific framework for model development by showing that performance improvements followed mathematical relationships rather than unpredictable breakthroughs.
+
+Building on these insights, \hyperref[paper:brown-2020]{GPT-3 (Brown et al., 2020)} demonstrated that sufficiently large models could learn new tasks from just a few examples in context, without updating parameters. This few-shot learning capability fundamentally changed how we interact with language models, enabling task performance through prompting rather than fine-tuning.
+
+Two complementary developments addressed practical limitations of Transformer scaling. \hyperref[paper:choromanski-2020]{Performers (Choromanski et al., 2020)} introduced efficient attention mechanisms with linear complexity, addressing the quadratic scaling limitation of Transformers, while \hyperref[paper:lewis-2020]{RAG (Lewis et al., 2020)} demonstrated how to combine neural generation with non-parametric retrieval, improving factual accuracy and enabling models to access external knowledge beyond their training data.
+
+\newpage
+
+% Papers follow directly after the introduction
+
+\addcontentsline{toc}{subsection}{[2019] Language Models are Unsupervised Multitask Learners (Radford et al.)}
+\phantomsection
+\label{paper:radford-2019}
+\includepdf[pages=-,pagecommand={\thispagestyle{empty}}]{pdfs/radford-2019.pdf}
+
+\addcontentsline{toc}{subsection}{[2020] Language Models are Few-Shot Learners (Brown et al.)}
+\phantomsection
+\label{paper:brown-2020}
+\includepdf[pages=-,pagecommand={\thispagestyle{empty}}]{pdfs/brown-2020.pdf}
+
+\addcontentsline{toc}{subsection}{[2020] Scaling Laws for Neural Language Models (Kaplan et al.)}
+\phantomsection
+\label{paper:kaplan-2020}
+\includepdf[pages=-,pagecommand={\thispagestyle{empty}}]{pdfs/kaplan-2020.pdf}
+
+\addcontentsline{toc}{subsection}{[2020] Rethinking Attention with Performers (Choromanski et al.)}
+\phantomsection
+\label{paper:choromanski-2020}
+\includepdf[pages=-,pagecommand={\thispagestyle{empty}}]{pdfs/choromanski-2020.pdf}
+
+\addcontentsline{toc}{subsection}{[2020] Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks (Lewis et al.)}
+\phantomsection
+\label{paper:lewis-2020}
+\includepdf[pages=-,pagecommand={\thispagestyle{empty}}]{pdfs/lewis-2020.pdf}

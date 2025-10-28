@@ -1,33 +1,6 @@
-Modern language models derive from mathematical foundations established between 1943 and 1990. This period introduced the core mathematical abstractions that underpin all neural networks, emerging within early computing research and cybernetics to establish mathematical tools for machine learning systems.
+% Part 1: Neural Beginnings & RL Foundations (1943-1990)
 
-The foundations began with \hyperref[paper:mcculloch-pitts-1943]{McCulloch and Pitts (1943)}, who demonstrated that networks of simple threshold units could perform arbitrary logical computations. Their work established the theoretical foundation for neural computation by formalizing artificial neuron concepts that underlie current neural architectures.
+\input{content/part1-intro-new}
 
-Building on this theoretical foundation, \hyperref[paper:rosenblatt-1958]{Rosenblatt's perceptron (1958)} introduced the first systematic approach to training neural networks, showing how machines could learn from examples through weight adjustment algorithms. This breakthrough demonstrated that neural systems could acquire new capabilities through experience rather than explicit programming.
-
-The concept of neural networks as memory systems emerged through \hyperref[paper:hopfield-1982]{Hopfield's associative memory networks (1982)}, which demonstrated how neural systems could store and retrieve patterns. Hopfield introduced energy-based models and the concept of attractors in neural dynamics, establishing principles that would later influence modern attention mechanisms.
-
-Finally, \hyperref[paper:rumelhart-hinton-williams-1986]{Rumelhart, Hinton, and Williams (1986)} solved the fundamental credit assignment problem in multilayer networks through backpropagation. This algorithm enabled the training of deep architectures by efficiently computing gradients for error correction across multiple layers—a capability that would prove essential for language modeling decades later.
-
-These papers established the mathematical tools and learning principles fundamental to modern AI systems: distributed representation, gradient-based learning, and hierarchical feature extraction.
-
-% Papers follow directly after the introduction
-
-\phantomsection
-\label{paper:mcculloch-pitts-1943}
-\addcontentsline{toc}{subsection}{[1943] A Logical Calculus of the Ideas Immanent in Nervous Activity (McCulloch \& Pitts)}
-\includepdf[pages=-,pagecommand={\thispagestyle{empty}}]{pdfs/mcculloch-pitts-1943.pdf}
-
-\phantomsection
-\label{paper:rosenblatt-1958}
-\addcontentsline{toc}{subsection}{[1958] The Perceptron: A Probabilistic Model for Information Storage (Rosenblatt)}
-\includepdf[pages=-,pagecommand={\thispagestyle{empty}}]{pdfs/rosenblatt-1958.pdf}
-
-\phantomsection
-\label{paper:hopfield-1982}
-\addcontentsline{toc}{subsection}{[1982] Neural Networks and Physical Systems with Emergent Collective Computational Abilities (Hopfield)}
-\includepdf[pages=-,pagecommand={\thispagestyle{empty}}]{pdfs/hopfield-1982.pdf}
-
-\phantomsection
-\label{paper:rumelhart-hinton-williams-1986}
-\addcontentsline{toc}{subsection}{[1986] Learning Representations by Back-Propagating Errors (Rumelhart, Hinton \& Williams)}
-\includepdf[pages=-,pagecommand={\thispagestyle{empty}}]{pdfs/rumelhart-hinton-williams-1986.pdf}
+% Papers follow
+\input{content/part1-papers-new}
