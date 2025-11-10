@@ -1,0 +1,14 @@
+% Paper Summary: LoRA: Low-Rank Adaptation of Large Language Models (Hu et al., 2021)
+
+\begin{papersummary}{2021}{LoRA: Low-Rank Adaptation of Large Language Models}{Edward J. Hu, Yelong Shen, Phillip Wallis, Zeyuan Allen-Zhu, Yuanzhi Li, Shean Wang, Lu Wang, Weizhu Chen}{LoRA demonstrated that large models can be efficiently adapted by training low-rank decompositions of weight matrices, dramatically reducing memory and compute requirements for fine-tuning while matching full fine-tuning performance.}
+
+\summaryheading{Key Ideas}
+LoRA freezes pretrained model weights and injects trainable low-rank matrices into each Transformer layer. Instead of updating all parameters, LoRA learns low-rank decompositions $\Delta W = BA$ where $B$ and $A$ are much smaller matrices. This reduces trainable parameters by orders of magnitude (e.g., 10,000x for GPT-3) while achieving comparable or better performance than full fine-tuning. The approach works because the weight updates during fine-tuning have low intrinsic dimensionality. LoRA adapters can be merged into base weights at inference, adding no latency.
+
+\summaryheading{Follow-on Works}
+QLoRA combined LoRA with quantization for even more efficient fine-tuning. IA3 and other parameter-efficient methods explored alternative approaches. Modern LLM serving systems often use LoRA adapters to serve multiple fine-tuned versions of models efficiently. The adapter paradigm enables rapid task-specific customization without retraining entire models. LoRA has become the standard method for practical fine-tuning of large models.
+
+\summaryheading{Lasting Contributions}
+LoRA made fine-tuning large language models practical for organizations without massive compute resources. The technique enables efficient multi-tenant serving where a single base model serves many task-specific adapters. Modern LLM applications routinely use LoRA to customize models for specific domains or tasks. The insight that weight updates have low intrinsic rank proved fundamental for democratizing LLM adaptation. LoRA's efficiency enables the rapid experimentation and customization that drives contemporary LLM deployment, making it essential infrastructure for practical AI applications.
+
+\end{papersummary}

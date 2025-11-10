@@ -1,0 +1,14 @@
+% Paper Summary: Adam: A Method for Stochastic Optimization (Kingma & Ba, 2014)
+
+\begin{papersummary}{2014}{Adam: A Method for Stochastic Optimization}{Diederik P. Kingma, Jimmy Ba}{Adam introduced an adaptive learning rate optimization algorithm that combines the benefits of AdaGrad and RMSprop, becoming the default optimizer for training deep neural networks including large language models.}
+
+\summaryheading{Key Ideas}
+Adam computes adaptive learning rates for each parameter by maintaining exponential moving averages of both gradients (first moment) and squared gradients (second moment). This provides the benefits of momentum for acceleration and adaptive learning rates for per-parameter scaling. The algorithm includes bias correction terms to account for initialization at zero, ensuring proper behavior in early training steps. Adam requires minimal hyperparameter tuning and works well across diverse architectures and tasks, making it practical for large-scale training where manual tuning is impractical.
+
+\summaryheading{Follow-on Works}
+AdamW introduced weight decay decoupling, improving generalization. Lion optimizer simplified Adam while maintaining effectiveness. Adafactor reduced memory requirements for training massive models. Despite numerous proposed alternatives, Adam variants remain dominant. Modern LLM training typically uses Adam or AdamW with careful hyperparameter scheduling. The stability and efficiency of adaptive optimizers enabled scaling to models with hundreds of billions of parameters.
+
+\summaryheading{Lasting Contributions}
+Adam became the default optimizer for training neural networks across all domains. Every major LLM—GPT-4, Claude, Gemini, LLaMA—was trained using Adam or AdamW. The adaptive learning rate mechanism proved essential for training very deep networks where different layers require different learning rates. Adam's efficiency and stability enabled the computational scaling that produced modern AI capabilities. While gradient descent remains the conceptual foundation, Adam's practical improvements made training trillion-parameter models feasible. The algorithm's ubiquity reflects its fundamental contribution to making deep learning work at scale.
+
+\end{papersummary}

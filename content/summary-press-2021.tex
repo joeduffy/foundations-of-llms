@@ -1,0 +1,14 @@
+% Paper Summary: Train Short, Test Long: Attention with Linear Biases Enables Input Length Extrapolation (Press et al., 2021)
+
+\begin{papersummary}{2021}{Train Short, Test Long: Attention with Linear Biases Enables Input Length Extrapolation}{Ofir Press, Noah A. Smith, Mike Lewis}{ALiBi introduced a simple position encoding method using linear biases in attention scores, enabling models to extrapolate to much longer sequences than seen during training without any retraining or fine-tuning.}
+
+\summaryheading{Key Ideas}
+ALiBi replaces position embeddings with linear biases added to attention scores based on key-query distance. The bias is proportional to distance, with different slopes for different attention heads. This simple modification enables remarkable extrapolation: models trained on 1K tokens can handle 10K+ tokens at inference without performance degradation. ALiBi requires no learned parameters for position encoding and adds minimal computation. The inductive bias that closer tokens should attend more strongly proves sufficient for length generalization.
+
+\summaryheading{Follow-on Works}
+Modern LLMs explore ALiBi alongside RoPE for position encoding. Techniques for extending context length often compare against ALiBi's extrapolation capabilities. The success of parameter-free position methods influenced research into simpler, more generalizable architectural components. Some production models adopt ALiBi for its training efficiency and extrapolation properties.
+
+\summaryheading{Lasting Contributions}
+ALiBi demonstrated that simple, parameter-free position encodings can match or exceed complex learned methods while providing better extrapolation. The technique's ability to handle sequences far longer than training length addresses a critical limitation for applications requiring long context. While RoPE is more widely adopted, ALiBi established important principles about length extrapolation and influenced the design of position encoding methods. The insight that inductive biases can replace learned parameters for certain functions continues to influence architecture design.
+
+\end{papersummary}

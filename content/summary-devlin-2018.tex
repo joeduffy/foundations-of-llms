@@ -1,0 +1,14 @@
+% Paper Summary: BERT: Pre-training of Deep Bidirectional Transformers (Devlin et al., 2018)
+
+\begin{papersummary}{2018}{BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding}{Jacob Devlin, Ming-Wei Chang, Kenton Lee, Kristina Toutanova}{BERT demonstrated that bidirectional Transformer pretraining through masked language modeling produces powerful representations that achieve state-of-the-art results across NLP tasks through simple fine-tuning.}
+
+\summaryheading{Key Ideas}
+BERT introduced masked language modeling (MLM) where random tokens are masked and the model learns to predict them from bidirectional context. This enables true bidirectional representations unlike autoregressive models that only see left context. BERT also uses next sentence prediction to capture inter-sentence relationships. The bidirectional pretraining produces representations that excel at understanding tasks like question answering and natural language inference. Fine-tuning the entire pretrained model on downstream tasks with task-specific layers achieved dramatic improvements across benchmarks.
+
+\summaryheading{Follow-on Works}
+RoBERTa optimized BERT's training procedure and removed next sentence prediction. ALBERT reduced parameters through factorization. ELECTRA introduced more efficient pretraining through replaced token detection. While encoder-only BERT excels at understanding, decoder-only models like GPT proved more versatile for generation. Modern encoder-decoder models like T5 combine insights from both paradigms. BERT's pretraining-then-fine-tuning approach influenced all subsequent LLM development.
+
+\summaryheading{Lasting Contributions}
+BERT validated that large-scale pretraining on unlabeled text followed by task-specific fine-tuning produces powerful language models. While contemporary LLMs like GPT-4 and Claude use decoder-only architectures rather than BERT's encoder-only design, the pretraining paradigm BERT popularized became universal. The insight that models should learn general language understanding from massive corpora before adapting to specific tasks underlies all modern NLP. BERT demonstrated that bidirectional context improves understanding tasks, influencing encoder-decoder architectures still used for translation and summarization. The pretraining revolution BERT catalyzed directly enabled the scale and capabilities of today's frontier models.
+
+\end{papersummary}

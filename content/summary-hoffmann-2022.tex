@@ -1,0 +1,14 @@
+% Paper Summary: Training Compute-Optimal Large Language Models (Hoffmann et al., 2022)
+
+\begin{papersummary}{2022}{Training Compute-Optimal Large Language Models}{Jordan Hoffmann, Sebastian Borgeaud, Arthur Mensch, Elena Buchatskaya, Trevor Cai, Eliza Rutherford, Diego de Las Casas, Lisa Anne Hendricks, Johannes Welbl, Aidan Clark, Tom Hennigan, Eric Noland, Katie Millican, George van den Driessche, Bogdan Damoc, Aurelia Guy, Simon Osindero, Karen Simonyan, Erich Elsen, Jack W. Rae, Oriol Vinyals, Laurent Sifre}{Chinchilla refined scaling laws, showing that models were being trained with too many parameters on too little data, and that compute-optimal training requires balancing model size with training tokens, producing a 70B parameter model that outperformed much larger models.}
+
+\summaryheading{Key Ideas}
+The paper re-examined scaling laws and discovered that optimal performance per compute requires training smaller models on more data than previously believed. Chinchilla (70B parameters) trained on 1.4T tokens outperformed Gopher (280B parameters) trained on 300B tokens, despite using the same compute budget. The key insight is that model size and training data should scale equally with compute budget. Previous scaling laws had led to over-parameterized, under-trained models. The compute-optimal frontier differs significantly from previous understanding.
+
+\summaryheading{Follow-on Works}
+LLaMA applied Chinchilla's insights, training relatively smaller models on trillions of tokens. Modern LLMs increasingly emphasize training duration over parameter count. The compute-optimal paradigm influenced decisions about model architecture and training strategies. GPT-4 and subsequent models reflect Chinchilla scaling principles.
+
+\summaryheading{Lasting Contributions}
+Chinchilla fundamentally changed how LLMs are trained, shifting focus from parameter count to compute-optimal scaling. Modern models train on trillions of tokens rather than maximizing parameters. The 70B size class became popular (LLaMA-2, Llama-3) partially due to Chinchilla's demonstration of efficiency at that scale. The work showed that previous "scaling laws" were actually describing sub-optimal practices, enabling more efficient use of training compute. Chinchilla's influence on training strategies makes it among the most impactful papers for practical LLM development.
+
+\end{papersummary}

@@ -1,0 +1,14 @@
+% Paper Summary: RoFormer: Enhanced Transformer with Rotary Position Embedding (Su et al., 2021)
+
+\begin{papersummary}{2021}{RoFormer: Enhanced Transformer with Rotary Position Embedding}{Jianlin Su, Yu Lu, Shengfeng Pan, Bo Wen, Yunfeng Liu}{RoFormer introduced Rotary Position Embedding (RoPE), which encodes position information through rotation matrices, enabling better length extrapolation and becoming widely adopted in modern LLMs.}
+
+\summaryheading{Key Ideas}
+RoPE encodes absolute position information while maintaining relative position dependencies through rotation matrices applied to query and key vectors. The approach naturally encodes relative positions through the inner product of rotated vectors, enabling models to generalize to sequences longer than those seen during training. RoPE provides better extrapolation properties than learned absolute or relative position embeddings while adding minimal computational overhead. The rotation-based encoding preserves the geometric properties of embeddings while injecting positional information.
+
+\summaryheading{Follow-on Works}
+Modern LLMs including LLaMA, PaLM, and many others adopted RoPE as their position encoding method. ALiBi provided an alternative approach through linear biases. Techniques for extending context length often build on RoPE's extrapolation properties. The success of RoPE influenced research into position encodings that enable length generalization. Modern long-context models frequently use RoPE or variations.
+
+\summaryheading{Lasting Contributions}
+RoPE became the standard position encoding method for decoder-only LLMs. LLaMA, Mistral, and numerous other modern models use RoPE rather than learned position embeddings. The technique's ability to extrapolate to longer sequences than seen during training enables the extended context windows increasingly important for LLM applications. RoPE's success demonstrated that carefully designed inductive biases can improve generalization. Its widespread adoption in production LLMs reflects its practical effectiveness for enabling flexible sequence length handling.
+
+\end{papersummary}

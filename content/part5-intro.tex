@@ -1,4 +1,36 @@
-\chapter*{Introduction to Part 5}
-\addcontentsline{toc}{chapter}{Introduction to Part 5}
+\chapter*{Introduction to Part V}
+\addcontentsline{toc}{chapter}{Introduction to Part V}
 
-Placeholder introduction for Part 5.
+The period from 2019 to 2020 revealed that transformer language models exhibited remarkable scaling properties. As model size, dataset size, and computational resources increased, performance improved predictably according to power laws. More strikingly, sufficiently large models demonstrated emergent capabilities not present in smaller versions—abilities that arose from scale rather than architectural innovation or explicit training objectives.
+
+GPT-2 showed that larger language models could perform tasks in a zero-shot manner without any task-specific fine-tuning, challenging assumptions about what language modeling could achieve. GPT-3 pushed this further, demonstrating few-shot learning where models could adapt to new tasks from just a handful of examples in the prompt. These capabilities suggested that language modeling at scale captured far more about the structure of intelligence than previously understood.
+
+Kaplan et al.'s systematic investigation of scaling laws revealed predictable relationships between model size, dataset size, compute budget, and performance. These power-law relationships suggested that continued scaling would yield continued improvements, establishing a research paradigm focused on training ever-larger models. Simultaneously, researchers explored alternative attention mechanisms and architectural modifications to address computational bottlenecks. Lewis et al.'s retrieval-augmented generation showed how parametric models could be enhanced with explicit knowledge retrieval, pointing toward hybrid approaches that combine learned representations with external information sources.
+
+\section*{Key Advances}
+
+\textbf{Zero-Shot Learning (2019):} GPT-2 demonstrated that larger language models could perform tasks without fine-tuning, revealing capabilities that emerged purely from scale and pretraining data.
+
+\textbf{Scaling Laws (2020):} Systematic investigation revealed power-law relationships governing model performance, suggesting that continued scaling would yield predictable improvements.
+
+\textbf{Few-Shot Learning (2020):} GPT-3 showed that sufficiently large models could adapt to new tasks from minimal examples, exhibiting in-context learning without parameter updates.
+
+\textbf{Efficient Attention (2020):} Performers and related work explored linear-complexity attention mechanisms to address computational constraints as sequences grew longer.
+
+\textbf{Hybrid Architectures (2020):} Retrieval-augmented generation demonstrated how parametric models could be enhanced with external knowledge retrieval for factual accuracy.
+
+\section*{Papers in This Section}
+
+\begin{enumerate}
+\item \textbf{Radford et al. (2019)} -- GPT-2 demonstrated zero-shot task performance, showing emergent capabilities from scale.
+
+\item \textbf{Brown et al. (2020)} -- GPT-3 revealed few-shot learning and in-context adaptation without parameter updates.
+
+\item \textbf{Kaplan et al. (2020)} -- Established scaling laws relating model size, data, and compute to performance.
+
+\item \textbf{Choromanski et al. (2020)} -- Performers introduced efficient attention mechanisms with linear computational complexity.
+
+\item \textbf{Lewis et al. (2020)} -- RAG combined parametric models with retrieval systems for improved factual accuracy.
+\end{enumerate}
+
+The emergence of capabilities through scaling, combined with systematic understanding of power-law relationships, established the research trajectory for the next generation of language models. The discovery that scale itself could unlock qualitatively new behaviors fundamentally altered how researchers approached model development.

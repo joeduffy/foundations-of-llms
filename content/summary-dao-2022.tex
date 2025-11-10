@@ -1,0 +1,14 @@
+% Paper Summary: FlashAttention (Dao et al., 2022)
+
+\begin{papersummary}{2022}{FlashAttention: Fast and Memory-Efficient Exact Attention with IO-Awareness}{Tri Dao, Daniel Y. Fu, Stefano Ermon, Atri Rudra, Christopher Ré}{FlashAttention achieved 2-4x speedup in attention computation through IO-aware algorithms that minimize memory reads/writes, enabling longer context windows without approximation while maintaining exact attention.}
+
+\summaryheading{Key Ideas}
+FlashAttention reorders attention computation to minimize expensive GPU memory transfers between high-bandwidth memory (HBM) and on-chip SRAM. The algorithm computes attention in blocks that fit in fast SRAM, dramatically reducing memory IO. This achieves exact attention with linear memory complexity in sequence length while providing substantial speedups. The approach exploits the memory hierarchy of modern GPUs rather than approximating attention. FlashAttention enables training and inference on much longer sequences by addressing the memory bottleneck.
+
+\summaryheading{Follow-on Works}
+FlashAttention-2 further improved efficiency. The IO-aware approach influenced other efficient implementations. Modern LLM training and serving systems widely adopt FlashAttention for its substantial speedups. The technique enabled the extended context windows (32K, 100K+ tokens) in contemporary models. PagedAttention for serving builds on similar principles.
+
+\summaryheading{Lasting Contributions}
+FlashAttention is now universal in LLM training and inference, providing the computational efficiency needed for extended context windows. The 100K+ token contexts in Claude and GPT-4 rely on FlashAttention's efficiency improvements. The work demonstrated that algorithmic innovation targeting hardware characteristics can provide dramatic speedups without approximation. FlashAttention exemplifies how understanding hardware constraints leads to better algorithms, enabling capabilities (long contexts) that define modern LLM competitiveness. Its ubiquity in production systems reflects its fundamental importance.
+
+\end{papersummary}

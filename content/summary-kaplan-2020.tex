@@ -1,0 +1,14 @@
+% Paper Summary: Scaling Laws for Neural Language Models (Kaplan et al., 2020)
+
+\begin{papersummary}{2020}{Scaling Laws for Neural Language Models}{Jared Kaplan, Sam McCandlish, Tom Henighan, Tom B. Brown, Benjamin Chess, Rewon Child, Scott Gray, Alec Radford, Jeffrey Wu, Dario Amodei}{This paper discovered predictable power-law relationships between model size, dataset size, compute budget, and performance, providing a scientific framework for planning and optimizing large language model development.}
+
+\summaryheading{Key Ideas}
+The paper revealed that language model performance follows smooth, predictable power laws as functions of model parameters (N), dataset size (D), and compute budget (C). Loss decreases as a power law in each factor when not bottlenecked by others. The research identified optimal ratios: models should be larger and trained on fewer tokens than was common practice. Compute-optimal training requires balancing model size and training duration. These relationships hold across multiple orders of magnitude, enabling reliable prediction of model performance from smaller-scale experiments. The work established that scaling is not subject to diminishing returns within the explored regime.
+
+\summaryheading{Follow-on Works}
+Chinchilla (Hoffmann et al., 2022) refined the scaling laws, showing that models had been undertrained relative to their size. This led to compute-optimal models trained on more tokens with fewer parameters. PaLM, LLaMA, and subsequent models applied these insights. The scaling laws justified the massive investments in compute infrastructure for training frontier models. Understanding the smooth, predictable nature of scaling enabled strategic planning of model development.
+
+\summaryheading{Lasting Contributions}
+Scaling laws transformed LLM development from empirical exploration to scientific engineering. Every decision about frontier model architecture—from GPT-4's parameter count to training duration—reflects these mathematical relationships. The predictability of performance improvements from scale justified multi-billion dollar investments in compute infrastructure. The insight that performance improvements continue smoothly with scale, without hitting walls, enabled the aggressive scaling that produced current capabilities. Modern LLM development is fundamentally guided by the scaling laws discovered here, making this among the most consequential papers for the practical deployment of AI.
+
+\end{papersummary}

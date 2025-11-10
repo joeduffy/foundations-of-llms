@@ -1,0 +1,14 @@
+% Paper Summary: Exploring the Limits of Transfer Learning with T5 (Raffel et al., 2019)
+
+\begin{papersummary}{2019}{Exploring the Limits of Transfer Learning with a Unified Text-to-Text Transformer}{Colin Raffel, Noam Shazeer, Adam Roberts, Katherine Lee, Sharan Narang, Michael Matena, Yanqi Zhou, Wei Li, Peter J. Liu}{T5 systematically explored transfer learning by framing all NLP tasks as text-to-text problems, demonstrating that a unified encoder-decoder Transformer could excel across diverse tasks with appropriate pretraining and fine-tuning.}
+
+\summaryheading{Key Ideas}
+T5 casts every NLP task as converting input text to output text, unifying translation, summarization, question answering, and classification under one framework. This text-to-text approach eliminates task-specific architectures and allows systematic comparison of pretraining objectives, model sizes, and training strategies. The paper systematically ablated design choices including denoising objectives, dataset sizes, and fine-tuning strategies, establishing best practices for transfer learning. T5 introduced the Colossal Clean Crawled Corpus (C4), a massive cleaned web dataset that became widely used for pretraining.
+
+\summaryheading{Follow-on Works}
+T5's systematic exploration informed subsequent model development. UL2 unified diverse pretraining objectives. Encoder-decoder architectures remain important for conditional generation tasks like translation and summarization, even as decoder-only models dominate general-purpose LLMs. The text-to-text framing influenced instruction-tuning approaches where models learn to follow diverse text-based instructions. T5's empirical rigor established the importance of systematic experimentation in LLM development.
+
+\summaryheading{Lasting Contributions}
+While decoder-only models like GPT now dominate, T5 established critical principles for LLM development including systematic evaluation of design choices, the importance of data quality and scale, and effective pretraining objectives. The C4 dataset remains widely used. The text-to-text framing influenced how modern LLMs handle diverse tasks through natural language instructions. T5's comprehensive exploration of transfer learning identified best practices that inform contemporary LLM training. The encoder-decoder architecture excels for specific applications like translation where bidirectional encoding benefits understanding. T5's empirical methodology—systematic ablation studies and rigorous evaluation—became standard practice in LLM research.
+
+\end{papersummary}

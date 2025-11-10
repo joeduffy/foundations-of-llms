@@ -1,0 +1,14 @@
+% Paper Summary: Direct Preference Optimization (Rafailov et al., 2023)
+
+\begin{papersummary}{2023}{Direct Preference Optimization: Your Language Model is Secretly a Reward Model}{Rafael Rafailov, Archit Sharma, Eric Mitchell, Stefano Ermon, Christopher D. Manning, Chelsea Finn}{DPO simplified RLHF by directly optimizing language models on preference data without explicitly training a separate reward model or using reinforcement learning, making alignment more stable and efficient.}
+
+\summaryheading{Key Ideas}
+DPO derives a closed-form solution for the optimal policy from preferences, eliminating the need for explicit reward modeling and RL training. The key insight is that the reward model and optimal policy can be derived from each other analytically, allowing direct optimization of the policy using a classification-like objective on preference pairs. This approach is simpler to implement, more stable to train, and computationally cheaper than standard RLHF while achieving comparable or better alignment. DPO reveals that RLHF's complexity stems from decomposing into separate reward modeling and RL phases when direct optimization is possible.
+
+\summaryheading{Follow-on Works}
+Modern alignment techniques increasingly explore DPO and its variants. The simplicity and stability advantages led to wide adoption in open-source alignment efforts. Extensions of DPO explore different preference formulations and loss functions. The direct optimization paradigm influenced how practitioners approach alignment, offering an alternative to complex RL pipelines.
+
+\summaryheading{Lasting Contributions}
+DPO demonstrated that RLHF's two-stage complexity isn't fundamental—alignment from preferences can be achieved more directly. The technique makes alignment accessible to practitioners without deep RL expertise. Modern alignment pipelines often use DPO for its simplicity and stability. The work revealed that many perceived requirements of alignment (separate reward models, complex RL algorithms) are implementation choices rather than necessities, enabling more efficient alignment methods that democratize the technology.
+
+\end{papersummary}

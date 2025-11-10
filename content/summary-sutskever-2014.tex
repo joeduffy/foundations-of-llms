@@ -1,0 +1,14 @@
+% Paper Summary: Sequence to Sequence Learning with Neural Networks (Sutskever et al., 2014)
+
+\begin{papersummary}{2014}{Sequence to Sequence Learning with Neural Networks}{Ilya Sutskever, Oriol Vinyals, Quoc V. Le}{This paper introduced the sequence-to-sequence framework that uses one LSTM to encode input sequences and another to decode outputs, establishing the encoder-decoder paradigm for neural machine translation and conditional generation.}
+
+\summaryheading{Key Ideas}
+The seq2seq model uses two LSTMs: an encoder that processes the input sequence into a fixed-size vector representation, and a decoder that generates the output sequence from this representation. This approach handles variable-length inputs and outputs, solving a fundamental limitation of feedforward networks. The key insight was that a single vector could capture the meaning of an entire sentence, enabling end-to-end differentiable translation. Reversing the input sequence improved performance by reducing the distance between corresponding words in encoder and decoder.
+
+\summaryheading{Follow-on Works}
+Attention mechanisms (\hyperref[paper:bahdanau-2014]{Bahdanau et al., 2014}) addressed the bottleneck of compressing everything into a single vector. Transformers replaced LSTMs with self-attention while retaining the encoder-decoder structure. Modern LLMs like GPT use decoder-only architectures, but T5 and BART use seq2seq Transformers. The conditional generation framework—encoding context then generating output—appears in all conditional LLM applications from translation to summarization.
+
+\summaryheading{Lasting Contributions}
+Seq2seq established that neural networks could perform complex structured prediction tasks end-to-end without hand-crafted features or alignment models. The encoder-decoder paradigm remains fundamental to conditional generation. While Transformers replaced LSTMs, the architectural pattern of encoding context then generating output persists in modern systems. Contemporary LLMs handle conditional generation (e.g., "translate this", "summarize that") using the same principle: encode the instruction and context, then generate the response. This work proved that neural networks could handle the variable-length, structured transformations that define language understanding.
+
+\end{papersummary}

@@ -1,0 +1,14 @@
+% Paper Summary: Batch Normalization: Accelerating Deep Network Training (Ioffe & Szegedy, 2015)
+
+\begin{papersummary}{2015}{Batch Normalization: Accelerating Deep Network Training by Reducing Internal Covariate Shift}{Sergey Ioffe, Christian Szegedy}{Batch normalization introduced a technique to normalize layer inputs during training, dramatically accelerating convergence and enabling training of much deeper networks with higher learning rates.}
+
+\summaryheading{Key Ideas}
+Batch normalization addresses internal covariate shift by normalizing each layer's inputs to have zero mean and unit variance within each mini-batch. This normalization is followed by learned scale and shift parameters, allowing the network to recover any representation if needed. The technique enables much higher learning rates, reduces sensitivity to initialization, and acts as a regularizer sometimes eliminating the need for dropout. By stabilizing the distribution of layer inputs, batch norm allows gradients to flow more effectively through deep networks.
+
+\summaryheading{Follow-on Works}
+Layer normalization modified batch norm for recurrent and small-batch settings by normalizing across features rather than batch examples. This became standard in Transformers. Group normalization and instance normalization addressed other scenarios. Weight normalization provided an alternative approach. Modern Transformers universally use layer normalization, which addresses the variable-length sequence challenges that make batch norm impractical for language models.
+
+\summaryheading{Lasting Contributions}
+While batch normalization itself is less common in modern LLMs, its descendant layer normalization is ubiquitous in Transformers. Every Transformer layer in GPT-4, Claude, and Gemini includes layer normalization. The insight that normalizing activations stabilizes training and enables deeper networks fundamentally changed neural architecture design. The principle that internal representations should be normalized to enable stable gradient flow remains central to training very deep networks. Modern LLM training would be impractical without normalization techniques descended from this work.
+
+\end{papersummary}

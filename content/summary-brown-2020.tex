@@ -1,0 +1,14 @@
+% Paper Summary: Language Models are Few-Shot Learners (Brown et al., 2020)
+
+\begin{papersummary}{2020}{Language Models are Few-Shot Learners}{Tom B. Brown, Benjamin Mann, Nick Ryder, Melanie Subbiah, Jared Kaplan, Prafulla Dhariwal, Arvind Neelakantan, Pranav Shyam, Girish Sastry, Amanda Askell, Sandhini Agarwal, Ariel Herbert-Voss, Gretchen Krueger, Tom Henighan, Rewon Child, Aditya Ramesh, Daniel M. Ziegler, Jeffrey Wu, Clemens Winter, Christopher Hesse, Mark Chen, Eric Sigler, Mateusz Litwin, Scott Gray, Benjamin Chess, Jack Clark, Christopher Berner, Sam McCandlish, Alec Radford, Ilya Sutskever, Dario Amodei}{GPT-3 demonstrated that scaling to 175B parameters enables in-context learning, where models learn new tasks from examples in the prompt without updating parameters, fundamentally changing how we interact with language models.}
+
+\summaryheading{Key Ideas}
+GPT-3 scaled the GPT architecture to 175B parameters across 96 layers, trained on hundreds of billions of tokens. The key discovery was in-context learning: providing a few examples of a task in the prompt allows the model to infer the pattern and perform the task on new inputs, without gradient updates. Performance scales with both model size and number of examples provided (zero-shot, one-shot, few-shot). This demonstrated that sufficiently large language models develop a form of meta-learning capability during pretraining. GPT-3's few-shot performance often matched or exceeded fine-tuned models, suggesting that scale could eliminate the need for task-specific training.
+
+\summaryheading{Follow-on Works}
+InstructGPT fine-tuned GPT-3 with RLHF to better follow instructions. ChatGPT and GPT-4 further refined instruction-following and safety. Few-shot prompting evolved into sophisticated prompt engineering techniques and chain-of-thought reasoning. PaLM, Chinchilla, and LLaMA explored alternative scaling strategies. The in-context learning paradigm GPT-3 established became the primary mode of interaction with LLMs, with users providing examples and instructions in natural language rather than fine-tuning models.
+
+\summaryheading{Lasting Contributions}
+GPT-3 established the paradigm that defines modern LLM interaction: users provide prompts with instructions and examples, and models respond without task-specific training. This in-context learning capability makes LLMs general-purpose tools rather than task-specific systems. Every major LLM—GPT-4, Claude, Gemini—builds on GPT-3's demonstration that scale enables flexible, prompt-driven task performance. The model proved that language modeling at massive scale captures enough structural knowledge about tasks and reasoning to perform them from description alone. GPT-3 transformed LLMs from research curiosities into practical tools, catalyzing the explosion of LLM applications and the current AI era.
+
+\end{papersummary}

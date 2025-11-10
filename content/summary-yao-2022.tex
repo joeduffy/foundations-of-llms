@@ -1,0 +1,14 @@
+% Paper Summary: ReAct (Yao et al., 2022)
+
+\begin{papersummary}{2022}{ReAct: Synergizing Reasoning and Acting in Language Models}{Shunyu Yao, Jeffrey Zhao, Dian Yu, Nan Du, Izhak Shafran, Karthik Narasimhan, Yuan Cao}{ReAct demonstrated that interleaving reasoning traces and task-specific actions in prompts enables language models to solve complex interactive tasks by combining internal reasoning with external tool use.}
+
+\summaryheading{Key Ideas}
+ReAct prompts language models to generate both reasoning traces ("thoughts") and actions in an interleaved manner. The model reasons about the current state, decides on actions, observes results, and continues reasoning based on observations. This creates a synergy where reasoning helps select better actions, while observations ground reasoning in reality. The framework enables LLMs to use external tools (search engines, calculators, APIs) while maintaining interpretability through explicit reasoning traces. ReAct substantially improves performance on tasks requiring information gathering or multi-step problem-solving.
+
+\summaryheading{Follow-on Works}
+Tool-augmented LLMs like Toolformer and function-calling in GPT-4 build on ReAct's framework. Agent frameworks enabling LLMs to use APIs and external resources proliferated. Modern LLM assistants routinely integrate search, code execution, and other tools following ReAct's patterns. The reasoning-acting paradigm influenced how practitioners design LLM applications requiring external interaction.
+
+\summaryheading{Lasting Contributions}
+ReAct established the paradigm of LLMs as agents that combine internal reasoning with external actions. Modern LLM applications routinely use this pattern—GPT-4 with browsing, Claude with tool use, and countless frameworks enable models to search, execute code, and interact with APIs while maintaining interpretable reasoning. The work demonstrated that LLMs can effectively coordinate multiple capabilities when guided by appropriate prompting structures. ReAct's influence on LLM agent design makes it foundational for applications requiring complex, multi-step task completion with external tool integration.
+
+\end{papersummary}

@@ -1,4 +1,42 @@
-\chapter*{Introduction to Part 4}
-\addcontentsline{toc}{chapter}{Introduction to Part 4}
+\chapter*{Introduction to Part IV}
+\addcontentsline{toc}{chapter}{Introduction to Part IV}
 
-Placeholder introduction for Part 4.
+The years 2017 to 2019 witnessed the emergence of the transformer architecture and the pretraining revolution that would define modern language modeling. Vaswani et al.'s "Attention Is All You Need" demonstrated that attention mechanisms alone, without recurrence or convolution, could achieve state-of-the-art performance across sequence modeling tasks. The transformer's parallel processing capabilities and ability to capture long-range dependencies through self-attention made it exceptionally scalable, establishing the architectural foundation for all subsequent large language models.
+
+Simultaneously, researchers discovered that language models pretrained on large text corpora through self-supervised objectives could learn powerful general-purpose representations. ELMo showed that contextualized embeddings from pretrained language models dramatically improved downstream task performance. BERT's masked language modeling demonstrated the effectiveness of bidirectional pretraining, while GPT-1 established that decoder-only models trained autoregressively could serve as general-purpose feature extractors. T5 unified diverse NLP tasks into a text-to-text framework, showing that a single architecture could handle any language task through appropriate input formatting.
+
+This period also saw the development of reinforcement learning techniques that would later prove essential for alignment. Proximal Policy Optimization (PPO) provided a stable, efficient algorithm for policy learning. Christiano et al. demonstrated that reinforcement learning from human feedback could train agents to perform complex tasks without explicit reward engineering, establishing the paradigm that would become central to aligning language models with human preferences.
+
+\section*{Key Advances}
+
+\textbf{Transformer Architecture (2017):} The transformer eliminated recurrence through self-attention, enabling unprecedented parallelization and the scaling that would define the next era of language modeling.
+
+\textbf{Reinforcement Learning Infrastructure (2017):} PPO and RLHF established the algorithms and training paradigms for learning from human preferences, foundational for later alignment work.
+
+\textbf{Contextualized Representations (2018):} ELMo demonstrated that pretrained language models could provide context-dependent word representations that dramatically improved downstream task performance.
+
+\textbf{Bidirectional Pretraining (2018):} BERT showed that masked language modeling could learn rich bidirectional representations, achieving state-of-the-art results across diverse NLP benchmarks.
+
+\textbf{Generative Pretraining (2018):} GPT-1 established that decoder-only autoregressive models could learn general-purpose representations through simple next-token prediction.
+
+\textbf{Unified Text-to-Text Framework (2019):} T5 demonstrated that all NLP tasks could be cast as text generation problems, simplifying model architecture and training.
+
+\section*{Papers in This Section}
+
+\begin{enumerate}
+\item \textbf{Vaswani et al. (2017)} -- Introduced the transformer architecture, replacing recurrence with self-attention for superior scalability.
+
+\item \textbf{Schulman et al. (2017)} -- Developed PPO, providing stable reinforcement learning that would later enable RLHF training.
+
+\item \textbf{Christiano et al. (2017)} -- Established reinforcement learning from human feedback, enabling learning complex objectives from preferences.
+
+\item \textbf{Peters et al. (2018)} -- ELMo showed that contextualized embeddings from pretrained models dramatically improve task performance.
+
+\item \textbf{Devlin et al. (2018)} -- BERT's bidirectional pretraining through masked language modeling achieved breakthrough results across NLP.
+
+\item \textbf{Radford et al. (2018)} -- GPT-1 demonstrated that decoder-only autoregressive pretraining yields powerful general-purpose representations.
+
+\item \textbf{Raffel et al. (2019)} -- T5 unified diverse NLP tasks into a single text-to-text framework with consistent architecture.
+\end{enumerate}
+
+The transformer architecture and pretraining paradigm established in these papers form the foundation of every modern large language model. The combination of scalable architectures, self-supervised pretraining, and reinforcement learning from human feedback defines the contemporary approach to building capable, aligned AI systems.

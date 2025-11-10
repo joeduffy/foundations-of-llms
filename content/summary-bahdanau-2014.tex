@@ -1,0 +1,14 @@
+% Paper Summary: Neural Machine Translation by Jointly Learning to Align and Translate (Bahdanau et al., 2014)
+
+\begin{papersummary}{2014}{Neural Machine Translation by Jointly Learning to Align and Translate}{Dzmitry Bahdanau, Kyunghyun Cho, Yoshua Bengio}{This paper introduced the attention mechanism, allowing neural machine translation models to selectively focus on relevant parts of the input sequence rather than compressing everything into a fixed-size vector.}
+
+\summaryheading{Key Ideas}
+Attention addresses the bottleneck in seq2seq models where the entire input must be compressed into a single fixed-size vector. Instead, the decoder dynamically computes a weighted sum over all encoder hidden states at each generation step, focusing on relevant input positions. This alignment is learned jointly with translation through a small feedforward network that scores the relevance of each encoder state to the current decoder state. The attention weights are interpretable, revealing which input words the model focuses on when generating each output word.
+
+\summaryheading{Follow-on Works}
+Self-attention generalized this to relate positions within a single sequence. The Transformer (\hyperref[paper:vaswani-2017]{Vaswani et al., 2017}) replaced recurrence entirely with stacked self-attention layers. Multi-head attention enables attending to different representation subspaces simultaneously. All modern LLMs from GPT to Claude build on the attention mechanism introduced here. The attention pattern analysis has become a primary tool for understanding what LLMs learn.
+
+\summaryheading{Lasting Contributions}
+Attention is the single most important architectural innovation enabling modern LLMs. Every contemporary language model uses attention as its core operation—GPT-4, Claude, and Gemini are fundamentally attention-based systems. The mechanism's ability to handle long-range dependencies without the constraints of recurrence or fixed-size representations proved essential for language understanding at scale. While this paper introduced attention for encoder-decoder translation, the principle of dynamically weighting relevant context became universal. Modern AI's remarkable capabilities stem largely from attention's ability to flexibly model relationships in data, making this work foundational to the current AI era.
+
+\end{papersummary}

@@ -1,0 +1,14 @@
+% Paper Summary: Improving Language Understanding by Generative Pre-Training (Radford et al., 2018)
+
+\begin{papersummary}{2018}{Improving Language Understanding by Generative Pre-Training}{Alec Radford, Karthik Narasimhan, Tim Salimans, Ilya Sutskever}{GPT-1 demonstrated that autoregressive pretraining on unlabeled text followed by discriminative fine-tuning achieves strong performance across NLP tasks, establishing the decoder-only architecture that would dominate modern LLMs.}
+
+\summaryheading{Key Ideas}
+GPT-1 uses a Transformer decoder trained autoregressively to predict the next token given previous tokens. This unsupervised pretraining on the BookCorpus dataset learns general language representations that transfer to diverse tasks. For downstream tasks, GPT-1 adds minimal task-specific parameters and fine-tunes the entire model. The decoder-only architecture proved that unidirectional models could achieve strong performance even on understanding tasks traditionally thought to require bidirectional context. The success validated that autoregressive language modeling is a powerful pretraining objective.
+
+\summaryheading{Follow-on Works}
+GPT-2 scaled to 1.5B parameters and demonstrated zero-shot capabilities without fine-tuning. GPT-3 further scaled to 175B parameters, showing that in-context learning emerges at sufficient scale. GPT-4, Claude, Gemini, and LLaMA all use decoder-only Transformer architectures descended from GPT-1. The autoregressive pretraining objective and decoder-only design became the standard for modern LLMs. The shift from fine-tuning (GPT-1) to prompting (GPT-3) built on this foundation.
+
+\summaryheading{Lasting Contributions}
+GPT-1 established the decoder-only Transformer architecture that dominates modern LLMs. Every contemporary frontier model from GPT-4 to Claude uses this design. The demonstration that autoregressive language modeling produces representations suitable for diverse tasks validated the approach that would scale to trillion-parameter models. While GPT-1 still used task-specific fine-tuning, it proved that generative pretraining transfers broadly, enabling the few-shot and zero-shot capabilities of its successors. The lineage from GPT-1 to GPT-4 is direct and unbroken—modern LLMs are scaled, refined versions of the architecture and training approach introduced here.
+
+\end{papersummary}

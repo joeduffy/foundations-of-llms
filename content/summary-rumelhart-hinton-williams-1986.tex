@@ -1,0 +1,14 @@
+% Paper Summary: Learning Representations by Back-Propagating Errors (Rumelhart, Hinton & Williams, 1986)
+
+\begin{papersummary}{1986}{Learning Representations by Back-Propagating Errors}{David E. Rumelhart, Geoffrey E. Hinton, Ronald J. Williams}{Backpropagation solved the credit assignment problem in multi-layer neural networks, enabling systematic training of deep architectures through efficient gradient computation.}
+
+\summaryheading{Key Ideas}
+Backpropagation solved the credit assignment problem in multi-layer networks by applying the chain rule of calculus to efficiently compute gradients of error with respect to weights in hidden layers. The key insight was propagating error signals backward through the network, enabling systematic training of deep architectures. This eliminated the need for hand-crafted features by allowing networks to learn hierarchical internal representations automatically. The algorithm's computational efficiency—linear in the number of weights—made training practical for networks with multiple hidden layers.
+
+\summaryheading{Follow-on Works}
+LSTMs (\hyperref[paper:hochreiter-schmidhuber-1997]{1997}) extended backpropagation through time for recurrent networks while addressing vanishing gradients. Modern optimizers including Adam, RMSprop, and AdaGrad refined gradient descent with adaptive learning rates and momentum. Residual connections in ResNets and layer normalization techniques used throughout Transformers directly address the gradient flow problems that backpropagation encounters in very deep networks. Automatic differentiation frameworks (TensorFlow, PyTorch, JAX) implement sophisticated versions handling arbitrary computational graphs.
+
+\summaryheading{Lasting Contributions}
+Backpropagation remains the universal training algorithm for all neural networks, including every large language model in production today. Every training step in GPT-4, Claude, Gemini, and LLaMA computes gradients via backpropagation through billions of parameters. While modern implementations employ optimizations like mixed-precision training, gradient checkpointing, and distributed computation, the core algorithm is unchanged from Rumelhart, Hinton, and Williams' formulation. The insight that neural networks can learn useful intermediate representations through error-driven weight updates established the foundation for the deep learning revolution and emergence of language understanding in contemporary frontier models.
+
+\end{papersummary}

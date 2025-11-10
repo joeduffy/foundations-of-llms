@@ -1,0 +1,14 @@
+% Paper Summary: Deep Residual Learning for Image Recognition (He et al., 2015)
+
+\begin{papersummary}{2015}{Deep Residual Learning for Image Recognition}{Kaiming He, Xiangyu Zhang, Shaoqing Ren, Jian Sun}{ResNets introduced skip connections that enable training of extremely deep networks by allowing gradients to flow directly through the network, winning ImageNet 2015 with 152-layer architectures.}
+
+\summaryheading{Key Ideas}
+Residual connections (skip connections) reformulate layers as learning residual functions relative to layer inputs rather than unreferenced functions. Instead of learning H(x), layers learn F(x) where H(x) = F(x) + x, with the identity mapping x added via a skip connection. This simple modification addresses vanishing gradients by providing a direct path for gradients to flow backward through the network. The paper showed that networks with 152 layers outperform shallower networks, contradicting the previous belief that very deep networks were harder to optimize.
+
+\summaryheading{Follow-on Works}
+ResNet architectures became standard in computer vision. Dense connections (DenseNet) extended the skip connection idea. Pre-activation and other variants improved performance. While Transformers don't use convolutions, they adopted residual connections universally—every Transformer layer includes a skip connection around attention and feedforward blocks. Modern very deep Transformers with 96+ layers depend critically on these connections for trainability.
+
+\summaryheading{Lasting Contributions}
+Residual connections are now universal in deep networks. Every Transformer layer in GPT-4, Claude, and Gemini includes skip connections inherited from ResNet. The insight that identity mappings enable gradient flow through very deep networks proved essential for scaling to the depths required for complex tasks. Without residual connections, training the 96-layer Transformers in GPT-3 or the even deeper models in GPT-4 would be impractical. ResNet demonstrated that architectural innovations enabling gradient flow are as important as the learning algorithms themselves, a lesson central to modern LLM design.
+
+\end{papersummary}

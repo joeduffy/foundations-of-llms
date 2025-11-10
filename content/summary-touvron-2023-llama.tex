@@ -1,0 +1,14 @@
+% Paper Summary: LLaMA (Touvron et al., 2023)
+
+\begin{papersummary}{2023}{LLaMA: Open and Efficient Foundation Language Models}{Hugo Touvron, Thibaut Lavril, Gautier Izacard, Xavier Martinet, Marie-Anne Lachaux, Timothée Lacroix, Baptiste Rozière, Naman Goyal, Eric Hambro, Faisal Azhar, Aurelien Rodriguez, Armand Joulin, Edouard Grave, Guillaume Lample}{LLaMA demonstrated that compute-optimal training of relatively smaller models on trillions of tokens produces performance competitive with much larger models, while being openly released, catalyzing open-source LLM development.}
+
+\summaryheading{Key Ideas}
+LLaMA applied Chinchilla scaling principles, training models from 7B to 65B parameters on 1-1.4T tokens, achieving performance competitive with GPT-3 (175B) and Chinchilla (70B). The models used only publicly available data, demonstrating that frontier performance doesn't require proprietary datasets. LLaMA employed standard Transformer architecture with modern improvements (RoPE, SwiGLU, RMSNorm) showing that careful training matters more than exotic architectures. The open release enabled research and applications previously limited to organizations with massive resources.
+
+\summaryheading{Follow-on Works}
+LLaMA-2 and Llama-3 continued the series with improved training and safety. Alpaca, Vicuna, and countless fine-tuned variants built on LLaMA. The model catalyzed open-source LLM development including Mistral, Falcon, and others. LLaMA's architecture and training approach influenced numerous subsequent models. The democratization of frontier-class models enabled widespread experimentation and deployment.
+
+\summaryheading{Lasting Contributions}
+LLaMA democratized access to frontier-class language models, enabling organizations and researchers without massive compute budgets to work with capable models. The open release catalyzed an explosion of research, fine-tuning, and applications. LLaMA demonstrated that the "secret sauce" of frontier models is primarily compute-optimal training on quality data rather than proprietary techniques. The model's influence on the open-source ecosystem makes it among the most impactful LLM releases, shifting power dynamics in AI development and enabling the diverse LLM applications we see today.
+
+\end{papersummary}

@@ -1,0 +1,14 @@
+% Paper Summary: Efficient Estimation of Word Representations in Vector Space (Mikolov et al., 2013)
+
+\begin{papersummary}{2013}{Efficient Estimation of Word Representations in Vector Space}{Tomas Mikolov, Kai Chen, Greg Corrado, Jeffrey Dean}{Word2vec revolutionized NLP by demonstrating how to efficiently learn high-quality word embeddings from massive corpora using simple shallow neural networks with skip-gram and CBOW architectures.}
+
+\summaryheading{Key Ideas}
+Word2vec introduced two efficient architectures for learning word embeddings: Continuous Bag-of-Words (CBOW), which predicts a word from its context, and Skip-gram, which predicts context words from a target word. The key innovation was simplifying the neural language model to remove hidden layers and use negative sampling or hierarchical softmax to make training computationally tractable on billion-word datasets. This produced embeddings that captured semantic relationships through vector arithmetic (e.g., "king" - "man" + "woman" ≈ "queen"), demonstrating that distributed representations could encode analogies and semantic similarity in their geometric structure.
+
+\summaryheading{Follow-on Works}
+GloVe combined word2vec's skip-gram approach with global corpus statistics. FastText extended word2vec to subword units, handling out-of-vocabulary words and morphology. ELMo and contextual embeddings built on these static representations by making them context-dependent. Modern tokenizers (BPE, SentencePiece) used in GPT and Claude apply similar principles at the subword level. The pretraining paradigm—learning representations from unlabeled text then fine-tuning for downstream tasks—emerged directly from word2vec's success and became the foundation for modern LLM training.
+
+\summaryheading{Lasting Contributions}
+Word2vec democratized NLP by making high-quality embeddings accessible to practitioners without massive computational resources. The insight that simple prediction tasks on large corpora produce powerful representations established the pretraining paradigm central to modern LLMs. While contemporary models use contextualized embeddings from Transformers rather than static word2vec vectors, the fundamental principle—that embeddings should be learned from data rather than hand-crafted—remains universal. The vector arithmetic properties demonstrated by word2vec revealed that neural networks naturally learn compositional semantic representations, foreshadowing the reasoning and analogy capabilities of modern language models. Every LLM from GPT-4 to Claude uses learned embeddings that inherit word2vec's insight about distributed representation and semantic geometry.
+
+\end{papersummary}

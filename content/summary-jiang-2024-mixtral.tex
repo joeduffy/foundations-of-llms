@@ -1,0 +1,14 @@
+% Paper Summary: Mixtral of Experts (Mistral AI, 2024)
+
+\begin{papersummary}{2024}{Mixtral of Experts}{Albert Q. Jiang, Alexandre Sablayrolles, Antoine Roux, Arthur Mensch, Blanche Savary, Chris Bamford, Devendra Singh Chaplot, Diego de las Casas, Emma Bou Hanna, Florian Bressand, Gianna Lengyel, Guillaume Bour, Guillaume Lample, Lélio Renard Lavaud, Lucile Saulnier, Marie-Anne Lachaux, Pierre Stock, Sandeep Subramanian, Sophia Yang, Szymon Antoniak, Teven Le Scao, Théophile Gervet, Thibaut Lavril, Thomas Wang, Timothée Lacroix, William El Sayed}{Mixtral demonstrated that high-quality open MoE models can match or exceed dense models with significantly lower inference costs, using 8 experts with 2 activated per token to achieve strong performance across diverse tasks.}
+
+\summaryheading{Key Ideas}
+Mixtral uses sparse MoE architecture with 47B total parameters but only 13B active per token, matching or exceeding LLaMA-70B performance with lower computational cost. The router learns to direct tokens to appropriate experts, enabling specialization while maintaining efficiency. The model demonstrated that MoE architectures are viable for open models, not just proprietary systems. Mixtral's strong performance across languages and tasks showed that sparse activation enables both capability and efficiency.
+
+\summaryheading{Follow-on Works}
+Mixtral influenced open-source MoE model development. The success validated sparse architectures for community models. Modern efficient deployment increasingly considers MoE as an alternative to dense models for improved cost-performance tradeoffs.
+
+\summaryheading{Lasting Contributions}
+Mixtral demonstrated that open sparse models can achieve frontier-class capabilities, democratizing access to efficient architectures. The model's success validated MoE for practical deployment, not just research. By achieving strong performance with lower inference costs, Mixtral showed that efficiency and capability need not be traded off. The work represents an important step in making powerful AI more economically accessible, influencing how the open-source community approaches model development.
+
+\end{papersummary}

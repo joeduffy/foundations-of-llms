@@ -24,9 +24,44 @@
 \usepackage{textcomp}
 \usepackage{xcolor}
 \usepackage{enumitem}
+\usepackage{mdframed}
 
 % Enable microtypography for better text quality
 \microtypesetup{protrusion=true,expansion=true}
+
+% Paper summary page environment (Springer style)
+\newenvironment{papersummary}[4]{% year, title, authors, one-sentence summary
+  \clearpage
+  \thispagestyle{empty}
+  \begin{center}
+    {\large\textbf{#1}}\\[0.5em]
+    {\LARGE\bfseries #2}\\[1em]
+    {\large\textit{#3}}
+  \end{center}
+  \vspace{1em}
+  \noindent #4
+  \vspace{1em}
+  \begin{mdframed}[
+    linewidth=0.5pt,
+    linecolor=black!30,
+    backgroundcolor=black!3,
+    innertopmargin=6pt,
+    innerbottommargin=6pt,
+    innerrightmargin=10pt,
+    innerleftmargin=10pt,
+    skipabove=6pt
+  ]
+}{%
+  \end{mdframed}
+  \vfill
+}
+
+\newcommand{\summaryheading}[1]{%
+  \vspace{0.3em}%
+  \noindent\textbf{\textsc{#1}}%
+  \vspace{0.2em}%
+  \par\noindent%
+}
 
 % Professional page geometry for academic book
 \geometry{
@@ -93,12 +128,16 @@
 \renewcommand{\cftpartfont}{\Large\bfseries}
 \renewcommand{\cftchapfont}{\normalsize\bfseries}
 \renewcommand{\cftsecfont}{\normalsize}
+\renewcommand{\cftsubsecfont}{\small}
 \renewcommand{\cftpartpagefont}{\Large\bfseries}
 \renewcommand{\cftchappagefont}{\normalsize\bfseries}
 \renewcommand{\cftsecpagefont}{\normalsize}
+\renewcommand{\cftsubsecpagefont}{\small}
 \setlength{\cftbeforepartskip}{12pt}
 \setlength{\cftbeforechapskip}{6pt}
 \setlength{\cftbeforesecskip}{3pt}
+\setlength{\cftbeforesubsecskip}{2pt}
+\setlength{\cftsubsecindent}{1.5em}
 
 % List formatting
 \setlist[enumerate]{itemsep=3pt,parsep=0pt,topsep=6pt}
@@ -251,12 +290,12 @@
 \part{Sequence Models \& Word Embeddings\\1990--2013}
 \input{content/part2-chapter}
 
-% Part III: Deep Learning & Attention (2012–2016)
-\part{Deep Learning \& Attention\\2012--2016}
+% Part III: Deep Learning & Attention (2012–2015)
+\part{Deep Learning \& Attention\\2012--2015}
 \input{content/part3-chapter-new}
 
-% Part IV: Transformers, RLHF & Pretraining (2017–2019)
-\part{Transformers, RLHF \& Pretraining\\2017--2019}
+% Part IV: The Transformer Era and Pretraining Revolution (2017–2019)
+\part{The Transformer Era and Pretraining Revolution\\2017--2019}
 \input{content/part4-chapter-new}
 
 % Part V: Emergence and Scale (2019–2020)
@@ -267,15 +306,15 @@
 \part{Efficiency, Alignment, and Reasoning\\2021--2022}
 \input{content/part6-chapter-new}
 
-% Part VII: Open Models & Advanced Alignment (2023–2024)
-\part{Open Models \& Advanced Alignment\\2023--2024}
+% Part VII: Open LLMs and Modern Frontier (2023–2024)
+\part{Open LLMs and Modern Frontier\\2023--2024}
 \input{content/part7-chapter-new}
 
 % Appendices
 \appendix
 
-% Appendix A: Emerging Results (2024–2025)
-\chapter{Emerging Results (2024--2025)}
+% Appendix A: Emerging Results (2023–2024)
+\chapter{Emerging Results (2023--2024)}
 \input{content/appendix-a-chapter}
 
 % Appendix B: Foundations of Agents (2022–2025)

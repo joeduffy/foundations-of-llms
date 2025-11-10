@@ -1,0 +1,14 @@
+% Paper Summary: DeepSeek-V2 (Zhu et al., 2024)
+
+\begin{papersummary}{2024}{DeepSeek-V2: A Strong, Economical, and Efficient Mixture-of-Experts Language Model}{Aixin Zhu, Damai Dai, Hanwei Xu, Junliang Guo, Liyue Zhang, Mufan Yuan, Xingkai Yu, Xuancheng Ren, Yuda Feng, Yuhan Chen, Zhiyu Qian, Chong Ruan, Fuli Luo, Jifan Yu, Junjie He, Keming Lu, Kexin Yang, Lei Su, Leyi Xia, Ming Zhang, Minlie Huang, Peng Liu, Shi Yu, Shuai Lu, Sirui Zheng, Tao Yu, Wenfeng Liang, XiaoFeng Zhang, Xiaokang Chen, Yang Liu, Yi Wei, Yi Zheng, Yujia Wu, Yunhuan Gao, Yuting Yan, Yuyang Zhou, Zeyu Mi, Zhenda Xie, Zhengyan Zhang, Zhihong Shao, Zhongxian Liu, Zhukaitong Meng, Ziang Liu, et al.}{DeepSeek-V2 introduced Multi-head Latent Attention (MLA) and DeepSeekMoE architecture for economical training and deployment of MoE models, achieving strong performance with lower costs than comparable dense and sparse models.}
+
+\summaryheading{Key Ideas}
+DeepSeek-V2 combines Multi-head Latent Attention, which reduces KV cache size significantly, with an improved MoE architecture featuring finer-grained experts and auxiliary-loss-free load balancing. MLA compresses the key-value cache while maintaining attention expressivity, addressing the memory bottleneck in long-context serving. The DeepSeekMoE architecture enables efficient training of 236B total parameter models with 21B activated per token. The innovations target both training economics and deployment efficiency.
+
+\summaryheading{Follow-on Works}
+Modern MoE architectures explore similar efficiency optimizations. The focus on inference economics influences contemporary model design. Techniques for reducing KV cache size enable practical long-context deployment.
+
+\summaryheading{Lasting Contributions}
+DeepSeek-V2 demonstrated that thoughtful architectural innovations can substantially reduce both training and serving costs while maintaining quality. The emphasis on economic efficiency alongside performance represents an important direction for sustainable AI development. MLA's approach to reducing memory requirements enables more practical long-context deployments. The work shows that cost-performance tradeoffs can be improved through architectural innovation rather than just scaling, influencing how organizations approach model development under resource constraints.
+
+\end{papersummary}

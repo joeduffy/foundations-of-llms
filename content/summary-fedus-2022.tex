@@ -1,0 +1,14 @@
+% Paper Summary: Switch Transformers (Fedus et al., 2022)
+
+\begin{papersummary}{2022}{Switch Transformers: Scaling to Trillion Parameter Models with Simple and Efficient Sparsity}{William Fedus, Barret Zoph, Noam Shazeer}{Switch Transformers demonstrated that sparse mixture-of-experts models could scale to trillions of parameters by routing each token to a single expert, dramatically increasing model capacity without proportional compute increases.}
+
+\summaryheading{Key Ideas}
+Switch Transformers simplify mixture-of-experts by routing each token to exactly one expert rather than multiple experts. This sparse activation pattern allows models with trillions of parameters where only a small fraction activates for any given input. The simplified routing improves training stability and computational efficiency compared to earlier MoE architectures. By increasing capacity without proportionally increasing compute, Switch Transformers achieve better performance per FLOP than dense models. The work demonstrated that sparse models could be trained stable at unprecedented scales.
+
+\summaryheading{Follow-on Works}
+Mixtral and other modern MoE models build on Switch Transformers' sparse routing approach. GPT-4 reportedly uses MoE architectures. The sparse activation pattern enables massive models that remain computationally tractable. Modern architectures increasingly explore sparsity as a scaling dimension alongside traditional parameter count and training compute.
+
+\summaryheading{Lasting Contributions}
+Switch Transformers established sparse mixture-of-experts as a viable path to extreme scale. The technique enables models with trillions of parameters while keeping inference costs manageable. Modern frontier models like GPT-4 likely employ MoE architectures descended from this work. The insight that computational efficiency can be improved through sparse activation rather than dense computation influences contemporary architecture design. Switch Transformers demonstrated that sparsity is a fundamental scaling dimension, complementing the scaling laws for dense models.
+
+\end{papersummary}

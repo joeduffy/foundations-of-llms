@@ -1,0 +1,14 @@
+% Paper Summary: ImageNet Classification with Deep Convolutional Neural Networks (Krizhevsky, Sutskever & Hinton, 2012)
+
+\begin{papersummary}{2012}{ImageNet Classification with Deep Convolutional Neural Networks}{Alex Krizhevsky, Ilya Sutskever, Geoffrey E. Hinton}{AlexNet demonstrated that deep convolutional neural networks trained on GPUs could dramatically outperform traditional computer vision methods, catalyzing the deep learning revolution.}
+
+\summaryheading{Key Ideas}
+AlexNet achieved a breakthrough 15.3\% top-5 error rate on ImageNet, surpassing traditional methods by over 10 percentage points through deep CNNs trained on GPUs. The architecture introduced key innovations including ReLU activations for faster training, dropout for regularization, overlapping pooling, and data augmentation techniques. Training on dual GPUs enabled scaling to networks with 60 million parameters across eight learned layers. This work demonstrated that with sufficient data, compute, and architectural innovations, neural networks could exceed human-engineered feature extractors on complex visual tasks.
+
+\summaryheading{Follow-on Works}
+VGG (\hyperref[paper:simonyan-zisserman-2014]{2014}) simplified AlexNet's architecture with uniform 3x3 convolutions. ResNets (\hyperref[paper:he-2015-resnet]{2015}) introduced skip connections enabling networks with hundreds of layers. The ReLU activation and dropout regularization became universal. While these innovations emerged in computer vision, they transferred directly to NLP: ReLU activations, dropout, and GPU training are standard in Transformers. The scaling insight—that larger models trained on more data with more compute yield better performance—directly foreshadowed the scaling laws that govern modern LLM development.
+
+\summaryheading{Lasting Contributions}
+AlexNet proved that the scaling trinity of data, compute, and model size could overcome previous limitations of neural networks. This catalyzed massive investment in GPU infrastructure and large-scale datasets that enabled modern AI. The architectural innovations (ReLU, dropout) remain standard in contemporary systems. Most importantly, AlexNet established the empirical paradigm that dominates modern AI: scale neural networks, increase compute, expand datasets, and performance improves. This principle, demonstrated first in vision, governs the development of GPT-4, Claude, and Gemini. The deep learning revolution that produced modern LLMs began with AlexNet's ImageNet victory.
+
+\end{papersummary}

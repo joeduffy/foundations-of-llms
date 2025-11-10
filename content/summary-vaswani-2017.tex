@@ -1,0 +1,14 @@
+% Paper Summary: Attention Is All You Need (Vaswani et al., 2017)
+
+\begin{papersummary}{2017}{Attention Is All You Need}{Ashish Vaswani, Noam Shazeer, Niki Parmar, Jakob Uszkoreit, Llion Jones, Aidan N. Gomez, Lukasz Kaiser, Illia Polosukhin}{The Transformer architecture eliminated recurrence entirely, relying solely on self-attention mechanisms to achieve superior performance and parallelizability in sequence modeling.}
+
+\summaryheading{Key Ideas}
+The Transformer eliminates recurrence entirely, relying solely on self-attention mechanisms to model dependencies in sequences. Multi-head attention enables the model to jointly attend to information from different representation subspaces at different positions. Positional encodings inject sequence order information without recurrence, while feed-forward networks process each position independently. This architecture achieves superior parallelization during training compared to recurrent models, enabling efficient scaling to large datasets and model sizes.
+
+\summaryheading{Follow-on Works}
+BERT (\hyperref[paper:devlin-2018]{Devlin et al., 2018}) adapted the Transformer for bidirectional pretraining through masked language modeling. GPT-1 (\hyperref[paper:radford-2018]{Radford et al., 2018}) demonstrated autoregressive pretraining with Transformers. Subsequent work introduced architectural variants including sparse attention (Performers, Switch Transformers), relative position encodings (RoFormer, ALiBi), and efficient attention mechanisms (FlashAttention). Modern large language models from GPT-3 through Claude and Gemini all derive from this foundational architecture.
+
+\summaryheading{Lasting Contributions}
+The Transformer has become the universal architecture for modern language models. Every frontier model—GPT-4, Claude 3, Gemini, LLaMA—employs Transformer blocks as their core computational primitive. The self-attention mechanism enables modeling long-range dependencies without the vanishing gradient problems of recurrent architectures. Multi-head attention's ability to learn diverse contextual relationships proves essential for in-context learning and few-shot capabilities. The architecture's parallelizability enabled the scaling to trillion-parameter models that define current AI capabilities.
+
+\end{papersummary}

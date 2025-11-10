@@ -1,0 +1,14 @@
+% Paper Summary: Neural Networks and Physical Systems with Emergent Collective Computational Abilities (Hopfield, 1982)
+
+\begin{papersummary}{1982}{Neural Networks and Physical Systems with Emergent Collective Computational Abilities}{John J. Hopfield}{Hopfield networks demonstrated how recurrent neural connections enable associative memory and pattern completion through energy minimization dynamics.}
+
+\summaryheading{Key Ideas}
+Hopfield networks demonstrated how recurrent connections enable associative memory and pattern completion through energy minimization. The network evolves toward stable states (attractors) in an energy landscape defined by connection weights, with each stable state representing a stored memory pattern. This framework connected neural computation to statistical mechanics and thermodynamics, showing that network dynamics naturally implement optimization through energy descent. Symmetric weight constraints and asynchronous update rules guarantee convergence to fixed points.
+
+\summaryheading{Follow-on Works}
+Boltzmann Machines extended Hopfield's energy-based framework with stochastic dynamics and hidden units, enabling probabilistic inference. Modern energy-based models and contrastive learning methods trace conceptual lineage to Hopfield's framework. Recurrent architectures including LSTMs inherited the concept of maintaining and updating internal state through recurrent connections. Recent work (2020) proved that Transformer attention mechanisms implement a form of continuous Hopfield networks, suggesting these ideas have been implicitly rediscovered in current architectures.
+
+\summaryheading{Lasting Contributions}
+While explicit Hopfield networks rarely appear in modern production systems, their conceptual contributions pervade contemporary architectures. The energy-based perspective influenced contrastive learning objectives used in pretraining. The notion that networks naturally settle into stable states through recurrent dynamics informed the design of recurrent and attention-based architectures. Recent mathematical analysis reveals that Transformer attention implements continuous Hopfield memory, demonstrating that these ideas remain central to understanding how complex language understanding emerges from neural networks.
+
+\end{papersummary}

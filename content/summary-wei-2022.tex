@@ -1,0 +1,14 @@
+% Paper Summary: Chain-of-Thought Prompting (Wei et al., 2022)
+
+\begin{papersummary}{2022}{Chain-of-Thought Prompting Elicits Reasoning in Large Language Models}{Jason Wei, Xuezhi Wang, Dale Schuurmans, Maarten Bosma, Brian Ichter, Fei Xia, Ed Chi, Quoc Le, Denny Zhou}{This paper demonstrated that prompting large language models to generate step-by-step reasoning dramatically improves performance on complex reasoning tasks, establishing chain-of-thought as a core technique for eliciting LLM capabilities.}
+
+\summaryheading{Key Ideas}
+Chain-of-thought prompting provides examples showing intermediate reasoning steps rather than just input-output pairs. This simple modification enables models to solve complex problems requiring multi-step reasoning. The technique works through few-shot learning—providing examples of reasoning chains in the prompt enables the model to generate similar reasoning for new problems. Performance improvements are particularly dramatic for arithmetic, commonsense, and symbolic reasoning. The success demonstrates that reasoning capabilities exist latently in large models and can be elicited through appropriate prompting.
+
+\summaryheading{Follow-on Works}
+Zero-shot chain-of-thought using "Let's think step by step" enables reasoning without examples. Self-consistency samples multiple reasoning paths and selects the most consistent answer. Tree-of-thought and graph-of-thought explore more complex reasoning structures. Modern LLMs are often prompted to show reasoning steps to improve output quality. The technique influenced how users interact with and deploy LLMs.
+
+\summaryheading{Lasting Contributions}
+Chain-of-thought prompting revealed that explicit reasoning dramatically improves LLM performance on complex tasks. The technique is now standard practice for applications requiring multi-step reasoning, mathematical problem-solving, or logical inference. Modern LLM interfaces often encourage or default to showing reasoning steps. The work demonstrated that prompting strategies can unlock capabilities without model changes, influencing how practitioners approach LLM deployment. Chain-of-thought established that intermediate steps matter, foreshadowing modern emphasis on reasoning and planning in AI systems.
+
+\end{papersummary}

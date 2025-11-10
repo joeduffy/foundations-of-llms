@@ -1,0 +1,14 @@
+% Paper Summary: Ring Attention (Liu et al., 2023)
+
+\begin{papersummary}{2023}{Ring Attention with Blockwise Transformers for Near-Infinite Context}{Hao Liu, Matei Zaharia, Pieter Abbeel}{Ring Attention introduced a distributed attention mechanism that enables training and inference on sequences of millions of tokens by partitioning attention computation across devices in a ring topology, overcoming single-device memory limitations.}
+
+\summaryheading{Key Ideas}
+Ring Attention distributes sequence data across multiple devices in a ring topology and computes attention blockwise, passing keys and values around the ring. This enables handling sequences far longer than fit on a single device while maintaining exact attention. The approach achieves linear scaling with number of devices and enables training on near-infinite contexts limited only by the number of available devices. The blockwise computation maintains training efficiency while enabling unprecedented context lengths.
+
+\summaryheading{Follow-on Works}
+Extended context techniques increasingly explore distributed approaches. Modern long-context models with 100K+ tokens benefit from efficient distributed attention mechanisms. The principle of overcoming memory limitations through distribution influenced architecture design for extreme-length sequences.
+
+\summaryheading{Lasting Contributions}
+Ring Attention demonstrated that context length need not be limited by single-device memory, enabling sequences of millions of tokens. While not universally adopted, the technique influences how researchers approach ultra-long context problems. The work showed that distributed systems principles can address fundamental ML architectural limitations. As applications demand increasingly long contexts, Ring Attention's approach to distributed attention processing offers a path forward beyond single-device constraints.
+
+\end{papersummary}

@@ -1,0 +1,14 @@
+% Paper Summary: Rethinking Attention with Performers (Choromanski et al., 2020)
+
+\begin{papersummary}{2020}{Rethinking Attention with Performers}{Krzysztof Choromanski, Valerii Likhosherstov, David Dohan, Xingyou Song, Andreea Gane, Tamas Sarlos, Peter Hawkins, Jared Davis, Afroz Mohiuddin, Lukasz Kaiser, David Belanger, Lucy Colwell, Adrian Weller}{Performers introduced efficient attention mechanisms with linear computational complexity using random feature approximations, addressing the quadratic scaling bottleneck of standard Transformer attention.}
+
+\summaryheading{Key Ideas}
+Standard attention has O(L²) complexity in sequence length L, limiting Transformers to relatively short contexts. Performers use the FAVOR+ algorithm (Fast Attention Via positive Orthogonal Random features) to approximate softmax attention with O(L) complexity. The key insight is decomposing the attention matrix using random feature maps that approximate the kernel function, enabling efficient computation without materializing the full attention matrix. This maintains quality close to standard attention while dramatically reducing memory and computational requirements for long sequences.
+
+\summaryheading{Follow-on Works}
+Linear attention mechanisms including Linformer, Synthesizer, and others explored efficient alternatives to quadratic attention. FlashAttention achieved quadratic attention efficiency through algorithmic improvements rather than approximation. Modern long-context models like Claude use various techniques to handle extended contexts efficiently. Alternative architectures like Mamba and RWKV revisit linear-time sequential processing. The search for efficient attention remains active as context windows expand.
+
+\summaryheading{Lasting Contributions}
+While Performers themselves aren't widely deployed in production LLMs, they catalyzed research into efficient attention mechanisms. The insight that attention complexity is a fundamental scaling bottleneck motivated algorithmic innovations like FlashAttention that enable the 100K+ token contexts in modern models. Performers demonstrated that mathematical approximations could dramatically improve efficiency while maintaining quality, influencing how the field approaches computational bottlenecks. The quest for efficient long-context processing that Performers helped catalyze continues to shape LLM architecture research and enables the extended contexts that define contemporary frontier models.
+
+\end{papersummary}

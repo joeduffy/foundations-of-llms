@@ -1,0 +1,14 @@
+% Paper Summary: Infini-attention (Munkhdalai et al., 2024)
+
+\begin{papersummary}{2024}{Leave No Context Behind: Efficient Infinite Context Transformers with Infini-attention}{Tsendsuren Munkhdalai, Manaal Faruqui, Siddharth Gopal}{Infini-attention introduced compressive memory to Transformers, enabling processing of infinitely long contexts by storing compressed representations of past tokens while maintaining bounded memory usage, combining local attention with global compressed memory.}
+
+\summaryheading{Key Ideas}
+Infini-attention augments standard attention with compressive memory that stores compressed representations of all past context. The approach combines local masked attention over recent tokens with retrieval from compressed global memory. As new tokens arrive, their representations are compressed into the global memory, enabling unbounded context with constant memory. The technique provides a middle ground between fixed-context Transformers and explicit memory architectures, maintaining Transformer benefits while enabling very long contexts.
+
+\summaryheading{Follow-on Works}
+Techniques for extreme-length contexts increasingly explore memory-augmented approaches. The compression-based paradigm offers an alternative to expensive full attention over long sequences. Modern research into context extension explores combinations of local attention and compressed global memory.
+
+\summaryheading{Lasting Contributions}
+Infini-attention demonstrated that compressive memory can enable arbitrarily long contexts with bounded compute and memory. While not yet widely deployed, the technique represents an important approach to the long-context problem. As applications demand processing of entire books, codebases, or conversation histories, memory-augmented architectures like Infini-attention offer viable paths forward. The work bridges Transformers and memory-augmented neural networks, potentially influencing future architecture design.
+
+\end{papersummary}

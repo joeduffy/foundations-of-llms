@@ -1,33 +1,6 @@
-The period from 1990 to 2013 marked the emergence of sequence modeling and distributed word representations that would prove essential for large language models. This era witnessed a fundamental shift from rule-based natural language processing toward data-driven approaches that could capture the statistical regularities of human language through neural networks learning patterns from large corpora.
+% Part II: Sequence Models & Word Embeddings (1990-2013)
 
-The foundation for modern sequence modeling was established by \hyperref[paper:hochreiter-schmidhuber-1997]{Hochreiter and Schmidhuber's Long Short-Term Memory (1997)}, which solved the vanishing gradient problem that had limited recurrent networks to modeling only short-term dependencies. LSTM's gating mechanisms enabled the modeling of long-term dependencies essential for language understanding by selectively preserving information across extended sequences.
+\input{content/part2-intro}
 
-Building on this capability, \hyperref[paper:bengio-2003]{Bengio et al. (2003)} demonstrated that neural networks could learn distributed representations of words while modeling language probability distributions. Their neural probabilistic language model established the foundation for modern language modeling by showing that statistical patterns in language could be captured through continuous vector representations rather than discrete symbolic approaches.
-
-The revolution in word representation culminated with \hyperref[paper:mikolov-2013]{Mikolov et al.'s word embeddings (2013)}, which showed that high-quality word representations could be learned efficiently from large corpora. Their Word2Vec algorithms demonstrated that semantic relationships could be captured through vector arithmetic, fundamentally changing how machines represent and process language.
-
-Finally, \hyperref[paper:graves-2013]{Graves (2013)} demonstrated that recurrent networks could generate coherent sequences, including realistic handwriting and text. This work pointed toward the generative capabilities that would become central to modern language models, showing that neural networks could produce novel, coherent outputs rather than merely classifying existing inputs.
-
-\newpage
-
-% Papers follow directly after the introduction
-
-\addcontentsline{toc}{subsection}{[1997] Long Short-Term Memory (Hochreiter \& Schmidhuber)}
-\phantomsection
-\label{paper:hochreiter-schmidhuber-1997}
-\includepdf[pages=-,pagecommand={\thispagestyle{empty}}]{pdfs/hochreiter-schmidhuber-1997.pdf}
-
-\addcontentsline{toc}{subsection}{[2003] A Neural Probabilistic Language Model (Bengio et al.)}
-\phantomsection
-\label{paper:bengio-2003}
-\includepdf[pages=-,pagecommand={\thispagestyle{empty}}]{pdfs/bengio-2003.pdf}
-
-\addcontentsline{toc}{subsection}{[2013] Efficient Estimation of Word Representations in Vector Space (Mikolov et al.)}
-\phantomsection
-\label{paper:mikolov-2013}
-\includepdf[pages=-,pagecommand={\thispagestyle{empty}}]{pdfs/mikolov-2013.pdf}
-
-\addcontentsline{toc}{subsection}{[2013] Generating Sequences With Recurrent Neural Networks (Graves)}
-\phantomsection
-\label{paper:graves-2013}
-\includepdf[pages=-,pagecommand={\thispagestyle{empty}}]{pdfs/graves-2013.pdf}
+% Papers follow
+\input{content/part2-papers}

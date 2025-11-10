@@ -1,0 +1,14 @@
+% Paper Summary: Self-Rewarding Language Models (Yuan et al., 2024)
+
+\begin{papersummary}{2024}{Self-Rewarding Language Models}{Weizhe Yuan, Richard Yuanzhe Pang, Kyunghyun Cho, Sainbayar Sukhbaatar, Jing Xu, Jason Weston}{Self-rewarding language models enable models to generate their own reward labels during training, creating a self-improvement loop where models simultaneously serve as policy and reward model, potentially enabling continuous improvement beyond initial human feedback.}
+
+\summaryheading{Key Ideas}
+The approach trains models to evaluate their own outputs using the LLM-as-a-Judge paradigm, then uses these self-generated preferences for further training. This creates an iterative improvement cycle: the model generates responses, evaluates them, and trains on its own evaluations. Each iteration potentially improves both generation and evaluation capabilities. The technique addresses the bottleneck of fixed reward models and enables models to develop superhuman capabilities by generating training signal beyond human-provided feedback.
+
+\summaryheading{Follow-on Works}
+The self-improving paradigm influences research into autonomous capability development. Modern alignment research increasingly explores models that participate in their own training. The approach connects to broader questions about AI systems that can improve themselves and the safety implications thereof.
+
+\summaryheading{Lasting Contributions}
+Self-rewarding models demonstrated a path toward continuous self-improvement, potentially enabling capabilities beyond what human feedback alone permits. The technique addresses the challenge of aligning superhuman AI by enabling models to develop evaluation criteria that exceed human judgment. While still emerging, the self-improvement paradigm represents a significant shift in how we think about training advanced AI systems. The approach suggests that the frontier of AI capabilities may ultimately be limited by models' ability to evaluate themselves rather than by human feedback availability.
+
+\end{papersummary}

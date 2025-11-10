@@ -1,0 +1,14 @@
+% Paper Summary: The Perceptron (Rosenblatt, 1958)
+
+\begin{papersummary}{1958}{The Perceptron: A Probabilistic Model for Information Storage and Organization in the Brain}{Frank Rosenblatt}{The Perceptron introduced the first learning algorithm for neural networks, demonstrating that machines could learn to classify patterns through error-driven weight updates.}
+
+\summaryheading{Key Ideas}
+Rosenblatt proposed a three-layer architecture (sensory, association, and response units) where connection weights adapt based on classification errors. The perceptron learning rule adjusts weights proportionally to misclassification errors, with convergence guarantees for linearly separable problems. This work transformed neural networks from theoretical mathematical constructs into practical learning systems that could be implemented on hardware and trained on real data.
+
+\summaryheading{Follow-on Works}
+Minsky and Papert (1969) rigorously characterized perceptron limitations, motivating research into multi-layer networks. Backpropagation (\hyperref[paper:rumelhart-hinton-williams-1986]{1986}) generalized perceptron learning to multi-layer architectures with nonlinear activations, solving the credit assignment problem. The perceptron learning rule influenced development of stochastic gradient descent, which remains the foundation of modern deep learning optimization.
+
+\summaryheading{Lasting Contributions}
+The perceptron established supervised learning from labeled examples as the dominant paradigm in machine learning. Its error-driven weight update mechanism directly evolved into the gradient descent optimization used to train all modern neural networks. While contemporary architectures far exceed the perceptron's single-layer structure, the fundamental principle—adjusting parameters iteratively to minimize prediction errors—remains unchanged. Every training step in GPT-4, Claude, or Gemini implements a sophisticated descendant of Rosenblatt's original learning rule.
+
+\end{papersummary}

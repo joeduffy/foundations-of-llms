@@ -1,0 +1,14 @@
+% Paper Summary: Improving Language Models by Retrieving from Trillions of Tokens (Borgeaud et al., 2021)
+
+\begin{papersummary}{2021}{Improving Language Models by Retrieving from Trillions of Tokens}{Sebastian Borgeaud, Arthur Mensch, Jordan Hoffmann, Trevor Cai, Eliza Rutherford, Katie Millican, George van den Driessche, Jean-Baptiste Lespiau, Bogdan Damoc, Aidan Clark, Diego de Las Casas, Aurelia Guy, Jacob Menick, Roman Ring, Tom Hennigan, Saffron Huang, Loren Maggiore, Chris Jones, Albin Cassirer, Andy Brock, Michela Paganini, Geoffrey Irving, Oriol Vinyals, Simon Osindero, Karen Simonyan, Jack W. Rae, Erich Elsen, Laurent Sifre}{RETRO scaled retrieval-augmented language modeling to trillions of tokens, demonstrating that augmenting models with retrieval from massive databases significantly improves performance while reducing model size requirements.}
+
+\summaryheading{Key Ideas}
+RETRO retrieves chunks from a database of trillions of tokens and conditions on them during generation through cross-attention. The model interleaves standard Transformer layers with retrieval-augmented layers that attend to retrieved neighbors. This architecture enables the model to access factual knowledge from the retrieval database without memorizing it in parameters. RETRO achieves better performance than much larger models without retrieval, demonstrating that retrieval can substitute for parameters. The retrieval database can be updated without retraining the model, addressing the knowledge staleness problem.
+
+\summaryheading{Follow-on Works}
+Modern LLMs increasingly integrate retrieval capabilities through various mechanisms. Vector databases and semantic search systems commonly augment LLM applications. The principle that external memory can substitute for parameters influences architecture design. Production systems often combine parametric models with non-parametric retrieval for improved factuality and updatability.
+
+\summaryheading{Lasting Contributions}
+RETRO demonstrated that retrieval-augmented models can match larger pure-parametric models with fewer parameters, addressing both efficiency and knowledge currency concerns. The work validated the principle that LLMs benefit from separating parametric reasoning from non-parametric knowledge storage. Modern RAG systems build on RETRO's architecture and insights. The ability to update knowledge through database updates rather than retraining addresses a fundamental limitation of pure parametric models, making retrieval augmentation increasingly important for production deployments.
+
+\end{papersummary}

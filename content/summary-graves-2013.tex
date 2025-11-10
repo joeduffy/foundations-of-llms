@@ -1,0 +1,14 @@
+% Paper Summary: Generating Sequences with Recurrent Neural Networks (Graves, 2013)
+
+\begin{papersummary}{2013}{Generating Sequences with Recurrent Neural Networks}{Alex Graves}{This paper demonstrated that LSTM networks could generate highly realistic sequential data including handwriting and text, presaging the generative capabilities that would define modern large language models.}
+
+\summaryheading{Key Ideas}
+Graves showed that LSTM networks could generate coherent, long-range sequential outputs by sampling from learned probability distributions at each timestep. The paper introduced techniques for training generative RNNs including using mixture density networks to model continuous outputs and prediction networks for handwriting synthesis. The key insight was that by modeling the conditional probability of each element given previous elements, networks could generate realistic sequences that exhibited long-range structure and coherence. This work demonstrated that neural networks could be genuinely creative, generating novel outputs that matched the statistical properties of training data without direct copying.
+
+\summaryheading{Follow-on Works}
+Sequence-to-sequence models (\hyperref[paper:sutskever-2014]{Sutskever et al., 2014}) extended generation to conditional settings like translation. Attention mechanisms improved generation quality by allowing models to focus on relevant context. GPT-1 (\hyperref[paper:radford-2018]{2018}) applied similar autoregressive generation principles with Transformers rather than RNNs. The sampling strategies Graves explored—including temperature sampling and beam search—remain standard in modern LLMs. Techniques for controlling generation through conditioning on prompts evolved directly from this work.
+
+\summaryheading{Lasting Contributions}
+This paper established that neural networks could generate coherent, creative outputs rather than merely classifying or regressing on inputs. The autoregressive generation framework—predicting one token at a time conditioned on previous tokens—is identical to how GPT-4, Claude, and Gemini generate text today. While the underlying architecture shifted from LSTMs to Transformers, the generation methodology remains unchanged: sample from a learned probability distribution at each step, conditioning on all previous outputs. Graves demonstrated that neural generation could exhibit long-range coherence and structure, validating the approach that would later enable chatbots, code generation, and creative writing assistance. The success of modern LLMs as generation engines traces directly to the principles and techniques established in this work.
+
+\end{papersummary}

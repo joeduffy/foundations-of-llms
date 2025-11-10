@@ -1,0 +1,14 @@
+% Paper Summary: Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks (Lewis et al., 2020)
+
+\begin{papersummary}{2020}{Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks}{Patrick Lewis, Ethan Perez, Aleksandra Piktus, Fabio Petroni, Vladimir Karpukhin, Naman Goyal, Heinrich Küttler, Mike Lewis, Wen-tau Yih, Tim Rocktäschel, Sebastian Riedel, Douwe Kiela}{RAG combined parametric knowledge in neural models with non-parametric retrieval from external knowledge sources, improving factual accuracy and enabling models to access information beyond their training data.}
+
+\summaryheading{Key Ideas}
+RAG augments generation with retrieved documents, combining a dense neural retriever with a sequence-to-sequence generator. During generation, the model retrieves relevant documents from a large corpus and conditions on them alongside the input. This hybrid approach leverages both the parametric knowledge learned during pretraining and non-parametric knowledge from the retrieval corpus. RAG models can access up-to-date information and cite sources, addressing key limitations of purely parametric models. The retriever and generator are trained end-to-end, allowing the system to learn which information to retrieve for different tasks.
+
+\summaryheading{Follow-on Works}
+REALM and FiD explored alternative retrieval-augmented architectures. Modern LLMs incorporate retrieval through various mechanisms including search engine integration, vector databases, and RAG frameworks. ChatGPT with browsing, Bing Chat, and Perplexity use retrieval to enhance factuality and currency. The principle that LLMs benefit from accessing external knowledge beyond their parameters has become widely adopted in production systems.
+
+\summaryheading{Lasting Contributions}
+RAG established that combining parametric and non-parametric knowledge significantly improves LLM capabilities for knowledge-intensive tasks. Most production LLM applications now integrate some form of retrieval, whether through vector databases, search engines, or document stores. The approach addresses fundamental limitations of purely parametric models: inability to update knowledge without retraining, hallucination of facts, and lack of attribution. Modern systems like GPT-4 with browsing, Claude with tool use, and specialized RAG applications build on the insight that neural generation should be augmented with retrieval. RAG demonstrated that LLMs are most powerful when combined with external knowledge sources rather than relying solely on memorized information.
+
+\end{papersummary}

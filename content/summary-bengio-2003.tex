@@ -1,0 +1,14 @@
+% Paper Summary: A Neural Probabilistic Language Model (Bengio et al., 2003)
+
+\begin{papersummary}{2003}{A Neural Probabilistic Language Model}{Yoshua Bengio, R\'ejean Ducharme, Pascal Vincent, Christian Jauvin}{This paper established neural language modeling by demonstrating that neural networks could learn meaningful distributed word representations while predicting the next word in a sequence.}
+
+\summaryheading{Key Ideas}
+Bengio introduced the first successful neural language model that learned distributed representations (word embeddings) jointly with the prediction task. The model uses a learned embedding matrix to map words into continuous vectors, followed by a feedforward network that predicts the next word from a fixed context window. This approach addresses the curse of dimensionality in traditional n-gram models by allowing the network to generalize to unseen word combinations through semantic similarity in the embedding space. The key insight was that words with similar meanings should have similar vector representations, enabling better generalization than discrete word identities.
+
+\summaryheading{Follow-on Works}
+Word2vec (\hyperref[paper:mikolov-2013]{Mikolov et al., 2013}) simplified and scaled Bengio's approach, making high-quality embeddings computationally tractable for billion-word corpora. ELMo introduced contextualized embeddings that vary based on surrounding words. The Transformer architecture generalized these ideas to use learned positional embeddings alongside word embeddings. Modern LLMs like GPT and Claude build directly on Bengio's framework: embedding layers map tokens to vectors, which are then processed to predict subsequent tokens.
+
+\summaryheading{Lasting Contributions}
+This paper established the foundational architecture for modern language models. Every contemporary LLM begins with an embedding layer that maps tokens to continuous vectors, directly inheriting Bengio's insight. The distributed representation concept—that semantic similarity should correspond to vector similarity—underpins all modern NLP. While Transformers replaced the feedforward prediction network, the core principle of learning embeddings jointly with the language modeling objective remains universal. GPT-4, Claude, and Gemini all use embedding matrices that encode semantic relationships, with their success depending on the quality of these learned representations. This work demonstrated that neural networks could capture statistical properties of language in a way that enables generalization far beyond what discrete models achieve.
+
+\end{papersummary}

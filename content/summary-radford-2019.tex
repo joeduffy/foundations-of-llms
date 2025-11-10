@@ -1,0 +1,14 @@
+% Paper Summary: Language Models are Unsupervised Multitask Learners (Radford et al., 2019)
+
+\begin{papersummary}{2019}{Language Models are Unsupervised Multitask Learners}{Alec Radford, Jeffrey Wu, Rewon Child, David Luan, Dario Amodei, Ilya Sutskever}{GPT-2 demonstrated that scaling language models to 1.5B parameters produces zero-shot multitask capabilities, showing that large models can perform diverse tasks without task-specific training.}
+
+\summaryheading{Key Ideas}
+GPT-2 scaled the GPT architecture to 1.5B parameters and trained on WebText, a diverse internet corpus. The model demonstrated zero-shot performance on tasks like translation, summarization, and question answering by framing them as language modeling problems through appropriate prompting. This revealed that scale enables emergent capabilities—behaviors that appear only in sufficiently large models. GPT-2's ability to generate coherent, contextually appropriate text raised questions about deployment safety, leading OpenAI to initially withhold the full model. The work established that language modeling can serve as a universal unsupervised learning objective.
+
+\summaryheading{Follow-on Works}
+GPT-3 (\hyperref[paper:brown-2020]{Brown et al., 2020}) scaled further to 175B parameters, demonstrating few-shot in-context learning. Instruction tuning and RLHF built on GPT-2's zero-shot capabilities to create more controllable assistants. The prompt engineering techniques users developed to steer GPT-2 evolved into the sophisticated prompting strategies used with modern LLMs. GPT-2's staged release strategy influenced discussions about responsible AI deployment.
+
+\summaryheading{Lasting Contributions}
+GPT-2 proved that scaling language model size and training data produces emergent capabilities without task-specific training. This insight catalyzed the scaling race that produced GPT-3, GPT-4, Claude, and other frontier models. The demonstration that zero-shot task performance emerges from scale validated the approach of training general-purpose models rather than task-specific systems. Modern prompt engineering—where users guide model behavior through natural language instructions—stems from techniques developed to work with GPT-2. The model established that language modeling at sufficient scale captures enough about language structure and world knowledge to perform diverse tasks, fundamentally changing the paradigm for building AI systems.
+
+\end{papersummary}

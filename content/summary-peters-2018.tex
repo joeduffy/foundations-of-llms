@@ -1,0 +1,14 @@
+% Paper Summary: Deep Contextualized Word Representations (Peters et al., 2018)
+
+\begin{papersummary}{2018}{Deep Contextualized Word Representations}{Matthew E. Peters, Mark Neumann, Mohit Iyyer, Matt Gardner, Christopher Clark, Kenton Lee, Luke Zettlemoyer}{ELMo introduced contextualized word embeddings by using bidirectional LSTMs trained on language modeling, demonstrating that representations should depend on surrounding context rather than being static like word2vec.}
+
+\summaryheading{Key Ideas}
+ELMo generates word representations that vary based on context by extracting them from internal states of a deep bidirectional language model. Unlike static embeddings where "bank" has one representation, ELMo produces different vectors for "river bank" versus "savings bank". The model uses character-level CNNs for input and stacks bidirectional LSTMs trained to predict both forward and backward context. Concatenating hidden states from all layers and weighting them for specific tasks provided rich, task-adaptive representations that significantly improved performance across NLP benchmarks.
+
+\summaryheading{Follow-on Works}
+BERT (\hyperref[paper:devlin-2018]{Devlin et al., 2018}) replaced bidirectional LSTMs with Transformers and masked language modeling, further improving contextualized representations. GPT models demonstrated that unidirectional pretraining could also produce powerful representations. Modern LLMs produce contextualized embeddings at every layer—each token's representation depends on all surrounding tokens through attention. The insight that context-dependent representations outperform static ones became universal in NLP.
+
+\summaryheading{Lasting Contributions}
+ELMo established that word representations must be contextualized, fundamentally changing NLP. Every modern LLM produces context-dependent representations through attention mechanisms—there are no "static" embeddings in GPT-4 or Claude beyond the initial token embedding layer. The principle that meaning depends on context, requiring dynamic representations computed from surrounding tokens, is central to contemporary language understanding. While the specific LSTM architecture is outdated, ELMo's core insight that representations should be extracted from pretrained models and adapted to context revolutionized NLP and directly enabled the pretraining paradigm that produced modern LLMs.
+
+\end{papersummary}

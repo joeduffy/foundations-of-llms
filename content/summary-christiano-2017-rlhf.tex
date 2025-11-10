@@ -1,0 +1,14 @@
+% Paper Summary: Deep reinforcement learning from human preferences (Christiano et al., 2017)
+
+\begin{papersummary}{2017}{Deep reinforcement learning from human preferences}{Paul F. Christiano, Jan Leike, Tom Brown, Miljan Martic, Shane Legg, Dario Amodei}{This paper introduced learning from human preferences by training a reward model from comparisons, then using RL to optimize policies against that model, establishing the RLHF paradigm central to modern LLM alignment.}
+
+\summaryheading{Key Ideas}
+The paper addresses the challenge of specifying reward functions for complex tasks by learning them from human feedback. Humans provide preferences between trajectory pairs rather than absolute rewards, which is more natural and reliable. A reward model is trained to predict these preferences, then reinforcement learning optimizes a policy to maximize the learned reward. This approach scales to tasks where manually engineering reward functions is impractical, as humans can evaluate outcomes even when they cannot easily specify objectives formally.
+
+\summaryheading{Follow-on Works}
+InstructGPT adapted RLHF to language models, using human preferences to align GPT-3's behavior. Constitutional AI extended the approach with AI-generated feedback. RLAIF replaced human labelers with AI judges for scalability. DPO simplified the pipeline by directly optimizing preferences without explicit reward modeling. Self-rewarding language models enable models to generate their own preference data. Every major LLM alignment approach descends from this work's core insight about learning from preferences.
+
+\summaryheading{Lasting Contributions}
+RLHF has become the dominant paradigm for aligning language models with human values and preferences. GPT-4, Claude, Gemini, and virtually all production LLMs employ RLHF or its variants as a core component of their training pipeline. The technique transformed LLMs from next-token predictors into helpful, harmless assistants that follow instructions and respect user intentions. Without RLHF, modern AI chatbots would generate technically fluent but potentially harmful, unhelpful, or misaligned responses. This paper's insight—that learning from preferences is more tractable than specifying reward functions—solved the alignment problem at a scale that enables deployment of powerful AI systems.
+
+\end{papersummary}

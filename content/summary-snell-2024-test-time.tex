@@ -1,0 +1,14 @@
+% Paper Summary: Scaling LLM Test-Time Compute (Snell et al., 2024)
+
+\begin{papersummary}{2024}{Scaling LLM Test-Time Compute Optimally can be More Effective than Scaling Model Parameters}{Charlie Snell, Jaehoon Lee, Kelvin Xu, Aviral Kumar}{This work demonstrated that scaling inference-time computation through methods like best-of-N sampling, adaptive computation, and process reward models can improve performance more cost-effectively than scaling model parameters, suggesting a new scaling paradigm.}
+
+\summaryheading{Key Ideas}
+The paper systematically explored test-time compute scaling, showing that allocating more computation during inference (through techniques like generating multiple responses and selecting the best, or iterative refinement) can yield better performance per dollar than training larger models. The key insight is that inference-time search and verification provide a complementary scaling dimension to parameter count and training compute. Process reward models enable selecting better completions. This suggests that optimal AI systems balance pretraining scale with test-time computation.
+
+\summaryheading{Follow-on Works}
+Modern systems increasingly explore test-time compute scaling. o1 and similar models reportedly use extensive test-time computation. The paradigm influences how practitioners think about the train-time versus test-time compute tradeoff. Research into verifiers and process supervision builds on this framework.
+
+\summaryheading{Lasting Contributions}
+This work suggested that test-time compute represents a frontier for AI capability improvement beyond parameter scaling. The demonstration that inference-time search can be cost-effective challenges assumptions about how to scale AI systems. Modern systems like o1 that emphasize reasoning time validate this direction. The work implies that future AI progress may come increasingly from better inference-time algorithms rather than larger models, potentially changing how resources are allocated in AI development.
+
+\end{papersummary}

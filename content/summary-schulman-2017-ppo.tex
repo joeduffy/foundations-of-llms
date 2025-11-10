@@ -1,0 +1,14 @@
+% Paper Summary: Proximal Policy Optimization Algorithms (Schulman et al., 2017)
+
+\begin{papersummary}{2017}{Proximal Policy Optimization Algorithms}{John Schulman, Filip Wolski, Prafulla Dhariwal, Alec Radford, Oleg Klimov}{PPO introduced a simple yet effective policy gradient method that constrains policy updates to improve training stability, becoming the standard RL algorithm for fine-tuning large language models with human feedback.}
+
+\summaryheading{Key Ideas}
+PPO addresses the instability of policy gradient methods by constraining policy updates to remain close to the previous policy. The algorithm uses a clipped surrogate objective that prevents excessively large policy updates, maintaining training stability while achieving strong performance. PPO is simpler to implement and tune than previous methods like TRPO while matching or exceeding their performance. The algorithm balances exploration and exploitation through its conservative update strategy, making it reliable across diverse environments and tasks.
+
+\summaryheading{Follow-on Works}
+RLHF (\hyperref[paper:christiano-2017-rlhf]{Christiano et al., 2017}) demonstrated learning from human preferences using policy gradient methods. InstructGPT applied PPO to fine-tune language models on human feedback. Constitutional AI, RLAIF, and DPO built on the RLHF paradigm. Modern alignment techniques for LLMs almost universally employ PPO or closely related policy gradient methods. The success of RLHF in creating helpful, harmless AI assistants stems from PPO's stable training dynamics.
+
+\summaryheading{Lasting Contributions}
+PPO is the standard algorithm for RLHF in modern LLMs. GPT-4, Claude, and other frontier models use PPO during their alignment phase to learn from human preferences. The algorithm's simplicity and stability made RLHF practical at the scale required for large language models. Without PPO's reliable policy updates, the alignment techniques that make modern AI assistants safe and useful would be significantly more difficult. The ubiquity of RLHF in contemporary LLM development reflects PPO's fundamental contribution to creating aligned AI systems that follow human intentions and values.
+
+\end{papersummary}

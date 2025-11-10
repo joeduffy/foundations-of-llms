@@ -1,0 +1,14 @@
+% Paper Summary: Long Short-Term Memory (Hochreiter & Schmidhuber, 1997)
+
+\begin{papersummary}{1997}{Long Short-Term Memory}{Sepp Hochreiter, J\"urgen Schmidhuber}{LSTM networks solved the vanishing gradient problem in recurrent neural networks, enabling learning of long-term dependencies essential for sequence modeling and language understanding.}
+
+\summaryheading{Key Ideas}
+LSTM introduced a novel architecture with memory cells and gating mechanisms (input, output, and forget gates) that allow networks to selectively store, access, and forget information over long sequences. The gates control information flow through multiplicative interactions, preventing gradient vanishing during backpropagation through time. This architecture enables networks to learn dependencies spanning hundreds of time steps, a capability impossible for standard RNNs. The constant error carousel mechanism maintains gradient flow across many timesteps without exponential decay or explosion.
+
+\summaryheading{Follow-on Works}
+GRU (Gated Recurrent Units) simplified the LSTM architecture while maintaining its effectiveness. Bidirectional LSTMs enabled processing sequences in both directions for better context understanding. Sequence-to-sequence models (\hyperref[paper:sutskever-2014]{Sutskever et al., 2014}) combined LSTMs with attention mechanisms for machine translation. While Transformers have largely replaced LSTMs in modern LLMs, the concept of gating mechanisms and selective information flow influenced Transformer design, particularly in gated feedforward networks and modern architectures like Mamba.
+
+\summaryheading{Lasting Contributions}
+LSTMs dominated sequence modeling for two decades before Transformers. The gating mechanism concept—selectively controlling information flow through multiplicative interactions—influenced numerous subsequent architectures. While contemporary LLMs use Transformers rather than recurrence, the principle that networks need mechanisms to maintain long-range information remains central. Modern alternatives like state-space models (Mamba, RWKV) revisit recurrent computation with LSTM-inspired gating, suggesting these ideas retain relevance. LSTMs established that neural networks could handle the temporal dependencies inherent in language, paving the way for the sequence modeling capabilities in GPT-4, Claude, and Gemini.
+
+\end{papersummary}

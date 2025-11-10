@@ -1,0 +1,14 @@
+% Paper Summary: Constitutional AI (Bai et al., 2022)
+
+\begin{papersummary}{2022}{Constitutional AI: Harmlessness from AI Feedback}{Yuntao Bai, Saurav Kadavath, Sandipan Kundu, Amanda Askell, Jackson Kernion, Andy Jones, Anna Chen, Anna Goldie, Azalia Mirhoseini, Cameron McKinnon, Carol Chen, Catherine Olsson, Christopher Olah, Danny Hernandez, Dawn Drain, Deep Ganguli, Dustin Li, Eli Tran-Johnson, Ethan Perez, Jamie Kerr, Jared Mueller, Jeffrey Ladish, Joshua Landau, Kamal Ndousse, Kamile Lukosuite, Liane Lovitt, Michael Sellitto, Nelson Elhage, Nicholas Schiefer, Noemi Mercado, Nova DasSarma, Robert Lasenby, Robin Larson, Sam Ringer, Scott Johnston, Shauna Kravec, Sheer El Showk, Stanislav Fort, Tamera Lanham, Timothy Telleen-Lawton, Tom Conerly, Tom Henighan, Tristan Hume, Samuel R. Bowman, Zac Hatfield-Dodds, Ben Mann, Dario Amodei, Nicholas Joseph, Sam McCandlish, Tom Brown, Jared Kaplan}{Constitutional AI introduced methods for training harmless AI assistants using AI-generated feedback and critique, reducing reliance on human labeling while improving safety and alignment.}
+
+\summaryheading{Key Ideas}
+Constitutional AI trains models to be harmless through a two-stage process: supervised learning from AI-generated critiques and revisions guided by a "constitution" of principles, followed by RLHF using AI preference labels. The approach uses a model to critique and revise its own harmful outputs according to constitutional principles, then trains on these self-improvements. This reduces the need for human labelers to evaluate harmful content while maintaining alignment quality. The constitutional approach makes the values and constraints explicit and modifiable.
+
+\summaryheading{Follow-on Works}
+RLAIF (RL from AI Feedback) generalized the use of AI labelers. Self-rewarding language models enable models to generate their own preference data. Modern alignment techniques increasingly use AI feedback to scale beyond human labeling capacity. The constitutional framework influenced how organizations think about specifying and enforcing AI values.
+
+\summaryheading{Lasting Contributions}
+Constitutional AI established that AI feedback can substitute for human preferences in alignment, addressing scalability limitations of pure RLHF. Claude and other modern assistants employ Constitutional AI techniques for alignment. The explicit constitutional framework provides transparency about model values and constraints. The work demonstrated that AI systems can meaningfully participate in their own alignment process, enabling scaling to more nuanced and comprehensive safety constraints than human labeling alone permits. Constitutional AI represents a critical advance toward scalable AI alignment.
+
+\end{papersummary}

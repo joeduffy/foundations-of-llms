@@ -25,6 +25,8 @@ More subtly, scaling laws may encounter fundamental theoretical limits. The amou
 
 The mathematical foundations explored in this volume suggest several approaches to these challenges. Sparse architectures, inspired by the computational efficiency of biological neural networks, offer the potential for dramatic reductions in computational requirements. Mixture-of-experts models demonstrate that specialized sub-networks can be activated conditionally, reducing the computational burden of large models while maintaining their expressive capacity.
 
+More recently, research has revealed that test-time computation—allocating additional computational resources during inference through techniques like best-of-N sampling, iterative refinement, and process verification—can improve model capabilities as effectively as increasing parameter counts. This discovery opens a new dimension for scaling: rather than solely investing in larger pretrained models, practitioners can enhance performance through more sophisticated inference-time search and verification. This paradigm shift suggests that the optimal allocation of computational resources may involve balancing pretraining scale with test-time computation.
+
 \section*{The Alignment Challenge}
 
 The rapid advancement in model capabilities has outpaced our understanding of how to ensure that these systems pursue intended objectives. The alignment problem—ensuring that artificial systems optimize for human values rather than proxy measures—has emerged as one of the defining challenges of contemporary AI research.
@@ -77,7 +79,7 @@ The economic implications of artificial intelligence are already becoming appare
 
 The social implications are equally significant. AI systems increasingly mediate human communication, information access, and decision-making. The values and biases encoded in these systems will shape human culture and social structures in ways that are only beginning to be understood.
 
-The concentration of AI capabilities in a small number of organizations raises questions about power distribution and democratic governance. The enormous computational resources required to develop state-of-the-art models may create barriers to entry that limit competition and innovation. Ensuring broad access to AI capabilities while maintaining safety and security represents a complex policy challenge.
+The concentration of AI capabilities was initially limited to organizations with substantial computational resources, raising questions about power distribution and democratic governance. However, the emergence of open models—particularly the LLaMA family and related efforts—has substantially democratized access to frontier capabilities. This shift toward openness has accelerated research and innovation while creating new challenges for ensuring safety and responsible deployment. Balancing broad access to AI capabilities with appropriate safety measures represents an ongoing policy challenge, one made more complex by the rapid pace of open model development.
 
 \section*{The Research Frontier}
 

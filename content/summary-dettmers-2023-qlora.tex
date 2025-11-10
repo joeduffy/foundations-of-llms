@@ -1,0 +1,14 @@
+% Paper Summary: QLoRA (Dettmers et al., 2023)
+
+\begin{papersummary}{2023}{QLoRA: Efficient Finetuning of Quantized LLMs}{Tim Dettmers, Artidoro Pagnoni, Ari Holtzman, Luke Zettlemoyer}{QLoRA combined LoRA with quantization to enable fine-tuning of 65B parameter models on a single consumer GPU, dramatically democratizing access to large model customization through 4-bit quantization with minimal quality loss.}
+
+\summaryheading{Key Ideas}
+QLoRA quantizes a pretrained model to 4-bit precision and trains LoRA adapters on top, enabling 65B parameter fine-tuning on 48GB GPUs. The technique introduces NormalFloat4 (NF4) datatype optimized for normally distributed weights, double quantization to reduce memory further, and paged optimizers to handle memory spikes. This achieves full 16-bit fine-tuning quality while reducing memory by ~4x beyond LoRA alone. The combination makes frontier model fine-tuning accessible on consumer hardware.
+
+\summaryheading{Follow-on Works}
+QLoRA enabled the explosion of fine-tuned open models by making customization accessible. Modern serving systems increasingly use quantization for efficiency. The technique influenced how practitioners think about the memory-quality tradeoff. Many open-source models and fine-tuning frameworks now default to QLoRA for its efficiency.
+
+\summaryheading{Lasting Contributions}
+QLoRA democratized large model fine-tuning by making it possible on consumer hardware. The technique enabled thousands of domain-specific fine-tunes that would have been impractical otherwise. By combining quantization with parameter-efficient fine-tuning, QLoRA showed that the memory-quality tradeoff is more favorable than previously believed. The work enabled the diverse ecosystem of specialized models built on open foundations like LLaMA, fundamentally changing who can participate in LLM development.
+
+\end{papersummary}

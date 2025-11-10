@@ -1,0 +1,14 @@
+% Paper Summary: Neural Machine Translation of Rare Words with Subword Units (Sennrich et al., 2015)
+
+\begin{papersummary}{2015}{Neural Machine Translation of Rare Words with Subword Units}{Rico Sennrich, Barry Haddow, Alexandra Birch}{This paper introduced Byte Pair Encoding (BPE) for neural machine translation, enabling models to handle rare and unknown words by breaking them into subword units, becoming the standard tokenization method for modern LLMs.}
+
+\summaryheading{Key Ideas}
+BPE addresses the open vocabulary problem by segmenting rare and unknown words into sequences of subword units. Starting from character-level representations, BPE iteratively merges the most frequent pairs of symbols to build a vocabulary of variable-length subwords. This allows models to represent any word as a sequence of known subword units, handling rare words, morphological variants, and out-of-vocabulary terms without explicit unknown tokens. The approach balances the efficiency of word-level models with the coverage of character-level models.
+
+\summaryheading{Follow-on Works}
+WordPiece (used in BERT) and SentencePiece provide alternative subword tokenization methods based on similar principles. Modern LLMs universally use BPE or its variants—GPT models use BPE, while LLaMA uses BPE with additional modifications. Tokenization strategies have become a critical design choice affecting model performance, multilingual capabilities, and computational efficiency. The subword paradigm enables handling code, mathematical notation, and multilingual text within a single unified vocabulary.
+
+\summaryheading{Lasting Contributions}
+BPE tokenization is universal in modern LLMs. Every major language model—GPT-4, Claude, Gemini, LLaMA—uses BPE or closely related subword tokenization. This approach enables models to handle virtually unlimited vocabularies while keeping token counts manageable. The flexibility to represent rare words, technical terms, and multilingual content through subword composition proved essential for general-purpose language models. BPE's success demonstrated that tokenization is a critical architectural decision, not merely a preprocessing step, fundamentally shaping what language models can represent and learn.
+
+\end{papersummary}

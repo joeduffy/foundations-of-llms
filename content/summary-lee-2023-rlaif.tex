@@ -1,0 +1,14 @@
+% Paper Summary: RLAIF (Lee et al., 2023)
+
+\begin{papersummary}{2023}{RLAIF: Scaling Reinforcement Learning from Human Feedback with AI Feedback}{Harrison Lee, Samrat Phatale, Hassan Mansoor, Kellie Lu, Thomas Mesnard, Colton Bishop, Victor Carbune, Abhinav Rastogi}{RLAIF demonstrated that AI-generated feedback can replace human preferences for RLHF, enabling scalable alignment without bottlenecks of human annotation while maintaining comparable quality.}
+
+\summaryheading{Key Ideas}
+RLAIF uses a capable LLM to generate preference labels instead of human annotators. The AI labeler evaluates pairs of model outputs and provides preferences that match human judgments with high agreement. This approach addresses RLHF's scalability bottleneck while maintaining alignment quality. The method enables collecting preference data at scales impractical with human labeling, allows rapid iteration on alignment objectives, and reduces costs. The work shows that sufficiently capable models can meaningfully evaluate outputs, even their own.
+
+\summaryheading{Follow-on Works}
+Constitutional AI's AI feedback principles influenced RLAIF adoption. Self-rewarding language models enable models to generate their own training signal. Modern alignment increasingly incorporates AI-generated feedback for scalability. The technique enables experimenting with diverse alignment objectives without human labeling bottlenecks. RLAIF has become standard practice for supplementing human feedback.
+
+\summaryheading{Lasting Contributions}
+RLAIF addressed the scalability bottleneck of pure human feedback by demonstrating that AI-generated preferences are effective for alignment. Modern LLM alignment routinely combines human and AI feedback, with AI feedback enabling the scale needed for comprehensive alignment. The work validated that AI systems can meaningfully participate in evaluating and improving other AI systems, enabling the feedback loops necessary for continued improvement. RLAIF makes alignment more scalable and cost-effective, critical for deploying aligned models at scale.
+
+\end{papersummary}
