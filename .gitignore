@@ -28,13 +28,8 @@
 *.dvi
 *.ps
 
-# Build directory artifacts (but keep the directory)
-out/*.aux
-out/*.log
-out/*.toc
-out/*.out
-out/*.fls
-out/*.fdb_latexmk
+# Build directory - all generated outputs
+out/
 
 # OS generated files
 .DS_Store
