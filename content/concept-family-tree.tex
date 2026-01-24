@@ -1,235 +1,277 @@
 % Concept Family Tree: The Lineage of Large Language Models
-% A visual representation of how core concepts evolved and interconnected
+% A Springer-style genealogy diagram
 
 \begin{figure}[p]
 \centering
 \begin{tikzpicture}[
-    scale=0.9,
-    transform shape,
-    % Node styles
-    era/.style={
-        font=\footnotesize\bfseries,
-        text=black!60,
-        anchor=west
-    },
+    % Base settings
+    font=\sffamily,
+    % Node styles - clean, minimal
     concept/.style={
-        draw=black!70,
+        draw=black!50,
         fill=white,
-        rounded corners=2pt,
-        minimum height=1.5em,
-        minimum width=1.8cm,
-        font=\tiny,
+        rounded corners=1.5pt,
+        minimum height=1.35em,
+        minimum width=1.55cm,
+        font=\sffamily\fontsize{5.5}{6.5}\selectfont,
         align=center,
-        inner sep=2pt
+        inner sep=1.5pt,
+        outer sep=0.5pt
     },
     foundational/.style={
         concept,
-        fill=black!8,
-        line width=0.8pt
+        fill=black!5,
+        draw=black!55
+    },
+    milestone/.style={
+        concept,
+        fill=black!10,
+        draw=black!65,
+        font=\sffamily\fontsize{5.5}{6.5}\selectfont\bfseries
     },
     architectural/.style={
         concept,
-        fill=black!3
+        fill=white,
+        draw=black!40
     },
     technique/.style={
         concept,
         fill=white,
-        dashed
+        draw=black!30,
+        densely dashed
     },
-    milestone/.style={
-        concept,
-        fill=black!15,
-        line width=1pt,
-        font=\tiny\bfseries
+    % Era label style
+    eralabel/.style={
+        font=\sffamily\fontsize{6.5}{7.5}\selectfont\bfseries,
+        text=black!65,
+        anchor=east
     },
-    % Edge styles
+    yearlabel/.style={
+        font=\sffamily\fontsize{5}{6}\selectfont,
+        text=black!45,
+        anchor=east
+    },
+    % Edge styles - refined
     evolves/.style={
         ->,
-        >=Stealth,
-        line width=0.4pt,
-        black!60
+        >={Stealth[length=1.8pt,width=1.3pt]},
+        line width=0.3pt,
+        black!50
     },
     enables/.style={
         ->,
-        >=Stealth,
-        line width=0.3pt,
-        black!40,
-        dashed
+        >={Stealth[length=1.8pt,width=1.3pt]},
+        line width=0.25pt,
+        black!30,
+        densely dashed
     }
 ]
 
-% Era labels (left side) with years below
-\node[era, align=center] at (-7, 0) {Part 1\\[-0.2em]{\tiny\mdseries 1943--90}};
-\node[era, align=center] at (-7, -2.8) {Part 2\\[-0.2em]{\tiny\mdseries 1990--2013}};
-\node[era, align=center] at (-7, -5.6) {Part 3\\[-0.2em]{\tiny\mdseries 2012--15}};
-\node[era, align=center] at (-7, -8.8) {Part 4\\[-0.2em]{\tiny\mdseries 2017--19}};
-\node[era, align=center] at (-7, -12) {Part 5\\[-0.2em]{\tiny\mdseries 2019--20}};
-\node[era, align=center] at (-7, -15.2) {Part 6\\[-0.2em]{\tiny\mdseries 2021--22}};
-\node[era, align=center] at (-7, -18.4) {Part 7\\[-0.2em]{\tiny\mdseries 2023--24}};
+% Grid parameters - tighter 4-column layout
+\def\colA{-3.2}
+\def\colB{-0.8}
+\def\colC{1.6}
+\def\colD{4.0}
 
-% Horizontal era separators
-\foreach \y in {-1.4, -4.2, -7.2, -10.4, -13.6, -16.8} {
-    \draw[black!12, line width=0.3pt] (-5.8, \y) -- (7, \y);
+\def\rowI{0}
+\def\rowIsub{-0.85}
+\def\rowII{-2.2}
+\def\rowIIsub{-3.05}
+\def\rowIII{-4.4}
+\def\rowIIIsub{-5.25}
+\def\rowIV{-6.8}
+\def\rowIVsub{-7.65}
+\def\rowV{-9.2}
+\def\rowVsub{-10.05}
+\def\rowVI{-11.6}
+\def\rowVIsub{-12.45}
+\def\rowVII{-14}
+\def\rowVIIsub{-14.85}
+
+% Era separators (subtle)
+\foreach \y in {-1.3, -3.5, -5.7, -8.4, -10.5, -13.0} {
+    \draw[black!8, line width=0.15pt] (-4.6, \y) -- (5.4, \y);
 }
 
-% ============================================
-% PART I: Neural Beginnings (1943-1990)
-% ============================================
+% Era labels
+\node[eralabel] at (-4.8, \rowI) {Part 1};
+\node[yearlabel] at (-4.8, \rowI-0.32) {\textit{1943--1990}};
 
-\node[foundational] (neuron) at (-4, 0.4) {Artificial\\Neuron};
-\node[foundational] (perceptron) at (-1.5, 0.4) {Perceptron\\Learning};
-\node[foundational] (hopfield) at (-4, -0.7) {Associative\\Memory};
-\node[foundational] (backprop) at (1.5, 0) {Backpropagation};
-\node[architectural] (rnn) at (4.5, 0) {Recurrent\\Networks};
+\node[eralabel] at (-4.8, \rowII) {Part 2};
+\node[yearlabel] at (-4.8, \rowII-0.32) {\textit{1990--2013}};
+
+\node[eralabel] at (-4.8, \rowIII) {Part 3};
+\node[yearlabel] at (-4.8, \rowIII-0.32) {\textit{2012--2015}};
+
+\node[eralabel] at (-4.8, \rowIV) {Part 4};
+\node[yearlabel] at (-4.8, \rowIV-0.32) {\textit{2017--2019}};
+
+\node[eralabel] at (-4.8, \rowV) {Part 5};
+\node[yearlabel] at (-4.8, \rowV-0.32) {\textit{2019--2020}};
+
+\node[eralabel] at (-4.8, \rowVI) {Part 6};
+\node[yearlabel] at (-4.8, \rowVI-0.32) {\textit{2021--2022}};
+
+\node[eralabel] at (-4.8, \rowVII) {Part 7};
+\node[yearlabel] at (-4.8, \rowVII-0.32) {\textit{2023--2024}};
+
+% ═══════════════════════════════════════════
+% PART 1: Neural Beginnings
+% ═══════════════════════════════════════════
+
+\node[foundational] (neuron) at (\colA, \rowI) {Artificial Neuron};
+\node[foundational] (perceptron) at (\colB, \rowI) {Perceptron};
+\node[foundational] (backprop) at (\colC, \rowI) {Backpropagation};
+\node[architectural] (rnn) at (\colD, \rowI) {Recurrent Nets};
+\node[foundational] (hopfield) at (\colA, \rowIsub) {Hopfield Nets};
 
 \draw[evolves] (neuron) -- (perceptron);
 \draw[evolves] (perceptron) -- (backprop);
-\draw[enables] (hopfield) -- (backprop);
 \draw[evolves] (backprop) -- (rnn);
+\draw[enables] (hopfield) -- (backprop);
 
-% ============================================
-% PART II: Sequence Models (1990-2013)
-% ============================================
+% ═══════════════════════════════════════════
+% PART 2: Sequence Models
+% ═══════════════════════════════════════════
 
-\node[foundational] (lstm) at (-4, -2.4) {LSTM\\Gating};
-\node[architectural] (nplm) at (-1.5, -2.4) {Neural\\Language Model};
-\node[foundational] (embeddings) at (1.5, -2.4) {Word\\Embeddings};
-\node[architectural] (seqgen) at (4.5, -2.4) {Sequence\\Generation};
-\node[technique] (varinf) at (1.5, -3.5) {Variational\\Inference};
+\node[foundational] (lstm) at (\colA, \rowII) {LSTM};
+\node[architectural] (nplm) at (\colB, \rowII) {Neural LM};
+\node[foundational] (embed) at (\colC, \rowII) {Word Vectors};
+\node[architectural] (seqgen) at (\colD, \rowII) {Seq Generation};
+\node[technique] (vae) at (\colB, \rowIIsub) {VAE};
 
 \draw[evolves] (rnn) -- (lstm);
 \draw[evolves] (lstm) -- (nplm);
-\draw[evolves] (nplm) -- (embeddings);
-\draw[evolves] (lstm) to[bend left=15] (seqgen);
-\draw[enables] (backprop) to[bend right=20] (nplm);
+\draw[evolves] (nplm) -- (embed);
+\draw[evolves] (lstm) to[out=-15,in=165] (seqgen);
 
-% ============================================
-% PART III: Deep Learning & Attention (2012-2015)
-% ============================================
+% ═══════════════════════════════════════════
+% PART 3: Deep Learning & Attention
+% ═══════════════════════════════════════════
 
-\node[milestone] (deeplearning) at (-4, -5.2) {Deep Learning\\Revolution};
-\node[foundational] (resnet) at (-1.5, -5.2) {Residual\\Connections};
-\node[architectural] (seq2seq) at (1.5, -5.2) {Sequence-to-\\Sequence};
-\node[foundational] (attention) at (4.5, -5.2) {Attention\\Mechanism};
-\node[technique] (dropout) at (-4, -6.4) {Dropout};
-\node[technique] (batchnorm) at (-1.5, -6.4) {Batch Norm};
-\node[technique] (adam) at (1.5, -6.4) {Adam};
-\node[technique] (bpe) at (4.5, -6.4) {Subword\\Tokenization};
+\node[milestone] (deep) at (\colA, \rowIII) {Deep Learning};
+\node[foundational] (resnet) at (\colB, \rowIII) {Skip Connect};
+\node[architectural] (seq2seq) at (\colC, \rowIII) {Seq2Seq};
+\node[foundational] (attn) at (\colD, \rowIII) {Attention};
+\node[technique] (dropout) at (\colA, \rowIIIsub) {Dropout};
+\node[technique] (bn) at (\colB, \rowIIIsub) {Batch Norm};
+\node[technique] (adam) at (\colC, \rowIIIsub) {Adam};
+\node[technique] (bpe) at (\colD, \rowIIIsub) {BPE};
 
-\draw[evolves] (backprop) to[bend left=25] (deeplearning);
-\draw[evolves] (deeplearning) -- (resnet);
-\draw[evolves] (lstm) to[bend right=15] (seq2seq);
-\draw[evolves] (seq2seq) -- (attention);
-\draw[enables] (dropout) -- (deeplearning);
-\draw[enables] (batchnorm) -- (resnet);
-\draw[enables] (embeddings) -- (seq2seq);
+\draw[evolves] (backprop) to[out=-80,in=100] (deep);
+\draw[evolves] (deep) -- (resnet);
+\draw[evolves] (lstm) to[out=-80,in=100] (seq2seq);
+\draw[evolves] (seq2seq) -- (attn);
+\draw[enables] (dropout) -- (deep);
+\draw[enables] (bn) -- (resnet);
+\draw[enables] (embed) -- (seq2seq);
 
-% ============================================
-% PART IV: Transformer Era (2017-2019)
-% ============================================
+% ═══════════════════════════════════════════
+% PART 4: Transformer Era
+% ═══════════════════════════════════════════
 
-\node[technique] (layernorm) at (-4, -8.4) {Layer Norm};
-\node[technique] (moe) at (-4, -9.6) {Mixture of\\Experts};
-\node[milestone] (transformer) at (-1, -8.4) {Transformer};
-\node[foundational] (pretrain) at (2, -8.4) {Self-Supervised\\Pretraining};
-\node[architectural] (bert) at (0.5, -9.6) {Bidirectional\\(BERT)};
-\node[architectural] (gpt) at (3.5, -9.6) {Autoregressive\\(GPT)};
-\node[technique] (ppo) at (5.5, -8.4) {PPO};
-\node[technique] (rlhf) at (5.5, -9.6) {RLHF};
+\node[technique] (ln) at (\colA, \rowIV) {Layer Norm};
+\node[milestone] (trans) at (\colB, \rowIV) {Transformer};
+\node[foundational] (pretrain) at (\colC, \rowIV) {Pretraining};
+\node[technique] (ppo) at (\colD, \rowIV) {PPO};
+\node[technique] (moe) at (\colA, \rowIVsub) {MoE};
+\node[architectural] (bert) at (\colB, \rowIVsub) {BERT};
+\node[architectural] (gpt) at (\colC, \rowIVsub) {GPT};
+\node[technique] (rlhf) at (\colD, \rowIVsub) {RLHF};
 
-\draw[evolves] (attention) -- (transformer);
-\draw[evolves] (resnet) to[bend right=15] (transformer);
-\draw[enables] (layernorm) -- (transformer);
-\draw[evolves] (transformer) -- (pretrain);
+\draw[evolves] (attn) -- (trans);
+\draw[evolves] (resnet) to[out=-80,in=100] (trans);
+\draw[evolves] (trans) -- (pretrain);
 \draw[evolves] (pretrain) -- (bert);
 \draw[evolves] (pretrain) -- (gpt);
-\draw[enables] (bpe) to[bend left=20] (transformer);
+\draw[enables] (ln) -- (trans);
+\draw[enables] (bpe) -- (trans);
 \draw[enables] (ppo) -- (rlhf);
 
-% ============================================
-% PART V: Emergence and Scale (2019-2020)
-% ============================================
+% ═══════════════════════════════════════════
+% PART 5: Emergence and Scale
+% ═══════════════════════════════════════════
 
-\node[milestone] (scaling) at (-4, -11.6) {Scaling\\Laws};
-\node[foundational] (emergence) at (-1, -11.6) {Emergent\\Capabilities};
-\node[architectural] (fewshot) at (2, -11.6) {In-Context\\Learning};
-\node[architectural] (rag) at (5, -11.6) {Retrieval\\Augmentation};
-\node[technique] (mqa) at (-4, -12.8) {Multi-Query\\Attention};
+\node[milestone] (scale) at (\colA, \rowV) {Scaling Laws};
+\node[foundational] (emerge) at (\colB, \rowV) {Emergence};
+\node[architectural] (icl) at (\colC, \rowV) {In-Context};
+\node[architectural] (rag) at (\colD, \rowV) {RAG};
+\node[technique] (mqa) at (\colA, \rowVsub) {MQA};
 
-\draw[evolves] (gpt) -- (scaling);
-\draw[evolves] (scaling) -- (emergence);
-\draw[evolves] (emergence) -- (fewshot);
-\draw[enables] (pretrain) to[bend left=15] (rag);
-\draw[enables] (moe) to[bend right=20] (scaling);
+\draw[evolves] (gpt) -- (scale);
+\draw[evolves] (scale) -- (emerge);
+\draw[evolves] (emerge) -- (icl);
+\draw[enables] (pretrain) to[out=-60,in=90] (rag);
+\draw[enables] (moe) -- (scale);
 
-% ============================================
-% PART VI: Efficiency, Alignment, Reasoning (2021-2022)
-% ============================================
+% ═══════════════════════════════════════════
+% PART 6: Efficiency, Alignment, Reasoning
+% ═══════════════════════════════════════════
 
-\node[technique] (lora) at (-4, -14.8) {LoRA};
-\node[technique] (rope) at (-2.2, -14.8) {Rotary\\Embeddings};
-\node[technique] (flash) at (-0.4, -14.8) {Flash\\Attention};
-\node[milestone] (instruct) at (1.8, -14.8) {Instruction\\Following};
-\node[foundational] (cot) at (4, -14.8) {Chain-of-\\Thought};
-\node[architectural] (constitutional) at (6, -14.8) {Constitutional\\AI};
-\node[technique] (chinchilla) at (-4, -16) {Compute-\\Optimal};
-\node[architectural] (react) at (4, -16) {Tool Use\\(ReAct)};
+\node[technique] (lora) at (\colA, \rowVI) {LoRA};
+\node[technique] (flash) at (\colB, \rowVI) {FlashAttn};
+\node[milestone] (instruct) at (\colC, \rowVI) {Instruct Tuning};
+\node[foundational] (cot) at (\colD, \rowVI) {CoT};
+\node[technique] (chinch) at (\colA, \rowVIsub) {Chinchilla};
+\node[technique] (rope) at (\colB, \rowVIsub) {RoPE};
+\node[architectural] (cai) at (\colC, \rowVIsub) {Const. AI};
+\node[architectural] (react) at (\colD, \rowVIsub) {ReAct};
 
-\draw[evolves] (rlhf) to[bend right=20] (instruct);
-\draw[evolves] (fewshot) -- (cot);
-\draw[evolves] (instruct) -- (constitutional);
+\draw[evolves] (rlhf) to[out=-90,in=90] (instruct);
+\draw[evolves] (icl) -- (cot);
+\draw[evolves] (instruct) -- (cai);
 \draw[evolves] (cot) -- (react);
-\draw[enables] (scaling) to[bend right=15] (chinchilla);
+\draw[enables] (scale) to[out=-90,in=90] (chinch);
 \draw[enables] (mqa) -- (flash);
 
-% ============================================
-% PART VII: Open LLMs and Modern Frontier (2023-2024)
-% ============================================
+% ═══════════════════════════════════════════
+% PART 7: Open LLMs and Modern Frontier
+% ═══════════════════════════════════════════
 
-\node[milestone] (openmodels) at (-4, -18) {Open\\Models};
-\node[technique] (dpo) at (-1.5, -18) {Direct\\Preference};
-\node[architectural] (moescale) at (1, -18) {Sparse\\MoE};
-\node[foundational] (testtime) at (3.5, -18) {Test-Time\\Compute};
-\node[technique] (qlora) at (-4, -19.2) {QLoRA};
-\node[technique] (gqa) at (-1.5, -19.2) {Grouped-Query\\Attention};
-\node[architectural] (selfreward) at (3.5, -19.2) {Self-\\Rewarding};
+\node[milestone] (open) at (\colA, \rowVII) {Open Models};
+\node[technique] (dpo) at (\colB, \rowVII) {DPO};
+\node[architectural] (smoe) at (\colC, \rowVII) {Sparse MoE};
+\node[foundational] (ttc) at (\colD, \rowVII) {Test-Time};
+\node[technique] (qlora) at (\colA, \rowVIIsub) {QLoRA};
+\node[technique] (gqa) at (\colB, \rowVIIsub) {GQA};
+\node[architectural] (selfrw) at (\colD, \rowVIIsub) {Self-Reward};
 
-\draw[evolves] (instruct) to[bend right=10] (openmodels);
-\draw[evolves] (constitutional) -- (dpo);
+\draw[evolves] (instruct) to[out=-90,in=90] (open);
+\draw[evolves] (cai) -- (dpo);
 \draw[evolves] (lora) -- (qlora);
-\draw[evolves] (mqa) to[bend right=15] (gqa);
-\draw[evolves] (moe) to[bend right=25] (moescale);
-\draw[evolves] (cot) to[bend left=15] (testtime);
-\draw[enables] (dpo) -- (selfreward);
+\draw[evolves] (mqa) to[out=-90,in=90] (gqa);
+\draw[evolves] (moe) to[out=-90,in=90] (smoe);
+\draw[evolves] (cot) to[out=-80,in=100] (ttc);
+\draw[enables] (dpo) -- (selfrw);
 
-% ============================================
-% Legend
-% ============================================
+% ═══════════════════════════════════════════
+% Legend (compact, right side)
+% ═══════════════════════════════════════════
 
-\begin{scope}[shift={(8, -10)}]
-    \node[font=\scriptsize\bfseries, anchor=north west] at (0, 0.3) {Legend};
+\begin{scope}[shift={(6.0, -7.5)}]
+    \node[font=\sffamily\fontsize{5.5}{6.5}\selectfont\bfseries, anchor=north west] at (0, 0) {Legend};
 
-    \node[foundational, minimum width=1cm] at (0.5, -0.4) {};
-    \node[font=\tiny, anchor=west] at (1.2, -0.4) {Foundational};
+    \node[foundational, minimum width=0.7cm, minimum height=0.9em] at (0.35, -0.45) {};
+    \node[font=\sffamily\fontsize{4.5}{5.5}\selectfont, anchor=west] at (0.8, -0.45) {Foundational};
 
-    \node[milestone, minimum width=1cm] at (0.5, -1) {};
-    \node[font=\tiny, anchor=west] at (1.2, -1) {Milestone};
+    \node[milestone, minimum width=0.7cm, minimum height=0.9em] at (0.35, -0.9) {};
+    \node[font=\sffamily\fontsize{4.5}{5.5}\selectfont, anchor=west] at (0.8, -0.9) {Milestone};
 
-    \node[architectural, minimum width=1cm] at (0.5, -1.6) {};
-    \node[font=\tiny, anchor=west] at (1.2, -1.6) {Architecture};
+    \node[architectural, minimum width=0.7cm, minimum height=0.9em] at (0.35, -1.35) {};
+    \node[font=\sffamily\fontsize{4.5}{5.5}\selectfont, anchor=west] at (0.8, -1.35) {Architecture};
 
-    \node[technique, minimum width=1cm] at (0.5, -2.2) {};
-    \node[font=\tiny, anchor=west] at (1.2, -2.2) {Technique};
+    \node[technique, minimum width=0.7cm, minimum height=0.9em] at (0.35, -1.8) {};
+    \node[font=\sffamily\fontsize{4.5}{5.5}\selectfont, anchor=west] at (0.8, -1.8) {Technique};
 
-    \draw[evolves] (0, -2.9) -- (1, -2.9);
-    \node[font=\tiny, anchor=west] at (1.2, -2.9) {Evolves into};
+    \draw[evolves] (0, -2.35) -- (0.7, -2.35);
+    \node[font=\sffamily\fontsize{4.5}{5.5}\selectfont, anchor=west] at (0.8, -2.35) {Evolves};
 
-    \draw[enables] (0, -3.5) -- (1, -3.5);
-    \node[font=\tiny, anchor=west] at (1.2, -3.5) {Enables};
+    \draw[enables] (0, -2.8) -- (0.7, -2.8);
+    \node[font=\sffamily\fontsize{4.5}{5.5}\selectfont, anchor=west] at (0.8, -2.8) {Enables};
 \end{scope}
 
 \end{tikzpicture}
 
-\caption{Genealogy of core concepts in large language model development. Foundational contributions (dark fill) establish theoretical frameworks; milestones (bold border) mark paradigm shifts; architectural innovations (light fill) introduce structural patterns; techniques (dashed) provide enabling methods. Solid arrows indicate direct conceptual evolution; dashed arrows show enabling relationships.}
+\caption{Genealogy of core concepts in large language model development. Foundational contributions establish theoretical frameworks; milestones mark paradigm shifts; architectural innovations introduce structural patterns; techniques provide enabling methods.}
 \label{fig:concept-family-tree}
 \end{figure}
