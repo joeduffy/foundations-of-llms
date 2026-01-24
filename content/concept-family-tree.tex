@@ -6,7 +6,7 @@
 \begin{tikzpicture}[
     % Node styles
     era/.style={
-        font=\footnotesize\scshape,
+        font=\footnotesize\bfseries,
         text=black!60,
         anchor=west
     },
@@ -63,23 +63,14 @@
     }
 ]
 
-% Era labels (left side)
-\node[era] at (-6.5, 0) {Part I};
-\node[era] at (-6.5, -2.5) {Part II};
-\node[era] at (-6.5, -5) {Part III};
-\node[era] at (-6.5, -7.5) {Part IV};
-\node[era] at (-6.5, -10) {Part V};
-\node[era] at (-6.5, -12.5) {Part VI};
-\node[era] at (-6.5, -15) {Part VII};
-
-% Year labels
-\node[font=\tiny, text=black!50] at (-5.8, 0) {1943--1990};
-\node[font=\tiny, text=black!50] at (-5.8, -2.5) {1990--2013};
-\node[font=\tiny, text=black!50] at (-5.8, -5) {2012--2015};
-\node[font=\tiny, text=black!50] at (-5.8, -7.5) {2017--2019};
-\node[font=\tiny, text=black!50] at (-5.8, -10) {2019--2020};
-\node[font=\tiny, text=black!50] at (-5.8, -12.5) {2021--2022};
-\node[font=\tiny, text=black!50] at (-5.8, -15) {2023--2024};
+% Era labels (left side) with years below
+\node[era, align=center] at (-6.2, 0) {Part 1\\[-0.3em]{\tiny\mdseries 1943--90}};
+\node[era, align=center] at (-6.2, -2.5) {Part 2\\[-0.3em]{\tiny\mdseries 1990--2013}};
+\node[era, align=center] at (-6.2, -5) {Part 3\\[-0.3em]{\tiny\mdseries 2012--15}};
+\node[era, align=center] at (-6.2, -7.5) {Part 4\\[-0.3em]{\tiny\mdseries 2017--19}};
+\node[era, align=center] at (-6.2, -10) {Part 5\\[-0.3em]{\tiny\mdseries 2019--20}};
+\node[era, align=center] at (-6.2, -12.5) {Part 6\\[-0.3em]{\tiny\mdseries 2021--22}};
+\node[era, align=center] at (-6.2, -15) {Part 7\\[-0.3em]{\tiny\mdseries 2023--24}};
 
 % Horizontal era separators
 \foreach \y in {-1.25, -3.75, -6.25, -8.75, -11.25, -13.75} {
