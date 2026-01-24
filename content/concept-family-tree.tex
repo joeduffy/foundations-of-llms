@@ -4,6 +4,8 @@
 \begin{figure}[p]
 \centering
 \begin{tikzpicture}[
+    scale=0.9,
+    transform shape,
     % Node styles
     era/.style={
         font=\footnotesize\bfseries,
@@ -14,11 +16,11 @@
         draw=black!70,
         fill=white,
         rounded corners=2pt,
-        minimum height=1.6em,
-        minimum width=2cm,
-        font=\scriptsize,
+        minimum height=1.5em,
+        minimum width=1.8cm,
+        font=\tiny,
         align=center,
-        inner sep=3pt
+        inner sep=2pt
     },
     foundational/.style={
         concept,
@@ -38,53 +40,46 @@
         concept,
         fill=black!15,
         line width=1pt,
-        font=\scriptsize\bfseries
+        font=\tiny\bfseries
     },
     % Edge styles
     evolves/.style={
         ->,
         >=Stealth,
-        line width=0.5pt,
+        line width=0.4pt,
         black!60
     },
     enables/.style={
         ->,
         >=Stealth,
-        line width=0.4pt,
+        line width=0.3pt,
         black!40,
         dashed
-    },
-    combines/.style={
-        ->,
-        >=Stealth,
-        line width=0.6pt,
-        black!50,
-        densely dotted
     }
 ]
 
 % Era labels (left side) with years below
-\node[era, align=center] at (-6.2, 0) {Part 1\\[-0.3em]{\tiny\mdseries 1943--90}};
-\node[era, align=center] at (-6.2, -2.5) {Part 2\\[-0.3em]{\tiny\mdseries 1990--2013}};
-\node[era, align=center] at (-6.2, -5) {Part 3\\[-0.3em]{\tiny\mdseries 2012--15}};
-\node[era, align=center] at (-6.2, -7.5) {Part 4\\[-0.3em]{\tiny\mdseries 2017--19}};
-\node[era, align=center] at (-6.2, -10) {Part 5\\[-0.3em]{\tiny\mdseries 2019--20}};
-\node[era, align=center] at (-6.2, -12.5) {Part 6\\[-0.3em]{\tiny\mdseries 2021--22}};
-\node[era, align=center] at (-6.2, -15) {Part 7\\[-0.3em]{\tiny\mdseries 2023--24}};
+\node[era, align=center] at (-7, 0) {Part 1\\[-0.2em]{\tiny\mdseries 1943--90}};
+\node[era, align=center] at (-7, -2.8) {Part 2\\[-0.2em]{\tiny\mdseries 1990--2013}};
+\node[era, align=center] at (-7, -5.6) {Part 3\\[-0.2em]{\tiny\mdseries 2012--15}};
+\node[era, align=center] at (-7, -8.8) {Part 4\\[-0.2em]{\tiny\mdseries 2017--19}};
+\node[era, align=center] at (-7, -12) {Part 5\\[-0.2em]{\tiny\mdseries 2019--20}};
+\node[era, align=center] at (-7, -15.2) {Part 6\\[-0.2em]{\tiny\mdseries 2021--22}};
+\node[era, align=center] at (-7, -18.4) {Part 7\\[-0.2em]{\tiny\mdseries 2023--24}};
 
 % Horizontal era separators
-\foreach \y in {-1.25, -3.75, -6.25, -8.75, -11.25, -13.75} {
-    \draw[black!15, line width=0.3pt] (-5, \y) -- (6.5, \y);
+\foreach \y in {-1.4, -4.2, -7.2, -10.4, -13.6, -16.8} {
+    \draw[black!12, line width=0.3pt] (-5.8, \y) -- (7, \y);
 }
 
 % ============================================
 % PART I: Neural Beginnings (1943-1990)
 % ============================================
 
-\node[foundational] (neuron) at (-3, 0.3) {Artificial\\Neuron};
-\node[foundational] (perceptron) at (-0.5, 0.3) {Perceptron\\Learning};
-\node[foundational] (hopfield) at (-3, -0.6) {Associative\\Memory};
-\node[foundational] (backprop) at (2, 0) {Backpropagation};
+\node[foundational] (neuron) at (-4, 0.4) {Artificial\\Neuron};
+\node[foundational] (perceptron) at (-1.5, 0.4) {Perceptron\\Learning};
+\node[foundational] (hopfield) at (-4, -0.7) {Associative\\Memory};
+\node[foundational] (backprop) at (1.5, 0) {Backpropagation};
 \node[architectural] (rnn) at (4.5, 0) {Recurrent\\Networks};
 
 \draw[evolves] (neuron) -- (perceptron);
@@ -96,141 +91,141 @@
 % PART II: Sequence Models (1990-2013)
 % ============================================
 
-\node[foundational] (lstm) at (-3, -2.2) {LSTM\\Gating};
-\node[architectural] (nplm) at (-0.5, -2.5) {Neural\\Language Model};
-\node[foundational] (embeddings) at (2, -2.2) {Word\\Embeddings};
-\node[architectural] (seqgen) at (4.5, -2.8) {Sequence\\Generation};
-\node[technique] (varinf) at (2, -3.1) {Variational\\Inference};
+\node[foundational] (lstm) at (-4, -2.4) {LSTM\\Gating};
+\node[architectural] (nplm) at (-1.5, -2.4) {Neural\\Language Model};
+\node[foundational] (embeddings) at (1.5, -2.4) {Word\\Embeddings};
+\node[architectural] (seqgen) at (4.5, -2.4) {Sequence\\Generation};
+\node[technique] (varinf) at (1.5, -3.5) {Variational\\Inference};
 
 \draw[evolves] (rnn) -- (lstm);
 \draw[evolves] (lstm) -- (nplm);
 \draw[evolves] (nplm) -- (embeddings);
-\draw[evolves] (lstm) -- (seqgen);
-\draw[enables] (backprop) to[bend right=15] (nplm);
+\draw[evolves] (lstm) to[bend left=15] (seqgen);
+\draw[enables] (backprop) to[bend right=20] (nplm);
 
 % ============================================
 % PART III: Deep Learning & Attention (2012-2015)
 % ============================================
 
-\node[milestone] (deeplearning) at (-3, -4.7) {Deep Learning\\Revolution};
-\node[technique] (dropout) at (-3, -5.6) {Dropout};
-\node[technique] (batchnorm) at (-0.5, -5.6) {Batch\\Normalization};
-\node[foundational] (resnet) at (-0.5, -4.7) {Residual\\Connections};
-\node[architectural] (seq2seq) at (2, -4.7) {Sequence-to-\\Sequence};
-\node[foundational] (attention) at (4.5, -4.7) {Attention\\Mechanism};
-\node[technique] (bpe) at (4.5, -5.6) {Subword\\Tokenization};
-\node[technique] (adam) at (2, -5.6) {Adaptive\\Optimization};
+\node[milestone] (deeplearning) at (-4, -5.2) {Deep Learning\\Revolution};
+\node[foundational] (resnet) at (-1.5, -5.2) {Residual\\Connections};
+\node[architectural] (seq2seq) at (1.5, -5.2) {Sequence-to-\\Sequence};
+\node[foundational] (attention) at (4.5, -5.2) {Attention\\Mechanism};
+\node[technique] (dropout) at (-4, -6.4) {Dropout};
+\node[technique] (batchnorm) at (-1.5, -6.4) {Batch Norm};
+\node[technique] (adam) at (1.5, -6.4) {Adam};
+\node[technique] (bpe) at (4.5, -6.4) {Subword\\Tokenization};
 
-\draw[evolves] (backprop) to[bend left=20] (deeplearning);
+\draw[evolves] (backprop) to[bend left=25] (deeplearning);
 \draw[evolves] (deeplearning) -- (resnet);
+\draw[evolves] (lstm) to[bend right=15] (seq2seq);
+\draw[evolves] (seq2seq) -- (attention);
 \draw[enables] (dropout) -- (deeplearning);
 \draw[enables] (batchnorm) -- (resnet);
-\draw[evolves] (lstm) to[bend right=10] (seq2seq);
-\draw[evolves] (seq2seq) -- (attention);
 \draw[enables] (embeddings) -- (seq2seq);
 
 % ============================================
 % PART IV: Transformer Era (2017-2019)
 % ============================================
 
-\node[milestone] (transformer) at (0.75, -7.2) {Transformer};
-\node[technique] (layernorm) at (-3, -7.5) {Layer\\Normalization};
-\node[technique] (moe) at (-3, -8.3) {Mixture of\\Experts};
-\node[foundational] (pretrain) at (3.5, -7.2) {Self-Supervised\\Pretraining};
-\node[architectural] (bert) at (2, -8.1) {Bidirectional\\(BERT)};
-\node[architectural] (gpt) at (5, -8.1) {Autoregressive\\(GPT)};
-\node[technique] (rlhf) at (-0.5, -8.4) {RLHF};
-\node[technique] (ppo) at (-1.6, -8.4) {PPO};
+\node[technique] (layernorm) at (-4, -8.4) {Layer Norm};
+\node[technique] (moe) at (-4, -9.6) {Mixture of\\Experts};
+\node[milestone] (transformer) at (-1, -8.4) {Transformer};
+\node[foundational] (pretrain) at (2, -8.4) {Self-Supervised\\Pretraining};
+\node[architectural] (bert) at (0.5, -9.6) {Bidirectional\\(BERT)};
+\node[architectural] (gpt) at (3.5, -9.6) {Autoregressive\\(GPT)};
+\node[technique] (ppo) at (5.5, -8.4) {PPO};
+\node[technique] (rlhf) at (5.5, -9.6) {RLHF};
 
 \draw[evolves] (attention) -- (transformer);
-\draw[evolves] (resnet) to[bend right=10] (transformer);
+\draw[evolves] (resnet) to[bend right=15] (transformer);
 \draw[enables] (layernorm) -- (transformer);
 \draw[evolves] (transformer) -- (pretrain);
 \draw[evolves] (pretrain) -- (bert);
 \draw[evolves] (pretrain) -- (gpt);
-\draw[enables] (bpe) to[bend left=15] (transformer);
+\draw[enables] (bpe) to[bend left=20] (transformer);
 \draw[enables] (ppo) -- (rlhf);
 
 % ============================================
 % PART V: Emergence and Scale (2019-2020)
 % ============================================
 
-\node[milestone] (scaling) at (-2, -9.7) {Scaling\\Laws};
-\node[foundational] (emergence) at (0.75, -9.7) {Emergent\\Capabilities};
-\node[architectural] (fewshot) at (3.5, -9.7) {In-Context\\Learning};
-\node[architectural] (rag) at (5.5, -9.7) {Retrieval\\Augmentation};
-\node[technique] (mqa) at (-2, -10.6) {Multi-Query\\Attention};
+\node[milestone] (scaling) at (-4, -11.6) {Scaling\\Laws};
+\node[foundational] (emergence) at (-1, -11.6) {Emergent\\Capabilities};
+\node[architectural] (fewshot) at (2, -11.6) {In-Context\\Learning};
+\node[architectural] (rag) at (5, -11.6) {Retrieval\\Augmentation};
+\node[technique] (mqa) at (-4, -12.8) {Multi-Query\\Attention};
 
 \draw[evolves] (gpt) -- (scaling);
 \draw[evolves] (scaling) -- (emergence);
 \draw[evolves] (emergence) -- (fewshot);
-\draw[enables] (pretrain) to[bend left=10] (rag);
-\draw[enables] (moe) to[bend right=15] (scaling);
+\draw[enables] (pretrain) to[bend left=15] (rag);
+\draw[enables] (moe) to[bend right=20] (scaling);
 
 % ============================================
 % PART VI: Efficiency, Alignment, Reasoning (2021-2022)
 % ============================================
 
-\node[technique] (lora) at (-3.5, -12.2) {LoRA};
-\node[technique] (rope) at (-2, -12.2) {Rotary\\Embeddings};
-\node[technique] (flash) at (-0.5, -12.2) {Flash\\Attention};
-\node[milestone] (instruct) at (1.5, -12.2) {Instruction\\Following};
-\node[foundational] (cot) at (3.5, -12.2) {Chain-of-\\Thought};
-\node[architectural] (constitutional) at (5.5, -12.2) {Constitutional\\AI};
-\node[technique] (chinchilla) at (-3.5, -13) {Compute-\\Optimal};
-\node[architectural] (react) at (3.5, -13) {Tool Use\\(ReAct)};
+\node[technique] (lora) at (-4, -14.8) {LoRA};
+\node[technique] (rope) at (-2.2, -14.8) {Rotary\\Embeddings};
+\node[technique] (flash) at (-0.4, -14.8) {Flash\\Attention};
+\node[milestone] (instruct) at (1.8, -14.8) {Instruction\\Following};
+\node[foundational] (cot) at (4, -14.8) {Chain-of-\\Thought};
+\node[architectural] (constitutional) at (6, -14.8) {Constitutional\\AI};
+\node[technique] (chinchilla) at (-4, -16) {Compute-\\Optimal};
+\node[architectural] (react) at (4, -16) {Tool Use\\(ReAct)};
 
-\draw[evolves] (rlhf) to[bend right=15] (instruct);
+\draw[evolves] (rlhf) to[bend right=20] (instruct);
 \draw[evolves] (fewshot) -- (cot);
 \draw[evolves] (instruct) -- (constitutional);
 \draw[evolves] (cot) -- (react);
-\draw[enables] (scaling) to[bend right=10] (chinchilla);
+\draw[enables] (scaling) to[bend right=15] (chinchilla);
 \draw[enables] (mqa) -- (flash);
 
 % ============================================
 % PART VII: Open LLMs and Modern Frontier (2023-2024)
 % ============================================
 
-\node[milestone] (openmodels) at (-3, -14.7) {Open\\Models};
-\node[technique] (dpo) at (-1, -14.7) {Direct\\Preference};
-\node[technique] (qlora) at (-3, -15.5) {QLoRA};
-\node[technique] (gqa) at (-1, -15.5) {Grouped-Query\\Attention};
-\node[architectural] (moescale) at (1.5, -14.7) {Sparse\\MoE};
-\node[foundational] (testtime) at (4, -14.7) {Test-Time\\Compute};
-\node[architectural] (selfreward) at (4, -15.5) {Self-\\Rewarding};
+\node[milestone] (openmodels) at (-4, -18) {Open\\Models};
+\node[technique] (dpo) at (-1.5, -18) {Direct\\Preference};
+\node[architectural] (moescale) at (1, -18) {Sparse\\MoE};
+\node[foundational] (testtime) at (3.5, -18) {Test-Time\\Compute};
+\node[technique] (qlora) at (-4, -19.2) {QLoRA};
+\node[technique] (gqa) at (-1.5, -19.2) {Grouped-Query\\Attention};
+\node[architectural] (selfreward) at (3.5, -19.2) {Self-\\Rewarding};
 
-\draw[evolves] (instruct) to[bend right=5] (openmodels);
+\draw[evolves] (instruct) to[bend right=10] (openmodels);
 \draw[evolves] (constitutional) -- (dpo);
 \draw[evolves] (lora) -- (qlora);
-\draw[evolves] (mqa) to[bend right=10] (gqa);
-\draw[evolves] (moe) to[bend right=20] (moescale);
-\draw[evolves] (cot) to[bend left=10] (testtime);
+\draw[evolves] (mqa) to[bend right=15] (gqa);
+\draw[evolves] (moe) to[bend right=25] (moescale);
+\draw[evolves] (cot) to[bend left=15] (testtime);
 \draw[enables] (dpo) -- (selfreward);
 
 % ============================================
 % Legend
 % ============================================
 
-\begin{scope}[shift={(7.5, -7.5)}]
+\begin{scope}[shift={(8, -10)}]
     \node[font=\scriptsize\bfseries, anchor=north west] at (0, 0.3) {Legend};
 
-    \node[foundational, minimum width=1.2cm] (leg1) at (0.6, -0.4) {};
-    \node[font=\tiny, anchor=west] at (1.4, -0.4) {Foundational};
+    \node[foundational, minimum width=1cm] at (0.5, -0.4) {};
+    \node[font=\tiny, anchor=west] at (1.2, -0.4) {Foundational};
 
-    \node[milestone, minimum width=1.2cm] (leg2) at (0.6, -0.9) {};
-    \node[font=\tiny, anchor=west] at (1.4, -0.9) {Milestone};
+    \node[milestone, minimum width=1cm] at (0.5, -1) {};
+    \node[font=\tiny, anchor=west] at (1.2, -1) {Milestone};
 
-    \node[architectural, minimum width=1.2cm] (leg3) at (0.6, -1.4) {};
-    \node[font=\tiny, anchor=west] at (1.4, -1.4) {Architecture};
+    \node[architectural, minimum width=1cm] at (0.5, -1.6) {};
+    \node[font=\tiny, anchor=west] at (1.2, -1.6) {Architecture};
 
-    \node[technique, minimum width=1.2cm] (leg4) at (0.6, -1.9) {};
-    \node[font=\tiny, anchor=west] at (1.4, -1.9) {Technique};
+    \node[technique, minimum width=1cm] at (0.5, -2.2) {};
+    \node[font=\tiny, anchor=west] at (1.2, -2.2) {Technique};
 
-    \draw[evolves] (0.1, -2.5) -- (1.1, -2.5);
-    \node[font=\tiny, anchor=west] at (1.4, -2.5) {Evolves into};
+    \draw[evolves] (0, -2.9) -- (1, -2.9);
+    \node[font=\tiny, anchor=west] at (1.2, -2.9) {Evolves into};
 
-    \draw[enables] (0.1, -3) -- (1.1, -3);
-    \node[font=\tiny, anchor=west] at (1.4, -3) {Enables};
+    \draw[enables] (0, -3.5) -- (1, -3.5);
+    \node[font=\tiny, anchor=west] at (1.2, -3.5) {Enables};
 \end{scope}
 
 \end{tikzpicture}
