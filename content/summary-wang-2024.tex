@@ -1,0 +1,14 @@
+% Paper Summary: Executable Code Actions Elicit Better LLM Agents (Wang et al., 2024)
+
+\begin{papersummary}{2024}{Executable Code Actions Elicit Better LLM Agents}{Xingyao Wang, Yangyi Chen, Lifan Yuan, Yizhe Zhang, Yunzhu Li, Hao Peng, Heng Ji}{CodeAct demonstrated that code-based actions outperform text-based actions for LLM agents, establishing executable code as the preferred action space.}
+
+\summaryheading{Key Ideas}
+CodeAct proposes using Python code as the action representation for LLM agents instead of natural language descriptions or predefined action templates. The agent generates code that interacts with tools, APIs, and the environment, receiving execution results as observations. Code enables complex operations like loops, conditionals, and data manipulation that are awkward to express in natural language actions. The paper showed that code actions improve performance across diverse agent benchmarks while requiring fewer turns and tokens than text-based approaches. A unified code interface simplifies tool integration and enables the agent to compose operations flexibly.
+
+\summaryheading{Follow-on Works}
+OpenHands and other agent frameworks adopted code-based action paradigms. Research explored the boundaries of what agents can accomplish through code generation. Integration with software development tools enabled agents to modify codebases and run tests. The approach influenced how production agent systems structure their action spaces.
+
+\summaryheading{Lasting Contributions}
+CodeAct established code as the preferred action representation for capable LLM agents, influencing the design of subsequent agent systems. The insight that code's expressiveness, composability, and interpretability make it superior to text-based actions has practical implications for agent development. The work demonstrates how the choice of action representation significantly impacts agent capabilities, suggesting that representations enabling complex operations unlock stronger agent behavior. This aligns with broader trends toward code generation as a general-purpose interface for LLM capabilities.
+
+\end{papersummary}

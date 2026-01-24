@@ -1,0 +1,14 @@
+% Paper Summary: Mamba: Linear-Time Sequence Modeling with Selective State Spaces (Gu & Dao, 2023)
+
+\begin{papersummary}{2023}{Mamba: Linear-Time Sequence Modeling with Selective State Spaces}{Albert Gu, Tri Dao}{Mamba introduced selective state space models that achieve Transformer-quality language modeling with linear-time complexity, offering a potential alternative to attention mechanisms.}
+
+\summaryheading{Key Ideas}
+Mamba extends state space models (SSMs) with input-dependent ``selective'' parameters that allow the model to focus on or ignore inputs dynamically, similar to attention but with linear rather than quadratic complexity. The key innovation is making SSM parameters functions of the input, enabling content-based reasoning while maintaining computational efficiency. The paper introduces a hardware-aware algorithm that avoids materializing large intermediate states, achieving practical speedups on modern GPUs. Mamba matches or exceeds Transformer performance on language modeling while scaling linearly with sequence length.
+
+\summaryheading{Follow-on Works}
+Mamba-2 improved the architecture with structured state space duality. Vision Mamba and VideoMamba adapted the architecture for visual domains. Hybrid architectures combining Mamba layers with attention emerged. Jamba from AI21 combined Mamba with MoE. Research explored whether state space models could fully replace attention at frontier scales. The efficiency advantages motivated continued investigation into attention alternatives.
+
+\summaryheading{Lasting Contributions}
+Mamba demonstrated that attention is not the only path to strong language modeling, reviving interest in alternative sequence modeling architectures. The selective state space mechanism provides a principled way to achieve content-based reasoning without quadratic complexity. While Transformers remain dominant, Mamba established state space models as a viable research direction that may prove important for very long sequences or resource-constrained settings. The hardware-aware algorithm design exemplifies how modern ML research must co-optimize algorithms with hardware constraints.
+
+\end{papersummary}

@@ -1,0 +1,14 @@
+% Paper Summary: GQA: Training Generalized Multi-Query Transformer Models from Multi-Head Checkpoints (Ainslie et al., 2023)
+
+\begin{papersummary}{2023}{GQA: Training Generalized Multi-Query Transformer Models from Multi-Head Checkpoints}{Joshua Ainslie, James Lee-Thorp, Michiel de Jong, Yinfei Yang, Sumit Sanghai, Lior Cohen}{Grouped-Query Attention provides a flexible middle ground between multi-head and multi-query attention, achieving near multi-head quality with substantial inference speedups.}
+
+\summaryheading{Key Ideas}
+Grouped-Query Attention (GQA) divides query heads into groups, with each group sharing a single key-value head. This interpolates between Multi-Head Attention (MHA), where each query head has its own key-value pair, and Multi-Query Attention (\hyperref[paper:shazeer-2019-mqa]{Shazeer, 2019}), where all queries share a single key-value head. The paper showed that models pretrained with MHA can be efficiently converted to GQA through continued pretraining on a small fraction of original training data (``uptraining''). GQA with 8 key-value heads matches MHA quality while approaching MQA inference speed, providing a practical optimization for production deployment.
+
+\summaryheading{Follow-on Works}
+LLaMA 2 (\hyperref[paper:touvron-2023-llama2]{Touvron et al., 2023}) adopted GQA as its standard attention mechanism, as did LLaMA 3, Mistral, and most subsequent open-weight models. The uptraining procedure enabled efficient conversion of existing checkpoints, accelerating adoption. Research on KV-cache compression continued exploring related ideas like sliding window attention and sparse attention patterns. GQA became the de facto standard for balancing quality and inference efficiency.
+
+\summaryheading{Lasting Contributions}
+GQA has become the standard attention mechanism in production large language models. LLaMA 2, LLaMA 3, Mistral, Qwen, and most open-weight models use GQA rather than traditional multi-head attention. The technique reduces KV-cache memory by 4-8x depending on configuration while maintaining model quality, enabling longer context lengths and larger batch sizes during inference. The insight that a small number of key-value heads suffices for high-quality attention has practical implications for efficient LLM deployment. The uptraining procedure demonstrated that architectural improvements can be applied to existing models without full retraining.
+
+\end{papersummary}

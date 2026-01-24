@@ -1,0 +1,14 @@
+% Paper Summary: GloVe: Global Vectors for Word Representation (Pennington et al., 2014)
+
+\begin{papersummary}{2014}{GloVe: Global Vectors for Word Representation}{Jeffrey Pennington, Richard Socher, Christopher D. Manning}{GloVe combined count-based and predictive methods for word embeddings, training on global word co-occurrence statistics to produce vectors that capture semantic relationships.}
+
+\summaryheading{Key Ideas}
+GloVe (Global Vectors) learns word embeddings by factorizing a word co-occurrence matrix, where entries represent how often words appear together within a context window across a large corpus. The model optimizes a weighted least-squares objective that encourages the dot product of word vectors to approximate the logarithm of their co-occurrence probability. This combines the global statistical information exploited by matrix factorization methods with the local context window approach of Word2Vec. The resulting vectors exhibit semantic regularities where vector arithmetic captures analogies (e.g., ``king'' - ``man'' + ``woman'' $\approx$ ``queen'').
+
+\summaryheading{Follow-on Works}
+FastText (Bojanowski et al., 2017) extended word embeddings to subword information, handling rare words and morphology. ELMo (\hyperref[paper:peters-2018]{Peters et al., 2018}) moved beyond static embeddings to context-dependent representations. BERT (\hyperref[paper:devlin-2018]{Devlin et al., 2018}) and GPT established contextualized embeddings as the new standard. However, GloVe vectors remain widely used for initialization, probing tasks, and applications where computational efficiency is paramount. Research on embedding bias and fairness built on GloVe's interpretable structure.
+
+\summaryheading{Lasting Contributions}
+GloVe demonstrated that simple, efficient methods could produce high-quality word embeddings by leveraging global corpus statistics. The vectors became a standard benchmark for evaluating embedding methods and are still used in production systems where computational resources are limited. GloVe's explicit connection between matrix factorization and neural embedding methods provided theoretical insights that unified different approaches to representation learning. The word analogy evaluation methodology established by GloVe became standard for measuring embedding quality, though its limitations also spurred development of better evaluation metrics.
+
+\end{papersummary}

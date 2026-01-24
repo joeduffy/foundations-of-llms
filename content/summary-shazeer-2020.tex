@@ -1,0 +1,14 @@
+% Paper Summary: GLU Variants Improve Transformer (Shazeer, 2020)
+
+\begin{papersummary}{2020}{GLU Variants Improve Transformer}{Noam Shazeer}{This paper showed that Gated Linear Unit variants, particularly SwiGLU, consistently improve Transformer performance, influencing the feedforward layers of modern LLMs.}
+
+\summaryheading{Key Ideas}
+The paper evaluated variants of Gated Linear Units (GLUs) as replacements for the standard ReLU feedforward layers in Transformers. GLU-style layers compute $\text{GLU}(x) = (xW_1) \otimes \sigma(xW_2)$ where $\sigma$ is an activation function and $\otimes$ is element-wise multiplication. The paper tested variants using different activations: GELU, Swish, and Sigmoid, finding that SwiGLU (using Swish activation) and GeGLU (using GELU) consistently outperformed standard ReLU across model sizes and tasks. Despite requiring additional parameters, GLU variants achieve better performance per compute budget when the hidden dimension is adjusted appropriately.
+
+\summaryheading{Follow-on Works}
+LLaMA (\hyperref[paper:touvron-2023-llama]{Touvron et al., 2023}) adopted SwiGLU as its feedforward activation, as did LLaMA 2, Mistral, and most subsequent open-weight models. PaLM (\hyperref[paper:chowdhery-2022]{Chowdhery et al., 2022}) used GeGLU. The finding that gating improves feedforward layers influenced architectural choices across the field. Research on activation functions continued exploring variants, though SwiGLU became the de facto standard.
+
+\summaryheading{Lasting Contributions}
+SwiGLU has become the standard feedforward activation in modern large language models. LLaMA, LLaMA 2, LLaMA 3, Mistral, Qwen, and most open-weight models use SwiGLU instead of the original Transformer's ReLU. The paper demonstrated that seemingly minor architectural choices in feedforward layers significantly impact model quality. This exemplifies the broader principle that Transformer improvements often come from careful component-level optimization rather than wholesale architectural changes. SwiGLU's adoption represents one of the most widely deployed architectural modifications to the original Transformer design.
+
+\end{papersummary}

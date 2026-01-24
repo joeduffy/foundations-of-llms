@@ -1,0 +1,14 @@
+% Paper Summary: Code Llama: Open Foundation Models for Code (Rozi\`ere et al., 2023)
+
+\begin{papersummary}{2023}{Code Llama: Open Foundation Models for Code}{Baptiste Rozi\`{e}re, Jonas Gehring, Fabian Gloeckle, Sten Sootla, Itai Gat, Xiaoqing Ellen Tan, Yossi Adi, Jingyu Liu, et al.}{Code Llama specialized Llama 2 for code generation, demonstrating effective domain adaptation and establishing benchmarks for open code models.}
+
+\summaryheading{Key Ideas}
+Code Llama adapted Llama 2 through continued pretraining on 500B tokens of code-heavy data, producing models at 7B, 13B, and 34B parameters. The training incorporated infilling objectives (predicting middle portions of code given surrounding context) and long-context fine-tuning to support 100k token sequences. Code Llama - Python specialized further on Python code. Code Llama - Instruct added instruction-following for natural language to code tasks. The paper demonstrated that domain-specific continued pretraining on a strong base model could match or exceed purpose-built code models.
+
+\summaryheading{Follow-on Works}
+Code Llama influenced DeepSeek-Coder, StarCoder 2, and subsequent open code models. The long-context and infilling capabilities were adopted by code completion tools. Research on code generation benchmarks and evaluation expanded using Code Llama as a baseline. The domain adaptation methodology---continued pretraining followed by specialized instruction tuning---became a template for vertical applications.
+
+\summaryheading{Lasting Contributions}
+Code Llama established that general-purpose LLMs could be effectively specialized for programming through continued training, influencing how organizations approach domain adaptation. The model enabled open-source code assistants and IDE integrations. The infilling capability (fill-in-the-middle) became standard for code completion applications. Code Llama's performance on HumanEval and MBPP benchmarks set standards that subsequent models targeted. The paper demonstrated a practical template for domain specialization: take a strong open base model, continue pretraining on domain data, then instruction-tune for specific tasks. This recipe has been replicated across coding, mathematics, and other domains.
+
+\end{papersummary}

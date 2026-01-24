@@ -1,0 +1,14 @@
+% Paper Summary: Effective Approaches to Attention-based Neural Machine Translation (Luong et al., 2015)
+
+\begin{papersummary}{2015}{Effective Approaches to Attention-based Neural Machine Translation}{Minh-Thang Luong, Hieu Pham, Christopher D. Manning}{This paper introduced multiplicative attention and systematically compared attention mechanisms, establishing practical guidelines that influenced subsequent attention research.}
+
+\summaryheading{Key Ideas}
+The paper proposed ``global'' attention that attends to all source positions, and ``local'' attention that focuses on a window around a predicted alignment point. For computing attention weights, the paper introduced multiplicative (dot-product) attention as an alternative to Bahdanau's additive attention, showing it to be simpler and equally effective. The multiplicative score computes attention as $\text{score}(h_t, \bar{h}_s) = h_t^\top W_a \bar{h}_s$ or simply $h_t^\top \bar{h}_s$. The paper also explored different strategies for combining context with decoder state, establishing a systematic framework for attention design choices.
+
+\summaryheading{Follow-on Works}
+The Transformer (\hyperref[paper:vaswani-2017]{Vaswani et al., 2017}) adopted scaled dot-product attention, essentially Luong's multiplicative attention with scaling to prevent vanishing gradients for large dimensions. Multi-head attention extended the single-head mechanisms studied here. The systematic comparison of attention variants influenced how researchers approached attention design in subsequent architectures. Local attention inspired sparse attention patterns in later efficient Transformers.
+
+\summaryheading{Lasting Contributions}
+Multiplicative (dot-product) attention became the standard in modern Transformers, making this paper's contributions foundational to all contemporary large language models. The distinction between global and local attention prefigured later work on sparse and efficient attention mechanisms. The paper's systematic experimental methodology established best practices for comparing architectural choices. The insight that simpler attention functions could match more complex ones encouraged the field toward computationally efficient designs, a principle that guided Transformer development and subsequent efficiency improvements like FlashAttention.
+
+\end{papersummary}

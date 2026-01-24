@@ -1,0 +1,14 @@
+% Paper Summary: Plan-and-Act: Improving Agent Planning with Learned Action Abstractions (Erdogan et al., 2025)
+
+\begin{papersummary}{2025}{Plan-and-Act: Improving Agent Planning with a Learned Action Abstraction}{Gokce Erdogan, Atharva Sehgal, Nicholas Tomlin, Sumeet Singh, Eric Rosen, Karthik Narasimhan}{Plan-and-Act introduced learned action hierarchies that enable LLM agents to plan at appropriate levels of abstraction, improving complex task completion.}
+
+\summaryheading{Key Ideas}
+Plan-and-Act addresses the challenge that LLM agents often struggle with long-horizon tasks because they must reason about low-level actions while maintaining high-level goals. The approach learns a hierarchy of action abstractions from demonstrations, allowing agents to plan using higher-level primitives that encapsulate common action sequences. The agent first generates a high-level plan using abstract actions, then expands each abstract action into concrete steps. This decomposition reduces the planning horizon at each level and enables transfer of abstract plans across similar tasks.
+
+\summaryheading{Follow-on Works}
+Research continued exploring hierarchical planning for LLM agents. Integration with reinforcement learning enabled learning action abstractions from experience. Work on skill libraries and reusable components built on similar ideas.
+
+\summaryheading{Lasting Contributions}
+Plan-and-Act demonstrates that hierarchical planning with learned abstractions can substantially improve LLM agent capabilities on complex tasks. The approach addresses a fundamental limitation of flat planning approaches: the inability to reason effectively over long horizons. As LLM agents tackle increasingly complex tasks, hierarchical decomposition will likely become essential. The work connects classical AI planning research on abstraction with modern LLM-based agents, suggesting productive synergies between symbolic planning and neural generation.
+
+\end{papersummary}

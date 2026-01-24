@@ -1,0 +1,14 @@
+% Paper Summary: Layer Normalization (Ba, Kiros & Hinton, 2016)
+
+\begin{papersummary}{2016}{Layer Normalization}{Jimmy Lei Ba, Jamie Ryan Kiros, Geoffrey E. Hinton}{Layer Normalization normalizes activations across features within each sample, enabling effective training of recurrent and transformer models without batch dependencies.}
+
+\summaryheading{Key Ideas}
+Layer Normalization computes normalization statistics (mean and variance) across all features within a single training example, rather than across the batch dimension as in Batch Normalization. For each sample, activations are normalized to zero mean and unit variance, then scaled and shifted by learned parameters. This eliminates dependency on batch size and enables normalization in recurrent networks where batch statistics are problematic. The technique stabilizes the forward pass activations and enables faster, more stable training of deep networks. Unlike Batch Normalization, Layer Normalization performs identically during training and inference.
+
+\summaryheading{Follow-on Works}
+The Transformer architecture (\hyperref[paper:vaswani-2017]{Vaswani et al., 2017}) adopted Layer Normalization as its standard normalization technique, applying it before or after attention and feedforward sublayers. Pre-norm versus post-norm placement became an active research area. RMSNorm simplified Layer Normalization by removing mean centering, which LLaMA and other modern models adopted. Group Normalization and Instance Normalization explored intermediate approaches between batch and layer normalization. The technique enabled training of recurrent models like LSTM language models at scale.
+
+\summaryheading{Lasting Contributions}
+Layer Normalization is the standard normalization technique in modern large language models. Every major Transformer-based model---GPT, BERT, LLaMA, Claude, Gemini---uses Layer Normalization or its variants (RMSNorm). The batch-independence property is essential for autoregressive language models where variable sequence lengths and single-sample inference are common. The technique's ability to stabilize training without batch statistics proved critical for scaling to models with billions of parameters. Layer Normalization placement (pre-norm vs. post-norm) remains an important architectural decision affecting training dynamics.
+
+\end{papersummary}

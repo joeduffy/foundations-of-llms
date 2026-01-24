@@ -1,0 +1,14 @@
+% Paper Summary: Natural Language Processing (Almost) from Scratch (Collobert et al., 2011)
+
+\begin{papersummary}{2011}{Natural Language Processing (Almost) from Scratch}{Ronan Collobert, Jason Weston, L\'{e}on Bottou, Michael Karlen, Koray Kavukcuoglu, Pavel Kuksa}{This paper demonstrated that neural networks could learn effective NLP representations from raw text, replacing hand-engineered features and establishing the foundation for representation learning in language.}
+
+\summaryheading{Key Ideas}
+The paper proposed a unified neural architecture that learned internal representations for multiple NLP tasks---part-of-speech tagging, chunking, named entity recognition, and semantic role labeling---using raw words as input rather than task-specific engineered features. Words were mapped to dense vector embeddings learned jointly with the task. A convolutional neural network processed windows of word embeddings to produce predictions. The key insight was that representations useful for one task could transfer to others, and that end-to-end learning from raw text could match or exceed systems relying on decades of linguistic feature engineering.
+
+\summaryheading{Follow-on Works}
+Word2Vec (\hyperref[paper:mikolov-2013]{Mikolov et al., 2013}) dramatically simplified and scaled the word embedding approach. GloVe (Pennington et al., 2014) combined count-based and predictive methods. ELMo (\hyperref[paper:peters-2018]{Peters et al., 2018}) extended to contextualized embeddings. BERT (\hyperref[paper:devlin-2018]{Devlin et al., 2018}) achieved state-of-the-art across NLP tasks with pretrained Transformers. The paper won the ICML Test of Time Award in 2021, recognizing its seminal influence.
+
+\summaryheading{Lasting Contributions}
+This paper established representation learning as the dominant paradigm in NLP, replacing decades of hand-engineered features with learned embeddings. The insight that neural networks could discover useful linguistic representations directly from text---rather than requiring explicit linguistic knowledge---was transformative. The multi-task learning setup presaged modern pretraining approaches. Every modern language model builds on the foundations laid here: learning dense word representations, processing variable-length text with neural architectures, and transferring learned representations across tasks. The paper marked the beginning of the deep learning revolution in NLP.
+
+\end{papersummary}

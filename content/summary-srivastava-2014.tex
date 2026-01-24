@@ -1,0 +1,14 @@
+% Paper Summary: Dropout: A Simple Way to Prevent Neural Networks from Overfitting (Srivastava et al., 2014)
+
+\begin{papersummary}{2014}{Dropout: A Simple Way to Prevent Neural Networks from Overfitting}{Nitish Srivastava, Geoffrey Hinton, Alex Krizhevsky, Ilya Sutskever, Ruslan Salakhutdinov}{Dropout introduced stochastic regularization by randomly zeroing activations during training, preventing co-adaptation and dramatically reducing overfitting in neural networks.}
+
+\summaryheading{Key Ideas}
+Dropout temporarily removes neurons from the network during training by setting their outputs to zero with probability $p$ (typically 0.5 for hidden layers). This prevents neurons from co-adapting and forces the network to learn robust features that are useful across many random subnetworks. At test time, all neurons are present but weights are scaled by $(1-p)$ to match expected activations. The technique can be viewed as training an ensemble of $2^n$ thinned networks that share weights, with inference approximating the geometric mean of predictions. Dropout also introduces a form of noise that acts as regularization.
+
+\summaryheading{Follow-on Works}
+Variational dropout and Gaussian dropout provided Bayesian interpretations of the technique. DropConnect (Wan et al., 2013) extended the idea to dropping weights rather than activations. Spatial dropout adapted the technique for convolutional networks. Scheduled dropout and curriculum dropout varied dropout rates during training. More recently, dropout has been partially superseded by other regularization techniques in large models, though it remains widely used. The attention dropout in Transformers (\hyperref[paper:vaswani-2017]{Vaswani et al., 2017}) is a direct application.
+
+\summaryheading{Lasting Contributions}
+Dropout became one of the most important regularization techniques in deep learning, enabling training of larger models without overfitting. The paper accumulated over 50,000 citations and remains required reading for practitioners. Dropout is standard in modern architectures including Transformers, where it is applied to attention weights and feedforward layers. The insight that stochastic training-time behavior can improve generalization influenced subsequent work on data augmentation, batch normalization, and other forms of implicit regularization. Dropout rate remains a key hyperparameter in virtually every neural network training procedure.
+
+\end{papersummary}

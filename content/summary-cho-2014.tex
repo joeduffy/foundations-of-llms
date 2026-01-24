@@ -1,0 +1,14 @@
+% Paper Summary: Learning Phrase Representations using RNN Encoder-Decoder for Statistical Machine Translation (Cho et al., 2014)
+
+\begin{papersummary}{2014}{Learning Phrase Representations using RNN Encoder-Decoder for Statistical Machine Translation}{Kyunghyun Cho, Bart van Merrienboer, Caglar Gulcehre, Dzmitry Bahdanau, Fethi Bougares, Holger Schwenk, Yoshua Bengio}{This paper introduced the encoder-decoder architecture and the Gated Recurrent Unit (GRU), establishing foundational components for neural sequence-to-sequence models.}
+
+\summaryheading{Key Ideas}
+The paper proposed the encoder-decoder framework where one RNN encodes a variable-length input sequence into a fixed-length vector representation, and another RNN decodes this representation into a target sequence. Concurrently, the paper introduced the Gated Recurrent Unit (GRU), a simpler alternative to LSTM that uses reset and update gates to control information flow. The reset gate determines how much past information to forget, while the update gate controls how much new information to incorporate. GRU achieves comparable performance to LSTM with fewer parameters and simpler computation.
+
+\summaryheading{Follow-on Works}
+The sequence-to-sequence paper (\hyperref[paper:sutskever-2014]{Sutskever et al., 2014}) scaled encoder-decoder models with LSTMs. Attention mechanisms (\hyperref[paper:bahdanau-2014]{Bahdanau et al., 2014}) addressed the bottleneck of fixed-length encoding. The Transformer (\hyperref[paper:vaswani-2017]{Vaswani et al., 2017}) replaced recurrence entirely but retained the encoder-decoder structure for sequence-to-sequence tasks. GRU variants continue to be used in applications where computational efficiency matters. The encoder-decoder paradigm influenced T5 and other encoder-decoder language models.
+
+\summaryheading{Lasting Contributions}
+The encoder-decoder architecture became the foundational paradigm for sequence-to-sequence learning, influencing machine translation, summarization, and question answering systems. While Transformers have supplanted RNNs, the encoder-decoder structure persists in models like T5, BART, and the original Transformer. The GRU remains a practical choice for resource-constrained applications, offering LSTM-like capabilities with fewer parameters. The paper's insight that neural networks could learn to map between variable-length sequences without explicit alignment transformed how researchers approached sequence transduction problems.
+
+\end{papersummary}

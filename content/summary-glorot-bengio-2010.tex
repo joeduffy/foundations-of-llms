@@ -1,0 +1,14 @@
+% Paper Summary: Understanding the Difficulty of Training Deep Feedforward Neural Networks (Glorot & Bengio, 2010)
+
+\begin{papersummary}{2010}{Understanding the Difficulty of Training Deep Feedforward Neural Networks}{Xavier Glorot, Yoshua Bengio}{This paper identified the importance of proper weight initialization in deep networks and introduced Xavier/Glorot initialization, which maintains gradient flow across layers.}
+
+\summaryheading{Key Ideas}
+This paper systematically investigated why deep neural networks were difficult to train, discovering that improper weight initialization causes activations and gradients to either vanish or explode across layers. The authors proposed ``normalized initialization'' (later known as Xavier or Glorot initialization) that draws weights from a distribution scaled by the fan-in and fan-out of each layer. This initialization maintains variance of activations and gradients at approximately the same magnitude throughout the network. The paper also analyzed the behavior of different activation functions, revealing problems with sigmoid saturation that would later motivate ReLU adoption.
+
+\summaryheading{Follow-on Works}
+He initialization (\hyperref[paper:he-2015-resnet]{He et al., 2015}) extended these ideas for ReLU activations, which require different scaling due to their asymmetric nature. Batch Normalization (\hyperref[paper:ioffe-szegedy-2015]{Ioffe \& Szegedy, 2015}) and Layer Normalization (\hyperref[paper:ba-2016]{Ba et al., 2016}) provided alternative solutions to the gradient flow problem through normalization layers. Modern initialization schemes like LSUV and data-dependent initialization build on these foundational insights. The analysis of activation functions influenced the widespread adoption of ReLU variants.
+
+\summaryheading{Lasting Contributions}
+Xavier/Glorot initialization remains a standard default in deep learning frameworks including PyTorch and TensorFlow. The paper established weight initialization as a critical design choice rather than an arbitrary hyperparameter. Its systematic analysis of gradient flow became foundational methodology for understanding trainability of deep architectures. The insights about maintaining variance across layers directly influenced the design of residual connections and normalization techniques that enable training of modern transformer architectures with hundreds of layers.
+
+\end{papersummary}

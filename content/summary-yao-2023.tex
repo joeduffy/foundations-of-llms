@@ -1,0 +1,14 @@
+% Paper Summary: Tree of Thoughts: Deliberate Problem Solving with Large Language Models (Yao et al., 2023)
+
+\begin{papersummary}{2023}{Tree of Thoughts: Deliberate Problem Solving with Large Language Models}{Shunyu Yao, Dian Yu, Jeffrey Zhao, Izhak Shafran, Thomas L. Griffiths, Yuan Cao, Karthik Narasimhan}{Tree of Thoughts introduced structured exploration of reasoning paths, enabling LLMs to deliberate over multiple approaches and backtrack when needed.}
+
+\summaryheading{Key Ideas}
+Tree of Thoughts (ToT) generalizes chain-of-thought prompting from a single linear reasoning path to a tree of possibilities. The model generates multiple candidate ``thoughts'' (intermediate reasoning steps), evaluates their promise using self-evaluation, and explores the most promising branches using search algorithms like breadth-first or depth-first search. This enables deliberate problem solving where the model can explore alternatives, backtrack from dead ends, and make globally informed decisions. ToT significantly improves performance on tasks requiring search and planning, such as mathematical puzzles and creative writing.
+
+\summaryheading{Follow-on Works}
+Graph of Thoughts extended the structure to general graphs. Monte Carlo Tree Search was integrated for more sophisticated exploration. Research explored when tree-based reasoning helps versus simpler chain-of-thought. Test-time compute scaling (\hyperref[paper:snell-2024-test-time]{Snell et al., 2024}) built on these ideas for systematic search during inference.
+
+\summaryheading{Lasting Contributions}
+Tree of Thoughts established that LLM reasoning could be structured algorithmically beyond simple prompting. The framework demonstrated that System 2-style deliberate reasoning could be achieved through external scaffolding around System 1-style LLM generation. This influenced thinking about test-time compute: instead of relying solely on the model's single forward pass, structured exploration can dramatically improve outputs. The approach presaged recent advances in reasoning models that use tree search and verification during inference.
+
+\end{papersummary}

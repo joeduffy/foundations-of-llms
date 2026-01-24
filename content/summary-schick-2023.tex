@@ -1,0 +1,14 @@
+% Paper Summary: Toolformer: Language Models Can Teach Themselves to Use Tools (Schick et al., 2023)
+
+\begin{papersummary}{2023}{Toolformer: Language Models Can Teach Themselves to Use Tools}{Timo Schick, Jane Dwivedi-Yu, Roberto Dess\`{i}, Roberta Raileanu, Maria Lomeli, Luke Zettlemoyer, Nicola Cancedda, Thomas Scialom}{Toolformer introduced self-supervised tool learning, showing that LLMs can learn when and how to use external tools through automated data generation.}
+
+\summaryheading{Key Ideas}
+Toolformer enables language models to learn tool use without explicit human demonstrations. The approach samples potential tool calls at positions where they might be useful, executes the tools, and filters based on whether the tool output reduces perplexity of the continuation. This creates training data teaching the model when tools help. The model learns to call calculators, search engines, calendars, translation systems, and other APIs, invoking them mid-generation when they would improve outputs. Crucially, tool use is learned as an emergent capability from the language modeling objective.
+
+\summaryheading{Follow-on Works}
+Research on tool-augmented LLMs exploded following Toolformer. Function calling in GPT-4 and Claude implemented similar capabilities. Open-source efforts replicated and extended the approach. Research explored which tools models can learn to use, how to scale tool learning, and connections to agentic capabilities.
+
+\summaryheading{Lasting Contributions}
+Toolformer demonstrated that tool use could be learned rather than hard-coded, fundamentally changing how researchers approach LLM augmentation. The self-supervised approach---where the model discovers when tools help through language modeling---proved more scalable than curated demonstrations. Modern LLM assistants with function calling capabilities build on this foundation. The paper established that the boundary between model capabilities and external tools is fluid, with models able to learn to leverage tools to compensate for their limitations.
+
+\end{papersummary}

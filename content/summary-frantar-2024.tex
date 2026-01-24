@@ -1,0 +1,14 @@
+% Paper Summary: MoE Scaling Laws and Expert Choice Routing (Frantar et al., 2024)
+
+\begin{papersummary}{2024}{Scaling Laws for Mixture-of-Experts and Expert Choice Routing}{Elias Frantar, Dan Alistarh, Carlos Riquelme, Neil Houlsby, Zoubin Ghahramani}{This paper established scaling laws for Mixture-of-Experts models and introduced expert choice routing as an efficient alternative to token-choice routing.}
+
+\summaryheading{Key Ideas}
+The paper derives scaling laws specifically for Mixture-of-Experts architectures, showing how performance scales with the number of experts, tokens per expert, and total compute. Key findings include that MoE models follow predictable power laws similar to dense models, but with different exponents that favor sparse computation. Expert choice routing inverts the standard paradigm: instead of tokens choosing experts, each expert selects the tokens it will process. This eliminates load balancing issues and enables better utilization of expert capacity while maintaining training efficiency.
+
+\summaryheading{Follow-on Works}
+DeepSeek-V2 and DeepSeek-V3 incorporated insights from MoE scaling research. Production MoE systems increasingly adopted expert choice or hybrid routing schemes. Research on understanding expert specialization and the emergence of expertise continued building on this foundation.
+
+\summaryheading{Lasting Contributions}
+The MoE scaling laws provide practitioners with tools to predict performance and optimize architecture decisions for sparse models. Expert choice routing solves the persistent load balancing problem that has plagued MoE training since the original Sparsely-Gated MoE paper. As MoE architectures become more prevalent in frontier models, understanding their scaling behavior becomes critical for resource allocation and architecture search. This work helps establish MoE as a principled approach to scaling rather than an engineering hack.
+
+\end{papersummary}

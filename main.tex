@@ -18,38 +18,57 @@
 \usepackage{cite}
 \usepackage{setspace}
 \usepackage{microtype}
-\usepackage{mathptmx}
-\usepackage[scaled=0.9]{helvet}
-\usepackage{courier}
+% Professional font choice: Libertinus (modern, elegant serif with excellent math support)
+\usepackage{libertinus}
+\usepackage{libertinust1math}
 \usepackage{textcomp}
 \usepackage{xcolor}
 \usepackage{enumitem}
 \usepackage{mdframed}
 
 % Enable microtypography for better text quality
-\microtypesetup{protrusion=true,expansion=true}
+\microtypesetup{protrusion=true,expansion=true,tracking=true}
 
-% Paper summary page environment (Springer style)
+% Widow and orphan control
+\widowpenalty=10000
+\clubpenalty=10000
+\brokenpenalty=4991
+
+% Prevent hyphenation at page breaks
+\interlinepenalty=5000
+
+% Paper summary page environment (refined academic style)
 \newenvironment{papersummary}[4]{% year, title, authors, one-sentence summary
   \clearpage
+  \markright{#3 (#1)}% Set running header to "Authors (Year)"
   \thispagestyle{empty}
+  \vspace*{1cm}
   \begin{center}
-    {\large\textbf{#1}}\\[0.5em]
-    {\LARGE\bfseries #2}\\[1em]
-    {\large\textit{#3}}
+    {\fontsize{11}{13}\selectfont\scshape #1}\\[0.8em]
+    {\fontsize{18}{22}\selectfont\bfseries #2}\\[1em]
+    {\fontsize{11}{13}\selectfont\itshape #3}
+  \end{center}
+  \vspace{0.8em}
+  \begin{center}
+    \rule{0.6\textwidth}{0.4pt}
   \end{center}
   \vspace{1em}
-  \noindent #4
-  \vspace{1em}
+  \noindent\textit{#4}
+  \vspace{1.2em}
   \begin{mdframed}[
-    linewidth=0.5pt,
-    linecolor=black!30,
-    backgroundcolor=black!3,
-    innertopmargin=6pt,
-    innerbottommargin=6pt,
-    innerrightmargin=10pt,
-    innerleftmargin=10pt,
-    skipabove=6pt
+    linewidth=0pt,
+    leftline=true,
+    rightline=false,
+    topline=false,
+    bottomline=false,
+    linecolor=black!50,
+    linewidth=3pt,
+    backgroundcolor=black!2,
+    innertopmargin=12pt,
+    innerbottommargin=12pt,
+    innerrightmargin=14pt,
+    innerleftmargin=14pt,
+    skipabove=10pt
   ]
 }{%
   \end{mdframed}
@@ -57,20 +76,20 @@
 }
 
 \newcommand{\summaryheading}[1]{%
+  \vspace{0.5em}%
+  \noindent{\scshape\bfseries #1}%
   \vspace{0.3em}%
-  \noindent\textbf{\textsc{#1}}%
-  \vspace{0.2em}%
   \par\noindent%
 }
 
-% Professional page geometry for academic book
+% Professional page geometry for digital reading
 \geometry{
     paperwidth=7in,
     paperheight=10in,
-    inner=1.2in,
-    outer=0.9in,
+    left=1in,
+    right=1in,
     top=1in,
-    bottom=1.2in,
+    bottom=1in,
     headheight=24pt,
     headsep=18pt,
     footskip=24pt
@@ -100,13 +119,16 @@
   {\huge\bfseries}
 \titlespacing*{\chapter}{0pt}{40pt}{30pt}
 
-% Part formatting
+% Part formatting - dramatic full-page treatment
 \titleformat{\part}[display]
-  {\normalfont\Huge\bfseries\centering}
-  {\MakeUppercase{\partname}\ \thepart}
-  {20pt}
-  {\fontsize{24}{28}\selectfont\bfseries}
-\titlespacing*{\part}{0pt}{60pt}{40pt}
+  {\normalfont\centering}
+  {\vspace*{2cm}\rule{0.5\textwidth}{0.5pt}\\[1em]%
+   {\fontsize{14}{16}\selectfont\scshape\partname}\\[0.3em]%
+   {\fontsize{72}{80}\selectfont\textcolor{black!25}{\thepart}}\\[0.5em]%
+   \rule{0.5\textwidth}{0.5pt}}
+  {40pt}
+  {\fontsize{28}{34}\selectfont\bfseries}
+\titlespacing*{\part}{0pt}{0pt}{40pt}
 
 % Section formatting
 \titleformat{\section}
@@ -139,6 +161,12 @@
 \setlength{\cftbeforesubsecskip}{2pt}
 \setlength{\cftsubsecindent}{1.5em}
 
+% Dotted leaders for all TOC levels
+\renewcommand{\cftpartleader}{\cftdotfill{\cftdotsep}}
+\renewcommand{\cftchapleader}{\cftdotfill{\cftdotsep}}
+\renewcommand{\cftsecleader}{\cftdotfill{\cftdotsep}}
+\renewcommand{\cftsubsecleader}{\cftdotfill{\cftdotsep}}
+
 % List formatting
 \setlist[enumerate]{itemsep=3pt,parsep=0pt,topsep=6pt}
 \setlist[itemize]{itemsep=3pt,parsep=0pt,topsep=6pt}
@@ -150,9 +178,9 @@
     pdfsubject={Artificial Intelligence, Machine Learning, Natural Language Processing},
     pdfkeywords={Large Language Models, Transformers, Neural Networks, AI, Deep Learning},
     colorlinks=true,
-    linkcolor=blue!80!black,
-    citecolor=blue!80!black,
-    urlcolor=blue,
+    linkcolor=blue!70!black,
+    citecolor=blue!70!black,
+    urlcolor=blue!80!black,
     bookmarksnumbered=true,
     bookmarksopen=true,
     pdfpagemode=UseOutlines,

@@ -1,0 +1,14 @@
+% Paper Summary: Towards Monosemanticity: Decomposing Language Models with Dictionary Learning (Cunningham et al., 2023)
+
+\begin{papersummary}{2023}{Towards Monosemanticity: Decomposing Language Models with Dictionary Learning}{Hoagy Cunningham, Aidan Ewart, Leo Gao, Adria Garriga-Alonso, Arthur Conmy, Rohin Shah, Tomasz Korbak, Christopher Olah}{This paper demonstrated that sparse autoencoders can decompose neural network activations into interpretable features, providing a powerful tool for mechanistic interpretability.}
+
+\summaryheading{Key Ideas}
+The paper trains sparse autoencoders on the activations of language models to find monosemantic features---individual neurons or directions that correspond to single interpretable concepts. Standard neural networks exhibit ``superposition'' where individual neurons encode mixtures of many concepts, making interpretation difficult. Sparse dictionary learning overcomes this by learning an overcomplete basis of features, each of which activates for a coherent set of inputs. The paper identified features corresponding to specific topics, syntactic patterns, and even abstract concepts, demonstrating that neural networks learn human-interpretable structure.
+
+\summaryheading{Follow-on Works}
+Anthropic's subsequent research scaled sparse autoencoders to Claude, finding millions of interpretable features. Feature steering emerged as a technique for controlling model behavior by manipulating feature activations. Research explored feature geometry, circuits, and compositional structure. The approach influenced safety work by enabling better understanding of how models process potentially harmful content.
+
+\summaryheading{Lasting Contributions}
+Sparse autoencoders have become a central tool in mechanistic interpretability, enabling researchers to understand what large language models have learned. The demonstration that neural networks learn approximately monosemantic features (even though individual neurons are polysemantic) has significant implications for AI safety---it suggests models may be more interpretable than previously thought. This work established a scalable methodology for interpretability that continues to yield insights into model behavior, potentially enabling better alignment and safety interventions.
+
+\end{papersummary}

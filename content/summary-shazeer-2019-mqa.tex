@@ -1,0 +1,14 @@
+% Paper Summary: Fast Transformer Decoding: One Write-Head is All You Need (Shazeer, 2019)
+
+\begin{papersummary}{2019}{Fast Transformer Decoding: One Write-Head is All You Need}{Noam Shazeer}{Multi-Query Attention dramatically accelerates Transformer inference by sharing key and value projections across attention heads while maintaining quality.}
+
+\summaryheading{Key Ideas}
+Multi-Query Attention (MQA) modifies the standard multi-head attention mechanism by using a single set of key and value projections shared across all attention heads, while keeping separate query projections. This reduces the key-value cache size by a factor equal to the number of attention heads (typically 8-96x), dramatically accelerating autoregressive decoding which is memory-bandwidth bound. The paper showed that despite this aggressive parameter sharing, model quality remains comparable to standard multi-head attention. The technique is particularly valuable during inference when KV-cache memory becomes the primary bottleneck for long sequences and large batch sizes.
+
+\summaryheading{Follow-on Works}
+PaLM (\hyperref[paper:chowdhery-2022]{Chowdhery et al., 2022}) adopted Multi-Query Attention for efficient inference at scale. Grouped-Query Attention (Ainslie et al., 2023) proposed a middle ground using multiple key-value heads (fewer than query heads), which LLaMA 2 (\hyperref[paper:touvron-2023-llama2]{Touvron et al., 2023}) and subsequent models adopted. Multi-Query Attention influenced KV-cache compression techniques and memory-efficient attention implementations. The technique became standard in production LLM deployments where inference efficiency is critical.
+
+\summaryheading{Lasting Contributions}
+Multi-Query Attention and its successor Grouped-Query Attention are now standard in production large language models. LLaMA 2, LLaMA 3, Mistral, and most modern open-weight models use GQA, which directly builds on MQA. The insight that key-value projections can be shared without significant quality loss has proven remarkably robust across model scales. The technique is essential for efficient inference, reducing memory bandwidth requirements and enabling longer context lengths. MQA/GQA represents one of the most impactful architectural modifications for deployed LLM systems, enabling practical serving of models that would otherwise be too slow or expensive.
+
+\end{papersummary}

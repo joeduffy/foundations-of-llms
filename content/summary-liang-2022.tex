@@ -1,0 +1,14 @@
+% Paper Summary: Code as Policies: Language Model Programs for Embodied Control (Liang et al., 2022)
+
+\begin{papersummary}{2022}{Code as Policies: Language Model Programs for Embodied Control}{Jacky Liang, Wenlong Huang, Fei Xia, Peng Xu, Karol Hausman, Brian Ichter, Pete Florence, Andy Zeng}{This paper demonstrated that LLMs can generate executable code to control robots, establishing code generation as a paradigm for embodied AI and LLM-based agents.}
+
+\summaryheading{Key Ideas}
+Code as Policies (CaP) prompts large language models to generate Python code that interacts with perception APIs and robot control primitives to accomplish tasks specified in natural language. Instead of learning policies end-to-end or using language models to directly output actions, the approach leverages code as an intermediate representation that is interpretable, composable, and grounded in perceptual feedback. The paper showed that code generation enables spatial reasoning, arithmetic, and feedback loops that pure text generation struggles with. Hierarchical code generation allows complex tasks to be decomposed into reusable functions.
+
+\summaryheading{Follow-on Works}
+CodeAct (\hyperref[paper:wang-2024]{Wang et al., 2024}) extended code-based action to general LLM agents. PaLM-E combined embodied reasoning with large-scale pretraining. Language-to-reward translation built on CaP's ideas. The approach influenced how researchers think about grounding LLMs in physical environments and tool use more broadly.
+
+\summaryheading{Lasting Contributions}
+Code as Policies established code generation as a powerful interface between language models and external systems. The insight that code provides interpretability, compositionality, and grounding that natural language lacks has influenced agent design beyond robotics. This work presaged the broader trend of LLM agents that interact with tools through code. The hierarchical decomposition approach---generating high-level plans that call lower-level primitives---became a standard pattern in agent architectures.
+
+\end{papersummary}

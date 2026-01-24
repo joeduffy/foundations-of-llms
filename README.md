@@ -1,6 +1,6 @@
 # The Foundations of Large Language Models, 1943-2025
 
-A comprehensive collection of the 55 most foundational papers in the development of large language models, spanning from McCulloch-Pitts neurons (1943) to modern reasoning systems (2025).
+A comprehensive collection of the foundational papers in the development of large language models, spanning from McCulloch-Pitts neurons (1943) to modern reasoning systems (2025).
 
 ## Overview
 
@@ -8,18 +8,19 @@ This book assembles the essential papers that shaped the development of large la
 
 ## Structure
 
-### Core Foundations (42 papers)
-- **Part I**: Neural Beginnings & Learning Mechanisms (1943–1990) - 4 papers
-- **Part II**: Sequence Models & Word Embeddings (1990–2013) - 4 papers  
-- **Part III**: Attention and Sequence-to-Sequence Modeling (2014–2016) - 8 papers
-- **Part IV**: The Transformer Era and Pretraining Revolution (2017–2019) - 5 papers
-- **Part V**: Emergence and Scale (2019–2020) - 5 papers
-- **Part VI**: Efficiency, Alignment, and Reasoning (2021–2022) - 9 papers
-- **Part VII**: Open LLMs and Modern Frontier (2023–2024) - 7 papers
+### Core Foundations (67 papers)
+- **Part I**: Neural Beginnings & Learning Mechanisms (1943–1990) - 5 papers
+- **Part II**: Sequence Models & Word Embeddings (1990–2013) - 7 papers
+- **Part III**: Deep Learning & Attention (2012–2015) - 12 papers
+- **Part IV**: The Transformer Era and Pretraining Revolution (2016–2019) - 10 papers
+- **Part V**: Emergence and Scale (2019–2020) - 8 papers
+- **Part VI**: Efficiency, Alignment, and Reasoning (2021–2022) - 10 papers
+- **Part VII**: Open LLMs and Modern Frontier (2023–2024) - 15 papers
 
-### Appendices (13 papers)
-- **Appendix A**: Emerging Results (2023–2025) - 7 papers (safety, efficiency, reasoning)
+### Appendices (19 papers)
+- **Appendix A**: Emerging Results (2023–2025) - 5 papers (safety, efficiency, state spaces)
 - **Appendix B**: Foundations of Agents (2022–2025) - 6 papers
+- **Appendix C**: System Reports & Production Breakthroughs (2023–2025) - 8 papers
 
 ## Building the Book
 
@@ -42,9 +43,10 @@ make clean
 ### Directory Structure
 ```
 ├── main.tex              # Main LaTeX document
-├── content/               # LaTeX source files for each section
-├── pdfs/                  # Downloaded paper PDFs
-├── out/                   # Generated output files
+├── content/              # LaTeX source files for each section
+├── pdfs/                 # Downloaded paper PDFs
+├── out/                  # Generated output files
+├── docs/                 # Planning and reference documents
 ├── Makefile              # Build automation
 └── README.md             # This file
 ```
@@ -57,7 +59,7 @@ The papers were selected using rigorous criteria:
 - **Public Availability**: Accessible for academic study and reproduction
 - **Technical Depth**: Provided substantive technical contributions
 
-See `final_curated_paper_list.md` for the complete list with URLs and justifications.
+See `docs/final_curated_paper_list.md` for the complete list with URLs and justifications.
 
 ## Contributing
 

@@ -1,0 +1,56 @@
+# LaTeX build artifacts
+*.aux
+*.log
+*.toc
+*.out
+*.fls
+*.fdb_latexmk
+*.synctex.gz
+*.bbl
+*.blg
+*.idx
+*.ilg
+*.ind
+*.lof
+*.lot
+*.nav
+*.snm
+*.vrb
+*.bcf
+*.run.xml
+
+# Root-level generated PDFs (keep out/ directory)
+/main.pdf
+/main-mobile.pdf
+/main-ipad.pdf
+
+# LaTeX temporary files
+*.dvi
+*.ps
+
+# Build directory artifacts (but keep the directory)
+out/*.aux
+out/*.log
+out/*.toc
+out/*.out
+out/*.fls
+out/*.fdb_latexmk
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+Thumbs.db
+
+# Editor backups
+*~
+*.swp
+*.swo
+*.bak
+
+# Temporary/working files
+temp_*.txt
+available_pdfs.txt
+referenced_pdfs.txt

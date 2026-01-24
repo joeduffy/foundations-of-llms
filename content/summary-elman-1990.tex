@@ -1,0 +1,14 @@
+% Paper Summary: Finding Structure in Time (Elman, 1990)
+
+\begin{papersummary}{1990}{Finding Structure in Time}{Jeffrey L. Elman}{This paper introduced Simple Recurrent Networks (Elman Networks), demonstrating that recurrent connections enable neural networks to process sequential data and discover temporal structure.}
+
+\summaryheading{Key Ideas}
+Elman networks maintain a ``context'' layer that stores a copy of the hidden layer activations from the previous time step, feeding this context back as additional input alongside the current input. This simple recurrence enables the network to develop internal representations that encode information about past inputs, allowing it to process sequences and capture temporal dependencies. The paper demonstrated that such networks could learn to predict the next element in sequences, discovering grammatical structure in simple languages without explicit supervision. The approach provided a connectionist alternative to symbolic approaches to language processing.
+
+\summaryheading{Follow-on Works}
+Long Short-Term Memory (\hyperref[paper:hochreiter-schmidhuber-1997]{Hochreiter \& Schmidhuber, 1997}) addressed the vanishing gradient problem that limited Elman networks to short-range dependencies. Bidirectional RNNs extended the idea to process sequences in both directions. The sequence-to-sequence paradigm (\hyperref[paper:sutskever-2014]{Sutskever et al., 2014}) built on recurrent processing for machine translation. While attention mechanisms and Transformers eventually superseded recurrent architectures, the fundamental insight about temporal processing through hidden state persistence remains influential.
+
+\summaryheading{Lasting Contributions}
+The Simple Recurrent Network established the foundational paradigm for neural sequence processing that dominated NLP for two decades. The insight that networks could maintain state across time steps and use that state to inform current processing was revolutionary. The paper demonstrated that neural networks could learn linguistic regularities from data alone, presaging the data-driven approach that defines modern NLP. While Transformers have largely replaced recurrent architectures, the concept of hidden state as a representation of sequential context influenced the design of memory mechanisms, attention, and even modern state-space models like Mamba.
+
+\end{papersummary}

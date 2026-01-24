@@ -1,0 +1,14 @@
+% Paper Summary: Outrageously Large Neural Networks: The Sparsely-Gated Mixture-of-Experts Layer (Shazeer et al., 2017)
+
+\begin{papersummary}{2017}{Outrageously Large Neural Networks: The Sparsely-Gated Mixture-of-Experts Layer}{Noam Shazeer, Azalia Mirhoseini, Krzysztof Maziarz, Andy Davis, Quoc Le, Geoffrey Hinton, Jeff Dean}{This paper introduced sparsely-gated Mixture-of-Experts, enabling models with up to 137 billion parameters while maintaining constant computational cost per example.}
+
+\summaryheading{Key Ideas}
+The Sparsely-Gated Mixture-of-Experts (MoE) layer routes each input to a small subset of ``expert'' subnetworks selected by a learned gating function. The gating network produces a sparse distribution over experts, typically selecting only the top-k (often 1-4) experts per token. This enables massive model capacity---the paper demonstrated 137 billion parameters---while computational cost scales with the number of active experts rather than total parameters. The authors introduced load balancing losses to prevent expert collapse where the gating network learns to use only a few experts. Sparsity provides both computational efficiency and a form of conditional computation.
+
+\summaryheading{Follow-on Works}
+GShard (Lepikhin et al., 2020) scaled MoE to 600 billion parameters across distributed systems. Switch Transformers simplified routing to top-1 expert selection. GLaM achieved strong results with sparse MoE architectures. Mixtral (\hyperref[paper:jiang-2024-mixtral]{Jiang et al., 2024}) demonstrated that open-weight MoE models could match or exceed dense models at lower computational cost. DeepSeek-V2 (\hyperref[paper:zhu-2024-deepseek-v2]{Zhu et al., 2024}) pushed efficient MoE designs further. Expert choice routing and hash-based routing explored alternatives to learned gating.
+
+\summaryheading{Lasting Contributions}
+Mixture-of-Experts has become a standard technique for scaling large language models efficiently. GPT-4 reportedly uses MoE architecture, as do Mixtral, DeepSeek, and Grok. The key insight---that model capacity and computational cost can be decoupled through conditional computation---fundamentally changed how practitioners think about scaling. MoE enables training and serving models that would otherwise be computationally prohibitive. The load balancing techniques developed in this paper remain essential for training MoE models. The architecture represents one of the most important efficiency improvements in modern LLM design.
+
+\end{papersummary}

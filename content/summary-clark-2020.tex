@@ -1,0 +1,14 @@
+% Paper Summary: ELECTRA: Pre-training Text Encoders as Discriminators Rather Than Generators (Clark et al., 2020)
+
+\begin{papersummary}{2020}{ELECTRA: Pre-training Text Encoders as Discriminators Rather Than Generators}{Kevin Clark, Minh-Thang Luong, Quoc V. Le, Christopher D. Manning}{ELECTRA introduced replaced token detection as a more efficient pretraining objective, achieving BERT-level performance with significantly less compute.}
+
+\summaryheading{Key Ideas}
+Instead of masking tokens and predicting them (masked language modeling), ELECTRA trains a discriminator to detect which tokens in a sequence have been replaced by a small generator network. The generator proposes plausible replacements for masked tokens, and the discriminator must identify all replaced tokens---not just the masked subset. This ``replaced token detection'' objective is more efficient because the discriminator learns from all input tokens, not just the 15\% that are masked. Small ELECTRA models match the performance of much larger BERT models trained with equivalent compute.
+
+\summaryheading{Follow-on Works}
+ELECTRA-style pretraining influenced DeBERTa and other efficient pretraining methods. The generator-discriminator framework inspired related approaches in vision and multimodal learning. Research on efficient pretraining continued exploring objectives that learn from all tokens. The success of discriminative objectives influenced thinking about self-supervised learning more broadly.
+
+\summaryheading{Lasting Contributions}
+ELECTRA demonstrated that pretraining efficiency could be dramatically improved through better objectives, not just more compute. The insight that discriminative tasks (identifying corruption) can be more sample-efficient than generative tasks (predicting masked tokens) has broad implications for self-supervised learning. ELECTRA remains competitive for applications requiring strong encoders with limited compute budgets. The paper challenged the assumption that language model pretraining must use generative objectives, expanding the design space for future pretraining research. The efficiency gains are particularly relevant for practitioners who cannot afford large-scale pretraining.
+
+\end{papersummary}

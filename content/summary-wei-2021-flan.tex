@@ -1,0 +1,14 @@
+% Paper Summary: Finetuned Language Models Are Zero-Shot Learners (Wei et al., 2021)
+
+\begin{papersummary}{2021}{Finetuned Language Models Are Zero-Shot Learners}{Jason Wei, Maarten Bosma, Vincent Y. Zhao, Kelvin Guu, Adams Wei Yu, Brian Lester, Nan Du, Andrew M. Dai, Quoc V. Le}{FLAN demonstrated that instruction tuning on diverse tasks dramatically improves zero-shot performance, establishing the foundation for modern instruction-following models.}
+
+\summaryheading{Key Ideas}
+FLAN (Finetuned Language Net) showed that finetuning language models on a diverse collection of tasks described via natural language instructions substantially improves zero-shot performance on unseen tasks. The paper collected 62 text datasets grouped into 12 task clusters and converted them to instruction format. Models were trained on instructions from some clusters and evaluated on held-out clusters, demonstrating genuine generalization to new task types. The key insight is that instruction tuning teaches models to follow instructions in general, not just perform specific tasks. Larger models benefited more from instruction tuning, suggesting an emergent capability.
+
+\summaryheading{Follow-on Works}
+InstructGPT (\hyperref[paper:ouyang-2022]{Ouyang et al., 2022}) combined instruction tuning with reinforcement learning from human feedback. FLAN-T5 and FLAN-PaLM scaled instruction tuning to larger model families. The T0 model (Sanh et al., 2022) explored similar ideas concurrently. Self-Instruct enabled generating instruction data from models themselves. Alpaca, Vicuna, and the open-source instruction-following ecosystem built directly on these foundations. Constitutional AI (\hyperref[paper:bai-2022]{Bai et al., 2022}) extended the paradigm with AI feedback for safety.
+
+\summaryheading{Lasting Contributions}
+Instruction tuning established the paradigm for making language models useful assistants. Every modern chat-based LLM---ChatGPT, Claude, Gemini, LLaMA-Chat---incorporates instruction tuning as a core training stage. The paper demonstrated that the format and framing of training data matters as much as the raw content, influencing how all subsequent models are trained. Instruction tuning bridges the gap between raw language model pretraining and practical user-facing applications. The concept of ``emergence'' through instruction tuning---where models gain general instruction-following ability rather than task-specific skills---fundamentally shaped how researchers think about LLM capabilities.
+
+\end{papersummary}

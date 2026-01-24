@@ -1,0 +1,14 @@
+% Paper Summary: PaLM: Scaling Language Modeling with Pathways (Chowdhery et al., 2022)
+
+\begin{papersummary}{2022}{PaLM: Scaling Language Modeling with Pathways}{Aakanksha Chowdhery, Sharan Narang, Jacob Devlin, Maarten Bosma, Gaurav Mishra, Adam Roberts, Paul Barham, Hyung Won Chung, et al.}{PaLM scaled dense Transformer language models to 540 billion parameters, demonstrating emergent capabilities and achieving breakthrough performance on reasoning tasks.}
+
+\summaryheading{Key Ideas}
+PaLM (Pathways Language Model) scaled a decoder-only Transformer to 540 billion parameters using Google's Pathways system across 6144 TPU v4 chips. The model incorporated architectural improvements including SwiGLU activation, parallel attention and feedforward layers, multi-query attention, and RoPE embeddings. Training on 780 billion tokens of high-quality multilingual data, PaLM demonstrated ``emergent'' capabilities---abilities that appear suddenly at scale rather than improving gradually. The paper showed state-of-the-art performance on hundreds of benchmarks, with particularly strong results on reasoning, code generation, and multilingual tasks.
+
+\summaryheading{Follow-on Works}
+PaLM 2 improved efficiency and multilingual capabilities. Flan-PaLM applied instruction tuning to PaLM. Med-PaLM demonstrated medical domain adaptation. The emergent capabilities findings influenced discussions of AI safety and capability evaluation. The architectural choices (SwiGLU, multi-query attention, parallel layers) were adopted by subsequent models. Gemini built on PaLM's foundations for multimodal capabilities.
+
+\summaryheading{Lasting Contributions}
+PaLM demonstrated that scaling dense Transformers to 540B parameters was practical and could achieve breakthrough capabilities, particularly in reasoning. The paper's analysis of emergent abilities---tasks where performance jumps discontinuously with scale---shaped how researchers think about capability development in large models. PaLM's architectural recipe (combining SwiGLU, MQA, RoPE, and parallel layers) influenced subsequent model designs. The comprehensive evaluation across hundreds of tasks established benchmarking standards. PaLM showed that careful engineering could achieve frontier capabilities, contributing to the rapid progress in LLM development through 2022-2023.
+
+\end{papersummary}
