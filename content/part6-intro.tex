@@ -3,7 +3,7 @@
 
 The years 2021 to 2022 marked a period of consolidation and refinement following the scaling insights of the previous era. Researchers addressed three critical challenges: computational efficiency, human alignment, and reasoning capabilities. The continued growth in model scale made efficiency techniques essential for practical deployment. Simultaneously, the increasing capabilities of language models heightened concerns about alignment—ensuring that models behaved in accordance with human values and intentions. Finally, researchers discovered that models could be prompted to perform explicit reasoning, revealing capabilities for multi-step problem solving.
 
-Efficiency innovations addressed multiple computational bottlenecks. LoRA enabled parameter-efficient fine-tuning, allowing practitioners to adapt large models without full retraining. Improved position encodings (RoPE, ALiBi) enhanced length extrapolation and training stability. FlashAttention optimized attention computation through IO-aware algorithms, reducing memory requirements and increasing throughput. Switch Transformers and related work scaled models through sparse mixture-of-experts architectures. RETRO demonstrated how retrieval could augment model capabilities while reducing parameter counts. Chinchilla's analysis revealed that previous scaling practices had undertrained models, establishing revised compute-optimal training strategies.
+Efficiency innovations addressed multiple computational bottlenecks. LoRA enabled parameter-efficient fine-tuning, allowing practitioners to adapt large models without full retraining. RoPE improved position encodings for enhanced length extrapolation and training stability. FlashAttention optimized attention computation through IO-aware algorithms, reducing memory requirements and increasing throughput. Chinchilla's analysis revealed that previous scaling practices had undertrained models, establishing revised compute-optimal training strategies.
 
 The alignment challenge produced multiple complementary approaches. InstructGPT demonstrated that reinforcement learning from human feedback could train models to follow instructions reliably while maintaining helpfulness and harmlessness. Constitutional AI showed how AI systems could be trained through self-critique according to explicit principles. Chain-of-thought prompting revealed that encouraging models to show their reasoning improved performance on complex tasks. ReAct combined reasoning with tool use, allowing models to interact with external systems during problem-solving.
 
@@ -11,11 +11,7 @@ The alignment challenge produced multiple complementary approaches. InstructGPT 
 
 \textbf{Parameter-Efficient Adaptation (2021):} LoRA enabled fine-tuning large models by training only low-rank adaptations, making customization practical.
 
-\textbf{Position Encoding Improvements (2021):} RoPE and ALiBi provided better length extrapolation and training stability than absolute position embeddings.
-
-\textbf{Retrieval at Scale (2021):} RETRO showed how models could leverage massive retrieval databases during generation for improved performance.
-
-\textbf{Sparse Mixture of Experts (2022):} Switch Transformers demonstrated that sparse activation could dramatically increase model capacity with controlled computational costs.
+\textbf{Position Encoding Improvements (2021):} RoPE provided better length extrapolation and training stability than absolute position embeddings.
 
 \textbf{IO-Aware Optimization (2022):} FlashAttention achieved significant speedups by optimizing attention computation for modern GPU memory hierarchies.
 

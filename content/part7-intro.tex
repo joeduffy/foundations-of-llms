@@ -5,7 +5,7 @@ The years 2023 to 2024 witnessed the democratization of frontier capabilities th
 
 The alignment paradigm continued evolving beyond reinforcement learning from human feedback. Direct Preference Optimization (DPO) showed that preference learning could bypass explicit reward modeling, simplifying training while maintaining quality. RLAIF demonstrated that AI systems could provide feedback for training, reducing dependence on human annotation while scaling oversight. Self-rewarding models pushed this further, training systems to generate their own reward signals and improve iteratively. These advances suggested that alignment techniques were maturing toward more scalable and automated approaches.
 
-Efficiency innovations addressed both training and inference costs. QLoRA combined quantization with LoRA for memory-efficient fine-tuning on consumer hardware. Ring Attention enabled distributed computation across extremely long contexts. Infini-attention introduced compressive memory mechanisms for unbounded sequence lengths. Sparse mixture-of-experts architectures matured, with Mixtral and DeepSeek-V2 demonstrating that open MoE models could match dense models at lower computational cost. Domain-specific models like DeepSeekMath showed the effectiveness of targeted pretraining and reinforcement learning for specialized capabilities.
+Efficiency innovations addressed both training and inference costs. QLoRA combined quantization with LoRA for memory-efficient fine-tuning on consumer hardware. GQA provided a balanced approach between multi-head and multi-query attention for efficient inference. Sparse mixture-of-experts architectures matured, with Mixtral and DeepSeek-V2 demonstrating that open MoE models could match dense models at lower computational cost.
 
 Notably, research revealed that test-time computation—allocating more inference-time resources through techniques like best-of-N sampling and process verification—could improve performance as effectively as increasing model parameters. This suggested a new dimension for scaling: rather than solely training larger models, practitioners could invest in more sophisticated inference-time search and verification. The convergence of open models, refined alignment techniques, architectural efficiency, and test-time computation scaling defined the contemporary frontier of language model research.
 
@@ -17,19 +17,13 @@ Notably, research revealed that test-time computation—allocating more inferenc
 
 \textbf{AI-Generated Feedback (2023):} RLAIF showed that AI systems could provide training feedback, enabling scalable oversight without exhaustive human annotation.
 
-\textbf{Distributed Long-Context Training (2023):} Ring Attention enabled efficient training and inference across extremely long sequences through distributed computation.
-
 \textbf{Accessible Fine-Tuning (2023):} QLoRA combined quantization with parameter-efficient adaptation, enabling fine-tuning on consumer hardware.
 
-\textbf{Compressive Memory (2024):} Infini-attention introduced mechanisms for unbounded context through compressive memory systems.
+\textbf{Efficient Attention (2023):} GQA introduced grouped-query attention, balancing inference efficiency with model quality.
 
 \textbf{Self-Improving Systems (2024):} Self-rewarding models generated their own training signals, enabling iterative improvement without external feedback.
 
-\textbf{Domain Specialization (2024):} DeepSeekMath demonstrated effective approaches for developing domain-specific capabilities through targeted training.
-
 \textbf{Efficient Sparse Models (2024):} DeepSeek-V2 and Mixtral showed that open MoE architectures could achieve strong performance with lower computational costs.
-
-\textbf{Frontier Open Models (2024):} Llama 3 established new quality standards for open models across diverse scales and modalities.
 
 \textbf{Test-Time Computation (2024):} Research revealed that inference-time search could scale performance as effectively as parameter scaling, opening a new dimension for capability improvement.
 
@@ -40,29 +34,19 @@ Notably, research revealed that test-time computation—allocating more inferenc
 
 \item \textbf{Touvron et al. (2023)} -- Llama 2 extended LLaMA with extensive safety training and public release of fine-tuned chat models.
 
-\item \textbf{Rozi\`{e}re et al. (2023)} -- Code Llama demonstrated effective specialization for code generation through continued pretraining.
-
 \item \textbf{Rafailov et al. (2023)} -- DPO simplified preference learning by eliminating explicit reward modeling.
 
 \item \textbf{Lee et al. (2023)} -- RLAIF demonstrated scalable oversight through AI-generated feedback.
-
-\item \textbf{Liu et al. (2023)} -- Ring Attention enabled distributed computation across extremely long contexts.
 
 \item \textbf{Dettmers et al. (2023)} -- QLoRA made fine-tuning accessible through quantization and parameter-efficient adaptation.
 
 \item \textbf{Ainslie et al. (2023)} -- GQA introduced grouped-query attention, balancing inference efficiency with model quality.
 
-\item \textbf{Munkhdalai et al. (2024)} -- Infini-attention introduced compressive memory for unbounded sequence lengths.
-
 \item \textbf{Yuan et al. (2024)} -- Self-rewarding models trained through iteratively generated reward signals.
-
-\item \textbf{Shao et al. (2024)} -- DeepSeekMath demonstrated effective domain-specific capability development.
 
 \item \textbf{Zhu et al. (2024)} -- DeepSeek-V2 combined efficient MoE architecture with novel attention mechanisms.
 
 \item \textbf{Jiang et al. (2024)} -- Mixtral showed that open sparse models could match dense models with lower costs.
-
-\item \textbf{Dubey et al. (2024)} -- Llama 3 established new standards for open model quality across scales and modalities.
 
 \item \textbf{Snell et al. (2024)} -- Test-time compute scaling revealed inference-time search as a new dimension for capability improvement.
 \end{enumerate}
