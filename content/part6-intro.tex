@@ -1,52 +1,34 @@
 \chapter*{Introduction to Part VI}
 \addcontentsline{toc}{chapter}{Introduction to Part VI}
 
-The years 2021 to 2022 marked a period of consolidation and refinement following the scaling insights of the previous era. Researchers addressed three critical challenges: computational efficiency, human alignment, and reasoning capabilities. The continued growth in model scale made efficiency techniques essential for practical deployment. Simultaneously, the increasing capabilities of language models heightened concerns about alignment—ensuring that models behaved in accordance with human values and intentions. Finally, researchers discovered that models could be prompted to perform explicit reasoning, revealing capabilities for multi-step problem solving.
+The scaling discoveries of 2019--2020 created three urgent technical problems that defined research from 2021 to 2022. First, training and deploying models with hundreds of billions of parameters required efficiency techniques that reduced computational costs without sacrificing capability. Second, models powerful enough to generate fluent text could also generate harmful, dishonest, or manipulative text, making alignment with human values a practical necessity rather than a theoretical concern. Third, researchers discovered that prompting strategies could elicit reasoning capabilities latent in large models, opening a new axis of capability improvement orthogonal to scaling.
 
-Efficiency innovations addressed multiple computational bottlenecks. LoRA enabled parameter-efficient fine-tuning, allowing practitioners to adapt large models without full retraining. RoPE improved position encodings for enhanced length extrapolation and training stability. FlashAttention optimized attention computation through IO-aware algorithms, reducing memory requirements and increasing throughput. Chinchilla's analysis revealed that previous scaling practices had undertrained models, establishing revised compute-optimal training strategies.
+On efficiency, LoRA demonstrated that large pretrained models could be adapted to new tasks by training only low-rank perturbations to the weight matrices, reducing the number of trainable parameters by orders of magnitude while matching full fine-tuning performance. Rotary position embeddings (RoPE) improved on absolute and learned position encodings by encoding relative positions through rotation matrices in the complex plane, providing better length generalization. FlashAttention reformulated the attention computation to minimize data movement between GPU memory hierarchies, achieving substantial wall-clock speedups without approximation. Hoffmann and colleagues revisited the Kaplan scaling laws and found that prior models had been overtrained relative to their dataset sizes: compute-optimal training required roughly equal scaling of parameters and training tokens, a finding that redirected the field's approach to model training.
 
-The alignment challenge produced multiple complementary approaches. InstructGPT demonstrated that reinforcement learning from human feedback could train models to follow instructions reliably while maintaining helpfulness and harmlessness. Constitutional AI showed how AI systems could be trained through self-critique according to explicit principles. Chain-of-thought prompting revealed that encouraging models to show their reasoning improved performance on complex tasks. ReAct combined reasoning with tool use, allowing models to interact with external systems during problem-solving.
+On alignment, Ouyang and colleagues at OpenAI developed InstructGPT, demonstrating that reinforcement learning from human feedback (RLHF) could train language models to follow user instructions reliably. The approach---supervised fine-tuning on demonstrations, reward model training from human comparisons, then policy optimization with PPO---became the standard pipeline for producing helpful, harmless AI assistants. Bai and colleagues at Anthropic proposed constitutional AI, which replaced some human feedback with model self-critique guided by explicit principles, reducing annotation costs while maintaining alignment quality. Wei and colleagues at Google showed that instruction tuning across a diverse task mixture (FLAN) enabled zero-shot generalization to unseen tasks. Chowdhery and colleagues scaled PaLM to 540 billion parameters using the Pathways system, demonstrating that scale continued to unlock new capabilities including multi-step arithmetic and code generation.
 
-\section*{Key Advances}
-
-\textbf{Parameter-Efficient Adaptation (2021):} LoRA enabled fine-tuning large models by training only low-rank adaptations, making customization practical.
-
-\textbf{Position Encoding Improvements (2021):} RoPE provided better length extrapolation and training stability than absolute position embeddings.
-
-\textbf{IO-Aware Optimization (2022):} FlashAttention achieved significant speedups by optimizing attention computation for modern GPU memory hierarchies.
-
-\textbf{Instruction Following (2022):} InstructGPT used RLHF to train models that reliably follow user instructions while remaining helpful and harmless.
-
-\textbf{Compute-Optimal Training (2022):} Chinchilla established that optimal performance required balancing model size and training tokens differently than previous practice.
-
-\textbf{Explicit Reasoning (2022):} Chain-of-thought prompting showed that encouraging step-by-step reasoning dramatically improved performance on complex tasks.
-
-\textbf{AI Feedback and Self-Critique (2022):} Constitutional AI demonstrated training through AI-generated feedback according to explicit principles.
-
-\textbf{Tool Use and Interaction (2022):} ReAct combined reasoning with action-taking, enabling models to interact with external tools during problem-solving.
+On reasoning, Wei and colleagues discovered chain-of-thought prompting: including step-by-step reasoning examples in the prompt caused large models to decompose complex problems into intermediate steps, substantially improving performance on arithmetic, commonsense, and symbolic reasoning tasks. Yao and colleagues extended this with ReAct, interleaving reasoning traces with actions such as web searches and code execution, enabling models to interact with external tools during problem-solving.
 
 \section*{Papers in This Section}
 
 \begin{enumerate}
-\item \textbf{Wei et al. (2021)} -- FLAN demonstrated that instruction fine-tuning enables zero-shot task generalization.
+\item \textbf{Wei et al. (2021)} --- FLAN: instruction fine-tuning across diverse tasks enabling zero-shot generalization.
 
-\item \textbf{Hu et al. (2021)} -- LoRA enabled efficient fine-tuning through low-rank parameter adaptations.
+\item \textbf{Hu et al. (2021)} --- LoRA: parameter-efficient fine-tuning through low-rank weight matrix perturbations.
 
-\item \textbf{Su et al. (2021)} -- RoFormer introduced rotary position embeddings for improved length extrapolation.
+\item \textbf{Su et al. (2021)} --- RoPE: rotary position embeddings encoding relative positions through complex-valued rotations.
 
-\item \textbf{Dao et al. (2022)} -- FlashAttention optimized attention through IO-aware algorithms for GPU memory hierarchies.
+\item \textbf{Dao et al. (2022)} --- FlashAttention: IO-aware exact attention achieving large speedups on GPU hardware.
 
-\item \textbf{Ouyang et al. (2022)} -- InstructGPT used RLHF to create models that reliably follow instructions.
+\item \textbf{Ouyang et al. (2022)} --- InstructGPT: RLHF for training language models to follow instructions.
 
-\item \textbf{Wei et al. (2022)} -- Chain-of-thought prompting enabled complex multi-step reasoning through explicit intermediate steps.
+\item \textbf{Wei et al. (2022)} --- Chain-of-thought prompting: eliciting multi-step reasoning through exemplar-based prompting.
 
-\item \textbf{Bai et al. (2022)} -- Constitutional AI trained models through self-critique according to explicit principles.
+\item \textbf{Bai et al. (2022)} --- Constitutional AI: alignment through model self-critique guided by explicit principles.
 
-\item \textbf{Yao et al. (2022)} -- ReAct synergized reasoning and acting, enabling tool use during problem-solving.
+\item \textbf{Yao et al. (2022)} --- ReAct: interleaving reasoning and action for tool-augmented problem-solving.
 
-\item \textbf{Hoffmann et al. (2022)} -- Chinchilla established compute-optimal training strategies balancing model size and data.
+\item \textbf{Hoffmann et al. (2022)} --- Chinchilla: compute-optimal scaling requiring balanced growth of parameters and training data.
 
-\item \textbf{Chowdhery et al. (2022)} -- PaLM demonstrated breakthrough capabilities through scaling to 540B parameters with the Pathways system.
+\item \textbf{Chowdhery et al. (2022)} --- PaLM: 540B-parameter model demonstrating continued capability gains from scale.
 \end{enumerate}
-
-These advances in efficiency, alignment, and reasoning transformed language models from impressive but impractical demonstrations into deployable systems capable of following instructions, reasoning through complex problems, and operating within human value constraints. The techniques developed during this period remain central to contemporary model training and deployment.

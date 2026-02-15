@@ -1,42 +1,29 @@
 \chapter*{Introduction to Part V}
 \addcontentsline{toc}{chapter}{Introduction to Part V}
 
-The period from 2019 to 2020 revealed that transformer language models exhibited remarkable scaling properties. As model size, dataset size, and computational resources increased, performance improved predictably according to power laws. More strikingly, sufficiently large models demonstrated emergent capabilities not present in smaller versions—abilities that arose from scale rather than architectural innovation or explicit training objectives.
+Between 2019 and 2020, researchers discovered that transformer language models exhibited a remarkable empirical property: performance improved predictably as a function of model size, dataset size, and computational budget, following power-law relationships that held across multiple orders of magnitude. More striking still, sufficiently large models displayed qualitatively new behaviors---zero-shot and few-shot task performance---that smaller models of the same architecture did not possess.
 
-GPT-2 showed that larger language models could perform tasks in a zero-shot manner without any task-specific fine-tuning, challenging assumptions about what language modeling could achieve. GPT-3 pushed this further, demonstrating few-shot learning where models could adapt to new tasks from just a handful of examples in the prompt. These capabilities suggested that language modeling at scale captured far more about the structure of intelligence than previously understood.
+GPT-2 provided the first clear evidence. Trained on 40 GB of web text with 1.5 billion parameters, it performed competitively on language modeling benchmarks without task-specific fine-tuning and could generate remarkably coherent long-form text. OpenAI's decision to initially withhold the full model, citing concerns about misuse, marked the first time a language model's capabilities were considered potentially dangerous. GPT-3 extended these findings to 175 billion parameters and revealed in-context learning: the model could adapt to new tasks from a handful of examples provided in the prompt, without any parameter updates. This capability had no precedent in machine learning and suggested that very large language models had internalized something more general than statistical patterns over token sequences.
 
-Kaplan et al.'s systematic investigation of scaling laws revealed predictable relationships between model size, dataset size, compute budget, and performance. These power-law relationships suggested that continued scaling would yield continued improvements, establishing a research paradigm focused on training ever-larger models. Simultaneously, researchers explored alternative attention mechanisms and architectural modifications to address computational bottlenecks. Lewis et al.'s retrieval-augmented generation showed how parametric models could be enhanced with explicit knowledge retrieval, pointing toward hybrid approaches that combine learned representations with external information sources.
+Kaplan and colleagues systematized these observations into scaling laws---empirical power-law relationships predicting test loss as a function of model parameters, dataset tokens, and training compute. These laws implied that performance improvements were predictable and that the field had not yet reached diminishing returns, establishing a research paradigm centered on training progressively larger models. Crucially, scaling required not just algorithmic ideas but systems infrastructure: Megatron-LM introduced tensor parallelism for Transformers, partitioning weight matrices across GPUs within a node to train models of unprecedented size, and established the template for distributed training that all frontier models would follow.
 
-\section*{Key Advances}
-
-\textbf{Zero-Shot Learning (2019):} GPT-2 demonstrated that larger language models could perform tasks without fine-tuning, revealing capabilities that emerged purely from scale and pretraining data.
-
-\textbf{Scaling Laws (2020):} Systematic investigation revealed power-law relationships governing model performance, suggesting that continued scaling would yield predictable improvements.
-
-\textbf{Few-Shot Learning (2020):} GPT-3 showed that sufficiently large models could adapt to new tasks from minimal examples, exhibiting in-context learning without parameter updates.
-
-\textbf{Efficient Inference (2020):} Multi-query attention reduced memory bandwidth requirements for inference, enabling faster decoding in production deployments.
-
-\textbf{Hybrid Architectures (2020):} Retrieval-augmented generation demonstrated how parametric models could be enhanced with external knowledge retrieval for factual accuracy.
+Multi-query attention reduced inference memory bandwidth by sharing key-value heads across all attention heads, an optimization that would become standard in production deployments. Lewis and colleagues introduced retrieval-augmented generation, showing that grounding language models in external knowledge retrieval improved factual accuracy without increasing parameter count. Shazeer also demonstrated that Gated Linear Unit variants---particularly SwiGLU---consistently outperformed the standard ReLU feedforward layers in Transformers, an architectural refinement adopted by nearly every subsequent open-weight model.
 
 \section*{Papers in This Section}
 
 \begin{enumerate}
-\item \textbf{Radford et al. (2019)} -- GPT-2 demonstrated zero-shot task performance, showing emergent capabilities from scale.
+\item \textbf{Radford et al. (2019)} --- GPT-2: large-scale language modeling with zero-shot task transfer.
 
-\item \textbf{Shazeer (2019)} -- Introduced multi-query attention for faster transformer decoding with reduced memory bandwidth.
+\item \textbf{Shazeer (2019)} --- Multi-query attention for faster inference through shared key-value heads.
 
-\item \textbf{Brown et al. (2020)} -- GPT-3 revealed few-shot learning and in-context adaptation without parameter updates.
+\item \textbf{Shoeybi et al. (2019)} --- Megatron-LM: tensor parallelism for training multi-billion parameter Transformers across GPUs.
 
-\item \textbf{Kaplan et al. (2020)} -- Established scaling laws relating model size, data, and compute to performance.
+\item \textbf{Brown et al. (2020)} --- GPT-3: few-shot in-context learning at 175 billion parameters.
 
-\item \textbf{Lewis et al. (2020)} -- RAG combined parametric models with retrieval systems for improved factual accuracy.
+\item \textbf{Kaplan et al. (2020)} --- Scaling laws: power-law relationships governing model performance as a function of size, data, and compute.
 
-\item \textbf{Lepikhin et al. (2020)} -- GShard enabled scaling giant MoE models across multiple devices with automatic sharding.
+\item \textbf{Lewis et al. (2020)} --- Retrieval-augmented generation combining parametric models with non-parametric knowledge retrieval.
 
-\item \textbf{Clark et al. (2020)} -- ELECTRA proposed replaced token detection for more sample-efficient pretraining.
+\item \textbf{Shazeer (2020)} --- GLU variants (SwiGLU) as improved feedforward activations for Transformers.
 
-\item \textbf{Shazeer (2020)} -- Demonstrated that GLU variants improve transformer feed-forward layer performance.
 \end{enumerate}
-
-The emergence of capabilities through scaling, combined with systematic understanding of power-law relationships, established the research trajectory for the next generation of language models. The discovery that scale itself could unlock qualitatively new behaviors fundamentally altered how researchers approached model development.

@@ -1,70 +1,28 @@
 \chapter*{Epilogue}
 \addcontentsline{toc}{chapter}{Epilogue}
 
-The mathematical journey chronicled in this volume—from McCulloch and Pitts' logical neurons to contemporary language models—constitutes a major achievement in computer science. Yet this achievement raises as many questions as it answers, opening new frontiers in understanding intelligence and the computational foundations of cognition.
+The papers in this volume trace a path from McCulloch and Pitts' binary threshold units to language models with hundreds of billions of parameters that exhibit few-shot learning, multi-step reasoning, and instruction following. The mathematical continuity of this path is striking: gradient-based optimization of differentiable parametric models, the core idea of backpropagation, remains the engine of every system discussed here. What changed was architecture, scale, and training methodology---not the fundamental learning algorithm.
 
-The transformer architecture and its successors have demonstrated capabilities extending beyond their original design objectives. Models trained to predict the next token exhibit sophisticated reasoning, creative problem-solving, and rudimentary self-reflection. The statistical patterns captured in language may encode more about intelligence structure than previously recognized.
+This continuity raises a question the collected papers do not fully answer: what are the limits of this approach, and where must it be extended?
 
-\section*{The Emergence Phenomenon}
+\section*{Interpretability}
 
-Emergent capabilities—complex behaviors arising spontaneously from simple training objectives at scale—challenge fundamental assumptions about machine learning. Models trained for next-token prediction spontaneously develop abilities to adapt to new tasks from minimal examples, decompose complex problems, and perform multi-step reasoning.
+The internal representations of large transformers remain poorly understood. Mechanistic interpretability---the project of identifying specific circuits and features responsible for model behaviors---has produced initial results through techniques such as activation patching, probing classifiers, and sparse autoencoders. These methods have identified attention heads that perform induction, copy suppression, and indirect object identification in small models. Scaling these analyses to frontier models with hundreds of billions of parameters remains an open problem. The difficulty is compounded by superposition: networks appear to represent far more features than they have dimensions, encoding concepts in overlapping directions that are difficult to disentangle. Developing a mathematical theory of superposition and polysemanticity is among the most important open problems in the field.
 
-These capabilities were not explicitly taught, yet emerge reliably from statistical patterns. If sophisticated cognitive capabilities arise from simple training procedures, intelligence may be more accessible through computation than previously believed.
+\section*{Open Architectural Problems}
 
-\section*{Scaling Laws and Limits}
+Several concrete architectural limitations persist. Attention complexity is quadratic in sequence length, and while FlashAttention, sparse attention, and linear-time alternatives such as Mamba mitigate this in practice, no existing architecture achieves the combination of constant-time per-token processing, unbounded context, and the representation quality of dense self-attention. Faithful multi-step reasoning---where the model's chain of thought reliably reflects its actual computational process rather than a post-hoc rationalization---remains unverified. Current models struggle with tasks requiring systematic search, backtracking, or formal verification, suggesting that autoregressive generation may need to be augmented with explicit planning or verification mechanisms. Continual learning without catastrophic forgetting, and efficient adaptation to non-stationary data distributions, are unsolved.
 
-Scaling laws codifying the relationship between resources and performance have defined this era. However, the paradigm faces challenges: exponentially growing computational requirements, approaching data limits, and environmental concerns. Current models strain infrastructure limits, necessitating advances in efficiency.
+\section*{Data, Compute, and Scaling}
 
-Several approaches address these challenges. Sparse architectures offer dramatic reductions in computation. Mixture-of-experts enable conditional activation, reducing burden while maintaining capacity. Test-time computation—allocating resources during inference through sampling, refinement, and verification—improves capabilities as effectively as increasing parameters. The optimal resource allocation may involve balancing pretraining scale with inference-time computation.
+The scaling laws documented in this volume predict continued performance improvements with increased resources, but the regime in which those laws hold is not unbounded. High-quality text data is finite: estimates suggest that publicly available text suitable for pretraining amounts to roughly $10^{13}$ tokens, a threshold that the largest training runs are approaching. Synthetic data generation, curriculum learning, and data quality filtering offer partial solutions, but whether synthetic data can substitute for natural data without distributional collapse is an open empirical question. The Chinchilla revision of the Kaplan scaling laws shifted emphasis toward data scaling, and the optimal tradeoff between pretraining compute, inference-time compute, and data quality remains an active area of investigation. Test-time scaling---allocating additional computation during inference through search, sampling, and verification---represents a promising alternative axis, but its theoretical foundations are underdeveloped.
 
-\section*{The Alignment Challenge}
+\section*{Alignment}
 
-Model capabilities have advanced faster than understanding of how to ensure systems pursue intended objectives. The alignment problem—ensuring systems optimize for human values rather than proxy measures—has emerged as a defining challenge.
-
-Techniques from reinforcement learning to constitutional AI represent initial approaches. Learning from human feedback demonstrates promise—reward models from human comparisons guide optimization toward improved behavior. Constitutional AI uses models themselves to evaluate outputs according to specified principles, leveraging reasoning capabilities to implement value systems difficult to specify through reward engineering.
-
-Long-term solutions may require advances in understanding human values and their computational representation. The mathematical foundations in this volume provide essential tools, but alignment remains an open challenge requiring continued interdisciplinary innovation.
-
-\section*{Interpretability and Mechanistic Understanding}
-
-Despite impressive capabilities, large language models remain largely opaque. Understanding how they process information and generate outputs represents a critical frontier for scientific understanding and practical deployment.
-
-Mechanistic interpretability has revealed insights into how transformers process language. Attention patterns correspond to linguistic phenomena; internal representations capture hierarchical features mirroring theoretical linguistic structures. However, state-of-the-art models contain hundreds of billions of parameters, requiring new frameworks for understanding collective behavior.
-
-Advances in activation patching, causal intervention, and representation analysis enable identifying components responsible for specific behaviors. The tension between model capacity and interpretability represents a fundamental challenge requiring continued research.
-
-\section*{Multimodal Integration and Embodiment}
-
-Text-based modeling represents only one dimension of intelligence. Biological intelligence integrates multiple modalities and interacts physically with environments. Extending current techniques to multimodal learning and embodied agents represents a natural progression.
-
-Vision-language models demonstrate unified architectures processing multiple modalities through shared representations. These systems understand images, generate descriptions, and create images from text. Language-guided robotics enables natural human-robot interaction, though grounding abstract concepts to sensorimotor experiences remains challenging.
-
-The attention mechanisms enabling transformers to process sequential data extend to spatial and temporal relationships across modalities. Self-supervised learning paradigms effective for language may apply to other modalities.
-
-\section*{Current Limitations and Future Capabilities}
-
-While current language models exhibit impressive capabilities, they remain specialized tools with systematic limitations in long-term planning, causal reasoning, and learning from limited experience. Emergent behaviors suggest the gap between current systems and more general capabilities may be smaller than previously believed—few-shot learning, chain-of-thought reasoning, and creative problem-solving indicate that existing approaches may extend further than expected.
-
-Addressing current limitations may require architectural innovations, new training paradigms, or advances in understanding intelligence itself. The mathematical foundations in this volume provide essential building blocks, but significant research challenges remain.
-
-\section*{Deployment Considerations}
-
-Language models increasingly automate cognitive tasks from content creation to software development to scientific research. AI systems mediate communication, information access, and decision-making, with encoded values and biases shaping outcomes in ways still being understood.
-
-The emergence of open models—particularly the LLaMA family—has democratized access to frontier capabilities, accelerating research while creating new challenges for safety and responsible deployment. Balancing broad access with appropriate safety measures remains an ongoing challenge, complicated by rapid open model development.
-
-\section*{The Research Frontier}
-
-Several research directions emerge as promising for extending these foundations. Neurosymbolic approaches combine neural pattern recognition with symbolic reasoning to address systematic limitations. Continual learning would enable systems to learn from experience without catastrophic forgetting. More efficient architectures through sparse activation and specialized hardware remain essential for broader accessibility. Meta-learning—learning to learn—may enable rapid adaptation to new domains.
-
-\section*{Broader Implications}
-
-The success of language models in capturing aspects of cognition through statistical learning challenges theories emphasizing symbolic reasoning and innate structures. These systems suggest intelligent behavior may emerge from statistical patterns rather than explicitly programmed logic. Questions about consciousness, the nature of intelligence, and the relationship between human and machine capabilities remain open areas of inquiry extending beyond technical computer science.
+Reinforcement learning from human feedback, constitutional AI, and direct preference optimization have produced language models that are substantially more helpful, harmless, and honest than their base pretrained counterparts. Whether these techniques scale to systems significantly more capable than their human overseers is unknown. Scalable oversight---the problem of supervising systems whose capabilities exceed those of any individual human evaluator---motivates research on debate, recursive reward modeling, and AI-assisted evaluation. The alignment problem is ultimately a problem of specification: translating human values, which are contextual, inconsistent, and incompletely understood, into mathematical objectives that can be optimized reliably. The tools developed in the papers collected here---reward modeling, preference learning, constitutional principles---are initial approaches, not solutions.
 
 \section*{Conclusion}
 
-The intellectual journey from logical neurons to large language models represents systematic exploration of computational intelligence. The mathematical frameworks, algorithmic innovations, and empirical discoveries documented here have transformed theoretical insights into practical technologies reshaping society.
+The intellectual trajectory documented in this volume exhibits a consistent pattern: theoretical frameworks are proposed, computational barriers prevent their realization, and eventual advances in hardware, algorithms, or data remove those barriers, often revealing capabilities that the original theorists did not anticipate. McCulloch and Pitts could not have foreseen in-context learning; Hochreiter and Schmidhuber could not have predicted that their gating mechanisms would be succeeded by attention. The history suggests that the current frontiers---interpretability, faithful reasoning, scalable alignment, efficient long-context processing---will yield to sustained mathematical and engineering effort, likely in ways that are not yet apparent.
 
-The foundations established by these researchers provide groundwork for continued advances. How we use these tools—to amplify human capabilities, solve global challenges, or explore new frontiers—will determine their significance.
-
-The frontier remains vast, and questions raised by recent advances may prove more significant than answers provided. This collection concludes not with closure but with invitation—to continue the exploration these foundational works began.
+The papers remain. They define the field's vocabulary, its standard techniques, and the intellectual trajectory from which future work will depart.

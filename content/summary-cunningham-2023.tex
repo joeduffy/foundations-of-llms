@@ -1,6 +1,6 @@
-% Paper Summary: Towards Monosemanticity: Decomposing Language Models with Dictionary Learning (Cunningham et al., 2023)
+% Paper Summary: Sparse Autoencoders Find Highly Interpretable Features in Language Models (Cunningham et al., 2023)
 
-\begin{papersummary}{2023}{Towards Monosemanticity: Decomposing Language Models with Dictionary Learning}{Hoagy Cunningham, Aidan Ewart, Leo Gao, Adria Garriga-Alonso, Arthur Conmy, Rohin Shah, Tomasz Korbak, Christopher Olah}{This paper demonstrated that sparse autoencoders can decompose neural network activations into interpretable features, providing a powerful tool for mechanistic interpretability.}
+\begin{papersummary}{2023}{Sparse Autoencoders Find Highly Interpretable Features in Language Models}{Hoagy Cunningham, Aidan Ewart, Logan Riggs, Robert Huben, Lee Sharkey}{This paper demonstrated that sparse autoencoders can decompose neural network activations into interpretable, monosemantic features, providing a scalable tool for mechanistic interpretability.}
 
 \summaryheading{Key Ideas}
 The paper trains sparse autoencoders on the activations of language models to find monosemantic features---individual neurons or directions that correspond to single interpretable concepts. Standard neural networks exhibit ``superposition'' where individual neurons encode mixtures of many concepts, making interpretation difficult. Sparse dictionary learning overcomes this by learning an overcomplete basis of features, each of which activates for a coherent set of inputs. The paper identified features corresponding to specific topics, syntactic patterns, and even abstract concepts, demonstrating that neural networks learn human-interpretable structure.

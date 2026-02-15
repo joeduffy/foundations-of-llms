@@ -1,70 +1,40 @@
 \chapter*{Prologue}
 \addcontentsline{toc}{chapter}{Prologue}
 
-Large language models are among the most significant developments in artificial intelligence since digital computing began. These systems generate coherent text, translate between languages, reason about complex problems, and engage in sophisticated dialogue. Yet their apparent sudden emergence masks a scientific lineage spanning eight decades of foundational research.
+Large language models are among the most consequential artifacts of twentieth- and twenty-first-century science. They generate coherent text, translate between languages, reason through multi-step problems, and write functioning software. Yet these capabilities did not emerge from a single invention. They rest on an intellectual lineage spanning eight decades---a lineage in which each generation of researchers confronted specific mathematical and computational barriers, overcame them, and in doing so revealed new questions that would occupy the next generation.
 
-This volume traces that lineage through seminal papers that established the theoretical frameworks, algorithmic innovations, and architectural breakthroughs underlying contemporary language modeling. From McCulloch and Pitts' 1943 formalization of artificial neurons to recent developments in alignment and reasoning, these works document the systematic exploration of computational intelligence.
+This volume collects the papers that constitute that lineage. Reading them in sequence, one observes not a series of isolated breakthroughs but a sustained investigation into a single deep question: \textit{to what extent can the statistical structure of language, learned from data by gradient-based optimization of parametric models, give rise to general-purpose cognitive capabilities?}
 
-\section*{The Arc of Discovery}
+\section*{Computation and Cognition}
 
-McCulloch and Pitts' insight that networks of simple computational units could perform arbitrary logical operations established a research program that persisted across generations. Their work demonstrated that computation could be understood through interconnected processing elements—a perspective central to modern neural architectures.
+The question has its origins in the cybernetics movement of the 1940s. McCulloch and Pitts showed that networks of binary threshold units could compute any Boolean function, establishing that cognition---or at least logical reasoning---could in principle be realized by interconnected simple processors. Rosenblatt made this concrete with the perceptron, a device that learned classification boundaries from labeled examples. When Minsky and Papert demonstrated the perceptron's representational limitations, the field entered a period of reduced funding and diminished ambition.
 
-Subsequent decades refined this core insight through conceptual breakthroughs. Rosenblatt's perceptron introduced learning from experience through systematic adjustment of connection strengths. Hopfield's energy-based formulation revealed how neural dynamics could implement associative memory and optimization. Backpropagation solved the credit assignment problem, enabling training of multilayer networks that discover hierarchical representations.
+Recovery came through two insights. Hopfield reframed neural computation in the language of statistical physics, showing that networks with symmetric connections minimized an energy function and could thereby implement associative memory. Rumelhart, Hinton, and Williams solved the credit assignment problem: backpropagation provided an efficient algorithm for computing gradients through multilayer networks, enabling the training of architectures deep enough to learn hierarchical representations. These results established the mathematical toolkit---gradient descent, distributed representations, compositional feature hierarchies---that remains foundational to every model discussed in this volume.
 
-Each breakthrough addressed specific limitations of previous approaches while extending their essential insights. The development trajectory exhibits a characteristic pattern: theoretical formulations, followed by algorithmic innovations enabling practical implementation, succeeded by empirical discoveries revealing unexpected capabilities.
+\section*{Representation and Learning}
 
-\section*{The Deep Learning Revolution}
+A central tension runs through the history of artificial intelligence: should representations be designed by engineers or discovered from data? Early natural language processing relied on hand-crafted grammars, feature templates, and symbolic knowledge bases. The papers in this volume document the decisive resolution of that tension in favor of learned representations.
 
-The period from 2012 to 2015 transformed deep learning from academic curiosity to practical technology. AlexNet demonstrated that convolutional neural networks, scaled with GPU acceleration, could achieve breakthrough performance on complex tasks. This success proved that theoretical foundations established in previous decades could solve real-world problems when combined with sufficient computational resources.
+The resolution proceeded in stages. Elman's recurrent networks showed that temporal structure could be captured through feedback connections. Hochreiter and Schmidhuber's LSTM solved the vanishing gradient problem, enabling recurrent models to retain information across long sequences. Bengio's neural language model demonstrated that words could be embedded in continuous vector spaces where geometric proximity encoded semantic similarity. Mikolov's Word2Vec made such embeddings tractable at the scale of entire corpora and revealed that the resulting vector spaces supported algebraic operations corresponding to analogical reasoning.
 
-Subsequent years consolidated architectural principles essential for future developments: network depth through systematic design, batch normalization for training stability, and residual connections enabling very deep networks. These techniques—depth, normalization, and skip connections—established principles that made large-scale language modeling possible.
+Each of these contributions addressed a specific technical limitation of its predecessor. Collectively, they established that statistical learning from raw text could produce representations rivaling or exceeding those designed by domain experts---a conclusion that would prove decisive when combined with sufficient model capacity and data.
 
-\section*{The Sequence Modeling Revolution}
+\section*{Architecture and Scale}
 
-The transition from general neural networks to language-specific architectures marks a crucial inflection point. Early recurrent networks demonstrated that temporal dependencies could be captured through recurrent connections. Hochreiter and Schmidhuber's LSTM solved the vanishing gradient problem, enabling processing of longer sequences through gated memory cells.
+The transformer is the architectural fulcrum of this history. Vaswani and colleagues demonstrated that self-attention alone---without recurrence or convolution---could model sequential dependencies while permitting full parallelization across sequence positions. This was not merely an incremental improvement. Recurrent models processed tokens sequentially, creating a fundamental bottleneck that limited both training throughput and the effective range of learned dependencies. The transformer eliminated this bottleneck, and in doing so made the subsequent era of scaling possible.
 
-Distributed word representations transformed natural language processing from symbolic to statistical. Bengio's neural probabilistic language model demonstrated that words could be embedded in continuous vector spaces preserving semantic relationships. Mikolov's word2vec made such representations tractable at scale, revealing that linear algebra operations could capture analogical reasoning.
+The pretraining paradigm, established through ELMo, BERT, and GPT, transformed the economics of natural language processing. Rather than training task-specific models from scratch, practitioners could fine-tune general-purpose representations learned through self-supervised objectives on large corpora. When researchers scaled these pretrained transformers---first to hundreds of millions, then to hundreds of billions of parameters---they discovered that performance improved predictably according to power laws, and that sufficiently large models exhibited qualitatively new behaviors: few-shot learning, chain-of-thought reasoning, and instruction following.
 
-These developments culminated in sequence-to-sequence learning and the attention mechanism. Sutskever's encoder-decoder framework showed that complex transduction could be learned end-to-end. Bahdanau's attention addressed the information bottleneck in fixed-length representations, allowing models to focus selectively on relevant input portions.
+These emergent capabilities were not engineered. They arose from next-token prediction at scale, suggesting that the statistical structure of natural language encodes more about cognition than the research community had anticipated.
 
-\section*{The Transformer Era and Scale}
+\section*{Organization}
 
-The transformer architecture is the most significant architectural innovation since backpropagation. Vaswani and colleagues demonstrated that attention mechanisms alone could achieve state-of-the-art performance, eliminating the need for recurrence and enabling unprecedented parallelization. The transformer captures long-range dependencies directly through self-attention while maintaining computational efficiency.
+This volume organizes its papers into seven chronological parts and three appendices. Each part opens with a brief introduction situating the era in its intellectual context, followed by individual paper summaries and the papers themselves in their original form. Three appendices address active research frontiers: emerging techniques in efficiency and reasoning, the foundations of autonomous agents, and system reports from production deployments.
 
-The transformer proved exceptionally amenable to scaling. As model size, dataset size, and computational resources increased, performance improved predictably according to power laws. This scaling behavior, documented by Kaplan and others, suggested that continued computational investment would yield continued capability improvements—a hypothesis that has proven robust across multiple orders of magnitude.
+The volume assumes familiarity with machine learning, linear algebra, and probability theory. Technical details are preserved as they appeared in the original publications.
 
-The pretraining paradigm established by ELMo, BERT, and GPT transformed task-specific modeling. Rather than training separate models per application, practitioners leverage general-purpose representations from self-supervised learning on large corpora. This approach improved performance across tasks while revealing emergent capabilities not explicitly taught during training.
-
-\section*{Emergence and Alignment}
-
-Scaling transformer-based language models has revealed phenomena challenging traditional machine learning understanding. GPT-3's few-shot learning demonstrated that large models could adapt to new tasks from minimal examples without parameter updates. Chain-of-thought prompting showed that models could perform multi-step reasoning when encouraged to externalize intermediate computations.
-
-These emergent capabilities raise questions about intelligence and learning. The models exhibit behaviors appearing to require abstract reasoning, yet train only on next-token prediction. This suggests that language modeling at scale captures more about intelligence structure than previously recognized.
-
-Simultaneously, growing capabilities have highlighted alignment—ensuring model behavior remains consistent with human values. Learning from human feedback, constitutional AI, and related approaches represent a new research frontier addressing not just performance improvement but ensuring powerful AI systems remain beneficial and controllable.
-
-\section*{Methodological Insights}
-
-Beyond their technical contributions, these papers reveal broader methodological patterns. The field advanced through theoretical insight, algorithmic innovation, and empirical discovery, with each domain informing the others. Computational resources proved essential—many theoretical insights remained unrealizable until sufficient power became available. The transformer builds on attention mechanisms understood years before they could be implemented at scale.
-
-Large-scale empirical investigation grew in importance over time. While early work was primarily theoretical, contemporary research relies on massive computational experiments. Scaling laws governing transformer performance could only be discovered through systematic investigation across multiple orders of magnitude in model and dataset size.
-
-\section*{Organization and Scope}
-
-This volume organizes foundational papers into seven chronological parts, each representing a distinct era in language modeling. Each part begins with historical context, key innovations, and lasting contributions. Each paper is preceded by a one-page summary highlighting key ideas, follow-on works, and relevance to modern models. The papers are reproduced in their entirety, preserving original formatting and notation.
-
-Selection criteria emphasized papers introducing fundamental concepts, demonstrating significant advances, or substantially influencing subsequent research. Three appendices address recent developments: emerging efficiency techniques, work on autonomous agents, and system reports from major production deployments.
-
-Figure~\ref{fig:concept-family-tree} illustrates the genealogical relationships among the core concepts covered in this volume. The diagram traces how foundational ideas evolved into increasingly sophisticated architectures and techniques, with arrows indicating direct conceptual lineage and enabling relationships between distinct research threads.
+Figure~\ref{fig:concept-family-tree} illustrates the genealogical relationships among the core concepts covered in this volume, tracing how foundational ideas evolved into increasingly sophisticated architectures and techniques.
 
 \input{content/concept-family-tree}
 
-\section*{Audience and Objectives}
-
-This collection serves researchers new to the field seeking systematic introduction to key concepts, experienced practitioners seeking historical context for current methodologies, and students observing how theoretical insights become practical capabilities.
-
-The volume assumes familiarity with machine learning, linear algebra, and probability theory. Technical details are preserved as they appeared in original publications, providing direct access to the mathematical formulations that shaped the field.
-
-The objective is to provide the scientific community with a record of the intellectual journey leading to contemporary large language models. Understanding this progression—its successes, challenges, and methodological insights—equips researchers to navigate the technical and societal challenges ahead.
-
-Large language models represent not an endpoint but a waypoint in the exploration of machine intelligence. The foundations documented here will support discoveries and capabilities extending beyond our current understanding.
+The papers collected here document not an endpoint but an active line of investigation. The mathematical frameworks they introduce---attention, self-supervised pretraining, reinforcement learning from human feedback, mixture-of-experts routing---continue to define the research frontier. Understanding their origins equips the reader to evaluate what comes next.

@@ -1,25 +1,15 @@
-Production systems integrate foundational techniques into deployable models, demonstrating how research advances translate into frontier capabilities. This appendix presents technical reports and system cards from leading organizations, documenting how combinations of pretraining, fine-tuning, reinforcement learning from feedback, and architectural innovations yield state-of-the-art performance.
+Production systems integrate the foundational techniques documented in this volume into deployable models. This appendix presents technical reports documenting paradigm-shifting breakthroughs: advances that introduced qualitatively new capabilities or architectural innovations that changed how the field operates.
 
-\subsection*{Key Themes}
+\section*{Reports in This Appendix}
 
-\textbf{Multimodal Integration:} GPT-4 and Gemini 1.5 demonstrate unified architectures processing text, images, and other modalities, with Gemini achieving context windows exceeding one million tokens.
+\begin{enumerate}
+\item \textbf{OpenAI (2023)} --- GPT-4: first widely-deployed multimodal frontier model, establishing new capability baselines across reasoning, factual accuracy, and instruction-following.
 
-\textbf{Constitutional AI at Scale:} The Claude 3 family applies constitutional training principles to production systems, demonstrating that safety-focused training can coexist with strong capabilities.
+\item \textbf{DeepMind (2024)} --- Gemini 1.5: context windows exceeding one million tokens through efficient attention mechanisms, enabling processing of book-length inputs.
 
-\textbf{Efficient Open Models:} DeepSeek-V3 and Qwen2.5 show that open models can achieve competitive performance through careful data curation, mixture-of-experts architectures, and novel attention mechanisms.
+\item \textbf{DeepSeek-AI (2024)} --- DeepSeek-V3: 671B mixture-of-experts with auxiliary-loss-free routing and multi-head latent attention, achieving order-of-magnitude training efficiency gains.
 
-\textbf{Inference-Time Reasoning:} The o1 and o3 systems illustrate evolution toward systems that deliberately allocate inference-time computation for complex reasoning, representing a shift from pure language modeling.
+\item \textbf{OpenAI (2024)} --- o1 System Card: extended chain-of-thought reasoning through reinforcement learning, demonstrating the test-time compute paradigm.
 
-\textbf{Post-Training Synthesis:} Comprehensive surveys document the rapidly evolving landscape of fine-tuning, reinforcement learning, and alignment techniques.
-
-\textbf{Reports in this appendix:}
-\begin{itemize}
-    \item \textbf{OpenAI (2023)}: GPT-4 Technical Report---multimodal transformer achieving strong performance across diverse benchmarks.
-    \item \textbf{Anthropic (2024)}: Claude 3 Model Family---Constitutional AI applied to production systems at scale.
-    \item \textbf{DeepMind (2024)}: Gemini 1.5---multimodal model with extended context capability exceeding 1 million tokens.
-    \item \textbf{Qwen Team (2024)}: Qwen2.5---open multilingual model series with extensive post-training optimization.
-    \item \textbf{DeepSeek-AI (2024)}: DeepSeek-V3---671B mixture-of-experts with auxiliary-loss-free routing and Multi-Head Latent Attention.
-    \item \textbf{OpenAI (2024)}: o1 System Card---reinforcement learning for extended chain-of-thought reasoning.
-    \item \textbf{Dubey et al. (2024)}: Llama 3---comprehensive open model family with state-of-the-art performance across scales.
-    \item \textbf{Kumar et al. (2025)}: LLM Post-Training Survey---comprehensive review of fine-tuning, reinforcement learning, and alignment techniques.
-\end{itemize}
+\item \textbf{DeepSeek-AI (2025)} --- DeepSeek-R1: pure reinforcement learning teaches reasoning without supervised fine-tuning, with open weights enabling research into reasoning model internals.
+\end{enumerate}

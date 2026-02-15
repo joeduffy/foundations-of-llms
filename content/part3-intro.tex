@@ -1,52 +1,32 @@
 \chapter*{Introduction to Part III}
 \addcontentsline{toc}{chapter}{Introduction to Part III}
 
-The period from 2012 to 2015 marked twin revolutions that made modern language models possible: the deep learning breakthrough and the attention mechanism. AlexNet's dramatic victory in the 2012 ImageNet competition demonstrated that deep convolutional neural networks, when properly scaled with GPU acceleration, could achieve unprecedented performance. This success validated the potential of deep learning and triggered an explosion of research into network architectures, optimization techniques, and training methodologies.
+Between 2012 and 2015, two developments converged to make large-scale language modeling feasible: the deep learning revolution in computer vision established that neural networks could be trained at unprecedented scale using GPU acceleration, and the invention of the attention mechanism removed the information bottleneck that had constrained sequence-to-sequence models.
 
-Simultaneously, researchers developed the architectural components and training techniques that would prove essential for transformers. VGG networks established the power of depth through simple repeating structures. Batch normalization solved training instability, enabling much deeper architectures. ResNet's skip connections addressed the degradation problem, allowing information to flow directly across layers—a principle later essential to transformer design. The Adam optimizer provided adaptive learning rates that became standard for training large models.
+The deep learning revolution began with AlexNet's performance on ImageNet in 2012, which demonstrated that convolutional networks trained on GPUs could surpass all prior approaches to visual recognition. This result validated decades of theoretical work on deep architectures and triggered rapid progress in network design. Batch normalization addressed the internal covariate shift that made deep networks difficult to train. ResNet's skip connections solved the degradation problem in very deep networks by allowing gradients to flow through shortcut paths---a design principle that would later appear in every transformer. The Adam optimizer provided adaptive per-parameter learning rates that became the default for training large models. Dropout offered a practical regularization method grounded in ensemble averaging.
 
-The sequence-to-sequence paradigm emerged during this period, introducing the encoder-decoder framework that would dominate neural machine translation. Most critically, the attention mechanism solved the information bottleneck in fixed-length encodings, allowing models to dynamically focus on relevant input portions during generation. Byte-pair encoding provided efficient subword tokenization that balanced vocabulary size with representation granularity.
-
-\section*{Key Advances}
-
-\textbf{Deep Learning Revolution (2012):} AlexNet demonstrated that deep convolutional networks trained on GPUs could achieve breakthrough performance on complex visual tasks, validating the promise of deep learning.
-
-\textbf{Architectural Principles (2014-2015):} VGG, batch normalization, and ResNet established the core architectural patterns—depth, normalization, and skip connections—that would prove essential for all large-scale models.
-
-\textbf{Optimization (2014):} The Adam optimizer provided adaptive per-parameter learning rates, becoming the default choice for training large neural networks.
-
-\textbf{Sequence-to-Sequence Learning (2014):} Sutskever et al. showed that encoder-decoder networks could learn complex sequence transduction tasks end-to-end through gradient descent.
-
-\textbf{Attention Mechanism (2014):} Bahdanau et al. introduced attention, allowing models to dynamically focus on relevant input portions rather than compressing everything into fixed-length vectors.
-
-\textbf{Subword Tokenization (2015):} Byte-pair encoding provided efficient vocabulary construction that balanced coverage with computational efficiency, becoming standard for language models.
+In parallel, the sequence-to-sequence paradigm established the encoder-decoder framework for mapping variable-length inputs to variable-length outputs through a fixed-dimensional bottleneck. Cho introduced the GRU, a simplified recurrent unit, and formalized the encoder-decoder architecture. Sutskever demonstrated that this framework could learn complex transductions end-to-end. Bahdanau then identified the critical weakness of fixed-length encodings---they forced the encoder to compress all source information into a single vector---and proposed the attention mechanism, which allowed the decoder to selectively attend to different portions of the input at each generation step. Byte-pair encoding provided the subword tokenization scheme that balanced vocabulary coverage with computational tractability, becoming the standard input representation for language models.
 
 \section*{Papers in This Section}
 
 \begin{enumerate}
-\item \textbf{Krizhevsky et al. (2012)} -- AlexNet's breakthrough demonstrated the power of deep learning with GPU acceleration.
+\item \textbf{Krizhevsky et al. (2012)} --- AlexNet demonstrated deep convolutional networks trained on GPUs achieving breakthrough visual recognition.
 
-\item \textbf{Srivastava et al. (2014)} -- Introduced dropout as a regularization technique to prevent overfitting in deep networks.
+\item \textbf{Srivastava et al. (2014)} --- Introduced dropout regularization, preventing overfitting by randomly zeroing activations during training.
 
-\item \textbf{Simonyan \& Zisserman (2014)} -- VGG networks showed that systematic depth using simple components yields superior performance.
+\item \textbf{Kingma \& Ba (2014)} --- The Adam optimizer combined momentum with adaptive per-parameter learning rates.
 
-\item \textbf{Kingma \& Ba (2014)} -- Adam optimizer provided adaptive learning rates that became standard for training large models.
+\item \textbf{Cho et al. (2014)} --- Proposed the GRU and formalized the encoder-decoder architecture for sequence-to-sequence learning.
 
-\item \textbf{Cho et al. (2014)} -- Proposed the GRU architecture and encoder-decoder framework for sequence-to-sequence learning.
+\item \textbf{Sutskever et al. (2014)} --- Demonstrated end-to-end sequence-to-sequence learning with deep LSTMs for machine translation.
 
-\item \textbf{Sutskever et al. (2014)} -- Sequence-to-sequence learning established the encoder-decoder paradigm for complex transduction tasks.
+\item \textbf{Bahdanau et al. (2014)} --- Introduced the attention mechanism, allowing decoders to selectively focus on relevant source positions.
 
-\item \textbf{Bahdanau et al. (2014)} -- Attention mechanism enabled dynamic focus on relevant inputs, solving the fixed-length bottleneck.
+\item \textbf{Pennington et al. (2014)} --- GloVe combined global co-occurrence statistics with local context windows for word embeddings.
 
-\item \textbf{Pennington et al. (2014)} -- GloVe embeddings combined global matrix factorization with local context window methods.
+\item \textbf{Ioffe \& Szegedy (2015)} --- Batch normalization stabilized deep network training by normalizing layer inputs.
 
-\item \textbf{Luong et al. (2015)} -- Developed effective attention mechanisms and analyzed global versus local attention strategies.
+\item \textbf{He et al. (2015)} --- ResNet introduced skip connections, enabling training of networks with over 100 layers.
 
-\item \textbf{Ioffe \& Szegedy (2015)} -- Batch normalization stabilized training of deep networks through input normalization.
-
-\item \textbf{He et al. (2015)} -- ResNet skip connections enabled training of very deep networks, introducing patterns essential to transformers.
-
-\item \textbf{Sennrich et al. (2015)} -- Byte-pair encoding provided efficient subword tokenization for language models.
+\item \textbf{Sennrich et al. (2015)} --- Byte-pair encoding provided efficient subword tokenization balancing coverage and granularity.
 \end{enumerate}
-
-These papers established the architectural foundations and training techniques that made transformer-based language models feasible. The principles of depth, normalization, skip connections, attention, and efficient tokenization introduced here remain central to every modern language model.

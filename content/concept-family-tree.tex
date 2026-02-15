@@ -138,7 +138,6 @@
 \node[architectural] (nplm) at (\colB, \rowII) {Neural LM};
 \node[foundational] (embed) at (\colC, \rowII) {Word Vectors};
 \node[architectural] (seqgen) at (\colD, \rowII) {Seq Generation};
-\node[technique] (vae) at (\colB, \rowIIsub) {VAE};
 
 \draw[evolves] (rnn) -- (lstm);
 \draw[evolves] (lstm) -- (nplm);
@@ -197,12 +196,17 @@
 \node[architectural] (icl) at (\colC, \rowV) {In-Context};
 \node[architectural] (rag) at (\colD, \rowV) {RAG};
 \node[technique] (mqa) at (\colA, \rowVsub) {MQA};
+\node[technique] (modelpar) at (\colB, \rowVsub) {Model Parallel};
+\node[technique] (glu) at (\colC, \rowVsub) {GLU Variants};
 
 \draw[evolves] (gpt) -- (scale);
 \draw[evolves] (scale) -- (emerge);
 \draw[evolves] (emerge) -- (icl);
 \draw[enables] (pretrain) to[out=-60,in=90] (rag);
 \draw[enables] (moe) -- (scale);
+\draw[enables] (trans) to[out=-80,in=90] (modelpar);
+\draw[enables] (modelpar) to[out=-90,in=90] (chinch);
+\draw[enables] (glu) to[out=-90,in=90] (open);
 
 % ═══════════════════════════════════════════
 % PART 6: Efficiency, Alignment, Reasoning
@@ -234,7 +238,6 @@
 \node[foundational] (ttc) at (\colD, \rowVII) {Test-Time};
 \node[technique] (qlora) at (\colA, \rowVIIsub) {QLoRA};
 \node[technique] (gqa) at (\colB, \rowVIIsub) {GQA};
-\node[architectural] (selfrw) at (\colD, \rowVIIsub) {Self-Reward};
 
 \draw[evolves] (instruct) to[out=-90,in=90] (open);
 \draw[evolves] (cai) -- (dpo);
@@ -242,7 +245,6 @@
 \draw[evolves] (mqa) to[out=-90,in=90] (gqa);
 \draw[evolves] (moe) to[out=-90,in=90] (smoe);
 \draw[evolves] (cot) to[out=-80,in=100] (ttc);
-\draw[enables] (dpo) -- (selfrw);
 
 % ═══════════════════════════════════════════
 % Legend (compact, right side)

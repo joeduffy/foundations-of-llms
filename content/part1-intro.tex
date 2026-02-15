@@ -1,34 +1,24 @@
 \chapter*{Introduction to Part I}
 \addcontentsline{toc}{chapter}{Introduction to Part I}
 
-Modern language models derive from mathematical foundations established between 1943 and 1990. McCulloch and Pitts formalized artificial neuron concepts, establishing computational frameworks that underlie current neural architectures.
+The foundations of large language models were laid decades before the term existed. Between 1943 and 1990, researchers working at the intersection of neuroscience, mathematical logic, and computer science asked whether networks of simple computational units could learn from experience---and if so, what mathematical framework would govern that learning.
 
-This period introduced four core concepts: artificial neurons, perceptron learning algorithms, associative memory networks, and backpropagation. These developments emerged within early computing research and cybernetics, establishing mathematical tools for machine learning systems.
+The question arose within the cybernetics movement, which sought to unify the study of control and communication in animals and machines. McCulloch and Pitts provided the first formal answer: binary threshold units, connected in networks, could compute any Boolean function. Rosenblatt operationalized this insight with the perceptron, a trainable classifier that adjusted its connection weights in response to errors. The subsequent demonstration by Minsky and Papert that single-layer perceptrons could not represent even simple nonlinear functions such as XOR precipitated a contraction in neural network research that lasted more than a decade.
 
-\section*{Key Advances}
+Two developments ended this period of stagnation. Hopfield imported the formalism of statistical mechanics into neural computation, showing that symmetric networks with an energy function could perform content-addressable memory retrieval---a result that restored credibility to connectionist approaches within the physics community. Rumelhart, Hinton, and Williams then provided the missing algorithmic ingredient: backpropagation, an efficient method for computing error gradients through multilayer networks via the chain rule. With backpropagation, deep networks could in principle learn arbitrary nonlinear mappings. Elman extended these ideas to sequential data through recurrent connections, demonstrating that temporal structure in language could be captured without explicit symbolic representations.
 
-This era introduced the core mathematical abstractions that underpin all neural networks:
-
-\textbf{Artificial Neurons (1943):} McCulloch and Pitts demonstrated that networks of simple threshold units could perform arbitrary logical computations, establishing the theoretical foundation for neural computation.
-
-\textbf{Learning Algorithms (1958):} Rosenblatt's perceptron introduced the first systematic approach to training neural networks, showing how machines could learn from examples.
-
-\textbf{Associative Memory (1982):} Hopfield networks demonstrated how neural systems could store and retrieve patterns, introducing energy-based models and the concept of attractors in neural dynamics.
-
-\textbf{Backpropagation (1986):} Rumelhart, Hinton, and Williams solved the credit assignment problem in multilayer networks, enabling the training of deep architectures that would later prove essential for language modeling.
+The concepts introduced during this period---gradient-based parameter optimization, distributed representations, and compositional feature hierarchies---remain the mathematical core of every model in this volume.
 
 \section*{Papers in This Section}
 
 \begin{enumerate}
-\item \textbf{McCulloch \& Pitts (1943)} -- Established the mathematical foundation of artificial neurons and their computational capabilities.
+\item \textbf{McCulloch \& Pitts (1943)} --- Formalized artificial neurons as binary threshold logic units and proved their computational universality.
 
-\item \textbf{Rosenblatt (1958)} -- Introduced the perceptron learning algorithm and demonstrated machine learning from examples.
+\item \textbf{Rosenblatt (1958)} --- Introduced the perceptron learning algorithm for training single-layer classifiers from labeled examples.
 
-\item \textbf{Hopfield (1982)} -- Developed associative memory networks and energy-based learning, introducing concepts of neural dynamics.
+\item \textbf{Hopfield (1982)} --- Applied energy-based methods from statistical physics to neural networks, enabling associative memory and optimization.
 
-\item \textbf{Rumelhart, Hinton \& Williams (1986)} -- Solved the credit assignment problem with backpropagation, enabling training of deep networks.
+\item \textbf{Rumelhart, Hinton \& Williams (1986)} --- Derived backpropagation for multilayer networks, solving the credit assignment problem.
 
-\item \textbf{Elman (1990)} -- Introduced simple recurrent networks, demonstrating that temporal structure in sequences could be captured through recurrent connections.
+\item \textbf{Elman (1990)} --- Introduced simple recurrent networks that capture temporal dependencies through feedback connections.
 \end{enumerate}
-
-These papers established the mathematical tools and learning principles that would prove essential for the development of transformer architectures and large language models decades later. The concepts of distributed representation, gradient-based learning, and hierarchical feature extraction introduced here remain fundamental to modern AI systems.
