@@ -1,0 +1,14 @@
+% Paper Summary: Native Sparse Attention (Yuan et al., 2025)
+
+\begin{papersummary}{2025}{Native Sparse Attention: Hardware-Aligned and Natively Trainable Sparse Attention}{Jingyang Yuan, Huazuo Gao, Damai Dai, Junyu Luo, Liang Zhao, Zhengyan Zhang, Zhenda Xie, Y.\ X.\ Wei, Lean Wang, Zhiping Xiao, Yuqing Wang, Chong Ruan, Ming Zhang, Wenfeng Liang, Wangding Zeng}{This paper introduced NSA, a natively trainable sparse attention mechanism that achieves substantial speedups over full attention through hardware-aligned hierarchical sparsity, while matching or exceeding full attention quality.}
+
+\summaryheading{Key Ideas}
+NSA addresses two limitations of prior sparse attention methods: the failure to translate theoretical computation reductions into actual wall-clock speedups (due to hardware-unfriendly memory access patterns), and the inability to train natively with sparse attention (most methods apply sparsity only at inference time to models pretrained with full attention, causing performance degradation). NSA processes input sequences through three parallel attention branches: compressed attention over coarse-grained token blocks for global context, selected attention over fine-grained important tokens identified by blockwise top-$k$ scoring, and sliding window attention for local context. The outputs are combined through a learned gating mechanism. The architecture is designed for hardware efficiency: blockwise operations ensure contiguous memory access compatible with Tensor Core utilization, and arithmetic intensity is balanced across computation stages. Pretrained on a 27-billion-parameter transformer with 260 billion tokens, NSA matches or exceeds full attention on general benchmarks, long-context tasks, and chain-of-thought reasoning while achieving 11.6$\times$ decoding speedup, 9.0$\times$ forward speedup, and 6.0$\times$ backward speedup at 64K sequence length.
+
+\summaryheading{Follow-on Works}
+DeepSeek adopted NSA's sparse attention design in DeepSeek-V3.2. The paper's analysis of why inference-only sparsity degrades performance---showing that top 20\% of attention scores cover only 70\% of total attention mass in pretrained models---informed subsequent work on training-aware efficiency techniques.
+
+\summaryheading{Lasting Contributions}
+NSA demonstrates that sparse attention can be both natively trainable and hardware-efficient, resolving a tension that limited prior approaches. The hierarchical strategy of combining compressed global context with selected fine-grained tokens and local windows provides a principled decomposition of attention that preserves both long-range and local dependencies. As context lengths continue to grow, the sub-quadratic scaling of native sparse attention becomes increasingly critical for both training and inference costs.
+
+\end{papersummary}

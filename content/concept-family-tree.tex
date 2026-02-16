@@ -205,8 +205,6 @@
 \draw[enables] (pretrain) to[out=-60,in=90] (rag);
 \draw[enables] (moe) -- (scale);
 \draw[enables] (trans) to[out=-80,in=90] (modelpar);
-\draw[enables] (modelpar) to[out=-90,in=90] (chinch);
-\draw[enables] (glu) to[out=-90,in=90] (open);
 
 % ═══════════════════════════════════════════
 % PART 6: Efficiency, Alignment, Reasoning
@@ -227,6 +225,7 @@
 \draw[evolves] (cot) -- (react);
 \draw[enables] (scale) to[out=-90,in=90] (chinch);
 \draw[enables] (mqa) -- (flash);
+\draw[enables] (modelpar) to[out=-90,in=90] (chinch);
 
 % ═══════════════════════════════════════════
 % PART 7: Open LLMs and Modern Frontier
@@ -240,6 +239,7 @@
 \node[technique] (gqa) at (\colB, \rowVIIsub) {GQA};
 
 \draw[evolves] (instruct) to[out=-90,in=90] (open);
+\draw[enables] (glu) to[out=-90,in=90] (open);
 \draw[evolves] (cai) -- (dpo);
 \draw[evolves] (lora) -- (qlora);
 \draw[evolves] (mqa) to[out=-90,in=90] (gqa);
@@ -274,6 +274,6 @@
 
 \end{tikzpicture}
 
-\caption{Genealogy of core concepts in large language model development. Foundational contributions establish theoretical frameworks; milestones mark paradigm shifts; architectural innovations introduce structural patterns; techniques provide enabling methods.}
+\caption{Genealogy of core concepts in large language model development.}
 \label{fig:concept-family-tree}
 \end{figure}

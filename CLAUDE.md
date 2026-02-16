@@ -1,6 +1,6 @@
 This repo contains a book called
 
-> The Foundations of Large Language Models, 1943 - 2025
+> The Foundations of Large Language Models, 1943 - 2026
 
 It is a collection of the most influential papers in the technology lineage of neural networks leading up to, and
 following, the invention of large language models (LLMs) like OpenAI's GPT, Anthropic's Claude, Llama, and more.

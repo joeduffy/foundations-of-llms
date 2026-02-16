@@ -1,0 +1,14 @@
+% Paper Summary: Gated Attention for Large Language Models (Qiu et al., 2025)
+
+\begin{papersummary}{2025}{Gated Attention for Large Language Models: Non-linearity, Sparsity, and Attention-Sink-Free}{Zihan Qiu, Zekun Wang, Bo Zheng, Zeyu Huang, Kaiyue Wen, Songlin Yang, Rui Men, Le Yu, Fei Huang, Suozhi Huang, Dayiheng Liu, Jingren Zhou, Junyang Lin}{This paper demonstrated that applying a head-specific sigmoid gate after scaled dot-product attention consistently improves performance, eliminates the attention sink phenomenon, and enhances training stability and scaling properties.}
+
+\summaryheading{Key Ideas}
+The paper conducts a systematic investigation of gating mechanisms within standard softmax attention layers. The central finding is that a simple modification---applying a per-head sigmoid gate to the output of scaled dot-product attention (SDPA)---yields consistent improvements across both dense and mixture-of-experts architectures trained on up to 3.5 trillion tokens. The gated output is $Y' = Y \odot \sigma(XW_\theta)$, where $\sigma$ is the sigmoid function and $W_\theta$ are learned parameters. The authors attribute the effectiveness to two factors: (1) introducing non-linearity upon the low-rank mapping implicit in the value and output projections, increasing representational capacity; and (2) the pronounced sparsity of the sigmoid gating scores, which provides input-dependent filtering of attention outputs. The gate reduces the attention sink---where models allocate disproportionate attention to the first token (46.7\% on average)---to just 4.8\%, and improves length generalization by over 10 points on the RULER benchmark.
+
+\summaryheading{Follow-on Works}
+The gated attention mechanism was adopted in Qwen3-Next production models. The attention sink analysis informed subsequent work on understanding and mitigating pathological attention patterns in long-context models. The paper's systematic comparison of 30 gating variants across positions, granularities, and activation functions provided a reference for architectural decisions in transformer design.
+
+\summaryheading{Lasting Contributions}
+Gated attention addresses a fundamental limitation of the standard transformer attention mechanism with negligible computational overhead (less than 2\% wall-clock latency increase). The elimination of attention sinks has practical implications for long-context modeling, where disproportionate attention to initial tokens degrades retrieval and reasoning over distant content. The finding that gating enables stable training at larger learning rates and batch sizes is significant for scaling, as it decouples training stability from hyperparameter sensitivity. Awarded the NeurIPS 2025 Best Paper, the work establishes gating as a principled augmentation to attention rather than an ad hoc modification.
+
+\end{papersummary}
