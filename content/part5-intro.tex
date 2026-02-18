@@ -7,7 +7,7 @@ GPT-2 provided the first clear evidence. Trained on 40 GB of web text with 1.5 b
 
 Kaplan and colleagues systematized these observations into scaling laws---empirical power-law relationships predicting test loss as a function of model parameters, dataset tokens, and training compute. These laws implied that performance improvements were predictable and that the field had not yet reached diminishing returns, establishing a research paradigm centered on training progressively larger models. Crucially, scaling required not just algorithmic ideas but systems infrastructure: Megatron-LM introduced tensor parallelism for Transformers, partitioning weight matrices across GPUs within a node to train models of unprecedented size, and established the template for distributed training that all frontier models would follow.
 
-Multi-query attention reduced inference memory bandwidth by sharing key-value heads across all attention heads, an optimization that would become standard in production deployments. Lewis and colleagues introduced retrieval-augmented generation, showing that grounding language models in external knowledge retrieval improved factual accuracy without increasing parameter count. Shazeer also demonstrated that Gated Linear Unit variants---particularly SwiGLU---consistently outperformed the standard ReLU feedforward layers in Transformers, an architectural refinement adopted by nearly every subsequent open-weight model.
+Multi-query attention reduced inference memory bandwidth by sharing key-value heads across all attention heads, an optimization that would become standard in production deployments. Ziegler and colleagues demonstrated that the RLHF framework---previously validated only in game and robotics environments---could be applied directly to language models: by training a reward model on human preference comparisons and fine-tuning GPT-2 with PPO under a KL penalty, they improved stylistic text continuation and summarization quality, establishing the concrete alignment recipe that InstructGPT and all subsequent LLM chatbots would adopt. Lewis and colleagues introduced retrieval-augmented generation, showing that grounding language models in external knowledge retrieval improved factual accuracy without increasing parameter count. Shazeer also demonstrated that Gated Linear Unit variants---particularly SwiGLU---consistently outperformed the standard ReLU feedforward layers in Transformers, an architectural refinement adopted by nearly every subsequent open-weight model.
 
 \section*{Papers in This Section}
 
@@ -17,6 +17,8 @@ Multi-query attention reduced inference memory bandwidth by sharing key-value he
 \item \textbf{Shazeer (2019)} --- Multi-query attention for faster inference through shared key-value heads.
 
 \item \textbf{Shoeybi et al. (2019)} --- Megatron-LM: tensor parallelism for training multi-billion parameter Transformers across GPUs.
+
+\item \textbf{Ziegler et al. (2019)} --- First application of RLHF to language models, fine-tuning GPT-2 with a learned reward model and PPO.
 
 \item \textbf{Brown et al. (2020)} --- GPT-3: few-shot in-context learning at 175 billion parameters.
 
