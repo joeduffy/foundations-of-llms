@@ -23,7 +23,7 @@
 
 % Custom verbatim environment for code blocks
 \DefineVerbatimEnvironment{MicroCode}{Verbatim}{%
-    fontsize=\fontsize{7.5}{9.5}\selectfont,
+    fontsize=\fontsize{7}{9}\selectfont,
     formatcom=\fontfamily{lmtt}\selectfont,
     breaklines=true,
     breaksymbol={},
@@ -43,7 +43,7 @@
 \begin{center}
 \begin{minipage}{0.82\textwidth}
 \centering\fontsize{9.5}{12}\selectfont\itshape
-``The most atomic way to train and inference a GPT\\
+``The most atomic way to train and run inference for a GPT\\
 in pure, dependency-free Python.\\[3pt]
 This file is the complete algorithm.\\
 Everything else is just efficiency.''
@@ -88,10 +88,10 @@ random.seed(42)
 \begin{MicroCode}
 if not os.path.exists('input.txt'):
     import urllib.request
-    names_url = 'https://raw.githubusercontent.com/karpathy/makemore/refs/heads/master/names.txt'
+    names_url = 'https://raw.githubusercontent.com/karpathy/makemore/988aa59/names.txt'
     urllib.request.urlretrieve(names_url, 'input.txt')
 
-docs = [l.strip() for l in open('input.txt').read().strip().split('\n') if l.strip()]
+docs = [line.strip() for line in open('input.txt') if line.strip()]
 random.shuffle(docs)
 print(f"num docs: {len(docs)}")
 \end{MicroCode}
@@ -102,8 +102,8 @@ print(f"num docs: {len(docs)}")
 
 \creationheader{Let there be a Tokenizer, to translate strings to discrete symbols and back.}
 \begin{MicroCode}
-uchars = sorted(set(''.join(docs)))  # unique chars → token ids 0..n-1
-BOS = len(uchars)  # token id for the special Beginning of Sequence (BOS) token
+uchars = sorted(set(''.join(docs)))  # unique characters in the dataset become token ids 0..n-1
+BOS = len(uchars)  # token id for a special Beginning of Sequence (BOS) token
 vocab_size = len(uchars) + 1  # total number of unique tokens, +1 is for BOS
 print(f"vocab size: {vocab_size}")
 \end{MicroCode}
@@ -115,6 +115,7 @@ print(f"vocab size: {vocab_size}")
 \creationheader{Let there be Autograd, to recursively apply the chain rule through a computation graph.}
 \begin{MicroCode}
 class Value:
+    # Python optimization for memory usage
     __slots__ = ('data', 'grad', '_children', '_local_grads')
 
     def __init__(self, data, children=(), local_grads=()):
@@ -131,7 +132,8 @@ class Value:
         other = other if isinstance(other, Value) else Value(other)
         return Value(self.data * other.data, (self, other), (other.data, self.data))
 
-    def __pow__(self, other): return Value(self.data**other, (self,), (other * self.data**(other-1),))
+    def __pow__(self, other):
+        return Value(self.data**other, (self,), (other * self.data**(other-1),))
     def log(self): return Value(math.log(self.data), (self,), (1/self.data,))
     def exp(self): return Value(math.exp(self.data), (self,), (math.exp(self.data),))
     def relu(self): return Value(max(0, self.data), (self,), (float(self.data > 0),))
@@ -146,14 +148,12 @@ class Value:
     def backward(self):
         topo = []
         visited = set()
-
         def build_topo(v):
             if v not in visited:
                 visited.add(v)
                 for child in v._children:
                     build_topo(child)
                 topo.append(v)
-
         build_topo(self)
         self.grad = 1
         for v in reversed(topo):
@@ -167,15 +167,19 @@ class Value:
 
 \creationheader{Initialize the parameters, to store the knowledge of the model.}
 \begin{MicroCode}
-n_embd = 16  # embedding dimension
+n_layer = 1  # depth of the transformer neural network (number of layers)
+n_embd = 16  # width of the network (embedding dimension)
+# maximum context length of the attention window (note: the longest name is 15 characters)
+block_size = 16
 n_head = 4  # number of attention heads
-n_layer = 1  # number of layers
-block_size = 16  # maximum sequence length
-head_dim = n_embd // n_head  # dimension of each head
+head_dim = n_embd // n_head  # derived dimension of each head
 
-matrix = lambda nout, nin, std=0.08: [[Value(random.gauss(0, std)) for _ in range(nin)] for _ in range(nout)]
+matrix = lambda nout, nin, std=0.08: [
+    [Value(random.gauss(0, std)) for _ in range(nin)]
+    for _ in range(nout)]
 
-state_dict = {'wte': matrix(vocab_size, n_embd), 'wpe': matrix(block_size, n_embd),
+state_dict = {'wte': matrix(vocab_size, n_embd),
+              'wpe': matrix(block_size, n_embd),
               'lm_head': matrix(vocab_size, n_embd)}
 
 for i in range(n_layer):
@@ -186,6 +190,7 @@ for i in range(n_layer):
     state_dict[f'layer{i}.mlp_fc1'] = matrix(4 * n_embd, n_embd)
     state_dict[f'layer{i}.mlp_fc2'] = matrix(n_embd, 4 * n_embd)
 
+# flatten params into a single list[Value]
 params = [p for mat in state_dict.values() for row in mat for p in row]
 print(f"num params: {len(params)}")
 \end{MicroCode}
@@ -216,10 +221,10 @@ def gpt(token_id, pos_id, keys, values):
     tok_emb = state_dict['wte'][token_id]  # token embedding
     pos_emb = state_dict['wpe'][pos_id]  # position embedding
     x = [t + p for t, p in zip(tok_emb, pos_emb)]  # joint token and position embedding
-    x = rmsnorm(x)
+    x = rmsnorm(x)  # note: not redundant due to backward pass via the residual connection
 
     for li in range(n_layer):
-        # 1) Multi-head attention block
+        # 1) Multi-head Attention block
         x_residual = x
         x = rmsnorm(x)
         q = linear(x, state_dict[f'layer{li}.attn_wq'])
@@ -266,14 +271,17 @@ learning_rate, beta1, beta2, eps_adam = 0.01, 0.85, 0.99, 1e-8
 m = [0.0] * len(params)  # first moment buffer
 v = [0.0] * len(params)  # second moment buffer
 
+# Repeat in sequence
 num_steps = 1000  # number of training steps
 
 for step in range(num_steps):
+    # Take single document, tokenize it, surround it with BOS special token on both sides
     doc = docs[step % len(docs)]
     tokens = [BOS] + [uchars.index(ch) for ch in doc] + [BOS]
     n = min(block_size, len(tokens) - 1)
 
-    # Forward the token sequence through the model
+    # Forward the token sequence through the model,
+    # building up the computation graph all the way to the loss
     keys, values = [[] for _ in range(n_layer)], [[] for _ in range(n_layer)]
     losses = []
 
@@ -284,13 +292,15 @@ for step in range(num_steps):
         loss_t = -probs[target_id].log()
         losses.append(loss_t)
 
-    loss = (1 / n) * sum(losses)  # May yours be low.
+    # final average loss over the document sequence. May yours be low.
+    loss = (1 / n) * sum(losses)
 
-    # Backward the loss
+    # Backward the loss, calculating the gradients with respect to all model parameters
     loss.backward()
 
-    # Adam update
+    # Adam optimizer update: update the model parameters based on the corresponding gradients
     lr_t = learning_rate * (1 - step / num_steps)  # linear learning rate decay
+
     for i, p in enumerate(params):
         m[i] = beta1 * m[i] + (1 - beta1) * p.grad
         v[i] = beta2 * v[i] + (1 - beta2) * p.grad ** 2
@@ -299,7 +309,7 @@ for step in range(num_steps):
         p.data -= lr_t * m_hat / (v_hat ** 0.5 + eps_adam)
         p.grad = 0
 
-    print(f"step {step+1:4d} / {num_steps:4d} | loss {loss.data:.4f}")
+    print(f"step {step+1:4d} / {num_steps:4d} | loss {loss.data:.4f}", end='\r')
 \end{MicroCode}
 
 %% ---------------------------------------------------------------
@@ -308,7 +318,7 @@ for step in range(num_steps):
 
 \creationheader{May the model babble back to us.}
 \begin{MicroCode}
-temperature = 0.5  # in (0, 1], control the "creativity" of generated text
+temperature = 0.5  # in (0, 1], control the "creativity" of generated text, low to high
 
 print("\n--- inference (new, hallucinated names) ---")
 
@@ -344,6 +354,40 @@ Andrej Karpathy, \textit{microGPT} (2026).\quad
 \texttt{karpathy.ai/microgpt.html}\quad\textbar\quad
 \texttt{gist.github.com/karpathy/8627fe009c40f57531cb18360106ce95}
 \end{center}
+
+\vspace{4pt}
+\begin{center}\rule{0.5\textwidth}{0.4pt}\end{center}
+
+%% ---------------------------------------------------------------
+%%  IX. OUTPUT
+%% ---------------------------------------------------------------
+
+\creationheader{And lo, it spoke.}
+\begin{MicroCode}
+num docs: 32033
+vocab size: 27
+num params: 4192
+step    1 / 1000 | loss 3.3660
+step    2 / 1000 | loss 3.4243
+step    3 / 1000 | loss 3.1778
+                    ...
+step  998 / 1000 | loss 2.4764
+step  999 / 1000 | loss 2.4730
+step 1000 / 1000 | loss 2.6497
+
+--- inference (new, hallucinated names) ---
+sample  1: kamon
+sample  2: ann
+sample  3: karai
+sample  4: jaire
+sample  5: vialan
+                    ...
+sample 16: lenne
+sample 17: kana
+sample 18: lara
+sample 19: alela
+sample 20: anton
+\end{MicroCode}
 
 %% ---------------------------------------------------------------
 %%  CLEANUP
