@@ -1,5 +1,7 @@
 # The Foundations of Large Language Models, 1943-2026
 
+⬇️ **[PDF (Archive.org)](https://archive.org/download/foundations-of-llms/FoundationsOfLLMs.pdf)** | ⬇️ **[PDF (Google Drive)](https://drive.google.com/file/d/1BEbhrt5D63V2clS3HYnZWUhrGykvDtmk/view?usp=drive_link)**
+
 A comprehensive collection of the foundational papers in the development of large language models, spanning from McCulloch-Pitts neurons (1943) to modern reasoning systems (2026).
 
 ## Overview
