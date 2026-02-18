@@ -1,7 +1,7 @@
 \chapter*{Prologue}
 \addcontentsline{toc}{chapter}{Prologue}
 
-Large language models are among the most consequential artifacts of twentieth- and twenty-first-century science. They generate coherent text, translate between languages, reason through multi-step problems, and write functioning software. Yet these capabilities did not emerge from a single invention. They rest on an intellectual lineage spanning eight decades---a lineage in which each generation of researchers confronted specific mathematical and computational barriers, overcame them, and in doing so revealed new questions that would occupy the next generation.
+Large language models are among the most consequential artifacts of twentieth- and twenty-first-century science. They generate coherent text, translate between languages, reason through multi-step problems, and write functioning software. Yet these capabilities did not emerge from a single invention. They rest on an intellectual lineage spanning eight decades, in which each generation of researchers confronted specific mathematical and computational barriers, resolved them, and in doing so exposed the next set of open problems.
 
 This volume collects the papers that constitute that lineage. Reading them in sequence, one observes not a series of isolated breakthroughs but a sustained investigation into a single deep question: \textit{to what extent can the statistical structure of language, learned from data by gradient-based optimization of parametric models, give rise to general-purpose cognitive capabilities?}
 
@@ -13,19 +13,19 @@ Recovery came through two insights. Hopfield reframed neural computation in the 
 
 \section*{Representation and Learning}
 
-A central tension runs through the history of artificial intelligence: should representations be designed by engineers or discovered from data? Early natural language processing relied on hand-crafted grammars, feature templates, and symbolic knowledge bases. The papers in this volume document the decisive resolution of that tension in favor of learned representations.
+A recurring question in artificial intelligence has been whether representations should be designed by engineers or discovered from data. Early natural language processing relied on hand-crafted grammars, feature templates, and symbolic knowledge bases. The papers in this volume document the resolution of that question in favor of learned representations.
 
 The resolution proceeded in stages. Elman's recurrent networks showed that temporal structure could be captured through feedback connections. Hochreiter and Schmidhuber's LSTM solved the vanishing gradient problem, enabling recurrent models to retain information across long sequences. Bengio's neural language model demonstrated that words could be embedded in continuous vector spaces where geometric proximity encoded semantic similarity. Mikolov's Word2Vec made such embeddings tractable at the scale of entire corpora and revealed that the resulting vector spaces supported algebraic operations corresponding to analogical reasoning.
 
-Each of these contributions addressed a specific technical limitation of its predecessor. Collectively, they established that statistical learning from raw text could produce representations rivaling or exceeding those designed by domain experts---a conclusion that would prove decisive when combined with sufficient model capacity and data.
+Each of these contributions addressed a specific technical limitation of its predecessor. Together, they established that statistical learning from raw text could produce representations rivaling or exceeding those designed by domain experts---a result whose full implications became clear only when combined with sufficient model capacity and data.
 
 \section*{Architecture and Scale}
 
-The transformer is the architectural fulcrum of this history. Vaswani and colleagues demonstrated that self-attention alone---without recurrence or convolution---could model sequential dependencies while permitting full parallelization across sequence positions. This was not merely an incremental improvement. Recurrent models processed tokens sequentially, creating a fundamental bottleneck that limited both training throughput and the effective range of learned dependencies. The transformer eliminated this bottleneck, and in doing so made the subsequent era of scaling possible.
+The transformer is the central architectural contribution in this history. Vaswani and colleagues demonstrated that self-attention alone---without recurrence or convolution---could model sequential dependencies while permitting full parallelization across sequence positions. Recurrent models processed tokens sequentially, creating a bottleneck that limited both training throughput and the effective range of learned dependencies. The transformer eliminated this bottleneck and made the subsequent era of scaling possible.
 
 The pretraining paradigm, established through ELMo, BERT, and GPT, transformed the economics of natural language processing. Rather than training task-specific models from scratch, practitioners could fine-tune general-purpose representations learned through self-supervised objectives on large corpora. When researchers scaled these pretrained transformers---first to hundreds of millions, then to hundreds of billions of parameters---they discovered that performance improved predictably according to power laws, and that sufficiently large models exhibited qualitatively new behaviors: few-shot learning, chain-of-thought reasoning, and instruction following.
 
-These emergent capabilities were not engineered. They arose from next-token prediction at scale, suggesting that the statistical structure of natural language encodes more about cognition than the research community had anticipated.
+These capabilities were not explicitly engineered. They arose from next-token prediction at scale, suggesting that the statistical structure of natural language encodes more about general cognition than had been previously assumed.
 
 \section*{Organization}
 
@@ -33,8 +33,8 @@ This volume organizes its papers into seven chronological parts and three append
 
 The volume assumes familiarity with machine learning, linear algebra, and probability theory. Technical details are preserved as they appeared in the original publications.
 
-Figure~\ref{fig:concept-family-tree} illustrates the genealogical relationships among the core concepts covered in this volume, tracing how foundational ideas evolved into increasingly sophisticated architectures and techniques.
+The papers collected here document not an endpoint but an active line of investigation. The mathematical frameworks they introduce---attention, self-supervised pretraining, reinforcement learning from human feedback, mixture-of-experts routing---continue to define the research frontier. Understanding their origins equips the reader to evaluate what comes next.
+
+Figure~\ref{fig:concept-family-tree} illustrates the genealogical relationships among the core concepts covered in this volume.
 
 \input{content/concept-family-tree}
-
-The papers collected here document not an endpoint but an active line of investigation. The mathematical frameworks they introduce---attention, self-supervised pretraining, reinforcement learning from human feedback, mixture-of-experts routing---continue to define the research frontier. Understanding their origins equips the reader to evaluate what comes next.
