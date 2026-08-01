@@ -1,6 +1,6 @@
 % Paper Summary: Mamba: Linear-Time Sequence Modeling with Selective State Spaces (Gu & Dao, 2023)
 
-\begin{papersummary}{2023}{Mamba: Linear-Time Sequence Modeling with Selective State Spaces}{Albert Gu, Tri Dao}{Mamba introduced selective state space models that achieve Transformer-quality language modeling with linear-time complexity, offering a potential alternative to attention mechanisms.}
+\begin{papersummary}{2023}{Mamba: Linear-Time Sequence Modeling with Selective State Spaces}{Albert Gu, Tri Dao}{Mamba introduced selective state space models\index{state space models} that achieve Transformer-quality language modeling with linear-time complexity, offering a potential alternative to attention mechanisms.}
 
 \summaryheading{Key Ideas}
 Mamba extends state space models (SSMs) with input-dependent ``selective'' parameters that allow the model to focus on or ignore inputs dynamically, similar to attention but with linear rather than quadratic complexity. The key innovation is making SSM parameters functions of the input, enabling content-based reasoning while maintaining computational efficiency. The paper introduces a hardware-aware algorithm that avoids materializing large intermediate states, achieving practical speedups on modern GPUs. Mamba matches or exceeds Transformer performance on language modeling while scaling linearly with sequence length.

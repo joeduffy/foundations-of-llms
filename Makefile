@@ -5,7 +5,8 @@ MAIN = main
 OUTPUT_DIR = out
 CONTENT_DIR = content
 PDF_DIR = pdfs
-PDFLATEX = /Library/TeX/texbin/pdflatex
+PDFLATEX := $(shell command -v /Library/TeX/texbin/pdflatex 2>/dev/null || command -v pdflatex)
+MAKEINDEX := $(shell command -v /Library/TeX/texbin/makeindex 2>/dev/null || command -v makeindex)
 
 # Add TeX binaries to PATH
 export PATH := /Library/TeX/texbin:$(PATH)
@@ -13,9 +14,13 @@ export PATH := /Library/TeX/texbin:$(PATH)
 # Default target
 all: book
 
-# Build the complete book (two passes for TOC)
+# Build the complete book: pass 1 generates the .idx, makeindex sorts it into
+# a .ind, pass 2 typesets the index and updates the TOC to include it, pass 3
+# lets the TOC's own page numbers (now one chapter longer) settle.
 book: setup
 	@echo "Building the book..."
+	$(PDFLATEX) -output-directory=$(OUTPUT_DIR) $(MAIN).tex
+	$(MAKEINDEX) $(OUTPUT_DIR)/$(MAIN).idx
 	$(PDFLATEX) -output-directory=$(OUTPUT_DIR) $(MAIN).tex
 	$(PDFLATEX) -output-directory=$(OUTPUT_DIR) $(MAIN).tex
 	@echo "Book built successfully: $(OUTPUT_DIR)/$(MAIN).pdf"

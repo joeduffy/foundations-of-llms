@@ -1,5 +1,31 @@
 # Changelog
 
+## v2.1.0 — August 1, 2026
+
+A typography and layout pass toward the production standard of a bound mathematics monograph
+(the standard set by, e.g., Springer's Graduate Texts in Mathematics series).
+
+- **Twoside layout.** Mirrored inner/outer margins for binding; canonical running head with the
+  page number on the outer edge, the enclosing part's title on the verso, and the current paper's
+  author/year on the recto.
+- **Fixed a second structural bug, also present since v1.0.0**: `\chapter*` never calls
+  `\chaptermark`, so the running head froze after any unnumbered chapter and could show a stale or
+  flatly wrong section name (e.g. "Contents" bleeding into the Prologue, or the second-to-last
+  Appendix's title showing through the Epilogue) for hundreds of pages. Fixed with two macros,
+  `\PlainChapter` and `\PartIntroChapter`, that set the running-head marks explicitly and
+  correctly for standalone chapters versus chapters nested inside a part.
+- **Fixed double pagination on every embedded paper.** Facsimile pages previously carried both our
+  own header/page-number and the original publication's own masthead and pagination, competing for
+  attention. Facsimile pages now suppress our header entirely.
+- Switched to single spacing; muted the saturated hyperlink blue to a near-black ink color
+  throughout; removed the version stamp and email address from the title page in favor of a proper
+  copyright/colophon page; shortened part titles used in the TOC and running heads so they no
+  longer wrap awkwardly (they had been reusing the two-line title-page string, `\\`-break
+  included).
+- **Added a back-of-book index**: every paper's authors, plus roughly fifty key technical terms
+  indexed at their defining introduction (attention, transformer, backpropagation, RLHF, GRPO,
+  quantization-aware training, and so on).
+
 ## v2.0.1 — August 1, 2026
 
 - Fixed a structural bug, present since v1.0.0, in which every one of the book's per-paper table-
