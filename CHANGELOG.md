@@ -1,5 +1,15 @@
 # Changelog
 
+## v2.0.1 — August 1, 2026
+
+- Fixed a structural bug, present since v1.0.0, in which every one of the book's per-paper table-
+  of-contents entries and cross-references (all 79) linked to the entry immediately preceding it
+  rather than to itself. Root cause: each entry's hyperref anchor was created before the page break
+  that started its own page, binding it to whatever anchor the previous entry had left current.
+  Fixed by moving anchor creation into the `papersummary` environment, immediately after its page
+  break. Verified against the built PDF's actual link-annotation destinations, not just page
+  numbers: 0 of 79 entries mismatched, down from 79 of 79.
+
 ## v2.0.0 — August 1, 2026
 
 - Added **Part VIII: Reasoning and the Open Frontier (2024–2026)**, eight papers covering the
