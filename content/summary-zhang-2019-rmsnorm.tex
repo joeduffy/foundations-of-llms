@@ -1,0 +1,14 @@
+% Paper Summary: Root Mean Square Layer Normalization (Zhang & Sennrich, 2019)
+
+\begin{papersummary}{2019}{Root Mean Square Layer Normalization}{Biao Zhang, Rico Sennrich}{RMSNorm simplifies layer normalization to a single root-mean-square rescaling, showing that re-centering is unnecessary and providing the normalization used in virtually every modern language model.}
+
+\summaryheading{Key Ideas}
+Layer normalization (\hyperref[paper:ba-2016]{Ba, Kiros \& Hinton, 2016}) both re-centers activations to zero mean and re-scales them to unit variance. The paper hypothesizes that only the re-scaling invariance matters for training stability, and proposes normalizing by the root mean square of the activations alone, with a learned gain and no mean subtraction or bias. Across machine translation and language modeling benchmarks, RMSNorm matches LayerNorm's quality while reducing normalization cost, replacing mean subtraction and variance estimation with a single root-mean-square statistic---a saving that compounds meaningfully when normalization appears twice per transformer block across dozens of layers.
+
+\summaryheading{Follow-on Works}
+T5 (\hyperref[paper:raffel-2019]{Raffel et al., 2019}) adopted RMSNorm early, and LLaMA (\hyperref[paper:touvron-2023-llama]{Touvron et al., 2023}) fixed it in the recipe that subsequent open-weight models inherited: Mistral, Qwen, Gemma, DeepSeek, and Kimi model families all normalize with RMSNorm, almost always in the pre-norm placement that stabilizes very deep transformers. Later variants such as QK-norm apply the same root-mean-square operation to attention queries and keys to prevent logit growth at scale.
+
+\summaryheading{Lasting Contributions}
+Together with rotary embeddings and SwiGLU feedforward layers, RMSNorm defines the de facto standard transformer block---the configuration a ``vanilla'' language model means in practice today. Its conclusion that re-centering is dispensable has held across seven years and four orders of magnitude of model scale.
+
+\end{papersummary}

@@ -1,0 +1,14 @@
+% Paper Summary: DeepSeek-R1: Incentivizing Reasoning Capability in LLMs via Reinforcement Learning (DeepSeek-AI, 2025)
+
+\begin{papersummary}{2025}{DeepSeek-R1: Incentivizing Reasoning Capability in LLMs via Reinforcement Learning}{DeepSeek-AI (Guo et al.)}{DeepSeek-R1 demonstrated that reinforcement learning against rule-based rewards, applied directly to a base model with no supervised reasoning traces, elicits emergent chain-of-thought reasoning---and that the resulting behavior distills into small models.}
+
+\summaryheading{Key Ideas}
+The paper's central experiment, R1-Zero, applies GRPO (\hyperref[paper:shao-2024-grpo]{Shao et al., 2024}) to a base model using only mechanical rewards---answer correctness and output format---with no reward model and no demonstrations of how to reason. Over training, the model spontaneously lengthens its chain of thought (\hyperref[paper:wei-2022]{Wei et al., 2022}), and behaviors that had previously required explicit prompting or search emerge on their own: decomposition, self-verification, reflection, and mid-solution re-derivation when a path fails. The full R1 pipeline adds a small cold-start corpus, rejection sampling against the RL checkpoint, and a second reinforcement-learning stage for general helpfulness, fixing R1-Zero's readability failures while preserving its reasoning. Performance on mathematics and code matches OpenAI's o1, whose training methodology was never disclosed; R1's is documented in full, with open weights.
+
+\summaryheading{Follow-on Works}
+R1 converted the reasoning model from a proprietary artifact into a research object. Its distilled variants---small dense models fine-tuned on traces from the large one---outperformed direct RL at the same scale, establishing distillation of reasoning as standard practice. Open reproductions and refinements of its recipe (Open-Reasoner-Zero, DAPO, and successors) followed within months, verifiable-reward RL in the T\"ulu~3 sense (\hyperref[paper:lambert-2024-tulu3]{Lambert et al., 2024}) became the default post-training paradigm, and the trained-search perspective it validated connected directly to the test-time compute analysis of \hyperref[paper:snell-2024-test-time]{Snell et al.\ (2024)}. A peer-reviewed account later appeared in \textit{Nature}, a first for a frontier language model's training methodology.
+
+\summaryheading{Lasting Contributions}
+R1-Zero established that extended reasoning can be elicited from a sufficiently capable base model by outcome-based optimization alone, without demonstrations of the reasoning process. This redirected post-training work across the field toward reward design rather than trace collection, and the open release let researchers outside the originating laboratory reproduce and audit the result.
+
+\end{papersummary}

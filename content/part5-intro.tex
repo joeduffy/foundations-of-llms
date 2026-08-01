@@ -5,9 +5,11 @@ Between 2019 and 2020, researchers established that transformer language models 
 
 GPT-2 provided the first clear evidence. Trained on 40 GB of web text with 1.5 billion parameters, it performed competitively on language modeling benchmarks without task-specific fine-tuning and could generate coherent long-form text. OpenAI's decision to initially withhold the full model, citing concerns about misuse, marked the first time a language model's capabilities were considered potentially dangerous. GPT-3 extended these findings to 175 billion parameters and revealed in-context learning: the model could adapt to new tasks from a handful of examples provided in the prompt, without any parameter updates. This capability had no direct precedent and suggested that very large language models had learned representations more general than task-specific statistical patterns.
 
-Kaplan and colleagues systematized these observations into scaling laws---empirical power-law relationships predicting test loss as a function of model parameters, dataset tokens, and training compute. These laws implied that performance improvements were predictable and that the field had not yet reached diminishing returns, establishing a research paradigm centered on training progressively larger models. Scaling required not just algorithmic ideas but systems infrastructure: Megatron-LM introduced tensor parallelism for Transformers, partitioning weight matrices across GPUs within a node to train models of unprecedented size, and established the template for distributed training that all frontier models would follow.
+Kaplan and colleagues systematized these observations into scaling laws---empirical power-law relationships predicting test loss as a function of model parameters, dataset tokens, and training compute. These laws implied that performance improvements were predictable and that the field had not yet reached diminishing returns, establishing a research paradigm centered on training progressively larger models. Scaling required not just algorithmic ideas but systems infrastructure: Megatron-LM introduced tensor parallelism for transformers, partitioning weight matrices across GPUs within a node to train models of unprecedented size, and established the template for distributed training that all frontier models would follow.
 
-Multi-query attention reduced inference memory bandwidth by sharing key-value heads across all attention heads, an optimization that would become standard in production deployments. Ziegler and colleagues demonstrated that the RLHF framework---previously validated only in game and robotics environments---could be applied directly to language models: by training a reward model on human preference comparisons and fine-tuning GPT-2 with PPO under a KL penalty, they improved stylistic text continuation and summarization quality, establishing the concrete alignment recipe that InstructGPT and all subsequent LLM chatbots would adopt. Lewis and colleagues introduced retrieval-augmented generation, showing that grounding language models in external knowledge retrieval improved factual accuracy without increasing parameter count. Shazeer also demonstrated that Gated Linear Unit variants---particularly SwiGLU---consistently outperformed the standard ReLU feedforward layers in Transformers, an architectural refinement adopted by nearly every subsequent open-weight model.
+Several components of what would become the standard transformer block also settled during these two years. Shazeer's multi-query attention reduced inference memory bandwidth by collapsing the key and value projections to a single head shared by all query heads, an optimization that would become standard in production deployments. He also demonstrated that Gated Linear Unit variants---particularly SwiGLU---consistently outperformed the standard ReLU feedforward layers in transformers, an architectural refinement adopted by nearly every subsequent open-weight model. Zhang and Sennrich simplified layer normalization by discarding mean centering and rescaling by the root mean square alone; RMSNorm proved equally effective at lower cost and, alongside SwiGLU, became a standard component of the modern transformer block.
+
+A separate line of work grounded language models in signals beyond their training text. Ziegler and colleagues demonstrated that the RLHF framework---previously validated only in game and robotics environments---could be applied directly to language models: by training a reward model on human preference comparisons and fine-tuning GPT-2 with PPO under a KL penalty, they improved stylistic text continuation and summarization quality, establishing the concrete alignment recipe that InstructGPT and all subsequent LLM chatbots would adopt. Lewis and colleagues introduced retrieval-augmented generation, showing that grounding language models in external knowledge retrieval improved factual accuracy without increasing parameter count.
 
 \section*{Papers in This Section}
 
@@ -16,9 +18,11 @@ Multi-query attention reduced inference memory bandwidth by sharing key-value he
 
 \item \textbf{Shazeer (2019)} --- Multi-query attention for faster inference through shared key-value heads.
 
-\item \textbf{Shoeybi et al. (2019)} --- Megatron-LM: tensor parallelism for training multi-billion parameter Transformers across GPUs.
+\item \textbf{Shoeybi et al. (2019)} --- Megatron-LM: tensor parallelism for training multi-billion parameter transformers across GPUs.
 
 \item \textbf{Ziegler et al. (2019)} --- First application of RLHF to language models, fine-tuning GPT-2 with a learned reward model and PPO.
+
+\item \textbf{Zhang \& Sennrich (2019)} --- RMSNorm: layer normalization simplified to root-mean-square rescaling, standard in modern transformer blocks.
 
 \item \textbf{Brown et al. (2020)} --- GPT-3: few-shot in-context learning at 175 billion parameters.
 
@@ -26,6 +30,6 @@ Multi-query attention reduced inference memory bandwidth by sharing key-value he
 
 \item \textbf{Lewis et al. (2020)} --- Retrieval-augmented generation combining parametric models with non-parametric knowledge retrieval.
 
-\item \textbf{Shazeer (2020)} --- GLU variants (SwiGLU) as improved feedforward activations for Transformers.
+\item \textbf{Shazeer (2020)} --- GLU variants (SwiGLU) as improved feedforward activations for transformers.
 
 \end{enumerate}

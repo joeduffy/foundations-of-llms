@@ -1,0 +1,14 @@
+% Paper Summary: Reflexion: Language Agents with Verbal Reinforcement Learning (Shinn et al., 2023)
+
+\begin{papersummary}{2023}{Reflexion: Language Agents with Verbal Reinforcement Learning}{Noah Shinn, Federico Cassano, Edward Berman, Ashwin Gopinath, Karthik Narasimhan, Shunyu Yao}{Reflexion agents improve across repeated attempts by converting task feedback into written self-reflections stored in episodic memory, learning from failure through language rather than weight updates.}
+
+\summaryheading{Key Ideas}
+Reinforcement learning improves a policy through scalar rewards and gradient steps; Reflexion asks what the analogue is for an agent that cannot update its weights. After a failed attempt, the agent generates a natural-language analysis of what went wrong---a verbal reflection---and appends it to an episodic memory buffer that conditions the next attempt. The reward signal is thereby amplified into a rich textual gradient: rather than knowing only that it failed, the agent carries forward a hypothesis about why. Built atop acting and reasoning loops in the style of ReAct (\hyperref[paper:yao-2022]{Yao et al., 2022}), Reflexion improved sequential decision-making on ALFWorld, reasoning on HotPotQA, and code generation on HumanEval, where it raised GPT-4's pass@1 to 91\%, well above the base model's 80\%.
+
+\summaryheading{Follow-on Works}
+The retry-with-reflection loop became a standard pattern in agent frameworks and production coding assistants, where failed test runs are fed back as textual diagnosis for the next attempt. Skill and memory systems extended the episodic buffer into persistent stores---Voyager's growing library of verified code skills and MemGPT's paged memory hierarchy are direct descendants. The pattern's ultimate vindication came from training: DeepSeek-R1 (\hyperref[paper:deepseek-2025-r1]{DeepSeek-AI, 2025}) showed that reflection and retry emerge inside a single reasoning chain when reinforcement learning optimizes outcome rewards, internalizing as learned behavior what Reflexion had implemented as scaffolding.
+
+\summaryheading{Lasting Contributions}
+Reflexion established self-critique from environment feedback as a load-bearing mechanism of agent improvement and gave agent memory its basic shape: an append-only record of episodes distilled into lessons that condition future behavior. The framing of language as a substitute for gradients---learning encoded in text rather than weights---defined a design space that agent systems continue to occupy wherever weight updates are unavailable or uneconomical.
+
+\end{papersummary}

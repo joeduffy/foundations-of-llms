@@ -1,0 +1,14 @@
+% Paper Summary: Fast Inference from Transformers via Speculative Decoding (Leviathan et al., 2022)
+
+\begin{papersummary}{2022}{Fast Inference from Transformers via Speculative Decoding}{Yaniv Leviathan, Matan Kalman, Yossi Matias}{Speculative decoding accelerates autoregressive generation by having a small draft model propose tokens that the large model verifies in parallel, with a rejection-sampling rule that leaves the output distribution exactly unchanged.}
+
+\summaryheading{Key Ideas}
+Autoregressive decoding is bound by memory bandwidth: each generated token requires a full forward pass whose weights must be read from memory, leaving compute units idle. The paper observes that many tokens are easy to predict and need not be produced by the large model at all. A cheap draft model generates several candidate tokens; the target model then scores all of them in a single parallel pass. A speculative sampling rule accepts each draft token with probability equal to the ratio of target to draft probability, capped at one, and on rejection resamples from an adjusted distribution---guaranteeing that the emitted sequence is distributed exactly as if the target model had decoded alone. Acceleration therefore costs nothing in quality, with typical speedups of two to three times.
+
+\summaryheading{Follow-on Works}
+Chen and colleagues at DeepMind independently derived the same scheme, and the technique entered every major serving stack. Successors internalized the draft model: Medusa adds parallel prediction heads, EAGLE drafts in feature space, and self-speculative approaches reuse early layers of the target model. Multi-token prediction (\hyperref[paper:gloeckle-2024-mtp]{Gloeckle et al., 2024}) connected drafting to pretraining, giving models native extra-token heads that later served speculative decoding directly, a design production systems such as DeepSeek-V3 adopted.
+
+\summaryheading{Lasting Contributions}
+Speculative decoding is now standard infrastructure: production inference for frontier models routinely runs a drafter alongside the target, and hardware and serving frameworks are designed around parallel verification. The lossless-acceleration framing---provable distribution equivalence rather than approximation---set the quality bar for subsequent inference optimizations.
+
+\end{papersummary}

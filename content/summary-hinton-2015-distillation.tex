@@ -1,0 +1,14 @@
+% Paper Summary: Distilling the Knowledge in a Neural Network (Hinton, Vinyals & Dean, 2015)
+
+\begin{papersummary}{2015}{Distilling the Knowledge in a Neural Network}{Geoffrey Hinton, Oriol Vinyals, Jeff Dean}{Knowledge distillation transfers the function learned by a large model or ensemble into a smaller model by training against softened output distributions, establishing the teacher-student paradigm used throughout modern model production.}
+
+\summaryheading{Key Ideas}
+A trained network encodes more information than its hard classification decisions: the relative probabilities it assigns to incorrect classes reveal how it generalizes. The paper proposes training a small ``student'' model to match the ``teacher's'' full output distribution, softened by a temperature parameter in the softmax so that this dark knowledge carries usable gradient signal. The student, trained on soft targets (optionally mixed with true labels), reaches accuracy far closer to the teacher than the same architecture trained on hard labels alone. The paper also shows that an ensemble of models can be compressed into a single model, and introduces specialist ensembles---a generalist paired with many specialists trained on the classes it confuses---though distilling the specialists back into a single network is left as future work.
+
+\summaryheading{Follow-on Works}
+Distillation became the standard mechanism for compressing capability. DistilBERT and TinyBERT applied it to pretrained encoders. Sequence-level distillation adapted it to autoregressive generation, where students train on teacher-generated outputs rather than per-token distributions. In the frontier era the technique moved to the center of model production: the Gemma family is trained principally by distillation from larger teachers, Qwen3 uses strong-to-weak distillation to derive its small models from flagships, and DeepSeek-R1 (\hyperref[paper:deepseek-2025-r1]{DeepSeek-AI, 2025}) demonstrated that reasoning behavior elicited by reinforcement learning in a large model can be distilled into much smaller ones through supervised training on its traces.
+
+\summaryheading{Lasting Contributions}
+Nearly every deployed model family now consists of a large teacher and a ladder of distilled students. The soft-target formulation established that model outputs are a richer training signal than ground-truth labels, an idea that returns in modern synthetic-data pipelines and in quantization-aware training, where a full-precision checkpoint's distribution supervises its quantized counterpart. The temperature-scaled softmax it introduced became a standard tool well beyond distillation.
+
+\end{papersummary}

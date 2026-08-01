@@ -1,0 +1,30 @@
+\chapter*{Introduction to Part VIII}
+\addcontentsline{toc}{chapter}{Introduction to Part VIII}
+
+The period from 2024 to 2026 was defined by two developments. First, reinforcement learning moved from the periphery of the training pipeline to its center: models learned to reason---to produce long chains of intermediate computation, verify their own work, and backtrack---by optimizing against rewards that could be checked mechanically. Second, open models closed the gap with proprietary frontier systems, and in doing so documented publicly the full stack of techniques that frontier training requires.
+
+The algorithmic substrate for the reasoning shift was laid by Shao and colleagues, whose Group Relative Policy Optimization (GRPO) removed the learned value network from PPO and estimated advantages from groups of sampled responses to the same prompt, removing a second model of comparable size from the training loop and simplifying its tuning. Lambert and colleagues introduced reinforcement learning with verifiable rewards (RLVR), replacing the learned reward model with programmatic checks---exact-match answers in mathematics, constraint satisfaction in instruction following---and released the complete T\"ulu~3 recipe, data, and code. Both ideas are visible, arrived at independently, in DeepSeek-R1. Its central experiment, R1-Zero, applied reinforcement learning with rule-based rewards directly to a base model, with no supervised reasoning traces, and produced emergent self-verification and reflection; the full R1 pipeline added a small cold-start corpus and a second RL stage, matching OpenAI's o1 and validating at production scale the test-time-compute findings that closed Part~VII. R1 further showed that reasoning behavior elicited by RL in a large model transfers to small models through simple distillation.
+
+Architecture continued to move beyond the dense transformer. Gloeckle and colleagues showed that predicting several future tokens through parallel heads improves sample efficiency and provides native draft heads for speculative decoding. Wang and colleagues removed the auxiliary balancing losses from mixture-of-experts routing, steering expert load through a feedback-controlled bias rather than an objective that competes with the language-modeling gradient. The Kimi team's Kimi Delta Attention---a fine-grained gated delta rule interleaved with periodic full-attention layers---became the first hybrid linear-attention architecture to outperform full attention under controlled comparisons, making million-token contexts economical. Elango and colleagues restructured the expert layer itself, routing compressed latent representations to experts to maximize accuracy per unit of compute and memory. On the training side, Liu and colleagues demonstrated that Muon, a matrix-orthogonalizing optimizer, scales to large-model pretraining with roughly twice the computational efficiency of AdamW---the first credible successor to AdamW in the optimizer lineage that runs through this collection from Adam onward.
+
+These techniques are the components from which the era's production systems were assembled. DeepSeek-V3 combined multi-head latent attention, auxiliary-loss-free routing, and multi-token prediction at 671 billion parameters; Llama~3, Gemma~3, and Qwen3 documented open recipes for dense frontier training, quantized deployment, and controllable reasoning effort; and Kimi K2 carried a stabilized Muon variant to trillion-parameter pretraining, with K3 adding delta attention and latent expert routing at million-token context. The papers collected below are the foundational methods those systems build on.
+
+\section*{Papers in This Section}
+
+\begin{enumerate}
+\item \textbf{Shao et al. (2024)} --- DeepSeekMath introduces GRPO: critic-free policy optimization with group-relative advantages, the standard algorithm of the reasoning era.
+
+\item \textbf{Gloeckle et al. (2024)} --- Multi-token prediction: parallel next-$n$-token heads improving sample efficiency and enabling self-speculative decoding.
+
+\item \textbf{Wang et al. (2024)} --- Auxiliary-loss-free load balancing: feedback-controlled routing bias replacing balancing losses in mixture-of-experts training.
+
+\item \textbf{Lambert et al. (2024)} --- T\"ulu~3: reinforcement learning with verifiable rewards and a fully open post-training recipe.
+
+\item \textbf{DeepSeek-AI (2025)} --- DeepSeek-R1: pure reinforcement learning elicits emergent reasoning without supervised traces, distillable to small models.
+
+\item \textbf{Liu et al. (2025)} --- Muon at scale: matrix orthogonalization roughly doubling pretraining compute efficiency over AdamW.
+
+\item \textbf{Kimi Team (2025)} --- Kimi Linear: fine-grained gated delta attention in hybrid layers, outperforming full attention at a fraction of its memory cost.
+
+\item \textbf{Elango et al. (2026)} --- LatentMoE: expert computation in a compressed latent space, maximizing accuracy per FLOP and per parameter.
+\end{enumerate}

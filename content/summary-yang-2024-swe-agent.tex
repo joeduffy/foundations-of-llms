@@ -1,0 +1,14 @@
+% Paper Summary: SWE-agent: Agent-Computer Interfaces Enable Automated Software Engineering (Yang et al., 2024)
+
+\begin{papersummary}{2024}{SWE-agent: Agent-Computer Interfaces Enable Automated Software Engineering}{John Yang, Carlos E. Jimenez, Alexander Wettig, Kilian Lieret, Shunyu Yao, Karthik Narasimhan, Ofir Press}{SWE-agent showed that an agent's performance depends as much on the interface it is given as on the model behind it, introducing the agent-computer interface as a design surface for autonomous software engineering.}
+
+\summaryheading{Key Ideas}
+Human tools---shells, editors, IDEs---were designed for human perception and motor control, and language models operating through them fail in characteristic ways: they scroll blindly through files, mangle edits, and drown in irrelevant output. The paper introduces the agent-computer interface (ACI): a small command set purpose-built for a language model, with a windowed file viewer, a guarded editor that runs a linter before accepting changes, compact search that summarizes rather than dumps results, and concise feedback on every action. On SWE-bench, a benchmark of real GitHub issues resolved against full repositories, equipping GPT-4 with this interface raised task success from a few percent under a plain shell to 12.5\%, a state-of-the-art result at publication. The finding generalizes: agent capability is a joint property of model and interface, and the interface can be engineered independently.
+
+\summaryheading{Follow-on Works}
+Coding agents became the dominant agent application, and the ACI perspective shaped their design: guarded edit tools, structured search, and linter-in-the-loop feedback recur throughout open frameworks and production coding assistants. SWE-bench and its verified subset became the standard measure of the field's progress, with resolution rates rising from SWE-agent's 12.5\% to a large majority of tasks within two years. The same interface discipline carried into computer-use agents operating desktop environments, and executable-action designs (\hyperref[paper:wang-2024]{Wang et al., 2024}) converged with it; the Model Context Protocol later standardized how such tool interfaces are described and shared across systems.
+
+\summaryheading{Lasting Contributions}
+The agent-computer interface named a layer of the agent stack that had been invisible while it was borrowed from humans, and made it an object of deliberate design. Its guardrail principle---make destructive or confusing actions difficult, make state legible after every step---remains the working method for building reliable agents on imperfect models.
+
+\end{papersummary}

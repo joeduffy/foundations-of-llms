@@ -1,4 +1,9 @@
+\chapter*{Introduction to Appendix B}
+\addcontentsline{toc}{chapter}{Introduction to Appendix B}
+
 This appendix covers the foundational papers for AI agents---systems that use large language models to reason, plan, and act autonomously. Agents extend language models from text generation to goal-directed interaction with external environments. The core technical challenges include grounding language in executable actions, learning tool use without exhaustive supervision, and planning over long horizons with error recovery.
+
+The papers trace three stages. The first grounded language in action: generating executable code as policy (Code as Policies, CodeAct), teaching models to invoke tools from their own supervision (Toolformer), and searching deliberately over reasoning paths (Tree of Thoughts). The second made agents improve and scale in deployment: Reflexion converted failure into written self-reflections that condition retry---the memory pattern that skill libraries and paged agent memory later extended---and SWE-agent showed that the interface an agent operates through is a design surface in its own right, the insight behind the coding and computer-use agents that became the paradigm's dominant applications, with SWE-bench as their yardstick and the Model Context Protocol as their shared tool interface. The third stage made agency trainable: Search-R1 carried reinforcement learning with verifiable rewards into multi-turn tool use, the recipe that deep-research systems and frontier models subsequently scaled to long-horizon sandboxed training.
 
 \section*{Papers in This Appendix}
 
@@ -7,8 +12,14 @@ This appendix covers the foundational papers for AI agents---systems that use la
 
 \item \textbf{Schick et al. (2023)} --- Toolformer: self-supervised learning of external tool use within language models.
 
+\item \textbf{Shinn et al. (2023)} --- Reflexion: verbal self-reflection and episodic memory for learning from failure without weight updates.
+
 \item \textbf{Yao et al. (2023)} --- Tree of Thoughts: systematic exploration of reasoning paths for deliberate problem-solving.
 
 \item \textbf{Wang et al. (2024)} --- CodeAct: executable code actions as a superior action space for language model agents.
+
+\item \textbf{Yang et al. (2024)} --- SWE-agent: agent-computer interfaces as an engineered layer enabling autonomous software engineering.
+
+\item \textbf{Jin et al. (2025)} --- Search-R1: reinforcement learning over interleaved reasoning and search, extending verifiable rewards to agentic tool use.
 
 \end{enumerate}

@@ -1,0 +1,14 @@
+% Paper Summary: Muon is Scalable for LLM Training (Liu et al., 2025)
+
+\begin{papersummary}{2025}{Muon is Scalable for LLM Training}{Jingyuan Liu, Jianlin Su, Xingcheng Yao, Zhejun Jiang, Guokun Lai, et al. (Moonshot AI)}{Muon replaces AdamW's per-coordinate scaling with approximate orthogonalization of the momentum matrix; this paper's weight-decay and update-scale corrections made it the first optimizer to show roughly twice AdamW's compute efficiency in matched scaling-law comparisons.}
+
+\summaryheading{Key Ideas}
+Adam-family optimizers (\hyperref[paper:kingma-ba-2014]{Kingma \& Ba, 2014}) treat every parameter as an independent scalar. Muon, introduced by Jordan and colleagues on small-scale benchmarks, instead treats each weight matrix as a matrix: it orthogonalizes the momentum update via a Newton--Schulz iteration, equalizing the update's singular values so that no few directions dominate a layer's change. This paper supplies what scaling required: decoupled weight decay in the style of AdamW (\hyperref[paper:loshchilov-2017-adamw]{Loshchilov \& Hutter, 2017}), without which weights and activations grow unboundedly in long runs, and a per-matrix scale correction that keeps the update's root-mean-square consistent across matrix shapes, allowing AdamW learning-rate tunings to transfer directly. Scaling-law experiments show roughly twice the computational efficiency of well-tuned AdamW, and a ZeRO-style distributed implementation keeps memory and communication overhead modest. The team validated the recipe by pretraining Moonlight, a mixture-of-experts model with 16B total and 3B activated parameters, on 5.7 trillion tokens.
+
+\summaryheading{Follow-on Works}
+Moonshot's Kimi K2 carried a stabilized variant, MuonClip, into trillion-parameter pretraining, with K3 following at yet larger scale, and other 2025--2026 open models adopted Muon-family optimizers as the efficiency margin was independently reproduced. The result revived matrix-aware optimization as a research area---spectral-norm analyses, alternative orthogonalization schemes, and second-order hybrids---after nearly a decade in which AdamW's dominance had made optimizer research appear closed.
+
+\summaryheading{Lasting Contributions}
+Muon is the third optimizer generation represented in this collection: gradient descent gave way to adaptive per-coordinate methods, and Muon shows the gains available from treating each weight matrix as a matrix rather than a collection of independent scalars. A twofold efficiency improvement compounds over every training run that adopts it. The paper's insistence on controlled scaling-law comparison, matching AdamW at equal compute rather than equal steps, also set the evidentiary standard by which subsequent optimizer claims are judged.
+
+\end{papersummary}

@@ -1,32 +1,30 @@
 \chapter*{Introduction to Part VII}
 \addcontentsline{toc}{chapter}{Introduction to Part VII}
 
-The period from 2023 to 2024 was defined by two shifts: the release of competitive open-weight models that brought frontier capabilities into the public research ecosystem, and the maturation of preference-based training methods that simplified the alignment pipeline.
+The period from 2023 to 2024 was defined by three shifts: the release of competitive open-weight models that brought frontier capabilities into the public research ecosystem, the maturation of preference-based training methods that simplified the alignment pipeline, and the compression of training and inference costs through quantization and attention redesign. At the period's close came the first systematic evidence that inference-time compute could substitute for parameters.
 
-Meta's LLaMA release in early 2023 demonstrated that carefully trained models at moderate scale could match proprietary systems that were substantially larger. The key insight was that the Chinchilla scaling laws favored training smaller models on more data than prior practice had assumed. LLaMA trained a 65-billion-parameter model on 1.4 trillion tokens---far more tokens per parameter than GPT-3---and achieved strong performance across standard benchmarks. Llama~2 extended this with extensive safety training through RLHF and a public release including fine-tuned chat variants, establishing an open-source foundation that catalyzed thousands of derivative models and research contributions.
+Meta's LLaMA release in early 2023 demonstrated that carefully trained models at moderate scale could match proprietary systems that were substantially larger. The key insight went past Chinchilla: because Hoffmann and colleagues optimize training compute alone, a model destined for heavy inference should be trained well beyond the compute-optimal token count. LLaMA trained a 65-billion-parameter model on 1.4 trillion tokens---far more tokens per parameter than GPT-3---and achieved strong performance across standard benchmarks. Its successors Llama~2 and Llama~3 added openly documented RLHF safety training and chat variants, establishing an open-weight foundation that catalyzed thousands of derivative models and research contributions.
 
 Alignment techniques evolved rapidly. Rafailov and colleagues showed with Direct Preference Optimization (DPO) that the RLHF objective could be reparameterized to eliminate the need for an explicit reward model, training the policy directly from preference pairs through a simple classification loss. This reduced the complexity of the alignment pipeline from three stages to two and proved competitive with PPO-based approaches.
 
-Efficiency innovations addressed both training and inference. Dettmers and colleagues combined 4-bit quantization with LoRA (QLoRA), enabling fine-tuning of 65-billion-parameter models on single consumer GPUs. Ainslie and colleagues proposed grouped-query attention (GQA), interpolating between multi-head and multi-query attention to balance inference throughput with model quality. Sparse mixture-of-experts architectures reached production maturity: Mistral's Mixtral used 8 experts with top-2 routing to match dense models at a fraction of the per-token compute, and DeepSeek-V2 introduced multi-head latent attention and auxiliary-loss-free routing for further efficiency gains.
+Efficiency innovations addressed both training and inference. Dettmers and colleagues combined 4-bit quantization with LoRA (QLoRA), enabling fine-tuning of 65-billion-parameter models on single consumer GPUs. Liu and colleagues extended quantization from fine-tuning to the model itself with LLM-QAT, a data-free quantization-aware training method in which the full-precision model's own generations supervise its low-bit counterpart---the approach that later produced the int4 releases of production model families such as Gemma. Ainslie and colleagues proposed grouped-query attention (GQA), interpolating between multi-head and multi-query attention to balance inference throughput with model quality. Sparse mixture-of-experts architectures reached production maturity in open models such as Mistral's Mixtral, and DeepSeek-V2 introduced multi-head latent attention, compressing the key-value cache through a learned low-rank projection.
 
-Snell and colleagues provided evidence that inference-time computation could substitute for parameter scaling: allocating more compute during generation---through techniques such as best-of-N sampling, process reward verification, and adaptive search---improved model performance as effectively as training larger models. This suggested a new dimension for scaling independent of pretraining cost.
+Snell and colleagues provided evidence that inference-time computation could substitute for parameter scaling: allocating more compute during generation---through techniques such as best-of-N sampling, process reward verification, and adaptive search---matched or exceeded a model roughly an order of magnitude larger on easy and intermediate problems, though not on the hardest, where pretraining scale still dominated. This suggested a new dimension for scaling independent of pretraining cost.
 
 \section*{Papers in This Section}
 
 \begin{enumerate}
-\item \textbf{Touvron et al. (2023)} --- LLaMA: open foundation models trained compute-optimally on 1.4 trillion tokens.
-
-\item \textbf{Touvron et al. (2023)} --- Llama~2: extended with RLHF safety training and publicly released chat variants.
+\item \textbf{Touvron et al. (2023)} --- LLaMA: open foundation models trained far past the compute-optimal token budget to lower inference cost.
 
 \item \textbf{Rafailov et al. (2023)} --- DPO: direct preference optimization eliminating explicit reward modeling.
 
 \item \textbf{Dettmers et al. (2023)} --- QLoRA: 4-bit quantization combined with LoRA for fine-tuning on consumer hardware.
 
+\item \textbf{Liu et al. (2023)} --- LLM-QAT: data-free quantization-aware training producing low-bit models supervised by their full-precision counterparts.
+
 \item \textbf{Ainslie et al. (2023)} --- GQA: grouped-query attention balancing inference throughput and model quality.
 
-\item \textbf{Zhu et al. (2024)} --- DeepSeek-V2: efficient mixture-of-experts with multi-head latent attention.
-
-\item \textbf{Jiang et al. (2024)} --- Mixtral: open sparse mixture-of-experts matching dense model performance at lower compute.
+\item \textbf{DeepSeek-AI (2024)} --- DeepSeek-V2: efficient mixture-of-experts with multi-head latent attention.
 
 \item \textbf{Snell et al. (2024)} --- Test-time compute scaling: inference-time search as an alternative to parameter scaling.
 \end{enumerate}

@@ -1,0 +1,14 @@
+% Paper Summary: LLM-QAT: Data-Free Quantization Aware Training for Large Language Models (Liu et al., 2023)
+
+\begin{papersummary}{2023}{LLM-QAT: Data-Free Quantization Aware Training for Large Language Models}{Zechun Liu, Barlas Oguz, Changsheng Zhao, Ernie Chang, Pierre Stock, Yashar Mehdad, Yangyang Shi, Raghuraman Krishnamoorthi, Vikas Chandra}{LLM-QAT brought quantization-aware training to large language models without access to the original training data, using the full-precision model's own generations as the distillation corpus for its low-bit counterpart.}
+
+\summaryheading{Key Ideas}
+Post-training quantization degrades sharply below 8 bits because the model never learns to compensate for rounding error. Quantization-aware training (QAT) solves this by simulating quantization in the forward pass during fine-tuning, but for LLMs the original pretraining corpus is typically unavailable and, at any rate, too large to revisit. The paper's data-free formulation sidesteps both problems: the full-precision model generates its own training data, and the quantized student is trained by distillation to match the teacher's output distribution. Crucially, the method quantizes not only weights and activations but also the KV cache, and shows that self-generated data preserves the model's output distribution better than curated external corpora. Down to 4-bit weights, the approach retains most of the full-precision model's quality where post-training methods collapse.
+
+\summaryheading{Follow-on Works}
+The distill-into-low-bit recipe became the standard route to deployable quantized checkpoints. QLoRA (\hyperref[paper:dettmers-2023-qlora]{Dettmers et al., 2023}) addressed the complementary problem of fine-tuning through a frozen quantized base; LLM-QAT addressed making the base itself low-bit. Google's Gemma~3 release operationalized the approach at production scale, shipping official int4 checkpoints produced by brief QAT against the full-precision model's distributions, and several open frontier releases have since shipped natively in low-bit formats such as MXFP4. Hardware-aligned microscaling formats and QAT-ready training stacks trace directly to this line of work.
+
+\summaryheading{Lasting Contributions}
+The paper established that low-bit deployment is best treated as a training problem, and that a model can supervise its own compression, connecting quantization to the distillation lineage. Weight, activation, and KV-cache quantization as a joint design space is now the framing used by every serving stack, and official QAT checkpoints have become an expected artifact of open model releases.
+
+\end{papersummary}

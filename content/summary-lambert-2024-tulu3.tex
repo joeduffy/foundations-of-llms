@@ -1,0 +1,14 @@
+% Paper Summary: Tulu 3: Pushing Frontiers in Open Language Model Post-Training (Lambert et al., 2024)
+
+\begin{papersummary}{2024}{T\"ulu 3: Pushing Frontiers in Open Language Model Post-Training}{Nathan Lambert, Jacob Morrison, Valentina Pyatkin, Shengyi Huang, Hamish Ivison, et al. (Allen Institute for AI)}{T\"ulu 3 introduced reinforcement learning with verifiable rewards (RLVR) and released the complete post-training recipe---data, code, and evaluation---that turned frontier-quality alignment from a proprietary art into a reproducible procedure.}
+
+\summaryheading{Key Ideas}
+Post-training had become the least documented stage of model production: labs published weights but not the data mixtures, decontamination procedures, or optimization schedules that produced them. T\"ulu~3 documents all of it---a curated and decontaminated prompt corpus, supervised fine-tuning, preference optimization with DPO (\hyperref[paper:rafailov-2023-dpo]{Rafailov et al., 2023}), and a final stage the paper names reinforcement learning with verifiable rewards. RLVR discards the learned reward model of the RLHF pipeline (\hyperref[paper:ouyang-2022]{Ouyang et al., 2022}) in domains where correctness can be checked programmatically: a mathematics answer either matches or it does not, an instruction's constraints are either satisfied or violated. Training against these binary signals with policy-gradient methods (\hyperref[paper:schulman-2017-ppo]{Schulman et al., 2017}) yields targeted capability gains without reward-model exploitation, and the full evaluation suite is released with held-out splits to keep the recipe honest.
+
+\summaryheading{Follow-on Works}
+Verifiable rewards became the organizing idea of reasoning-era post-training. DeepSeek-R1 (\hyperref[paper:deepseek-2025-r1]{DeepSeek-AI, 2025}) drove the paradigm to its limit, training long-form reasoning purely against rule-based rewards, and the RLVR framing was adopted across open and proprietary pipelines alike, extending from mathematics and code execution to sandboxed agentic tasks with checkable end states. The released T\"ulu~3 corpus and evaluation regime became standard infrastructure for academic post-training research, and the recipe was subsequently scaled to a 405B-parameter base.
+
+\summaryheading{Lasting Contributions}
+Replacing learned preference proxies with ground-truth verification wherever the domain permits redrew the alignment landscape, concentrating preference-based techniques on the genuinely subjective remainder. Releasing a competitive post-training pipeline whole---data, code, and evaluation---restored reproducibility to the stage of the stack that had drifted furthest from published practice, and much of what is publicly known about modern post-training descends from this release.
+
+\end{papersummary}

@@ -1,0 +1,14 @@
+% Paper Summary: Scaling Laws for Fine-Grained Mixture of Experts (Krajewski et al., 2024)
+
+\begin{papersummary}{2024}{Scaling Laws for Fine-Grained Mixture of Experts}{Jakub Krajewski, Jan Ludziejewski, Kamil Adamczewski, Maciej Pi\'oro, Micha\l{} Krutul, et al.}{This paper introduces expert granularity as an explicit scaling variable for Mixture-of-Experts models, deriving joint scaling laws over model size, training tokens, and granularity, and showing that the conventional practice of sizing experts to match the feed-forward layer is suboptimal at nearly every compute budget.}
+
+\summaryheading{Key Ideas}
+Prior Mixture-of-Experts designs (\hyperref[paper:shazeer-2017-moe]{Shazeer et al., 2017}) fixed each expert's width to that of a standard feed-forward layer and scaled by adding experts. The paper introduces granularity---the factor by which experts are made smaller and more numerous than that baseline---as a hyperparameter in its own right, and fits scaling laws that predict loss jointly from parameter count, training tokens, and granularity. Two findings follow. Higher granularity improves compute efficiency, with the optimal setting increasing with the training budget, so the standard coarse-grained configuration is dominated at almost any scale. And the efficiency gap between MoE and dense models widens rather than narrows as compute grows, overturning the earlier view that sparse architectures were a fixed-budget expedient whose advantage scale would erase.
+
+\summaryheading{Follow-on Works}
+Fine-grained expert design moved directly into production architectures: DeepSeek-V2 (\hyperref[paper:deepseek-2024-v2]{DeepSeek-AI, 2024}) built its DeepSeekMoE layers from many small routed experts plus shared experts, DeepSeek-V3 extended the same layout to 256 experts at 671B parameters, and Kimi K3's latent mixture-of-experts routes among 896. Auxiliary-loss-free balancing (\hyperref[paper:wang-2024-auxfree]{Wang et al., 2024}) addressed the routing stability that fine-grained regimes demand, and LatentMoE (\hyperref[paper:elango-2026-latentmoe]{Elango et al., 2026}) carried the same compute-optimal framing further by moving expert computation into a compressed latent space.
+
+\summaryheading{Lasting Contributions}
+The paper established granularity as a first-class architectural axis and gave practitioners a principled way to choose expert size and count for a given budget, replacing convention with prediction. Its demonstration that the sparse-versus-dense advantage grows with scale supplied the quantitative case for the mixture-of-experts consensus that frontier models subsequently adopted.
+
+\end{papersummary}

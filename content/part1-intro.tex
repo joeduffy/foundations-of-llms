@@ -7,12 +7,12 @@ The question arose within the cybernetics movement, which sought to unify the st
 
 Two developments ended this period of stagnation. Hopfield imported the formalism of statistical mechanics into neural computation, showing that symmetric networks with an energy function could perform content-addressable memory retrieval---a result that restored credibility to connectionist approaches within the physics community. Rumelhart, Hinton, and Williams then provided the missing algorithmic ingredient: backpropagation, an efficient method for computing error gradients through multilayer networks via the chain rule. With backpropagation, deep networks could in principle learn arbitrary nonlinear mappings. Elman extended these ideas to sequential data through recurrent connections, demonstrating that temporal structure in language could be captured without explicit symbolic representations.
 
-The concepts introduced during this period---gradient-based parameter optimization, distributed representations, and compositional feature hierarchies---remain the mathematical core of every model in this volume.
+The period supplied the concepts; what it lacked were the means. The compute to train networks of consequential size, the data to train them on, and an architecture able to exploit both in parallel were still decades away, and the chapters that follow trace how each arrived.
 
 \section*{Papers in This Section}
 
 \begin{enumerate}
-\item \textbf{McCulloch \& Pitts (1943)} --- Formalized artificial neurons as binary threshold logic units and proved their computational universality.
+\item \textbf{McCulloch \& Pitts (1943)} --- Formalized artificial neurons as binary threshold logic units and showed networks of them could realize Boolean logic.
 
 \item \textbf{Rosenblatt (1958)} --- Introduced the perceptron learning algorithm for training single-layer classifiers from labeled examples.
 

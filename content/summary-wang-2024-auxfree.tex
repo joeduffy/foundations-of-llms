@@ -1,0 +1,14 @@
+% Paper Summary: Auxiliary-Loss-Free Load Balancing Strategy for Mixture-of-Experts (Wang et al., 2024)
+
+\begin{papersummary}{2024}{Auxiliary-Loss-Free Load Balancing Strategy for Mixture-of-Experts}{Lean Wang, Huazuo Gao, Chenggang Zhao, Xu Sun, Damai Dai}{Loss-free balancing steers mixture-of-experts routing with a feedback-controlled per-expert bias instead of an auxiliary loss, removing the gradient interference that balancing objectives impose on the language-modeling task.}
+
+\summaryheading{Key Ideas}
+Sparse mixture-of-experts layers collapse unless token load is spread across experts, and since Shazeer's original formulation (\hyperref[paper:shazeer-2017-moe]{Shazeer et al., 2017}) the standard remedy had been an auxiliary balancing loss whose gradients tug against the language-modeling objective: weight it strongly and quality suffers, weakly and routing collapses. The paper removes the loss entirely. Each expert carries a bias added to its routing score only for top-$k$ selection---the bias never touches the gating weights that mix expert outputs---and a simple feedback rule adjusts it between steps, raising the bias of underloaded experts and lowering that of overloaded ones. Balance becomes a control problem rather than an optimization term, leaving the training gradient entirely dedicated to the task. Experiments show simultaneously better perplexity and better load balance than auxiliary-loss training, with none of the batch-composition pathologies of alternatives such as expert choice routing.
+
+\summaryheading{Follow-on Works}
+DeepSeek-V3 adopted the strategy as its principal balancing mechanism at 671B parameters, demonstrating stable training of 256-expert layers with only a vestigial sequence-level loss as a safeguard, and it became the reference approach for subsequent large sparse models. Refinements such as the quantile-based balancing used in Kimi K3's latent mixture-of-experts extend the same feedback principle, and the design recurs in the fine-grained expert regimes explored by LatentMoE (\hyperref[paper:elango-2026-latentmoe]{Elango et al., 2026}) and analyzed in the scaling laws of \hyperref[paper:krajewski-2024]{Krajewski et al.\ (2024)}.
+
+\summaryheading{Lasting Contributions}
+The paper resolved a tension that had constrained mixture-of-experts training since its modern inception: the mechanism that keeps experts alive no longer competes with the objective that makes them useful. Perturbing which experts are selected while leaving the gating weights that combine their outputs untouched is the boundary at which the interference disappears, and router designs since have preserved it. Auxiliary-loss-free balancing is a fixture of frontier sparse architectures from the successors of DeepSeek-V2 (\hyperref[paper:deepseek-2024-v2]{DeepSeek-AI, 2024}) onward.
+
+\end{papersummary}

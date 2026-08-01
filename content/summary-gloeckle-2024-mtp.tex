@@ -1,0 +1,14 @@
+% Paper Summary: Better & Faster Large Language Models via Multi-token Prediction (Gloeckle et al., 2024)
+
+\begin{papersummary}{2024}{Better \& Faster Large Language Models via Multi-token Prediction}{Fabian Gloeckle, Badr Youbi Idrissi, Baptiste Rozi\`ere, David Lopez-Paz, Gabriel Synnaeve}{Training language models to predict several future tokens through parallel output heads improves sample efficiency, particularly on code, and equips models with native draft heads for self-speculative decoding.}
+
+\summaryheading{Key Ideas}
+Next-token prediction, the objective underlying the GPT line (\hyperref[paper:radford-2019]{Radford et al., 2019}), teaches a model to be locally correct while remaining shortsighted about the structure of what follows. The paper attaches $n$ output heads to a shared trunk, each predicting one of the next $n$ tokens, and trains them jointly with negligible overhead by computing head gradients sequentially rather than materializing all logits at once. The auxiliary predictions act as a lookahead regularizer: representations must encode not just the next token but the local future, which measurably shifts capability on generative benchmarks---13B-parameter models solve 12\% more HumanEval problems and 17\% more MBPP problems than next-token baselines---with benefits that grow with model size and persist through fine-tuning. At inference, the extra heads draft future tokens that the primary head verifies, yielding up to threefold self-speculative decoding speedups (\hyperref[paper:leviathan-2022-speculative]{Leviathan et al., 2022}) without an external draft model.
+
+\summaryheading{Follow-on Works}
+DeepSeek-V3 adopted a sequential variant of multi-token prediction as both auxiliary training objective and speculative draft head at 671B-parameter scale, crediting it with measurable quality gains, and subsequent frontier mixture-of-experts models including the Kimi K series retained MTP modules for the same dual purpose. The technique also informed research on lookahead objectives and register tokens as means of giving autoregressive models explicit representations of their own future output.
+
+\summaryheading{Lasting Contributions}
+The paper converted a long-standing intuition---that pure next-token prediction underuses the training signal---into a deployable objective with no inference-time cost and a built-in acceleration mechanism. Multi-token prediction is now a standard component of frontier pretraining recipes.
+
+\end{papersummary}

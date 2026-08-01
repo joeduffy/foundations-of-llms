@@ -1,0 +1,14 @@
+% Paper Summary: DeepSeek-V2 (DeepSeek-AI, 2024)
+
+\begin{papersummary}{2024}{DeepSeek-V2: A Strong, Economical, and Efficient Mixture-of-Experts Language Model}{DeepSeek-AI}{DeepSeek-V2 introduced Multi-head Latent Attention (MLA) and the DeepSeekMoE architecture for economical training and deployment of MoE models, achieving strong performance with lower costs than comparable dense and sparse models.}
+
+\summaryheading{Key Ideas}
+DeepSeek-V2 combines Multi-head Latent Attention, which reduces KV cache size significantly, with the DeepSeekMoE architecture of many fine-grained routed experts alongside shared experts, balanced during training by expert-, device-, and communication-level auxiliary losses (a constraint later removed by \hyperref[paper:wang-2024-auxfree]{Wang et al., 2024}). MLA compresses keys and values into a low-rank latent vector that is expanded at attention time, shrinking the cache while maintaining attention expressivity and addressing the memory bottleneck in long-context serving. The architecture enables efficient training of a 236B total parameter model with 21B activated per token. The innovations target both training economics and deployment efficiency.
+
+\summaryheading{Follow-on Works}
+DeepSeek-V3 carried MLA and the fine-grained expert layout to 671B parameters, validating the recipe at frontier scale, and the granularity it exemplified was given a quantitative footing by the scaling laws of \hyperref[paper:krajewski-2024]{Krajewski et al.\ (2024)}. MLA outlived its original setting: hybrid linear-attention architectures adopted it as their periodic full-attention component (\hyperref[paper:kimi-2025-linear]{Kimi Team, 2025}), and the same latent-compression move was applied to expert computation itself in LatentMoE (\hyperref[paper:elango-2026-latentmoe]{Elango et al., 2026}). KV-cache compression became a standard axis of serving optimization alongside grouped-query attention (\hyperref[paper:ainslie-2023-gqa]{Ainslie et al., 2023}).
+
+\summaryheading{Lasting Contributions}
+DeepSeek-V2 demonstrated that thoughtful architectural innovations can substantially reduce both training and serving costs while maintaining quality. MLA is its durable contribution: a learned low-rank projection in place of per-head caches, now load-bearing in frontier models well beyond the DeepSeek line. The work showed that cost-performance tradeoffs can be improved through architectural innovation rather than scaling alone, and its economic framing---training cost and cache size reported as first-class results---became standard practice in subsequent model documentation.
+
+\end{papersummary}

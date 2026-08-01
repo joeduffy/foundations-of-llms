@@ -1,0 +1,14 @@
+% Paper Summary: Decoupled Weight Decay Regularization (Loshchilov & Hutter, 2017)
+
+\begin{papersummary}{2017}{Decoupled Weight Decay Regularization}{Ilya Loshchilov, Frank Hutter}{AdamW corrects the interaction between adaptive gradient methods and weight decay by decoupling the decay term from the gradient update, producing the optimizer used to pretrain nearly every large language model.}
+
+\summaryheading{Key Ideas}
+For plain stochastic gradient descent, L2 regularization and weight decay are equivalent; the paper shows that for adaptive methods such as Adam (\hyperref[paper:kingma-ba-2014]{Kingma \& Ba, 2014}) they are not. When the L2 penalty flows through Adam's adaptive rescaling, weights with large historical gradients are regularized less than intended, which partly explained Adam's reputation for generalizing worse than tuned SGD. The proposed fix decouples the decay: weights are shrunk directly at each step, outside the gradient-based update. The resulting optimizer, AdamW, restores the intended regularization, decouples the optimal decay factor from the learning rate, and simplifies hyperparameter search. The paper also pairs the decoupled update with the cosine warm-restart schedule the same authors had introduced in SGDR, yielding the AdamWR variant.
+
+\summaryheading{Follow-on Works}
+AdamW displaced Adam as the default for training transformers: BERT, GPT-3, and essentially every subsequent large language model pretrains with AdamW under a warmup-then-decay schedule. Its per-parameter second-moment state, stored in addition to momentum, set the memory budget that drove follow-on work on sharded optimizer states and low-precision optimizer variants. Not until the Muon optimizer (\hyperref[paper:liu-2025-muon]{Liu et al., 2025}) did a successor demonstrate a material compute-efficiency advantage over AdamW at frontier scale.
+
+\summaryheading{Lasting Contributions}
+The decoupled update is now what practitioners mean by ``weight decay'' in deep learning. A decade of frontier models, across dense and mixture-of-experts architectures, has been trained with the algorithm essentially as published. The result came from noticing that two formulations treated as equivalent were not, and showing that the difference mattered at practical scale.
+
+\end{papersummary}

@@ -87,33 +87,38 @@
 \def\rowVIsub{-10.45}
 \def\rowVII{-11.7}
 \def\rowVIIsub{-12.45}
+\def\rowVIII{-13.7}
+\def\rowVIIIsub{-14.45}
 
 % Era separators (subtle)
-\foreach \y in {-1.1, -3.0, -4.85, -7.0, -8.85, -10.85} {
+\foreach \y in {-1.1, -3.0, -4.85, -7.0, -8.85, -10.85, -12.85} {
     \draw[black!8, line width=0.15pt] (-4.6, \y) -- (5.4, \y);
 }
 
 % Era labels
-\node[eralabel] at (-4.8, \rowI) {Part 1};
+\node[eralabel] at (-4.8, \rowI) {Part I};
 \node[yearlabel] at (-4.8, \rowI-0.32) {\textit{1943--1990}};
 
-\node[eralabel] at (-4.8, \rowII) {Part 2};
-\node[yearlabel] at (-4.8, \rowII-0.32) {\textit{1990--2013}};
+\node[eralabel] at (-4.8, \rowII) {Part II};
+\node[yearlabel] at (-4.8, \rowII-0.32) {\textit{1997--2013}};
 
-\node[eralabel] at (-4.8, \rowIII) {Part 3};
+\node[eralabel] at (-4.8, \rowIII) {Part III};
 \node[yearlabel] at (-4.8, \rowIII-0.32) {\textit{2012--2015}};
 
-\node[eralabel] at (-4.8, \rowIV) {Part 4};
-\node[yearlabel] at (-4.8, \rowIV-0.32) {\textit{2017--2019}};
+\node[eralabel] at (-4.8, \rowIV) {Part IV};
+\node[yearlabel] at (-4.8, \rowIV-0.32) {\textit{2016--2019}};
 
-\node[eralabel] at (-4.8, \rowV) {Part 5};
+\node[eralabel] at (-4.8, \rowV) {Part V};
 \node[yearlabel] at (-4.8, \rowV-0.32) {\textit{2019--2020}};
 
-\node[eralabel] at (-4.8, \rowVI) {Part 6};
+\node[eralabel] at (-4.8, \rowVI) {Part VI};
 \node[yearlabel] at (-4.8, \rowVI-0.32) {\textit{2021--2022}};
 
-\node[eralabel] at (-4.8, \rowVII) {Part 7};
+\node[eralabel] at (-4.8, \rowVII) {Part VII};
 \node[yearlabel] at (-4.8, \rowVII-0.32) {\textit{2023--2024}};
+
+\node[eralabel] at (-4.8, \rowVIII) {Part VIII};
+\node[yearlabel] at (-4.8, \rowVIII-0.32) {\textit{2024--2026}};
 
 % ═══════════════════════════════════════════
 % PART 1: Neural Beginnings
@@ -220,6 +225,7 @@
 \node[architectural] (react) at (\colD, \rowVIsub) {ReAct};
 
 \draw[evolves] (rlhf) to[out=-90,in=90] (instruct);
+\draw[evolves] (trans.south west) .. controls (-2.0,-7.0) and (-2.0,-9.5) .. (rope.west);
 \draw[evolves] (icl) -- (cot);
 \draw[evolves] (instruct) -- (cai);
 \draw[evolves] (cot) -- (react);
@@ -238,19 +244,39 @@
 \node[technique] (qlora) at (\colA, \rowVIIsub) {QLoRA};
 \node[technique] (gqa) at (\colB, \rowVIIsub) {GQA};
 
-\draw[evolves] (instruct) to[out=-90,in=90] (open);
+\draw[evolves] (instruct.south west) to[out=-125,in=90] (open);
 \draw[enables] (glu) to[out=-90,in=90] (open);
-\draw[evolves] (cai) -- (dpo);
+\draw[evolves] (rlhf.south) .. controls (3.4,-8.6) and (0.0,-9.6) .. (dpo.north east);
 \draw[evolves] (lora) -- (qlora);
 \draw[evolves] (mqa) to[out=-90,in=90] (gqa);
 \draw[evolves] (moe) to[out=-90,in=90] (smoe);
 \draw[evolves] (cot) to[out=-80,in=100] (ttc);
 
 % ═══════════════════════════════════════════
+% PART 8: Reasoning and the Open Frontier
+% ═══════════════════════════════════════════
+
+\node[milestone] (grpo) at (\colA, \rowVIII) {GRPO};
+\node[milestone] (reason) at (\colB, \rowVIII) {Reasoning RL};
+\node[architectural] (latentmoe) at (\colC, \rowVIII) {Latent MoE};
+\node[architectural] (hybrid) at (\colD, \rowVIII) {Hybrid Attention};
+\node[foundational] (rlvr) at (\colA, \rowVIIIsub) {RLVR};
+\node[technique] (muon) at (\colB, \rowVIIIsub) {Muon};
+
+\draw[evolves] (ppo.south) .. controls (3.4,-8.9) and (-1.8,-11.5) .. (grpo.north east);
+\draw[evolves] (adam.south west) .. controls (0.6,-6.0) and (0.4,-12.5) .. (muon.north east);
+\draw[evolves] (instruct.south west) .. controls (-2.0,-11.0) and (-2.2,-13.2) .. (rlvr.north east);
+\draw[evolves] (grpo) -- (reason);
+\draw[enables] (rlvr) -- (reason);
+\draw[enables] (ttc) to[out=-115,in=45] (reason);
+\draw[evolves] (smoe) -- (latentmoe);
+\draw[evolves] (gqa) -- (hybrid);
+
+% ═══════════════════════════════════════════
 % Legend (compact, right side)
 % ═══════════════════════════════════════════
 
-\begin{scope}[shift={(6.0, -6.2)}]
+\begin{scope}[shift={(5.2, -6.2)}]
     \node[font=\sffamily\fontsize{5.5}{6.5}\selectfont\bfseries, anchor=north west] at (0, 0) {Legend};
 
     \node[foundational, minimum width=0.7cm, minimum height=0.9em] at (0.35, -0.45) {};

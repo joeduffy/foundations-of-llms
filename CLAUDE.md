@@ -53,10 +53,15 @@ A paper belongs in the book if it meets **at least one** of these criteria:
 2. It is a necessary stepping stone — later foundational work could not have happened without it.
 3. It introduced a component, method, or insight now standard in frontier models (evidenced by citations in system
    cards for GPT-4, Gemini, Claude, DeepSeek, Llama, etc.).
-4. For system reports: it documents a qualitatively new capability or paradigm (not just another strong model).
 
 A paper does **not** belong if:
 
+- It is a model report or system card whose primary content is capabilities and evaluations. Embed the foundational
+  technique paper behind a model's innovations (e.g., the KDA paper rather than the Kimi K3 report, LLM-QAT rather
+  than the Gemma 3 report) and cite the model report in intro prose and Follow-on Works. A model paper qualifies for
+  embedding only if it *introduced* a foundational technique or paradigm with no standalone source (GPT-3: few-shot
+  in-context learning; LLaMA: the open inference-optimal training recipe; DeepSeek-V2: multi-head latent
+  attention).
 - It is incremental over an already-included paper with no distinct lasting technique.
 - It is a survey or review (not a primary contribution).
 - It is overly vendor-specific without advancing the broader state of the art.
@@ -64,7 +69,7 @@ A paper does **not** belong if:
 
 # Book Structure
 
-The book is organized into seven chronological parts and three appendices:
+The book is organized into eight chronological parts and two appendices:
 
 - **Part I** – Neural Beginnings & Learning Mechanisms (1943–1990)
 - **Part II** – Sequence Models & Word Embeddings (1997–2013)
@@ -73,9 +78,9 @@ The book is organized into seven chronological parts and three appendices:
 - **Part V** – Emergence and Scale (2019–2020)
 - **Part VI** – Efficiency, Alignment, and Reasoning (2021–2022)
 - **Part VII** – Open LLMs and Modern Frontier (2023–2024)
-- **Appendix A** – Emerging Results (2023–2024)
-- **Appendix B** – Foundations of Agents (2022–2024)
-- **Appendix C** – System Reports & Production Breakthroughs (2023–2025)
+- **Part VIII** – Reasoning and the Open Frontier (2024–2026)
+- **Appendix A** – Emerging Results (2023–2025)
+- **Appendix B** – Foundations of Agents (2022–2025)
 
 Each part has a `content/partN-intro.tex` (prose), `content/partN-papers.tex` (paper includes), and individual
 `content/summary-*.tex` files for per-paper commentary. The `content/partN-papers.tex` files are the authoritative
