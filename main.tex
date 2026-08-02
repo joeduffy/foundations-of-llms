@@ -284,6 +284,15 @@
       % aura behind it, nodes and edges warmed toward gold rather than
       % plain white, each edge given a faint glow beneath its crisp line.
       \begin{tikzpicture}[scale=0.68, transform shape]
+        % The glow ellipse below is deliberately larger than the node
+        % layout so it reads as an aura rather than a hard-edged shape.
+        % Left uncorrected, tikz's automatic bounding box would grow to
+        % fit the ellipse, not just the nodes, inflating this picture's
+        % claimed height enough to overflow the title page onto a second,
+        % blank sheet. Pin the bounding box to the node/edge extent
+        % instead -- the glow still paints at full size, it just no
+        % longer counts toward the picture's layout footprint.
+        \useasboundingbox (-0.4,0.6) rectangle (8.4,6.65);
         \shade[shading=radial, inner color=titlegold!35!inkblue,
                outer color=inkblue] (4,3.6) ellipse (5.6 and 4.3);
         \tikzset{
@@ -409,16 +418,13 @@
 \input{content/microgpt}
 
 % Table of Contents
-\clearpage
 \phantomsection
 \markboth{Contents}{Contents}
 \setcounter{tocdepth}{2}  % Show parts, chapters, and subsections
 \tableofcontents
-\clearpage
 
 % Revision History
 \input{content/revision-history}
-\clearpage
 
 % Prologue
 \input{content/prologue}
@@ -480,10 +486,23 @@
 \input{content/epilogue}
 
 % Index
-\clearpage
-\phantomsection
-\markboth{Index}{Index}
-\addcontentsline{toc}{chapter}{Index}
-\printindex
+% \printindex forces its own page break internally (via theindex's
+% \twocolumn), so the TOC anchor must be created after that break --
+% patching \@makeschapterhead is the only hook point inside \twocolumn's
+% optional argument, which runs after the break. Adding it before, as an
+% ordinary \addcontentsline preceding \printindex, would (as with the
+% papersummary anchors, fixed earlier) bind "Index" to whatever page was
+% current before the break rather than the index's actual first page.
+{%
+  \makeatletter
+  \let\org@makeschapterhead\@makeschapterhead
+  \def\@makeschapterhead#1{%
+    \org@makeschapterhead{#1}%
+    \phantomsection
+    \addcontentsline{toc}{chapter}{#1}%
+  }%
+  \makeatother
+  \printindex
+}
 
 \end{document}
