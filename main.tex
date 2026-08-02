@@ -233,9 +233,6 @@
 % from body text on close reading, but not the saturated web-hyperlink blue
 % that reads as "PDF" rather than "typeset book."
 \definecolor{inkblue}{RGB}{30,30,80}
-% A muted, dignified gold reserved for the title page alone -- the
-% cloth-and-gilt accent of a bound academic volume, used sparingly.
-\definecolor{titlegold}{RGB}{197,162,97}
 
 % Hyperref setup - professional styling with enhanced navigation
 \hypersetup{
@@ -261,45 +258,21 @@
 \makeatletter
 \renewcommand{\maketitle}{%
   \begin{titlepage}%
-    \pagecolor{inkblue}%
-    \color{white}%
     \let\footnotesize\small
     \let\footnoterule\relax
     \let \footnote \thanks
-    % A double-ruled gold frame inset from the trim -- a heavier outer
-    % line and a finer inner companion close beside it, the fillet border
-    % of a formally tooled binding rather than a single plain rule.
-    \begin{tikzpicture}[remember picture, overlay]
-      \draw[titlegold, line width=1.1pt]
-        ([xshift=1.05cm,yshift=1.05cm]current page.south west) rectangle
-        ([xshift=-1.05cm,yshift=-1.05cm]current page.north east);
-      \draw[titlegold, line width=0.4pt]
-        ([xshift=1.25cm,yshift=1.25cm]current page.south west) rectangle
-        ([xshift=-1.25cm,yshift=-1.25cm]current page.north east);
-    \end{tikzpicture}%
     \null\vfil
     \vskip 40\p@
     \begin{center}%
-      % Neural network diagram, reversed for the dark field: a soft gold
-      % aura behind it, nodes and edges warmed toward gold rather than
-      % plain white, each edge given a faint glow beneath its crisp line.
-      \begin{tikzpicture}[scale=0.68, transform shape]
-        % The glow ellipse below is deliberately larger than the node
-        % layout so it reads as an aura rather than a hard-edged shape.
-        % Left uncorrected, tikz's automatic bounding box would grow to
-        % fit the ellipse, not just the nodes, inflating this picture's
-        % claimed height enough to overflow the title page onto a second,
-        % blank sheet. Pin the bounding box to the node/edge extent
-        % instead -- the glow still paints at full size, it just no
-        % longer counts toward the picture's layout footprint.
-        \useasboundingbox (-0.4,0.6) rectangle (8.4,6.65);
-        \shade[shading=radial, inner color=titlegold!35!inkblue,
-               outer color=inkblue] (4,3.6) ellipse (5.6 and 4.3);
+      % A restrained line diagram in the book's one interior accent color,
+      % not an illustration in its own right -- clean strokes rather than
+      % the gilt aura of the previous cover, so the page reads as typeset
+      % rather than decorated.
+      \begin{tikzpicture}[scale=0.58, transform shape]
         \tikzset{
-          neuron/.style={circle, draw=titlegold!55!white, fill=titlegold!18!white,
-                          minimum size=8pt, inner sep=1pt},
-          connection/.style={draw=white!55, line width=0.5pt,
-                              preaction={draw=titlegold, line width=1.8pt, opacity=0.22}}
+          neuron/.style={circle, draw=inkblue, fill=white, line width=0.6pt,
+                          minimum size=7pt, inner sep=1pt},
+          connection/.style={draw=inkblue!40, line width=0.4pt}
         }
         % Input layer
         \foreach \y in {1,2,3,4} {
@@ -340,27 +313,14 @@
             \draw[connection] (H3\i) -- (O\j);
           }
         }
-      \end{tikzpicture}\\[24pt]
-      {\fontsize{20}{24}\selectfont\bfseries\textls[90]{\MakeUppercase{The Foundations of}}}\\[12pt]
-      {\fontsize{24}{28}\selectfont\bfseries\textls[90]{\MakeUppercase{Large Language Models}}}\\[18pt]
-      % A small radial seal in place of a plain rule -- a compact,
-      % symmetric echo of the network diagram above, not a second copy
-      % of it, and nothing borrowed from any particular fictional device.
-      \begin{tikzpicture}[baseline={(0,-0.15)}]
-        \draw[titlegold, line width=0.8pt] (0,0) circle (6.8mm);
-        \draw[titlegold, line width=0.4pt] (0,0) circle (5.7mm);
-        \foreach \angle in {0,60,...,300} {
-          \draw[titlegold, line width=0.35pt] (0,0) -- (\angle:4.4mm);
-          \fill[titlegold] (\angle:4.4mm) circle (0.42mm);
-        }
-        \draw[titlegold, line width=0.3pt]
-          (0:4.4mm) -- (60:4.4mm) -- (120:4.4mm) -- (180:4.4mm)
-          -- (240:4.4mm) -- (300:4.4mm) -- cycle;
-        \fill[titlegold] (0,0) circle (0.48mm);
-      \end{tikzpicture}\\[9pt]
-      {\fontsize{16}{20}\selectfont\bfseries\color{titlegold} 1943 -- 2026}\\[36pt]
+      \end{tikzpicture}\\[26pt]
+      {\fontsize{20}{24}\selectfont\bfseries\textls[80]{\MakeUppercase{The Foundations of}}}\\[10pt]
+      {\fontsize{24}{28}\selectfont\bfseries\textls[80]{\MakeUppercase{Large Language Models}}}\\[18pt]
+      \rule{2.4cm}{0.6pt}\\[16pt]
+      {\large 1943 -- 2026}\\[8pt]
+      {\color{inkblue}\small\textsc{Second Edition}}\\[42pt]
       {\large A Curated Collection of Seminal Papers}\\[24pt]
-      \vskip 2em%
+      \vskip 1.5em%
       {\large in}\\[12pt]
       {\Large\bfseries Artificial Intelligence \& Machine Learning}\\[48pt]
       \vfill
@@ -369,8 +329,6 @@
     \@thanks
     \vfil\null
   \end{titlepage}%
-  \pagecolor{white}%
-  \color{black}%
   \setcounter{footnote}{0}%
   \global\let\thanks\relax
   \global\let\maketitle\relax
