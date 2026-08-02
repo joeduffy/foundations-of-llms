@@ -266,6 +266,14 @@
     \let\footnotesize\small
     \let\footnoterule\relax
     \let \footnote \thanks
+    % A single thin gold rule inset from the trim -- the frame of a
+    % gold-tooled binding, drawn once, restrained rather than doubled or
+    % ornamented at the corners.
+    \begin{tikzpicture}[remember picture, overlay]
+      \draw[titlegold, line width=0.9pt]
+        ([xshift=1.15cm,yshift=1.15cm]current page.south west) rectangle
+        ([xshift=-1.15cm,yshift=-1.15cm]current page.north east);
+    \end{tikzpicture}%
     \null\vfil
     \vskip 40\p@
     \begin{center}%
@@ -315,9 +323,23 @@
           }
         }
       \end{tikzpicture}\\[24pt]
-      {\fontsize{20}{24}\selectfont\bfseries\MakeUppercase{The Foundations of}}\\[12pt]
-      {\fontsize{24}{28}\selectfont\bfseries\MakeUppercase{Large Language Models}}\\[16pt]
-      {\color{titlegold}\rule{0.18\textwidth}{0.7pt}}\\[10pt]
+      {\fontsize{20}{24}\selectfont\bfseries\textls[90]{\MakeUppercase{The Foundations of}}}\\[12pt]
+      {\fontsize{24}{28}\selectfont\bfseries\textls[90]{\MakeUppercase{Large Language Models}}}\\[18pt]
+      % A small radial seal in place of a plain rule -- a compact,
+      % symmetric echo of the network diagram above, not a second copy
+      % of it, and nothing borrowed from any particular fictional device.
+      \begin{tikzpicture}[baseline={(0,-0.15)}]
+        \draw[titlegold, line width=0.7pt] (0,0) circle (5.5mm);
+        \draw[titlegold, line width=0.35pt] (0,0) circle (4.6mm);
+        \foreach \angle in {0,60,...,300} {
+          \draw[titlegold, line width=0.3pt] (0,0) -- (\angle:3.6mm);
+          \fill[titlegold] (\angle:3.6mm) circle (0.35mm);
+        }
+        \draw[titlegold, line width=0.25pt]
+          (0:3.6mm) -- (60:3.6mm) -- (120:3.6mm) -- (180:3.6mm)
+          -- (240:3.6mm) -- (300:3.6mm) -- cycle;
+        \fill[titlegold] (0,0) circle (0.4mm);
+      \end{tikzpicture}\\[9pt]
       {\fontsize{16}{20}\selectfont\bfseries\color{titlegold} 1943 -- 2026}\\[36pt]
       {\large A Curated Collection of Seminal Papers}\\[24pt]
       \vskip 2em%
@@ -379,16 +401,16 @@
 \input{content/microgpt}
 
 % Table of Contents
-\cleardoublepage
+\clearpage
 \phantomsection
 \markboth{Contents}{Contents}
 \setcounter{tocdepth}{2}  % Show parts, chapters, and subsections
 \tableofcontents
-\cleardoublepage
+\clearpage
 
 % Revision History
 \input{content/revision-history}
-\cleardoublepage
+\clearpage
 
 % Prologue
 \input{content/prologue}
@@ -450,7 +472,7 @@
 \input{content/epilogue}
 
 % Index
-\cleardoublepage
+\clearpage
 \phantomsection
 \markboth{Index}{Index}
 \addcontentsline{toc}{chapter}{Index}
