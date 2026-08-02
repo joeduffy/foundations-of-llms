@@ -258,6 +258,10 @@
 \makeatletter
 \renewcommand{\maketitle}{%
   \begin{titlepage}%
+    % Widen the measure for this page alone -- a title reads as a cover,
+    % not a paragraph, and wants a broader column than 11pt body text.
+    % Restored immediately below, before the colophon that follows.
+    \newgeometry{left=0.5in, right=0.5in, top=1in, bottom=1in}%
     \let\footnotesize\small
     \let\footnoterule\relax
     \let \footnote \thanks
@@ -316,22 +320,24 @@
             \draw[connection] (H3\i) -- (O\j);
           }
         }
-      \end{tikzpicture}\\[30pt]
+      \end{tikzpicture}\\[65pt]
+      % Two voices only, to keep the page from reading as a ransom note:
+      % the title is the sole bold, capitalized, letterspaced line; every
+      % other line below shares one plain, unbolded style, distinguished
+      % from the title by weight and case alone rather than by switching
+      % sizes and treatments line to line.
       \color{white}%
-      {\fontsize{20}{24}\selectfont\bfseries\textls[80]{\MakeUppercase{The Foundations of}}}\\[10pt]
-      {\fontsize{24}{28}\selectfont\bfseries\textls[80]{\MakeUppercase{Large Language Models}}}\\[18pt]
-      \rule{2.4cm}{0.6pt}\\[16pt]
-      {\large 1943 -- 2026}\\[8pt]
-      {\small\textsc{Second Edition}}\\[42pt]
-      {\large A Curated Collection of Seminal Papers}\\[24pt]
-      \vskip 1.5em%
-      {\large in}\\[12pt]
-      {\Large\bfseries Artificial Intelligence \& Machine Learning}\\[48pt]
+      {\fontsize{23}{27}\selectfont\bfseries\textls[70]{\MakeUppercase{The Foundations of}}}\\[12pt]
+      {\fontsize{30}{35}\selectfont\bfseries\textls[70]{\MakeUppercase{Large Language Models}}}\\[22pt]
+      \rule{2.6cm}{0.6pt}\\[18pt]
+      {\large\itshape 1943 -- 2026 \textperiodcentered\ Second Edition}\\[40pt]
+      {\large A Curated Collection of Seminal Papers in\\[6pt]
+       Artificial Intelligence \& Machine Learning}
       \vfill
-      {\large Compiled for the Scientific Community}
     \end{center}\par
     \@thanks
     \vfil\null
+    \restoregeometry
   \end{titlepage}%
   \setcounter{footnote}{0}%
   \global\let\thanks\relax
