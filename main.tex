@@ -208,6 +208,16 @@
 % since they are not nested inside any part.
 \setlength{\cftsecindent}{1.2em}
 \setlength{\cftsubsecindent}{2.6em}
+% None of our TOC entries use \numberline (there is no real chapter/section
+% number -- the "[1943]"-style year tag is just the first word of the
+% title). Without this, tocloft still reserves its book-class default
+% number-column width when a long title wraps, so the second line hangs
+% indented further right than the first for no reason tied to our content.
+% Zeroing it makes wrapped lines fall flush with the first line instead.
+\setlength{\cftpartnumwidth}{0em}
+\setlength{\cftchapnumwidth}{0em}
+\setlength{\cftsecnumwidth}{0em}
+\setlength{\cftsubsecnumwidth}{0em}
 
 % Dotted leaders for all TOC levels
 \renewcommand{\cftpartleader}{\cftdotfill{\cftdotsep}}
