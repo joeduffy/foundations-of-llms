@@ -261,13 +261,16 @@
     \let\footnotesize\small
     \let\footnoterule\relax
     \let \footnote \thanks
-    \null\vfil
-    \vskip 40\p@
+    % Two-zone cover in the manner of a Springer series binding: a quiet
+    % white band carrying the diagram, then a solid field of the book's
+    % one interior accent color carrying the title -- bold through flat,
+    % confident color and clean type, not through gilding or glow.
+    \begin{tikzpicture}[remember picture, overlay]
+      \fill[inkblue] (current page.south west) rectangle
+        ([yshift=-3.35in]current page.north east);
+    \end{tikzpicture}%
+    \vskip 0.6in
     \begin{center}%
-      % A restrained line diagram in the book's one interior accent color,
-      % not an illustration in its own right -- clean strokes rather than
-      % the gilt aura of the previous cover, so the page reads as typeset
-      % rather than decorated.
       \begin{tikzpicture}[scale=0.58, transform shape]
         \tikzset{
           neuron/.style={circle, draw=inkblue, fill=white, line width=0.6pt,
@@ -313,12 +316,13 @@
             \draw[connection] (H3\i) -- (O\j);
           }
         }
-      \end{tikzpicture}\\[26pt]
+      \end{tikzpicture}\\[30pt]
+      \color{white}%
       {\fontsize{20}{24}\selectfont\bfseries\textls[80]{\MakeUppercase{The Foundations of}}}\\[10pt]
       {\fontsize{24}{28}\selectfont\bfseries\textls[80]{\MakeUppercase{Large Language Models}}}\\[18pt]
       \rule{2.4cm}{0.6pt}\\[16pt]
       {\large 1943 -- 2026}\\[8pt]
-      {\color{inkblue}\small\textsc{Second Edition}}\\[42pt]
+      {\small\textsc{Second Edition}}\\[42pt]
       {\large A Curated Collection of Seminal Papers}\\[24pt]
       \vskip 1.5em%
       {\large in}\\[12pt]
