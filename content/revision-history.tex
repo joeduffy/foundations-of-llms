@@ -1,38 +1,46 @@
 \PlainChapter{Revision History}
 
-\noindent\textbf{v1.0.0 --- February 18, 2026.}\quad Initial release: 71 papers in seven
-chronological parts and three appendices, spanning 1943--2025.
+\noindent\textbf{First Edition --- February 18, 2026.}\quad 71 papers in seven chronological
+parts and three appendices, spanning 1943--2025.
 
 \medskip
-\noindent\textbf{v2.0.0 --- August 1, 2026.}\quad Added Part VIII, \emph{Reasoning and the Open
-Frontier} (2024--2026), collecting the foundational methods of the reasoning era: GRPO,
+\noindent\textbf{Second Edition --- August 1, 2026.}\quad Added Part VIII, \emph{Reasoning and
+the Open Frontier} (2024--2026), collecting the foundational methods of the reasoning era: GRPO,
 multi-token prediction, auxiliary-loss-free load balancing, T\"ulu~3 and verifiable rewards, Muon,
 Kimi Delta Attention, and LatentMoE, with DeepSeek-R1 moved into the new part from the former
-system-reports appendix. Added knowledge distillation, AdamW,
-RMSNorm, speculative decoding, and LLM-QAT to Parts III--VII, and extended the agents appendix
-through the agentic reinforcement-learning era with Reflexion, SWE-agent, and Search-R1. Adopted a stricter selection policy
-under which integrated model reports and system cards are cited rather than reproduced, removing
-the former system-reports appendix (GPT-4, Gemini~1.5, DeepSeek-V3, o1, GPT-5) together with
-Llama~2 and Mixtral, whose lasting techniques are documented by embedded method papers. Corrected
-the LLaMA facsimile, which had duplicated Llama~2. Revised the prologue and epilogue for the
-reasoning era and corrected several era ranges.
+system-reports appendix. Added knowledge distillation, AdamW, RMSNorm, speculative decoding, and
+LLM-QAT to Parts III--VII, and extended the agents appendix through the agentic
+reinforcement-learning era with Reflexion, SWE-agent, and Search-R1. Adopted a stricter selection
+policy under which integrated model reports and system cards are cited rather than reproduced,
+removing the former system-reports appendix (GPT-4, Gemini~1.5, DeepSeek-V3, o1, GPT-5) together
+with Llama~2 and Mixtral, whose lasting techniques are documented by embedded method papers.
+Revised the prologue and epilogue for the reasoning era and corrected several era ranges.
 
-\medskip
-\noindent\textbf{v2.0.1 --- August 1, 2026.}\quad Fixed a structural bug, present since the
-initial release, in which every table-of-contents entry and cross-reference for an individual
-paper linked to the entry immediately preceding it rather than to itself, because the anchor was
-created before the page break that began the paper's own page rather than after it.
+Corrected two structural defects present since the first edition. Every table-of-contents entry
+and cross-reference for an individual paper had linked to the entry immediately preceding it
+rather than to itself, because the anchor was created before the page break that began the
+paper's own page rather than after it. And the running head froze after any unnumbered chapter,
+which could leave a stale or flatly wrong section name showing for hundreds of pages. Also
+corrected the LLaMA facsimile, which had duplicated Llama~2.
 
-\medskip
-\noindent\textbf{v2.1.0 --- August 1, 2026.}\quad A typography and layout pass toward the
-production standard of a bound mathematics monograph. Set the book twoside with mirrored inner and
-outer margins and a canonical running head (page number on the outer edge; part title on the
-verso, paper author and year on the recto); fixed a bug, also present since the initial release,
-in which the running head froze after any unnumbered chapter and could show a stale or wrong
-section name for hundreds of pages. Suppressed the book's own header and page number on facsimile
-pages of the original papers, which had been competing with the source publication's own masthead
-and pagination. Switched to single spacing. Replaced the saturated hyperlink blue throughout with
-a muted, near-black ink color. Removed the version stamp and contact address from the title page
-in favor of a proper copyright and colophon page. Shortened the part titles used in the table of
-contents and running heads so they no longer wrap awkwardly. Added a back-of-book index of authors
-and key technical terms.
+Reset the book's typography and layout toward the production standard of a bound mathematics
+monograph. Set twoside with mirrored inner and outer margins and a canonical running head (page
+number on the outer edge; part title on the verso, paper author and year on the recto).
+Suppressed the book's own header and page number on facsimile pages of the original papers, which
+had been competing with the source publication's own masthead and pagination. Switched to single
+spacing. Replaced the saturated hyperlink blue throughout with a muted, near-black ink color.
+Removed the version stamp and contact address from the title page in favor of a proper copyright
+and colophon page. Corrected the table of contents so a part's introduction nests visibly beneath
+its part and above its papers, rather than sitting flush with one and unindented relative to the
+other; shortened the part titles feeding the table of contents and running heads so they no
+longer wrap awkwardly. Removed the forced blank page that had appeared between every part's title
+page and its own introduction. Added a back-of-book index of authors and key technical terms.
+
+Revised the prologue and epilogue as a matched pair rather than as two documents patched
+independently on different schedules. The prologue's narrative previously ended at pretraining and
+scale and never addressed alignment, reasoning, or agency, despite Part VIII and half of Appendix B
+being devoted to exactly that; it now carries the same argument forward through preference
+optimization, verifiable rewards, and trained agency. The epilogue previously omitted agents
+entirely and closed on a general historical observation; it now opens by returning explicitly to
+the prologue's central question, adds a section on the reliability of long-horizon agents, and
+closes on a specific, still-open question about reasoning-chain faithfulness.

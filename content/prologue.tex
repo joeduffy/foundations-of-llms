@@ -1,6 +1,6 @@
 \PlainChapter{Prologue}
 
-Large language models are among the most consequential artifacts of twentieth- and twenty-first-century science. They generate coherent text, translate between languages, reason through multi-step problems, and write functioning software. Yet these capabilities did not emerge from a single invention. They rest on an intellectual lineage spanning eight decades, in which each generation of researchers confronted specific mathematical and computational barriers, resolved them, and in doing so exposed the next set of open problems.
+Large language models generate coherent text, translate between languages, reason through multi-step problems, and write functioning software. These capabilities did not emerge from a single invention. They rest on an intellectual lineage spanning eight decades, in which each generation of researchers confronted specific mathematical and computational barriers, resolved them, and in doing so exposed the next set of open problems.
 
 This volume collects the papers that constitute that lineage. Read in sequence, they document a sustained investigation into a single deep question: \textit{to what extent can the statistical structure of language, learned from data by gradient-based optimization of parametric models, give rise to general-purpose cognitive capabilities?}
 
@@ -8,7 +8,7 @@ This volume collects the papers that constitute that lineage. Read in sequence, 
 
 The question has its origins in the cybernetics movement of the 1940s. McCulloch and Pitts showed that networks of binary threshold units could compute any Boolean function, establishing that cognition---or at least logical reasoning---could in principle be realized by interconnected simple processors. Rosenblatt made this concrete with the perceptron, a device that learned classification boundaries from labeled examples. When Minsky and Papert demonstrated the perceptron's representational limitations, the field entered a period of reduced funding and diminished ambition.
 
-Recovery came through two insights. Hopfield reframed neural computation in the language of statistical physics, showing that networks with symmetric connections minimized an energy function and could thereby implement associative memory. Rumelhart, Hinton, and Williams solved the credit assignment problem: backpropagation provided an efficient algorithm for computing gradients through multilayer networks, enabling the training of architectures deep enough to learn hierarchical representations. These results established the mathematical toolkit---gradient descent, distributed representations, compositional feature hierarchies---that remains foundational to every model discussed in this volume.
+Recovery came through two insights. Hopfield reframed neural computation in the language of statistical physics, showing that networks with symmetric connections minimized an energy function and could thereby implement associative memory. Rumelhart, Hinton, and Williams solved the credit assignment problem: backpropagation provided an efficient algorithm for computing gradients through multilayer networks, enabling the training of architectures deep enough to learn hierarchical representations. These results established the mathematical toolkit that remains foundational to every model discussed in this volume: gradient descent, distributed representations, compositional feature hierarchies.
 
 \section*{Representation and Learning}
 
@@ -24,7 +24,13 @@ The transformer is the central architectural contribution in this history. Vaswa
 
 The pretraining paradigm, established through ELMo, BERT, and GPT, transformed the economics of natural language processing. Rather than training task-specific models from scratch, practitioners could fine-tune general-purpose representations learned through self-supervised objectives on large corpora. When researchers scaled these pretrained transformers---first to hundreds of millions, then to hundreds of billions of parameters---they discovered that performance improved predictably according to power laws, and that sufficiently large models exhibited qualitatively new behaviors: few-shot learning, chain-of-thought reasoning, and instruction following.
 
-These capabilities were not explicitly engineered. They arose from next-token prediction at scale, suggesting that the statistical structure of natural language encodes more about general cognition than had been previously assumed.
+These capabilities arose from next-token prediction at scale rather than from explicit engineering, suggesting that the statistical structure of natural language encodes more about general cognition than had been previously assumed.
+
+\section*{Alignment, Reasoning, and Agency}
+
+A pretrained model predicts text; it does not yet follow instructions, verify its own reasoning, or act in an environment. Closing each of these gaps meant extending the same optimization principle beyond next-token prediction, training the model against a new signal rather than a new algorithm. Christiano and colleagues, then Ouyang and colleagues, showed that comparisons between human-ranked outputs could supply this signal directly, producing models that followed instructions rather than merely continuing them. Rafailov and colleagues simplified the resulting machinery, and Shao and colleagues then redirected it toward a different kind of signal: reward that could be checked mechanically---a correct proof, a passing test---rather than judged. Under this regime, extended reasoning stopped being a behavior elicited by careful prompting and became one the model learned to produce and verify on its own.
+
+The same shift, from predicting an answer to acting on it, extended once more. Early agents were built by prompting and scaffolding a fixed model to call tools, retry after failure, and reflect on its own mistakes, engineering the interface between model and environment as carefully as the model itself. Later agents were trained directly against the outcomes of their actions in an environment, using the same reinforcement-learning machinery that produced reasoning models but applied now to whether a search returned a useful result or a multi-step task was completed, rather than to a single graded response. The lineage traced in this volume runs from a single artificial neuron to a system that plans, calls tools, and revises its own output: one continuous extension of the same learning principle to progressively less constrained settings.
 
 \section*{Organization}
 
@@ -32,7 +38,7 @@ This volume organizes its papers into eight chronological parts and two appendic
 
 The volume assumes familiarity with machine learning, linear algebra, and probability theory. Technical details are preserved as they appeared in the original publications.
 
-The papers collected here document an open line of investigation. The mathematical frameworks they introduce---attention, self-supervised pretraining, reinforcement learning from human feedback, mixture-of-experts routing---continue to define the research frontier. Understanding their origins equips the reader to evaluate what comes next.
+The papers collected here document an open line of investigation. Attention, self-supervised pretraining, preference-based and verifiable-reward optimization, and mixture-of-experts routing all originate in this collection and continue to define the research frontier. Understanding their origins equips the reader to evaluate what comes next.
 
 Figure~\ref{fig:concept-family-tree} illustrates the genealogical relationships among the core concepts covered in this volume.
 

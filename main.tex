@@ -1,4 +1,8 @@
-\documentclass[11pt,twoside]{book}
+% openany: without it, book defaults to openright, which forces every
+% \part AND the \chapter* immediately following it (Introduction to Part N)
+% to each start on its own fresh odd page -- wedging a blank page between
+% a part's title page and its own introduction at every single boundary.
+\documentclass[11pt,twoside,openany]{book}
 
 % Essential packages
 \usepackage[utf8]{inputenc}
@@ -140,9 +144,13 @@
 % introduction itself -- and is overwritten again by \markright once the
 % first paper begins. \markright leaves \leftmark untouched, unlike
 % \markboth.
+% Filed at the TOC's section level, not chapter: unlike Prologue, Epilogue,
+% and the Revision History (true top-level entries, siblings of a Part),
+% a part introduction is nested inside its enclosing part, and the TOC
+% should show that nesting rather than list it flush with the part itself.
 \newcommand{\PartIntroChapter}[1]{%
   \chapter*{#1}%
-  \addcontentsline{toc}{chapter}{#1}%
+  \addcontentsline{toc}{section}{#1}%
   \markright{#1}%
 }
 
@@ -194,7 +202,12 @@
 \setlength{\cftbeforechapskip}{6pt}
 \setlength{\cftbeforesecskip}{3pt}
 \setlength{\cftbeforesubsecskip}{2pt}
-\setlength{\cftsubsecindent}{1.5em}
+% Cascading indent so the TOC's nesting reads at a glance: Part (flush) <
+% part introduction (section-level) < paper (subsection-level). Prologue,
+% Revision History, Epilogue, and the Index stay at chapter level (flush),
+% since they are not nested inside any part.
+\setlength{\cftsecindent}{1.2em}
+\setlength{\cftsubsecindent}{2.6em}
 
 % Dotted leaders for all TOC levels
 \renewcommand{\cftpartleader}{\cftdotfill{\cftdotsep}}
