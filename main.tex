@@ -202,12 +202,16 @@
 \setlength{\cftbeforechapskip}{6pt}
 \setlength{\cftbeforesecskip}{3pt}
 \setlength{\cftbeforesubsecskip}{2pt}
-% Cascading indent so the TOC's nesting reads at a glance: Part (flush) <
-% part introduction (section-level) < paper (subsection-level). Prologue,
-% Revision History, Epilogue, and the Index stay at chapter level (flush),
-% since they are not nested inside any part.
+% A part's introduction and its papers are siblings -- both belong
+% directly to the part, and neither is nested inside the other -- so
+% both sit at the same indent, one step in from the part itself.
+% Distinguishing them by font size (below) rather than by depth keeps
+% that sibling relationship visible instead of implying the papers are
+% children of the introduction. Prologue, Revision History, Epilogue,
+% and the Index stay flush with the part, since they belong to the book
+% as a whole rather than to any single part.
 \setlength{\cftsecindent}{1.2em}
-\setlength{\cftsubsecindent}{2.6em}
+\setlength{\cftsubsecindent}{1.2em}
 % None of our TOC entries use \numberline (there is no real chapter/section
 % number -- the "[1943]"-style year tag is just the first word of the
 % title). Without this, tocloft still reserves its book-class default
