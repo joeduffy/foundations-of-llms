@@ -266,22 +266,31 @@
     \let\footnotesize\small
     \let\footnoterule\relax
     \let \footnote \thanks
-    % A single thin gold rule inset from the trim -- the frame of a
-    % gold-tooled binding, drawn once, restrained rather than doubled or
-    % ornamented at the corners.
+    % A double-ruled gold frame inset from the trim -- a heavier outer
+    % line and a finer inner companion close beside it, the fillet border
+    % of a formally tooled binding rather than a single plain rule.
     \begin{tikzpicture}[remember picture, overlay]
-      \draw[titlegold, line width=0.9pt]
-        ([xshift=1.15cm,yshift=1.15cm]current page.south west) rectangle
-        ([xshift=-1.15cm,yshift=-1.15cm]current page.north east);
+      \draw[titlegold, line width=1.1pt]
+        ([xshift=1.05cm,yshift=1.05cm]current page.south west) rectangle
+        ([xshift=-1.05cm,yshift=-1.05cm]current page.north east);
+      \draw[titlegold, line width=0.4pt]
+        ([xshift=1.25cm,yshift=1.25cm]current page.south west) rectangle
+        ([xshift=-1.25cm,yshift=-1.25cm]current page.north east);
     \end{tikzpicture}%
     \null\vfil
     \vskip 40\p@
     \begin{center}%
-      % Subtle neural network diagram, reversed for the dark field
-      \begin{tikzpicture}[scale=0.6, transform shape]
+      % Neural network diagram, reversed for the dark field: a soft gold
+      % aura behind it, nodes and edges warmed toward gold rather than
+      % plain white, each edge given a faint glow beneath its crisp line.
+      \begin{tikzpicture}[scale=0.68, transform shape]
+        \shade[shading=radial, inner color=titlegold!35!inkblue,
+               outer color=inkblue] (4,3.6) ellipse (5.6 and 4.3);
         \tikzset{
-          neuron/.style={circle, draw=white!55, fill=white!12, minimum size=8pt, inner sep=1pt},
-          connection/.style={draw=white!35, line width=0.5pt}
+          neuron/.style={circle, draw=titlegold!55!white, fill=titlegold!18!white,
+                          minimum size=8pt, inner sep=1pt},
+          connection/.style={draw=white!55, line width=0.5pt,
+                              preaction={draw=titlegold, line width=1.8pt, opacity=0.22}}
         }
         % Input layer
         \foreach \y in {1,2,3,4} {
@@ -329,16 +338,16 @@
       % symmetric echo of the network diagram above, not a second copy
       % of it, and nothing borrowed from any particular fictional device.
       \begin{tikzpicture}[baseline={(0,-0.15)}]
-        \draw[titlegold, line width=0.7pt] (0,0) circle (5.5mm);
-        \draw[titlegold, line width=0.35pt] (0,0) circle (4.6mm);
+        \draw[titlegold, line width=0.8pt] (0,0) circle (6.8mm);
+        \draw[titlegold, line width=0.4pt] (0,0) circle (5.7mm);
         \foreach \angle in {0,60,...,300} {
-          \draw[titlegold, line width=0.3pt] (0,0) -- (\angle:3.6mm);
-          \fill[titlegold] (\angle:3.6mm) circle (0.35mm);
+          \draw[titlegold, line width=0.35pt] (0,0) -- (\angle:4.4mm);
+          \fill[titlegold] (\angle:4.4mm) circle (0.42mm);
         }
-        \draw[titlegold, line width=0.25pt]
-          (0:3.6mm) -- (60:3.6mm) -- (120:3.6mm) -- (180:3.6mm)
-          -- (240:3.6mm) -- (300:3.6mm) -- cycle;
-        \fill[titlegold] (0,0) circle (0.4mm);
+        \draw[titlegold, line width=0.3pt]
+          (0:4.4mm) -- (60:4.4mm) -- (120:4.4mm) -- (180:4.4mm)
+          -- (240:4.4mm) -- (300:4.4mm) -- cycle;
+        \fill[titlegold] (0,0) circle (0.48mm);
       \end{tikzpicture}\\[9pt]
       {\fontsize{16}{20}\selectfont\bfseries\color{titlegold} 1943 -- 2026}\\[36pt]
       {\large A Curated Collection of Seminal Papers}\\[24pt]
@@ -346,8 +355,7 @@
       {\large in}\\[12pt]
       {\Large\bfseries Artificial Intelligence \& Machine Learning}\\[48pt]
       \vfill
-      {\large Compiled for the Scientific Community}\\[4pt]
-      {\normalsize\color{white!75}by Joe Duffy}
+      {\large Compiled for the Scientific Community}
     \end{center}\par
     \@thanks
     \vfil\null
