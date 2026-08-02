@@ -223,6 +223,9 @@
 % from body text on close reading, but not the saturated web-hyperlink blue
 % that reads as "PDF" rather than "typeset book."
 \definecolor{inkblue}{RGB}{30,30,80}
+% A muted, dignified gold reserved for the title page alone -- the
+% cloth-and-gilt accent of a bound academic volume, used sparingly.
+\definecolor{titlegold}{RGB}{197,162,97}
 
 % Hyperref setup - professional styling with enhanced navigation
 \hypersetup{
@@ -248,17 +251,19 @@
 \makeatletter
 \renewcommand{\maketitle}{%
   \begin{titlepage}%
+    \pagecolor{inkblue}%
+    \color{white}%
     \let\footnotesize\small
     \let\footnoterule\relax
     \let \footnote \thanks
     \null\vfil
     \vskip 40\p@
     \begin{center}%
-      % Subtle neural network diagram
+      % Subtle neural network diagram, reversed for the dark field
       \begin{tikzpicture}[scale=0.6, transform shape]
         \tikzset{
-          neuron/.style={circle, draw=black!30, fill=black!5, minimum size=8pt, inner sep=1pt},
-          connection/.style={draw=black!20, line width=0.5pt}
+          neuron/.style={circle, draw=white!55, fill=white!12, minimum size=8pt, inner sep=1pt},
+          connection/.style={draw=white!35, line width=0.5pt}
         }
         % Input layer
         \foreach \y in {1,2,3,4} {
@@ -301,19 +306,22 @@
         }
       \end{tikzpicture}\\[24pt]
       {\fontsize{20}{24}\selectfont\bfseries\MakeUppercase{The Foundations of}}\\[12pt]
-      {\fontsize{24}{28}\selectfont\bfseries\MakeUppercase{Large Language Models}}\\[18pt]
-      {\fontsize{16}{20}\selectfont\bfseries 1943 -- 2026}\\[36pt]
+      {\fontsize{24}{28}\selectfont\bfseries\MakeUppercase{Large Language Models}}\\[16pt]
+      {\color{titlegold}\rule{0.18\textwidth}{0.7pt}}\\[10pt]
+      {\fontsize{16}{20}\selectfont\bfseries\color{titlegold} 1943 -- 2026}\\[36pt]
       {\large A Curated Collection of Seminal Papers}\\[24pt]
       \vskip 2em%
       {\large in}\\[12pt]
       {\Large\bfseries Artificial Intelligence \& Machine Learning}\\[48pt]
       \vfill
       {\large Compiled for the Scientific Community}\\[4pt]
-      {\normalsize\textcolor{black!60}{by Joe Duffy}}
+      {\normalsize\color{white!75}by Joe Duffy}
     \end{center}\par
     \@thanks
     \vfil\null
   \end{titlepage}%
+  \pagecolor{white}%
+  \color{black}%
   \setcounter{footnote}{0}%
   \global\let\thanks\relax
   \global\let\maketitle\relax
