@@ -1,0 +1,14 @@
+% Paper Summary: Synthetic Bootstrapped Pretraining (Yang et al., 2025)
+
+\begin{papersummary}{2025}{Synthetic Bootstrapped Pretraining}{Zitong Yang, Aonan Zhang, Hong Liu, Tatsunori Hashimoto, Emmanuel Cand\`es, Chong Wang, Ruoming Pang}{Yang et al. proposed learning the correlations between related documents in a pretraining corpus and using that model to synthesize new training documents, recovering a meaningful fraction of the gain that would come from training on far more unique data.}
+
+\summaryheading{Key Ideas}
+Standard pretraining exploits the causal correlation between tokens within a single document, but says nothing about the correlations across documents that plainly exist---a paper and the code that implements it, a novel and its screenplay adaptation. Synthetic Bootstrapped Pretraining (SBP) first trains a model of these inter-document relationships from the pretraining set itself, then uses it to synthesize a large additional corpus of new documents that abstract and re-narrate the concepts shared across related seed documents, rather than paraphrasing any single one. Training 3B and 6B parameter models on up to 1T tokens under a compute-matched comparison, SBP consistently outperformed a strong repetition baseline and recovered up to 60\% of the improvement an oracle with 20x more unique data would provide. The authors give the method a Bayesian reading: the synthesizer is implicitly learning to infer the latent concept shared between related documents and generate fresh surface text expressing it.
+
+\summaryheading{Follow-on Works}
+This paper is included in the appendix reserved for work whose significance is not yet settled (see the appendix introduction). It responds directly to the data-scarcity problem that motivated the compute-optimal scaling analysis of \hyperref[paper:hoffmann-2022]{Hoffmann et al.\ (2022)}: once a lab has extracted the useful tokens the public internet contains, further gains from scale require either more unique data or better use of what already exists, and SBP is offered as evidence for the latter.
+
+\summaryheading{Lasting Contributions}
+Whether inter-document synthesis becomes a standard component of frontier pretraining, or is superseded by a different answer to the same data-scarcity problem, is exactly the kind of question this appendix exists to track. Its inclusion here records a serious, credibly authored attempt at a problem---the exhaustion of high-quality pretraining text---that every frontier lab now names as a real constraint, without yet claiming the paper has settled it.
+
+\end{papersummary}

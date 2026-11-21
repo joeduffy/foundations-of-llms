@@ -1,12 +1,18 @@
 \PartIntroChapter{Introduction to Appendix A}
 
-This appendix collects recent results from 2023--2025 that address active research frontiers: alternative architectures to the transformer, mechanistic interpretability\index{mechanistic interpretability}, refined scaling analysis for sparse models, and fundamental improvements to the attention mechanism itself. These papers extend the foundations established in the main volume into directions whose long-term significance is still being assessed; several have already been partially vindicated, with hybrid linear-attention designs descended from this line now running in frontier production models (Part~VIII).
+This appendix is deliberately provisional. It holds work whose long-term significance is not yet
+settled, and it is revisited at every edition rather than left to accumulate. Papers whose impact
+has since proven out graduate into the main chronological sequence: this edition, Mamba (2023) moved
+to Part~VII, once hybrid linear-attention designs descended from it reached frontier production
+models (Part~VIII). One new candidate was added in its place: Yang and colleagues' synthetic
+bootstrapped pretraining, a credibly authored response to the data-scarcity constraint every
+frontier lab now names, whose staying power is not yet clear. A paper earns a place here only when
+it clears the same bar as everything else in this book; most candidates considered for this edition
+did not, which is the expected outcome of holding the bar high rather than a shortfall to correct.
 
 \section*{Papers in This Appendix}
 
 \begin{enumerate}
-\item \textbf{Gu \& Dao (2023)} --- Mamba: selective state-space models achieving linear-time sequence modeling as an alternative to quadratic attention.
-
 \item \textbf{Cunningham et al. (2023)} --- Sparse autoencoders for extracting interpretable features from language model activations.
 
 \item \textbf{Krajewski et al. (2024)} --- Refined scaling laws for fine-grained mixture-of-experts architectures.
@@ -14,4 +20,6 @@ This appendix collects recent results from 2023--2025 that address active resear
 \item \textbf{Yuan et al. (2025)} --- Native Sparse Attention: hardware-aligned trainable sparse attention achieving substantial speedups while matching full attention quality.
 
 \item \textbf{Qiu et al. (2025)} --- Gated attention: a per-head sigmoid gate on attention output that eliminates attention sinks and improves training stability.
+
+\item \textbf{Yang et al. (2025)} --- Synthetic bootstrapped pretraining: synthesizing new training documents from learned inter-document correlations to offset the exhaustion of high-quality pretraining text.
 \end{enumerate}

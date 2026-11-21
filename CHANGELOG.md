@@ -8,7 +8,7 @@ auxiliary-loss-free MoE load balancing, Tülu 3 (RLVR), DeepSeek-R1 (promoted fr
 Appendix C), Muon, Kimi Linear (Kimi Delta Attention), and LatentMoE. Added foundational papers to
 earlier parts: knowledge distillation (Part III), AdamW (Part IV), RMSNorm (Part V), speculative
 decoding (Part VI), and LLM-QAT (Part VII). Extended Appendix B through the agentic era: Reflexion,
-SWE-agent, and Search-R1. Net: 79 papers (67 core, 12 appendix).
+SWE-agent, and Search-R1.
 
 Adopted a stricter selection policy (see README): the book now embeds foundational technique
 papers only, never model reports or system cards. Removed Appendix C (GPT-4 Technical Report,
@@ -31,6 +31,37 @@ structural defects along the way: duplicated table-of-contents anchors and cross
 (every per-paper entry linked to the one before it, not itself), a running head that froze after
 unnumbered chapters, inconsistent table-of-contents nesting, several stray forced blank pages, and
 a title page that briefly overflowed onto a second sheet after a tikz bounding-box regression.
+
+**Renamed Appendix A from "Emerging Results" to "The Watch List"** and made it an explicitly
+provisional, re-tended section rather than a one-time label: at every edition, papers whose
+significance has settled graduate into the main chronological sequence, papers still genuinely
+undecided stay, and new candidates are added only if they clear the same bar as everything else in
+the book (policy codified in CLAUDE.md). This edition, Mamba (2023) graduated into Part VII — its
+significance is no longer in question now that hybrid linear-attention designs descended from it
+run in frontier production models (Part VIII). One new candidate was added in its place after a
+deliberately hard search: Anthropic's circuit-tracing interpretability work was the strongest
+thematic fit — the direct successor to the sparse-autoencoder paper already in the appendix — but
+exists only as an interactive essay on Anthropic's own site with no citable PDF, and generating a
+facsimile from a webpage screenshot would have broken the standard every other paper in this book
+meets. Synthetic Bootstrapped Pretraining (Yang et al., 2025, Apple/Stanford) took the slot instead:
+a credibly authored response to the data-scarcity constraint every frontier lab now names, whose
+staying power is genuinely undecided. Appendix B (agents) was considered for a similar
+restructuring but deliberately left alone: it's organized by topic, not by uncertainty, and agent
+research is still developing as a field, which argues for letting it keep growing as a distinct
+section rather than promoting or dissolving it.
+
+Added three papers addressing published, non-report research from proprietary labs that
+plausibly underlies frontier reasoning and agentic behavior, each argued individually against the
+book's selection criteria rather than added on the strength of being frontier-lab work generally:
+Training Verifiers to Solve Math Word Problems (Cobbe et al., 2021, Part VI) is the origin of
+verifier-based reasoning and GSM8K; Let's Verify Step by Step (Lightman et al., 2023, Part VII)
+scales process supervision and is the closest published account of the training ideas behind
+OpenAI's o-series reasoning models; WebGPT (Nakano et al., 2021) is the origin of tool-augmented,
+human-feedback-trained agents and is now Appendix B's opening paper, predating and underlying
+Search-R1. Two other real candidates (Self-Consistency, Scaling Laws for Reward Model
+Overoptimization) were considered and did not clear the bar as standalone embedded papers; the
+former is now properly credited in the existing chain-of-thought summary instead. Net: 83 papers
+(70 core, 13 appendix).
 
 ## First Edition — February 18, 2026
 

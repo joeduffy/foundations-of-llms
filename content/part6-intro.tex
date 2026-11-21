@@ -6,7 +6,7 @@ On efficiency, LoRA demonstrated that large pretrained models could be adapted\i
 
 On alignment, Ouyang and colleagues at OpenAI developed InstructGPT\index{InstructGPT}, demonstrating that reinforcement learning from human feedback (RLHF) could train language models to follow user instructions reliably. The approach---supervised fine-tuning on demonstrations, reward model training from human comparisons, then policy optimization with PPO---became the standard pipeline for producing helpful, harmless AI assistants. Bai and colleagues at Anthropic proposed constitutional AI\index{Constitutional AI}, which replaced some human feedback with model self-critique guided by explicit principles, reducing annotation costs while maintaining alignment quality. Wei and colleagues at Google showed that instruction tuning across a diverse task mixture (FLAN) enabled zero-shot generalization to unseen tasks.
 
-On reasoning, Wei and colleagues discovered chain-of-thought prompting\index{chain-of-thought prompting}: including step-by-step reasoning examples in the prompt caused large models to decompose complex problems into intermediate steps, substantially improving performance on arithmetic, commonsense, and symbolic reasoning tasks. Yao and colleagues extended this with ReAct\index{ReAct}, interleaving reasoning traces with actions such as web searches and code execution, enabling models to interact with external tools during problem-solving.
+On reasoning, Cobbe and colleagues at OpenAI took a training-time rather than prompting-time approach: sample many candidate solutions to a word problem, train a separate verifier to judge each one, and select the candidate the verifier ranks highest rather than trusting the generator's first attempt\index{verifier-based reasoning}. Their GSM8K benchmark of grade-school math problems became a standard reasoning testbed, and the verify-and-select pattern it introduced would recur, refined, throughout the reasoning-training work of later parts. Wei and colleagues took the opposite approach the following year, discovering chain-of-thought prompting\index{chain-of-thought prompting}: including step-by-step reasoning examples in the prompt caused large models to decompose complex problems into intermediate steps, substantially improving performance on arithmetic, commonsense, and symbolic reasoning tasks. Yao and colleagues extended this with ReAct\index{ReAct}, interleaving reasoning traces with actions such as web searches and code execution, enabling models to interact with external tools during problem-solving.
 
 \section*{Papers in This Section}
 
@@ -16,6 +16,8 @@ On reasoning, Wei and colleagues discovered chain-of-thought prompting\index{cha
 \item \textbf{Hu et al. (2021)} --- LoRA: parameter-efficient fine-tuning through low-rank weight matrix perturbations.
 
 \item \textbf{Su et al. (2021)} --- RoPE: rotary position embeddings encoding relative positions through complex-valued rotations.
+
+\item \textbf{Cobbe et al. (2021)} --- GSM8K and verifier-based reasoning: sampling many solutions and selecting among them with a learned verifier.
 
 \item \textbf{Dao et al. (2022)} --- FlashAttention: IO-aware exact attention achieving large speedups on GPU hardware.
 

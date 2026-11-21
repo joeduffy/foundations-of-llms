@@ -1,0 +1,14 @@
+% Paper Summary: Training Verifiers to Solve Math Word Problems (Cobbe et al., 2021)
+
+\begin{papersummary}{2021}{Training Verifiers to Solve Math Word Problems}{Karl Cobbe, Vineet Kosaraju, Mohammad Bavarian, Mark Chen, Heewoo Jun, Lukasz Kaiser, Matthias Plappert, Jerry Tworek, Jacob Hilton, Reiichiro Nakano, Christopher Hesse, John Schulman}{Cobbe et al. introduced GSM8K, a dataset of grade-school math word problems, and showed that training a separate verifier to judge candidate solutions and selecting the highest-scoring one from many samples solves substantially more problems than fine-tuning a generator alone.}
+
+\summaryheading{Key Ideas}
+Even large language models of the period answered grade-school arithmetic word problems unreliably, and finetuning larger generators produced diminishing returns. The paper's alternative: sample many candidate solutions from a generator, train a separate verifier model to judge whether each candidate's reasoning and final answer are correct, and at test time select the candidate the verifier ranks highest rather than trusting the generator's first attempt. Verification scaled with additional sampled solutions in a way that finetuning a larger generator alone did not, and the released GSM8K benchmark---8.5K linguistically diverse word problems---became a standard testbed for arithmetic and multi-step reasoning.
+
+\summaryheading{Follow-on Works}
+The verify-and-select pattern generalized directly: \hyperref[paper:lightman-2023-verify]{Lightman et al.\ (2023)} refined it from a single outcome judgment to step-level process supervision, training a verifier that scores each intermediate reasoning step rather than only the final answer. \hyperref[paper:snell-2024-test-time]{Snell et al.\ (2024)} placed verifier-guided sampling within a broader analysis of test-time compute as an axis of scaling independent of pretraining. \hyperref[paper:deepseek-2025-r1]{DeepSeek-R1 (DeepSeek-AI, 2025)} replaced learned verifiers with rule-based, mechanically checkable rewards, training reasoning directly through reinforcement learning rather than sampling and reranking against a separate model.
+
+\summaryheading{Lasting Contributions}
+This paper established that a model's reasoning reliability can be improved by spending additional compute at inference time---sampling and verification---rather than only at training time, a distinct axis from the scaling laws that dominated contemporary research. GSM8K itself became one of the most widely reported benchmarks for evaluating language model reasoning, and the verifier concept, extended to process-level supervision and later to rule-based verifiable rewards, runs through nearly every reasoning-focused training pipeline that followed it.
+
+\end{papersummary}

@@ -10,19 +10,19 @@ This book assembles the essential papers that shaped the development of large la
 
 ## Structure
 
-### Core Foundations (67 papers)
+### Core Foundations (70 papers)
 - **Part I**: Neural Beginnings & Learning Mechanisms (1943–1990) - 5 papers
 - **Part II**: Sequence Models & Word Embeddings (1997–2013) - 6 papers
 - **Part III**: Deep Learning & Attention (2012–2015) - 11 papers
 - **Part IV**: The Transformer Era and Pretraining Revolution (2016–2019) - 10 papers
 - **Part V**: Emergence and Scale (2019–2020) - 9 papers
-- **Part VI**: Efficiency, Alignment, and Reasoning (2021–2022) - 11 papers
-- **Part VII**: Open LLMs and Modern Frontier (2023–2024) - 7 papers
+- **Part VI**: Efficiency, Alignment, and Reasoning (2021–2022) - 12 papers
+- **Part VII**: Open LLMs and Modern Frontier (2023–2024) - 9 papers
 - **Part VIII**: Reasoning and the Open Frontier (2024–2026) - 8 papers
 
-### Appendices (12 papers)
-- **Appendix A**: Emerging Results (2023–2025) - 5 papers
-- **Appendix B**: Foundations of Agents (2022–2025) - 7 papers
+### Appendices (13 papers)
+- **Appendix A**: The Watch List (2023–2025) - 5 papers
+- **Appendix B**: Foundations of Agents (2021–2025) - 8 papers
 
 ## Building the Book
 

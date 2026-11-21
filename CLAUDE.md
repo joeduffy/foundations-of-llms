@@ -79,9 +79,28 @@ The book is organized into eight chronological parts and two appendices:
 - **Part VI** – Efficiency, Alignment, and Reasoning (2021–2022)
 - **Part VII** – Open LLMs and Modern Frontier (2023–2024)
 - **Part VIII** – Reasoning and the Open Frontier (2024–2026)
-- **Appendix A** – Emerging Results (2023–2025)
-- **Appendix B** – Foundations of Agents (2022–2025)
+- **Appendix A** – The Watch List (2023–2025)
+- **Appendix B** – Foundations of Agents (2021–2025)
 
 Each part has a `content/partN-intro.tex` (prose), `content/partN-papers.tex` (paper includes), and individual
 `content/summary-*.tex` files for per-paper commentary. The `content/partN-papers.tex` files are the authoritative
 list of which papers appear in each section.
+
+# Maintaining Appendix A: The Watch List
+
+Appendix A is deliberately provisional and must be re-tended at every edition, not just extended. Unlike the
+numbered parts, whose papers are settled history, Appendix A exists to hold work whose long-term significance
+isn't yet decided. At each edition:
+
+- **Graduate** papers whose significance has clearly settled (evidenced by citation in later work already in
+  the book, or adoption in production frontier models) into their chronologically correct main Part, as
+  ordinary papers — not flagged as former appendix content.
+- **Keep** papers whose significance remains genuinely open.
+- **Add** new candidates only if they clear the same bar as every other paper in the book (see Paper Selection
+  Criteria above) — an edition that adds nothing to this list, because nothing new cleared the bar, is a
+  correct outcome, not a gap to fill.
+
+Appendix B (agents) does not follow this graduate/keep cycle — it is organized by topic, not by uncertainty,
+and is expected to keep growing as agent research produces new foundational milestones. Don't dissolve or
+promote it just because agentic techniques become mainstream; only reconsider its structure if its own
+organizing rationale (a distinct, coherent research thread) stops holding.
