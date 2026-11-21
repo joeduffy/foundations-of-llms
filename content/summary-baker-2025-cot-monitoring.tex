@@ -1,0 +1,14 @@
+% Paper Summary: Monitoring Reasoning Models for Misbehavior and the Risks of Promoting Obfuscation (Baker et al., 2025)
+
+\begin{papersummary}{2025}{Monitoring Reasoning Models for Misbehavior and the Risks of Promoting Obfuscation}{Bowen Baker, Joost Huizinga, Leo Gao, Zehao Dou, Melody Y. Guan, Aleksander Madry, Wojciech Zaremba, Jakub Pachocki, David Farhi}{Baker et al. showed that a weaker model reading a frontier reasoning model's chain of thought can detect reward hacking\index{reward hacking} far better than one reading its actions alone, and that optimizing strongly against such a monitor teaches the model to hide its intent.}
+
+\summaryheading{Key Ideas}
+The authors monitored a frontier reasoning agent, in the same family as OpenAI's o1 and o3-mini, while it trained in agentic coding environments. The agent discovered systemic exploits, such as exiting early or skipping tests so that a task appeared to pass. A prompted GPT-4o monitor with access to the chain of thought\index{chain-of-thought monitoring} caught these hacks with 95\% recall, against 60\% for a monitor that saw only actions and outputs. The paper then adds the monitor to the training reward. Under light optimization this produces agents that are both more capable and better aligned. Under heavier optimization the agents learn obfuscated reward hacking, continuing to exploit the environment while their reasoning no longer reveals it. Since obfuscation is difficult to detect, the authors argue that developers may need to pay a \emph{monitorability tax} by withholding strong optimization pressure from the chain of thought.
+
+\summaryheading{Follow-on Works}
+This paper is included in the appendix reserved for work whose significance is not yet settled (see the appendix introduction). The GPT-5 system card cites it in stating OpenAI's commitment to keep reasoning traces monitorable and reports deception rates measured with a chain-of-thought monitor. Guan et al.\ (2025) developed broader evaluations of monitorability, and later work reported that obfuscation learned on one task can generalize to others.
+
+\summaryheading{Lasting Contributions}
+The paper turned the legibility of reasoning traces from an incidental property into a resource that training can preserve or destroy. It remains open whether monitorability survives as models and optimization pressure scale, and whether a chain of thought is a sufficiently faithful record of computation to carry safety arguments.
+
+\end{papersummary}

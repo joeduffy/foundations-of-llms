@@ -6,7 +6,7 @@ Meta's LLaMA release in early 2023 demonstrated that carefully trained models at
 
 Alignment techniques evolved rapidly. Rafailov and colleagues showed with Direct Preference Optimization (DPO)\index{Direct Preference Optimization (DPO)} that the RLHF objective could be reparameterized to eliminate the need for an explicit reward model, training the policy directly from preference pairs through a simple classification loss. This reduced the complexity of the alignment pipeline from three stages to two and proved competitive with PPO-based approaches.
 
-Reasoning training gained a second technique beyond prompting. Lightman and colleagues showed that rewarding each step of a chain of thought, not just its final answer, produced markedly more reliable mathematical reasoning than rewarding outcomes alone---the closest published account of the process-supervision ideas widely believed to underlie OpenAI's own o-series reasoning models, whose training methodology was never disclosed.
+Verifier-based selection became more precise. Lightman and colleagues showed that a reward model trained on labels for each step of a chain of thought, rather than only its final answer, selected correct solutions markedly more reliably under best-of-N search. They deliberately left training the generator against this reward to future work, and how much process supervision contributed to OpenAI's o-series reasoning models is unknown because their training methodology was never disclosed.
 
 Efficiency innovations addressed both training and inference. Dettmers and colleagues combined 4-bit quantization with LoRA (QLoRA)\index{QLoRA}, enabling fine-tuning of 65-billion-parameter models on single consumer GPUs. Liu and colleagues extended quantization from fine-tuning to the model itself with LLM-QAT, a data-free quantization-aware training method\index{quantization-aware training} in which the full-precision model's own generations supervise its low-bit counterpart---the approach that later produced the int4 releases of production model families such as Gemma. Ainslie and colleagues proposed grouped-query attention (GQA)\index{grouped-query attention (GQA)}, interpolating between multi-head and multi-query attention to balance inference throughput with model quality. Sparse mixture-of-experts architectures reached production maturity in open models such as Mistral's Mixtral, and DeepSeek-V2 introduced multi-head latent attention, compressing the key-value cache\index{multi-head latent attention (MLA)} through a learned low-rank projection. Gu and Dao's Mamba offered a structurally different path to efficiency, replacing attention altogether with a selective state space model\index{state space models} whose input-dependent parameters give it attention-like content sensitivity at linear rather than quadratic cost.
 
@@ -23,7 +23,7 @@ Snell and colleagues provided evidence that inference-time computation could sub
 
 \item \textbf{Liu et al. (2023)} --- LLM-QAT: data-free quantization-aware training producing low-bit models supervised by their full-precision counterparts.
 
-\item \textbf{Lightman et al. (2023)} --- Process supervision: rewarding each reasoning step, not just the final answer, for more reliable mathematical reasoning.
+\item \textbf{Lightman et al. (2023)} --- Process supervision: step-level reward models that select correct reasoning more reliably than outcome-level ones.
 
 \item \textbf{Ainslie et al. (2023)} --- GQA: grouped-query attention balancing inference throughput and model quality.
 

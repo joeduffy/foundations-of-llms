@@ -1,0 +1,14 @@
+% Paper Summary: The Curious Case of Neural Text Degeneration (Holtzman et al., 2019)
+
+\begin{papersummary}{2019}{The Curious Case of Neural Text Degeneration}{Ari Holtzman, Jan Buys, Li Du, Maxwell Forbes, Yejin Choi}{Holtzman et al. showed that maximization-based decoding makes strong language models produce bland, repetitive text, and introduced nucleus (top-$p$) sampling\index{nucleus sampling}, which draws each token from the smallest set holding a chosen share of the probability mass.}
+
+\summaryheading{Key Ideas}
+Maximum-likelihood training suggests that the most probable continuation should also be the best one, yet beam search on a large language model degenerates into bland or looping text. Human writing is less probable under the model than maximized output, so likelihood is a poor decoding objective. Unrestricted sampling fails in the opposite direction, because the long tail of low-probability tokens is unreliable and a single bad draw can derail a passage. Nucleus sampling truncates that tail adaptively: at each step it keeps the smallest vocabulary subset whose cumulative probability reaches $p$, renormalizes, and samples. Unlike top-$k$, the candidate pool expands when the model is uncertain and contracts when it is confident. The authors compare decoders on perplexity, vocabulary distribution, self-similarity, repetition, and human judgment, and nucleus sampling comes closest to the distribution of human text.
+
+\summaryheading{Follow-on Works}
+Top-$p$ became a standard control, alongside temperature, in inference libraries and model APIs. Later samplers such as locally typical sampling and min-$p$ refine the truncation rule while keeping the paper's framing of decoding as the selection of a reliable region of the predictive distribution.
+
+\summaryheading{Lasting Contributions}
+The paper separated the objective used to train a language model from the procedure used to generate with it, and gave practitioners a one-parameter method for navigating that gap. Its diagnosis of degeneration also explains why evaluating a language model requires specifying how text is drawn from it: the same weights can produce fluent or degenerate output depending on the decoder.
+
+\end{papersummary}

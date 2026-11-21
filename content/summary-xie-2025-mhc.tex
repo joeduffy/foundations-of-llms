@@ -1,0 +1,14 @@
+% Paper Summary: mHC: Manifold-Constrained Hyper-Connections (Xie et al., 2025)
+
+\begin{papersummary}{2025}{mHC: Manifold-Constrained Hyper-Connections}{Zhenda Xie, Yixuan Wei, Huanqi Cao, Chenggang Zhao, Chengqi Deng, Jiashi Li, Damai Dai, Huazuo Gao, Jiang Chang, Kuai Yu, Liang Zhao, Shangyan Zhou, Zhean Xu, Zhengyan Zhang, Wangding Zeng, Shengding Hu, Yuqing Wang, Jingyang Yuan, Lean Wang, Wenfeng Liang}{Xie et al. stabilized hyper-connections\index{hyper-connections}, a wider generalization of the residual connection, by constraining their learned residual mixing matrices to be doubly stochastic, restoring the identity-mapping property that deep training depends on.}
+
+\summaryheading{Key Ideas}
+Hyper-connections widen the residual stream into $n$ parallel copies and learn how to mix them between layers. The added expressivity comes at a cost: an unconstrained product of mixing matrices can amplify or attenuate signal across depth, breaking the identity mapping that made \hyperref[paper:he-2015-resnet]{residual networks (He et al., 2015)} trainable. mHC projects each residual mixing matrix onto the Birkhoff polytope of doubly stochastic matrices using the Sinkhorn--Knopp algorithm. Such matrices have spectral norm bounded by one and are closed under multiplication, so the guarantee survives composition through a deep stack. Because a wider residual stream also raises memory traffic, the paper pairs the constraint with kernel fusion, mixed-precision kernels, and selective recomputation, reporting 6.7\% additional training time at expansion rate $n=4$. Pretraining experiments on 3B, 9B, and 27B models show improved stability in loss and gradient norm while retaining the performance gains of unconstrained hyper-connections.
+
+\summaryheading{Follow-on Works}
+This paper is included in the appendix reserved for work whose significance is not yet settled (see the appendix introduction). DeepSeek-V4 adopted mHC across its 284B and 1.6T parameter models. That adoption comes from the originating lab, and independent use at comparable scale would be stronger evidence.
+
+\summaryheading{Lasting Contributions}
+The residual connection has remained nearly unchanged in language models since its introduction in 2015. Whether mHC becomes a durable revision to that component depends on whether its gains replicate outside DeepSeek's training stack and justify the added memory and implementation cost.
+
+\end{papersummary}

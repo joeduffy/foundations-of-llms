@@ -55,13 +55,20 @@ plausibly underlies frontier reasoning and agentic behavior, each argued individ
 book's selection criteria rather than added on the strength of being frontier-lab work generally:
 Training Verifiers to Solve Math Word Problems (Cobbe et al., 2021, Part VI) is the origin of
 verifier-based reasoning and GSM8K; Let's Verify Step by Step (Lightman et al., 2023, Part VII)
-scales process supervision and is the closest published account of the training ideas behind
-OpenAI's o-series reasoning models; WebGPT (Nakano et al., 2021) is the origin of tool-augmented,
+shows that step-level reward models select correct reasoning more reliably than outcome-level
+ones; WebGPT (Nakano et al., 2021) is the origin of tool-augmented,
 human-feedback-trained agents and is now Appendix B's opening paper, predating and underlying
 Search-R1. Two other real candidates (Self-Consistency, Scaling Laws for Reward Model
 Overoptimization) were considered and did not clear the bar as standalone embedded papers; the
-former is now properly credited in the existing chain-of-thought summary instead. Net: 83 papers
-(70 core, 13 appendix).
+former is now properly credited in the existing chain-of-thought summary instead.
+
+Added nucleus sampling (Holtzman et al., 2019) to Part V, since top-p is a standard generation
+control that the book did not previously cover. Added two Watch List papers: mHC (Xie et al.,
+2025), the residual-connection design adopted in DeepSeek-V4, and chain-of-thought monitoring
+(Baker et al., 2025), which the GPT-5 system card cites in its commitment to monitorable
+reasoning. Updated Part VIII and the Epilogue for DeepSeek-V4's compressed-attention route to
+million-token context and for reward hacking as a failure mode of verifiable rewards. Net: 86
+papers (71 core, 15 appendix).
 
 ## First Edition — February 18, 2026
 
