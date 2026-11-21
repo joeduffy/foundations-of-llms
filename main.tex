@@ -21,7 +21,7 @@
 \usepackage{url}
 \usepackage{cite}
 \usepackage{setspace}
-\usepackage{microtype}
+\usepackage[nopatch=footnote]{microtype}
 % Professional font choice: Libertinus (modern, elegant serif with excellent math support)
 \usepackage{libertinus}
 \usepackage{libertinust1math}
@@ -45,6 +45,13 @@
 % Prevent hyphenation at page breaks
 \interlinepenalty=5000
 
+% Lets TeX loosen a difficult line rather than overrun the margin.
+\emergencystretch=1.5em
+
+% Several embedded papers carry their own transparency groups. pdfTeX keeps
+% one per page and reports the rest, which does not affect how they render.
+\pdfsuppresswarningpagegroup=1
+
 % Paper summary page environment (refined academic style)
 % Set via \papertoclabel{toc text}{label} immediately before \input-ing a
 % paper summary; consumed below so the TOC entry and \label anchor bind to
@@ -53,12 +60,24 @@
   \gdef\CurrentPaperTocText{#1}%
   \gdef\CurrentPaperLabel{#2}%
 }
+% A running head must fit on one line beside the page number, so a long author
+% list falls back to its first author.
+\newsavebox{\runningheadbox}
+\def\firstauthor#1,#2\relax{#1}
+\newcommand{\markpaperauthors}[2]{% authors, year
+  \sbox{\runningheadbox}{\small\textsc{#1 (#2)}}%
+  \ifdim\wd\runningheadbox>\dimexpr\textwidth-3em\relax
+    \markright{\firstauthor#1,\relax{} et al.\ (#2)}%
+  \else
+    \markright{#1 (#2)}%
+  \fi
+}
 \newenvironment{papersummary}[4]{% year, title, authors, one-sentence summary
   \clearpage
   \phantomsection
   \addcontentsline{toc}{subsection}{\CurrentPaperTocText}%
   \label{\CurrentPaperLabel}%
-  \markright{#3 (#1)}% Set running header to "Authors (Year)"
+  \markpaperauthors{#3}{#1}% Set running header to "Authors (Year)"
   \thispagestyle{empty}
   \vspace*{1cm}
   \begin{center}

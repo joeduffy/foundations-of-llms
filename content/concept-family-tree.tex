@@ -3,6 +3,7 @@
 
 \begin{figure}[p]
 \centering
+\makebox[\textwidth][c]{%
 \begin{tikzpicture}[
     % Base settings
     font=\sffamily,
@@ -298,7 +299,8 @@
     \node[font=\sffamily\fontsize{4.5}{5.5}\selectfont, anchor=west] at (0.8, -2.8) {Enables};
 \end{scope}
 
-\end{tikzpicture}
+\end{tikzpicture}%
+}
 
 \caption{Genealogy of core concepts in large language model development.}
 \label{fig:concept-family-tree}

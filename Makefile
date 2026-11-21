@@ -11,6 +11,11 @@ MAKEINDEX := $(shell command -v /Library/TeX/texbin/makeindex 2>/dev/null || com
 # Add TeX binaries to PATH
 export PATH := /Library/TeX/texbin:$(PATH)
 
+# Cross-references are necessarily undefined until the final pass, so earlier
+# passes report only errors.
+LATEX_SETTLE = $(PDFLATEX) -interaction=batchmode -halt-on-error -output-directory=$(OUTPUT_DIR) $(MAIN).tex > /dev/null \
+	|| { grep -A8 '^!' $(OUTPUT_DIR)/$(MAIN).log; exit 1; }
+
 # Default target
 all: book
 
@@ -19,9 +24,9 @@ all: book
 # lets the TOC's own page numbers (now one chapter longer) settle.
 book: setup
 	@echo "Building the book..."
-	$(PDFLATEX) -output-directory=$(OUTPUT_DIR) $(MAIN).tex
+	@$(LATEX_SETTLE)
 	$(MAKEINDEX) $(OUTPUT_DIR)/$(MAIN).idx
-	$(PDFLATEX) -output-directory=$(OUTPUT_DIR) $(MAIN).tex
+	@$(LATEX_SETTLE)
 	$(PDFLATEX) -output-directory=$(OUTPUT_DIR) $(MAIN).tex
 	@echo "Book built successfully: $(OUTPUT_DIR)/$(MAIN).pdf"
 
